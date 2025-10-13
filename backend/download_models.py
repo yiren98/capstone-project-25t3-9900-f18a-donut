@@ -1,29 +1,45 @@
-# 1. the vader_lexicon from NLTK to ./nltk_data
-# 2. two bert from HF downloaded to ./models
-# python download_models.py
+# backend/download_models.py
+# 1 download two models from NLTK to ./models/nltk_data
+#    - vader_lexicon
+#    - punkt
+# 2 download four models from HF to ./models
+#    - cardiffnlp/twitter-roberta-base-sentiment-latest
+#    - distilbert-base-uncased-finetuned-sst-2-english
+#    - facebook/bart-large-mnli
+#    - sentence-transformers/all-mpnet-base-v2
+# python backend/download_models.py
 
 from huggingface_hub import snapshot_download
 from pathlib import Path
 import nltk
+import os
 
-# 1
-NLTK_DIR = Path("models/nltk_data")
-NLTK_DIR.mkdir(parents=True, exist_ok=True)
-nltk.data.path.insert(0, str(NLTK_DIR))
-try:
-    nltk.data.find("sentiment/vader_lexicon.zip")
-except LookupError:
-    nltk.download("vader_lexicon", download_dir=str(NLTK_DIR))
+ROOT = Path(__file__).resolve().parents[0]
+MODELS_DIR = ROOT / "models"
+NLTK_DIR = MODELS_DIR / "nltk_data"
 
-# 2
-MODELS_DIR = Path("models")
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
+NLTK_DIR.mkdir(parents=True, exist_ok=True)
 
-models = [
+# 1 NLTK
+nltk.data.path.insert(0, str(NLTK_DIR))
+for name, locator in [("vader_lexicon", "sentiment/vader_lexicon.zip"), ("punkt", "tokenizers/punkt")]:
+    try:
+        nltk.data.find(locator)
+        print(f"{name} already exists")
+    except LookupError:
+        nltk.download(name, download_dir=str(NLTK_DIR))
+
+# 2 HF
+hf_models = [
+    # sentiment
     "cardiffnlp/twitter-roberta-base-sentiment-latest",  # roberta_twitter_base
     "distilbert-base-uncased-finetuned-sst-2-english",  # sst2_distilbert
+    # dimensions
+    "facebook/bart-large-mnli", # ZSL Cross-encoder
+    "sentence-transformers/all-mpnet-base-v2",  # Bi-encoder
 ]
-for model in models:
+for model in hf_models:
     snapshot_download(
         repo_id=model,
         cache_dir=str(MODELS_DIR),   
