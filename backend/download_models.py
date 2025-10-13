@@ -23,7 +23,9 @@ NLTK_DIR.mkdir(parents=True, exist_ok=True)
 
 # 1 NLTK
 nltk.data.path.insert(0, str(NLTK_DIR))
-for name, locator in [("vader_lexicon", "sentiment/vader_lexicon.zip"), ("punkt", "tokenizers/punkt")]:
+for name, locator in [("vader_lexicon", "sentiment/vader_lexicon.zip"), 
+                      ("punkt", "tokenizers/punkt"), 
+                      ("punkt_tab", "tokenizers/punkt_tab"),]:
     try:
         nltk.data.find(locator)
         print(f"{name} already exists")
