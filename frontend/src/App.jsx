@@ -6,10 +6,14 @@ import DimensionFilter from "./components/DimensionFilter.jsx";
 import ReviewsList from "./components/ReviewsList.jsx";
 import Pager from "./components/Pager.jsx";
 import { getKpis, getReviews } from "./api.js";
+import RegionFilter from "./components/RegionFilter.jsx";
+import DateFilter from "./components/DateFilter.jsx";
 
 export default function App() {
   const [sentiment, setSentiment] = useState("all");
   const [dimension, setDimension] = useState("All");
+  const [region, setRegion] = useState("All");   // ⬅️ 新增
+  const [year, setYear] = useState("All");  
   const [page, setPage] = useState(1);
   const [size] = useState(10);
 
@@ -19,8 +23,8 @@ export default function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getKpis({ dimension }).then(setKpis).catch(() => {});
-  }, [dimension]);
+    getKpis({ dimension, region, year }).then(setKpis).catch(() => {});
+  }, [dimension, region, year]);
 
   // eNPS 
   const enpsValue = useMemo(() => {
@@ -34,13 +38,13 @@ export default function App() {
   // sentiment + dimension + slect page
   useEffect(() => {
     setLoading(true);
-    getReviews({ sentiment, page, size, dimension })
+    getReviews({ sentiment, page, size, dimension, region, year })
       .then((data) => {
         setItems(data.items || []);
         setTotal(data.total || 0);
       })
       .finally(() => setLoading(false));
-  }, [sentiment, page, size, dimension]);
+  }, [sentiment, page, size, dimension, region, year]);
 
   return (
     
@@ -54,6 +58,8 @@ export default function App() {
           <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
             <SentimentTabs value={sentiment} onChange={(v)=>{ setSentiment(v); setPage(1); }} />
             <DimensionFilter value={dimension} onChange={(v)=>{ setDimension(v); setPage(1); }} />
+            <RegionFilter value={region} onChange={(v) => { setRegion(v); setPage(1); }} />
+            <DateFilter value={year} onChange={(v) => { setYear(v); setPage(1); }} />
           </div>
           <Pager
             page={page}
@@ -64,7 +70,7 @@ export default function App() {
           />
         </section>
 
-        {/* KPI (base dimension) */}
+        {/* KPI (base dimension, year, region) */}
         <KpiCards
           total={kpis.total}
           pos={kpis.positive_count}
