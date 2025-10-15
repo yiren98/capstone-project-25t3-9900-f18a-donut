@@ -48,7 +48,7 @@ capstone-project-25t3-9900-f18a-donut/
 ---
 
 ## Data Pipeline
-
+```
 [crawler] → Collects raw reviews → `data/raw/reviews.csv`  
     ↓  
 [backend/pipeline.py] → Cleans and saves → `data/processed/annotated.csv`  
@@ -58,7 +58,7 @@ capstone-project-25t3-9900-f18a-donut/
 [frontend/src/api.js] → Fetches data via HTTP  
     ↓  
 [App.jsx + components/*] → Displays interactive dashboard in browser
-
+```
 ---
 
 ## Setup & Run
