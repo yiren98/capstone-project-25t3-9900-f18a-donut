@@ -72,6 +72,24 @@ def load_annotated() -> pd.DataFrame:
     df = pd.read_csv(ANNOTATED_CSV)
     return _normalize(df)
 
+def _filter_by_region_year(df: pd.DataFrame, region: str, year: str) -> pd.DataFrame:
+    """
+    Filter by region and year (kept as string).
+    - region: case-insensitive; 'All' or empty -> no filter
+    - year: string; if 4-digit like '2024' -> prefix match (supports '2024-06')
+            otherwise exact match
+    """
+    if region and region.lower() != "all":
+        df = df[df["region"].astype(str).str.lower() == region.lower()]
+
+    if year and year.lower() != "all":
+        ys = str(year).strip()
+        if len(ys) == 4 and ys.isdigit():
+            df = df[df["year"].astype(str).str.startswith(ys)]
+        else:
+            df = df[df["year"].astype(str) == ys]
+
+    return df
 
 def _filter_by_dimensions(df: pd.DataFrame, dims_param: str, mode: str) -> pd.DataFrame:
     """
@@ -93,6 +111,25 @@ def _filter_by_dimensions(df: pd.DataFrame, dims_param: str, mode: str) -> pd.Da
 
     return df[df["dimensions"].apply(match)]
 
+@app.get("/api/years")
+def api_years():
+    """
+    Return distinct year values from annotated.csv, sorted DESC.
+    Supports 'YYYY' and 'YYYY-MM' mixed; empty/All filtered out.
+    """
+    df = load_annotated()
+    ser = df["year"].astype(str).str.strip()
+    ser = ser[(ser != "") & (ser.str.lower() != "all")]
+    norm = ser.where(ser.str.contains(r"^\d{4}-\d{2}$"), ser + "-01")
+    parsed = pd.to_datetime(norm, errors="coerce", format="mixed")
+
+    tmp = pd.DataFrame({"val": ser, "parsed": parsed})
+    tmp = tmp.dropna(subset=["parsed"]).drop_duplicates(subset=["val"])
+    tmp = tmp.sort_values("parsed", ascending=False)
+
+    years = ["All"] + tmp["val"].tolist()
+    return jsonify({"years": years})
+
 
 # -------- Basic Routes --------
 @app.get("/health")
@@ -110,6 +147,8 @@ def api_reviews():
       sentiment = all | positive | negative | neutral
       dimensions = comma-separated list (e.g. Collaboration,Recognition)
       mode = any | all (default any)
+      region = region code or All (e.g. AU/US/UK/SG)
+      year = 'All' | '2024' | '2024-06'
       page, size = pagination (default 1,10)
     """
     df = load_annotated()
@@ -120,7 +159,11 @@ def api_reviews():
     if mode not in {"any", "all"}:
         mode = "any"
 
+    region = request.args.get("region") or "All"
+    year = request.args.get("year") or "All"
+
     df = _filter_by_dimensions(df, dims_param, mode)
+    df = _filter_by_region_year(df, region, year)
 
     if sentiment in {"positive", "negative", "neutral"}:
         df = df[df["sentiment"] == sentiment]
@@ -162,6 +205,8 @@ def api_kpis():
     Optional query params:
       dimensions = comma-separated list
       mode = any | all
+      region = region code or All (e.g. AU/US/UK/SG)
+      year = 'All' | '2024' | '2024-06'
     Response:
       total, positive_count, negative_count
     """
@@ -172,7 +217,11 @@ def api_kpis():
     if mode not in {"any", "all"}:
         mode = "any"
 
+    region = request.args.get("region") or "All"
+    year = request.args.get("year") or "All"
+
     df = _filter_by_dimensions(df, dims_param, mode)
+    df = _filter_by_region_year(df, region, year)
 
     total = int(len(df))
     pos = int((df["sentiment"] == "positive").sum())

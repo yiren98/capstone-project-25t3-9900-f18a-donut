@@ -10,8 +10,8 @@ export default function DimensionFilter({ value, onChange }) {
       <select
         value={value}
         onChange={(e)=>onChange(e.target.value)}
-        className="text-sm rounded-lg bg-white ring-1 ring-black/10 px-3 py-2 hover:ring-black/20"
-      >
+        className="inline-flex h-9 items-center rounded-lg border border-gray-300 bg-white px-3 text-sm leading-5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+>
         {DIMENSIONS.map(d => <option key={d} value={d}>{d}</option>)}
       </select>
     </div>
