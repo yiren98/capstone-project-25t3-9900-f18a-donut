@@ -1,101 +1,1599 @@
 region,year,text
-Canada,2025-06,Unique opportunity to work in a challenging Arctic environment.
-Australia,2025-09,Expect you to deliver.
-Canada,2025-06,Fly-in-fly-out lifestyle can be tough on personal life and family.
-Canada,2025-06,Harsh climate and isolation take a toll over time.
-USA,2025-09,Salary and benefits and healthy culture that respects individuals.
-Australia,2025-09,"The hard work pays off with great pay and benefits, loads of quality training. Lots of great opportunities."
-Australia,2025-04,High pressure and standardized working environment.
-Australia,2025-04,"Work can be dull with lack of accountability, frustrating for high performers."
-USA,2025-05,"Good pay, interesting work, good work-life balance."
-Australia,2025-04,Good overall salary and benefits conditions.
-UK,2025-05,Cyclical organizational changes (latest one in 2025).
-Singapore,2025-03,"Hybrid work, flexibility, generally good people."
-UK,2025-06,"Colleagues, healthy culture, and good benefits."
-Singapore,2025-08,Very good benefits and welfare.
-USA,2025-04,"Good pay, benefits, and time off."
-USA,2025-08,"Nice people, decent work resources, completely committed to safety."
-Australia,2025-09,Great people and challenging work.
-Australia,2025-09,Value the skills and knowledge of the hard workers more.
-Australia,2025-04,Good working environment and supportive management.
-Canada,2025-06,Excellent compensation and benefits for remote work.
-USA,2025-04,"The management is subpar; compared to how things were run years ago, it’s gone downhill in the last year."
-Canada,2025-04,People can be overwhelming.
-UK,2025-09,"Generous pay and benefits, lovely offices and people."
-Australia,2025-09,"Some good, decent human employees."
-Australia,2025-05,"Great people, great talents, decent leadership, improving site culture."
-USA,2025-05,"Difficult business environment, frequent layoffs."
-Australia,2025-04,"Very siloed, poor HR culture, no development paths."
-Singapore,2025-08,"Excellent team and collaborative culture, company health benefits excellent."
-Australia,2025-09,"Very bad culture, pack mentality, racist."
-Canada,2025-06,Strong safety culture and training support.
-USA,2025-05,When they have big issues it usually results in layoffs.
-South Africa,2025-03,"Fantastic environment, great for learning and development, good compensation for high performers, strong leadership."
-USA,2025-08,"Had some gender discrimination issues in the past, seem to be working on it, but room for improvement remains."
-South Africa,2025-06,"Frequent plant leadership rotations, safety concerns during community strikes."
-Canada,2025-06,Camp amenities were generally good for the location.
-Australia,2025-05,Some planning teams have arrogant people.
+Australia,2025-10,"Looks attractive, the company offers good treatment"
+Australia,2025-10,"Forward thinking, approachable management and great environment"
 Australia,2025-10,"If you get a great team, work is fun and engaging."
-Canada,2025-04,"Time away from home, long hours."
-Australia,2025-05,Some regional sites have toxic culture but it’s getting cleaned up.
-USA,2025-05,"Have to work with difficult characters and many safety precautions, which can make work slow."
-Singapore,2025-03,Benefit and WFH culture is good.
-Australia,2025-09,Restructure is challenging. Takes a few years to get the great pay.
-Australia,2025-09,"High salary, unlimited sick leave."
-Canada,2025-04,Pat leave and work culture.
-Australia,2025-09,Sometimes contractors are quite patchy to work with.
-Canada,2025-06,Diverse and skilled coworkers who are team-oriented.
-USA,2025-04,"Irregular hours, bad management, hardly existent HR, favoritism."
-Australia,2025-09,Great company and culture with good benefits.
-USA,2025-09,"Career advancement can be slow, management communication is often inconsistent, and layoffs tied to market cycles create instability."
-Australia,2025-10,"Highly siloed teams, especially in group functions and IS&T."
-Australia,2025-05,"Career progression issues, environmental impacts, long hours."
-USA,2025-05,They offer decent work-life balance.
-UK,2025-04,Good company to work for.
-USA,2025-05,"Can have good work-life balance, great salary and benefits, can learn a lot."
-Canada,2025-07,"Best company to work for, good benefits, good work-life balance."
-Australia,2025-05,Keep going. Don’t allow corruption and harassment.
-UK,2025-05,Good office with smart people.
+United Kingdom,2025-09,Generous pay and benefits Lovely offices and people
+American,2025-07,Generally good culture however its team and leader dependent.
+Singapore,2025-07,"Friendly colleagues, who are willing to share their experiences"
+American,2025-06,Always get a pay increase each year
+American,2025-07,Flexibility and Parental Leave for all employees
+Australia,2025-06,"Good, technically minded, hard working people"
+United Kingdom,2025-06,"Colleagues, healthy culture, and good benefits"
+Australia,2025-09,great people and challenging work
+American,2025-09,"High Salary, Unlimited sick leave"
+American,2025-09,Good corporate values People centric
 Canada,2025-09,"Really nice and good people, positive culture focused around company values."
-South Africa,2024-08,"Toxic culture from top to lower management, poor leadership environment."
-Singapore,2025-03,"Increment as per market, not easy to get promoted."
-Australia,2025-04,"Great flexibility, good people, good benefits."
-Singapore,2025-08,"Quite political, outdated processes and a lot of reporting."
-Canada,2025-06,Salary and environment depending on product group.
-Australia,2025-04,"Unsafe working standards, poor equipment, psychosocial hazards."
-Canada,2025-06,"Progression issues, toxic leadership, poor promotion system."
-Canada,2025-09,Remote location and aged facility.
-South Africa,2024-08,They pay extremely well; difficult to find a better offer if you ever want to leave.
-Canada,2025-04,"Great team, ability to cross-train in different disciplines, and good schedule."
-Australia,2025-04,"Rio are people-first, supportive and considerate towards employees."
-Canada,2025-09,Diverse opportunities in a large company.
-Singapore,2025-08,Long working hours and lots of office politics.
-UK,2025-01,"Managers are everything; if they are good, you’re fine, otherwise not. Skip manager sessions don’t exist."
+Australia,2025-06,Good recognition of technical professionals Dynamic workplace with many opportunities to learn
+South Africa,2025-06,Good Benefits Growth opportunities Training and study opportunities
+Australia,2025-05,You are on your own
+Singapore,2025-06,Pay and benefit is good
+American,2025-06,Salary and benefits Colleagues are great to work with Decent facilities and tools to do your job
+Australia,2025-05,"Good team, Enjoy the working culture"
+Canada,2025-06,"Salary , enviroment depending on product group"
+Australia,2025-06,"Good benefits: private health, pension, phone, flexi working"
+Australia,2025-09,Great company and culture with good benefits.
+Australia,2025-06,"Good people to work with, good office. Work-life balance based on the role and the location of the peers. Good money compared to the market average."
+Australia,2025-05,"Health benefit, FF points, Some good ppl in other departments"
+Australia,2025-09,"The hard work pays off with great pay and benifits, loads of quality training. Lots of great oppitunties."
+United Kingdom,2025-05,Good office with smart people
+American,2025-05,"Good employee benefits, inclusive of family benefits"
+American,2025-05,Great colleagues and great location
+Australia,2025-05,Flexible working arrrangement Got to work with multiple technical stack
+American,2025-04,"Great parental leave, benefits and share plan"
+American,2025-04,Good working environment and supportive management
+Canada,2025-04,Pat leave and work culture
+American,2025-05,Great people Great talents Decent leadership Improving site culture
+Australia,2025-05,Good pay Good benefits Even time roster
+American,2025-05,Good pay and perks Opportunities to travel and move around with work
+American,2025-04,"Great flexibility, good people, good benefits"
+Australia,2025-04,"Rio are very much people first, where they will look after you and look at how they can support you better"
+United Kingdom,2025-04,good company to work for
+American,2025-04,No real pros to the job.
+Singapore,2025-04,Great culture and people. Good pay.
+Singapore,2025-03,Company is good and cares for employees
+Australia,2025-04,"Good salary, good benefits like health insurance"
+Australia,2025-04,"Benefits, supportive peers, growth opportunities"
+American,2025-03,Salary is nice and it’s a good work environment
+Canada,2025-04,Office location Work from home
+American,2025-04,- Fantastic benefits with generous pay - Living conditions at camp are variable but usually good - Plenty of opportunity for both upwards and sideways career mobility
+American,2025-03,Work life balance is great
+Australia,2025-03,"Great pay, bonus and benefits."
+American,2025-03,Meeting the company and leadership hiring target DEI criteria will set you on a road to success with this company.
+Canada,2025-03,"good package, good salary. Teams are nice (depend on your boss)"
+Singapore,2025-03,"Hybrid work, flexibility, generally good people"
+Australia,2025-03,Good work life balance and
+Australia,2025-03,Plenty of opportunities if you’re keen and show your worth
+American,2025-03,"Drive your own development Benefits beyond remuneration (health insurance, stock matching, etc) Diverse work fronts and locations Work flexibility high"
+Canada,2025-03,Work for Rio if you can during your career
+Singapore,2025-03,great benefits with great social events
+Singapore,2025-03,Benefit and WFH culture is good
+Canada,2025-02,Good work life balance Attentive leadership
+Singapore,2025-02,"Great people, willing to teach, good medical/dental/overall benefits, family-friendly environment"
+Australia,2025-02,excellent work culture! great learning opportunities
+American,2025-02,Good culture and relatively high salary
+American,2025-02,Smart people around. Good project and great team members. Very supportive environment
+Australia,2025-01,"Competitive baseline package and benefits, some teams get exciting work"
+American,2025-02,"Rio really look after you. From health insurance, lots of benefits, lots of sick leave, good work environments, great leave and good pay. Great company to work for."
+American,2025-02,Good perks Reasonable salary Equipment is half decent
+American,2025-02,Great benefits Generally good people
+United Kingdom,2025-01,Stable company with relatively good pension (16% fully paid by the company) and some other perks
+American,2025-01,Treat you like an adult. Looked after me when I got sick. Really great team environment. Flexible working arrangements.
+Australia,2025-01,Great coworkers Benefits AHS systems are the future Meet some awesome people Chilled site - not too many ego people around
+Australia,2025-01,"Good culture, nice work, nice people"
+Canada,2025-01,Very good salary and perks
+Singapore,2025-01,Great work life balance and caring environment.
+Canada,2025-01,Great culture and people in general
+American,2025-01,Good salary Good benefits Supportive team and leadership Flexibility
+Australia,2025-01,"Salary (Base + 30% + travel allowance (~$15k) + 10% of base bonus) - puts a graduate mine eng on around $160k - experienced eng on ~$200k Benefits (Paid Parental Leave, basic share match program after 3 years) Annual Leave - 3 swings for FIFO employees"
+Canada,2025-01,Fun projects in tough environments
+Singapore,2025-01,"Depending on department, culture and colleagues are fine."
+Australia,2024-12,Pretty good benefit and great support
+American,2024-12,"Support, flexibility, great teams, pay, learning experiences"
+Canada,2024-12,Culture is shifting with focus on people
+Singapore,2024-12,Good work life balance and benefits
+American,2024-12,"Pay, benefits, super easy work."
+American,2024-11,Share plan and health insurance
+American,2024-12,Gain share from each salary
+Singapore,2024-12,"Excellent worklife benefits with competitive compensation,"
+Canada,2024-12,A Great employer and environment
+Canada,2024-11,Good pay and good benefits
+American,2024-11,"Good benefits, good people, strong purpose and commitment to social contribution"
+Canada,2024-11,Very responsible company Good enviroment Beautiful office
+American,2024-11,There is not much pro
+American,2024-11,Good easy clean work slack job
+Australia,2024-11,- Great Company Culture - Great Pay - Great Benefits
+American,2024-10,good work ethics and work life balance
+Singapore,2024-11,Good benefits. Some genuine people/leaders (depends on team).
+Australia,2024-10,Paid health insurance Shares scheme buy 1 and get 1 for free Annual bonus
+Canada,2024-10,"Great Benefits, good pay and takes care of its people. The type of company to stay for years. Can move to different roles"
+United Kingdom,2024-10,Big company with lots of scope for mobility
+Canada,2024-10,"Rio Tinto is making significant strides in delivering on its core values, particularly in fostering a culture of everyday respect. The company is home to a wealth of industry knowledge, with a team of highly experienced professionals in the mining sector. It's an excellent environment for growth and development, where individuals can thrive and advance their careers."
+Canada,2024-10,"Pay, Work life balance, great people"
+Australia,2024-10,"Good pay. Good work, camps okay, company very helpful"
+Canada,2024-10,Good pay and culture is friendly
+Australia,2024-10,Good work environment and Flexible
+Canada,2024-10,"Stock options, family health benefits"
+American,2024-10,"- Great team and team culture - Full health cover package including extras - Very dedicated, skilled, and knowledgeable people to work with. - Lockers for storage"
+American,2024-10,"Good salary, helpful environment, process driven"
+Singapore,2024-10,Excellent company culture with good work life balance
+American,2024-09,Some nice folks working at Rio and some not so nice
+Singapore,2024-10,good salary good industry smart people
+Canada,2024-09,Very good work life balance Salary
+Australia,2024-10,Great colleagues and working environment. WFH flexibility and good benefits
+Australia,2024-09,There was Mostly good people
+Singapore,2024-09,Good insurance Decent Pay Work-life Balance
+American,2024-09,Options for Development are wide
+American,2024-10,The only good thing are the people working at the ground level and getting a redundancy payout if your lucky!
+American,2024-09,Benefits and colleagues are amazing
+American,2024-09,"Great flexibility work arrangement, good share scheme, health care"
+Australia,2024-09,Strong culture of safety and performance
+Canada,2024-09,Perfect office and professionnal team
+Canada,2024-09,"Great Benefits - insurance, salary, bonuses Training opportunities Credibility of the company"
+American,2024-09,"Supportive, great culture, good opportunities and interesting work"
+American,2024-09,Big company. Opportunities to learn about several processes. Good payment.
+American,2024-09,Good teammates at ground floor Reasonable pay but lower than the other iron ore miners
+American,2024-09,"Great Benefits, strong values mindset"
+Canada,2024-09,Overall Team work and environment
+American,2024-09,"plenty of perks, and a significant emphasis on upskilling in areas that you want and not what the company wants."
+American,2024-09,"Enjoyed my time, lots of work but interesting work."
+Canada,2024-09,Lot of advantages and very diverse company
+Australia,2024-08,Na na na na na
+American,2024-09,"Great place to work, good package"
+Canada,2024-08,"Good people, salary and some travel"
+Canada,2024-08,"People are nice, genuine and hard workers. Personal life/work balance could be better for permanent employees but it's actually quite nice compared to other big companies, people are comprehensive."
+American,2024-08,Great leadership Great stability Good pay
+American,2024-08,Global organisation with good values. Long serving employees. Caring and considerate managers. Very flexible with working from home.
+American,2024-08,great company to work for with growth opportunities
+Australia,2024-08,"Good pay, good benefits, great career opportunities"
+Australia,2024-08,"Good People, and enjoyable culture"
+Singapore,2024-08,"Good company values, many initiatives to draw awareness to mental health"
+American,2024-08,Salary is good and flexible working
+Singapore,2024-07,Great benefits if compare to other company in Singapore
+Australia,2024-08,Large organisation with mature systems and good understanding of what works well.
+Canada,2024-07,Very good values of care for employées
+Australia,2024-07,Good working culture. Supportive leaders.
+Canada,2024-07,- great benefits - corporate life - nice office space and location - knowledgeable colleagues - interesting industry
+American,2024-07,Great medical and taken our of pre-tax salary
+American,2024-07,"If you like a large company where you can just sink into the background, do nothing until they make you redundant, this is the place"
+Canada,2024-07,"Good benefits, training opportunities and renumeration"
+American,2024-07,"good company, good culture，very well flexibility to suit all life need."
+American,2024-07,There is a great team environment.
+Australia,2024-08,"Excellent work culture, strong safety management, interesting mix of projects."
+American,2024-08,Good company with lots of people
+Singapore,2024-08,Good culture on the shop floor
+American,2024-07,Benefits and roster type. Good residential if you get it
+Australia,2024-06,Competitive private health insurance available to all employees. Regular pay adjustment according to inflation rate.
+Singapore,2024-06,"Family friendly culture, flexible and great benefits"
+American,2024-07,Medical insurance Share matching &amp; working with other advisors
+American,2024-07,Supportive and well-being focus management who have your back. Smart and engaged team that are solutions focused. No micromanagement.
+Singapore,2024-07,"Good benefit, flexibility, work life balance"
+American,2024-06,Career Development is incredible... what you put in you get out
+Singapore,2024-07,Great if you are a foreigner and want to use Singapore as a stepping stone to other countries
+American,2024-06,"the work is extremely varied, super family friendly team and roster. 2 days a week wfh"
+Singapore,2024-06,-comprehensive insurance coverage for employee and spouse - mental health priority - window to climb up the ladder when internal opening available
+American,2024-06,"High pay, good benefits to working in company, easy job"
+Australia,2024-06,Great company with different pathways. Good opportunities and possibility to speak up.
+American,2024-06,"Benefits, salary and flexible work"
+American,2024-06,"Great benefits, allowances, culture, budget and discounts"
+American,2024-06,"Good Woking environment, office facilities are great"
+Australia,2024-06,Salary and benefits and car park
+Canada,2024-06,work life balance is great
+Australia,2024-06,Benefits other than salary are good
+Canada,2024-06,Good health insurance Paid leave
+United Kingdom,2024-06,Good atmosphere and friendly coworkers
+Canada,2024-06,"Time off, work life balance , benefits"
+American,2024-05,Growth opportunities. Good work culture.
+American,2024-05,"Flexibility, Treating people as people rather than a number given the large scale organisation, good salary, excellent benefits, good direct leaders"
+Australia,2024-05,Remuneration is very good in comparison to elsewhere
+United Kingdom,2024-05,"Culture, salary, propects are good"
+Australia,2024-05,"Great team and culture, mostly workable people"
+United Kingdom,2024-05,Expose to large project with the best mine operator
+American,2024-06,Value preposition from the company
+American,2024-05,Good work mates jn my team
+Australia,2024-05,Work is plentiful and there is lots of opportunity to improve the business. People are generally helpful and willing to try things
+American,2024-05,good place to work with
+American,2024-05,"Good work/life balance. Competitive remuneration, lots of different departments to pursue interests."
+Canada,2024-05,Good pay. Great benifits. Yearly vacation 30 days
+Singapore,2024-05,Best in benefits. Great remuneration
+Australia,2024-05,"Better work-life balance, Good remuneration"
+American,2024-04,being at home every night
+American,2024-04,"Salary, Benefits, Work Life balance"
+American,2024-04,"Reliable and stable employment, good workplace culture"
+Canada,2024-04,A promising career growth path
+American,2024-04,"Development, Opportunity, Decent Pay and remuneration, good roster"
+Australia,2024-04,- great pay and benefits - opportunities for development - growing software engineering team - beginning transformation journey to align software engineering
+Australia,2024-04,"Great place to work, really enjoyed the team members"
+Singapore,2024-04,"There are plenty of initiatives and programs invested in the well-being, both physical and mental, of the employees"
+American,2024-04,good pay good people interesting work
+United Kingdom,2024-03,"- Great culture and people, strong leadership team - Good pay and benefits - Good work / life balance - Interesting work"
+Australia,2024-04,good benefits and career progression
+Australia,2024-03,"Very family orientated, good systems"
+Australia,2024-03,Work life balance Pay Diversity and Inclusion Management
+American,2024-03,Feel valued Great perks Opportunities for development Not a toxic environment
+Australia,2024-03,If your keen to develop yourself its the company for you.
+American,2024-03,Good culture and company. Not focused on being the highest-paying miner.
+Canada,2024-03,Great company with good prospect. Opportuntiy to widen scope and expertise
+Australia,2024-03,Good pay and good roster
+American,2024-03,People and work-life balance are great
+American,2024-03,They have a great work culture.
+American,2024-03,Stock options being matched by employer
+American,2024-03,"Share program, leave entitlements, opportunity for growth in career"
+American,2024-03,Good perks to the job. Fantastic parental leave.
+American,2024-02,"Proven Company over time, great roster"
+American,2024-02,"Salary, culture and people were great"
+American,2024-03,Good money and good working conditions - very flexible
+Australia,2024-02,Additional FIFO allowances on top of base pay. 8/6 roster
+American,2024-02,"Private health, and being paid each month"
+Australia,2024-02,Comparably corporate to other corporations
+American,2024-02,Good company lots of extras like health insurance
+American,2024-02,"Good benefits Large company Very structured processes (systems don't always support these and not always executed well, however they is a strong focus on continuous improvement)"
+Australia,2024-02,Great culture Good office facilities Health subsidy and overall good allowance suite
+American,2024-03,Higher Management are very approchable.
+Singapore,2024-02,"Good benefits, great people, decent work-life balance."
+American,2024-02,Heaps of opportunity to learn Good tech stack
+American,2024-02,Excellent team culture. Good support and package to employees
+Australia,2024-02,Good company work culture and people culture
+American,2024-02,Great benefits with health care. Work culture is awesome.
+American,2024-02,happy good environment and people are nice
+Canada,2024-02,Amazing people and great culture
+Australia,2024-02,Large company with access to a big IT budget with lots of cool technology and systems
+United Kingdom,2024-02,Opportunity for those who excel and make things happen Flexible work approach Pay is quite good compared to peers
+Canada,2024-02,"Industry leader in innovation, very broad experiences, can have a lifetime of different career opportunities in one company (geology, planning, business, strategy). Also amazing benefits"
+United Kingdom,2024-01,Open-minded and very supportive colleagues ; healthy culture where you feel supported and heard
+American,2024-02,Supportive company. Good salary and benefits. Healthcare.
+American,2024-01,"The best workplace culture. Values Care, Curiosity and Courage. Prioritezes Safety firts."
+American,2024-02,Global organization with potential to travel
+American,2024-01,the basic benefit is better than other industries
+American,2024-01,Teams bonding over shared trauma Some incredible people (who will never get a seat at the table because they outshine those who are at it)
+Australia,2024-01,"Good culture, well supported by management and good systems."
+Australia,2024-01,If you enjoy are culture of brushing it under the carpet
+American,2024-01,"Great company to work for, lots of benefits and good team"
+American,2024-01,good salary overall good pack
+United Kingdom,2024-01,Workplace is quite good and work culture
+American,2024-01,"Great benefits, including parental leave, pay, bonuses, flexible working for office workers and good learning opportunities."
+Singapore,2024-01,"Good medical insurance benefits, can have work-life balance depending on team"
+United Kingdom,2024-01,Progression and complex transaction learning
+American,2023-12,"Good pay and benefits, matching shares scheme, feee access to GP, generous Annual Leaves"
+Canada,2024-01,"a lot of facilities, capacity"
+American,2024-01,Culture shift is really starting to happen. A lot of the 'old fashioned' way of doing things is getting pushed out the door.
+Australia,2023-12,"Nice co-workers, disciplined environment, good experience"
+American,2023-12,"Decent paid, strong safety, great culture"
+Singapore,2024-01,"Interesting business Positive work culture, salary"
+Australia,2024-01,Good team culture if you have the right boss
+American,2023-12,Opportunities to develop a wide range of skills
+Canada,2023-12,"Very interesting field, colleagues, benefits"
+American,2023-12,"Diversity, and a range of opportunities"
+Australia,2023-12,Has great benefits and opportunities to grow your career
+American,2023-12,"Respectful culture, good remuneration package"
+United Kingdom,2023-12,"Travelling, flexibility, proper corporate culture"
+American,2023-11,Good pay Good benefits Reputay
+Canada,2023-12,"No stress environment. Very comfortable environment, people are nice."
+Canada,2023-11,Best company I have ever worked for. They treat you with respect in all aspects of your work and ensure you are well supported in all endeavours.
+American,2023-11,Good benefits Flexible working hours Healthy working environment
+American,2023-11,Big company look after employees
+Canada,2023-10,"Big brand, good for your CV (but you will want to stay anyway), socially responsible"
+American,2023-11,Flexibility to try different things
+Australia,2023-11,Good benefits/perks Good roster for young family
+Singapore,2023-11,Good work life balance Great culture
+American,2023-11,"Great pay, stock options and free health insurance by Medibank"
+Singapore,2023-11,Health benefits and insurance coverage
+American,2023-11,Very good respect and care shown to employees
+American,2023-11,Big company with lateral movement opportunities. Decent benefits
+Canada,2023-10,Good people Good benefits Flexibility
+Australia,2023-11,"Great leave policies and benefits Good opportunities to gain experience, exposure and act in higher roles"
+Australia,2023-09,Excellent employer with strong systems for renumeration and benefits
+American,2023-10,"Pays well, great team mates, flexible work"
+Singapore,2023-09,"Great culture- open and collaborative, encourages learning"
+Australia,2023-10,"Safety focus, friendly work environment"
+American,2023-10,Exposure to mining industry Large team to learn from
+Canada,2023-10,"pay, work life balance, bonuses, stocks,"
+Australia,2023-09,Might be lucky with training
+American,2023-09,"salary was ok, offices were nice"
+Australia,2023-09,"Pay and benefits, no pressure to perform"
+American,2023-09,Good benefits and operational teams.
+Singapore,2023-09,"Great office location, medical benefits"
+Canada,2023-09,Relaxed work environment flexible work hours
+Singapore,2023-09,"Downtown Chicago great location, beautiful office space with unbearable views. Very international and diverse colleagues, great atmosphere overall. Colleagues are super friendly, helpful and collaborative. Opportunities to work in different product groups and roles. Company encourages international transfers and expand experiences."
+Canada,2023-09,Benefits and salary seem to be really good. Nice office although still working hybrid. Office managers try to make the place as nice as possible. Very multicultural place where people seem to enjoy working with one another. Some teams are really great with awesome culture. We enjoy the great perks of technology (guys it is worst outside) and if you have a great leader they shield you from a lot of the politics that kills your soul.
+American,2023-09,Good team members and hard workers
+American,2023-09,Culture. Share scheme. Opportunities. Global presence
+American,2023-09,Nice plaxe to work ar
+Canada,2023-08,Good entreprise culture and good values
+American,2023-08,Good camaraderie at lower management levels. Cut throat at higher and no sense of team work
+Australia,2023-08,"Great company, nice people, seem to genuinelty care for employees."
+Australia,2023-08,"Ok renumeration, nice offices, comfortable chairs"
+American,2023-08,Good work life balance and benefits
+American,2023-08,- Allowance for medical - Amazing ground workers - Freedom to move within the company
+American,2023-07,"Good company, smart people, friendly colleagues."
+American,2023-07,Great culture and team Many opportunity to upskill both technical and non technical
+American,2023-08,Great values Good employment conditions Great career options International company
+American,2023-07,Supportive Culture Flexible Encouraging Opportunity Growth
+American,2023-07,"Great CEO Good salary Good benefits (parking, health insurance) Training and travel opportunities"
+American,2023-07,big company where you can go do a lot of things that you want
+American,2023-07,The pay is just barely acceptable for the workload and work environment
+Canada,2023-07,a\ Good benefits b\ Interesting industry c\ Global organization with opportunities to work around the world in diverse roles and grow a career
+Canada,2023-07,Good exposure to mining industry
+American,2023-07,Great place to work at.
+American,2023-07,Nothing to complain about with rio
+American,2023-07,Good employee benefit such as health care.
+Singapore,2023-07,Great benefits and good culture. OT is not the norm in my division
+Australia,2023-07,"I'm lucky enough to be in an innovative team where work-life balance is appreciated and reminded on a daily basis. Great leaders to work for, great listeners, interesting projects. As a DE, I get to have hands-on experience with different frameworks (AWS, Databricks, Azure DevOps, etc.)"
+Australia,2023-07,"Great benefits, various career pathways and opportunities"
+Australia,2023-07,Good company in general. Leading in the mining industry.
+American,2023-07,Fun have fun nice day and enjoy
+Singapore,2023-06,Good benefits and good work life balance
+American,2023-07,"Good corporate values and benefits, team mates genuinely friendly and supportive."
+United Kingdom,2023-06,"Plenty of opportunities if you are willing to relocate Global company, interesting large scale projects"
+Australia,2023-07,Great place to work with flxible work arrangements
+South Africa,2023-06,Flexible hours Job security Competitive remuneration
+American,2023-06,Being home every night is a plus
+American,2023-06,Roster and food would be the only positives
+American,2023-06,"good pay and workplace, nice coworkers."
+American,2023-06,Creative ways to bring value to the business
+Singapore,2023-06,"Good pay, good culture and benefits."
+American,2023-06,Some sites have great culture
+American,2023-06,Great benefit and compensation scheme
+Canada,2023-06,Good People and plenty of room for growth
+United Kingdom,2023-06,"Great in terms of pay, office setup and future business outlook."
+American,2023-06,"pay good, team good, nice ++"
+Australia,2023-06,Good health insurance incentives available
+Singapore,2023-05,Great benefits and supportive culture
+American,2023-06,Health care subsidy Generous parental leave Work from home 2 days per week
+American,2023-05,Provide a with a broad range of vertical as well as horizontal career development opportunities.
+Australia,2023-05,Flexible work environment low pressure
+Australia,2023-05,"Recruitment process was smooth, efficient, and I think effective at evaluating the right candidate."
+Canada,2023-05,comfortable.nice.never scared to ask question.
+American,2023-05,Good Pay and flexible work
+United Kingdom,2023-05,Good work Perks Travel Benefits
+Singapore,2023-06,Salary payout and company welfare/benefits are good
+Canada,2023-05,Employment opportunities and flexibility to move positions
+Australia,2023-05,- Real efforts to improve culture - People
+Canada,2023-04,"The work environment is one of the best I've ever had, everybody is always looking out for one and other."
+Australia,2023-04,Money was reasonable at start but didn’t increase with experience
+American,2023-04,Good people to work with
+Australia,2023-04,"Flexibility to work, looks after family"
+American,2023-04,Pay Bonuses and Perks (such as paid health insurance) WFH flexibility
+Australia,2023-04,Lots of free coffee and food Flexible work Chill friendly environment Great office space with balconies and bbqs
+Australia,2023-04,Good work culture and safety comes first
+American,2023-04,well resourced/large team good support well established processes and controls good pay
+Australia,2023-04,traveling organisation and teambuilding and networking
+American,2023-04,Equal opportunity workplace strong policy
+Canada,2023-03,-Benefits -Salary -Culture -Modern office -Located in Downtown Montreal
+American,2023-03,"Good benefits, secure, room to grow"
+American,2023-03,Contracting feels like permanent staff Great team culture
+American,2023-03,"Good vibe, relaxed, friendly environment"
+Australia,2023-03,Good benefits and very flexible working hours
+Singapore,2023-03,Great place to work and flexible
+American,2023-03,"Have been with Rio tinto for one year and just love it. Great team, great working environment"
+American,2023-03,"Great culture, people and work environment"
+Australia,2023-03,"salary, flexibility, autonomy and opportunities"
+American,2023-03,"High performing team, great remuneration, great development opportunities"
+American,2023-02,"Lots of great people especially in main office. Good work life balance if you're office based. Lots of paid training opportunities, they will help you unskilled"
+American,2023-02,Long-term benefits Too flexible work arrangements
+Canada,2023-02,Great Company Culture Excellent compensation package
+American,2023-03,Good culture and benefits and working environment
+Australia,2023-02,"Good pay, take safety concerns seriously,good equipment."
+Australia,2023-03,Good oppitunities to advance if your keen
+American,2023-02,good to work on projects
+Canada,2023-02,Compensation Sense of purpose within company Genuine care for its people
+American,2023-03,"Benefits, health, shifts, djdhdhhd, skshshh"
+Australia,2023-02,Good team Good people Good hiurs
+American,2023-02,A large organisation with various internal opportunities across multiple countries.
+Canada,2023-02,"Work life balance, benefits, pension, location"
+Canada,2023-02,Salaries and benefits International footprint
+American,2023-02,"People, innovation, current CEO is making some good changes"
+American,2023-01,Autonomy Opportunity to upskill Opportunity to develop and move within the business Great people
+American,2023-02,good money abroad and one whole week off
+American,2023-02,Good benefits (Medibank/Share scheme/Bonuses/Flexi options)
+Canada,2023-01,Work-life balance Location Team collaboration
+Canada,2023-01,Good pay Lots of personal time off
+American,2023-01,The people that work here are great
+Australia,2023-01,Safety first priority is awesome.
+American,2023-01,Easy work. Plenty of time to learn
+American,2023-01,opportunity to manage your own projects
+American,2023-01,"Market-leading employee benefits: - Share ownership plan - Paid parental leave (primary and secondary care givers) - Fully-subsidised Medibank (for employee and partner/family) - Corporate retail discounts (hotels, retail etc.) and many more. Attractive bonuses and yearly salary increases. Flexibility to work from home regularly (depending on your role) with no hard and fast start and finish times. A real focus on cultural alignment when bringing new people to the business. Inclusive environment that welcomes people from all backgrounds and allow everyone to bring their whole self to work. An industry-leading HR function that truly works and partners with the wider business, which is exciting to be a part of."
+Singapore,2023-01,"This isn't someplace you'll spend a lot of time, Plan 2-3 years and leave."
+Canada,2023-01,"Very good team leader, very smooth interview/relocation process"
+American,2023-01,"People, benefits, access to resources and development and interesting work"
+Australia,2023-01,"Excellent benefits on top of base pay, workload is balanced and good lifestyle living on the coast."
+American,2022-12,"Always so supportive and holds people accountable for actions, a responsible company with the right supervisor"
+Australia,2022-12,"Great company, strong Values, clear vision"
+Singapore,2022-12,"Great managers, learning opportunities, insurance and work-life balance. Teams are generally open and friendly - great for extroverts and those who enjoy networking."
+Canada,2022-12,Salary Benefits Diversity and inclusion Global opportunities
+Singapore,2022-12,"Colleagues and bosses are very kind. Particularly my boss, she's always want's her team to grow professionally. I might retire here. Benefits are the best in SG"
+Canada,2022-11,"Good salary for a mechanic job. The company makes the effort to consolidate a new, multicultural and cool job culture."
+Australia,2022-11,Very supportive and understanding leaders
+Canada,2022-11,Great salary Flexible work hours Work from home Travel
+Australia,2022-10,"Career opportunities, care for staff, good salary, development or people"
+American,2022-11,The team I'm working in has been incredibly supportive and welcoming. The business seems to be genuinely trying to improve and change in light of recent events.
+American,2022-11,The experience and working conditions
+Australia,2022-10,Great team members and location
+Australia,2022-10,Ilove it here so yeah
+Canada,2022-10,Amazing benefits and not much overtime
+Singapore,2022-10,Exciting work at the pointy end of raw materials
+Australia,2022-10,"Safety, relaxed, easy going, no pressure"
+Canada,2022-10,Good pay and benefits overall
+Singapore,2022-09,"Good medical coverage and paternity/maternity benefits, flexible work culture, some teams have great teamwork"
+American,2022-09,It's an amazing company with excellent benefits.
+Australia,2022-10,"Flexible, pays well, good safety procedures"
+Australia,2022-09,"good benefit, competitive salary compared to others"
+American,2022-09,very good pay for work done
+Australia,2022-09,Family days on site were good. Rosters are getting better 8/6 etc
+Singapore,2022-09,Diverse portfolio of products to manage International stakeholders
+American,2022-09,"Seniors are helpful, averall good learning experience"
+Australia,2022-09,Great flex work options available
+American,2022-09,Good company to work for. Great flexible work environment
+Australia,2022-08,it is great and idon't know why
+American,2022-08,Pockets of great people make it worth while Benefits
+Canada,2022-08,-nice people good work balance
+United Kingdom,2022-08,"Good pay and T&amp;Cs, within a well-structured work environment. Depending on role, very interesting work."
+American,2022-08,Was a great company and great people
+Australia,2022-08,Good process and training operations overall systems
+American,2022-08,"Good start in industry, learnt alot"
+Australia,2022-08,good experience and i felt very confortable
+American,2022-08,"Pays well, really focused on safety, good other benefits, health insurance, share options etc"
+Australia,2022-08,Some great individuals and inspiring peers. Business variety and challenges to keep you thinking.
+American,2022-07,Good if you want to progress in people management. Opportunities to work in different areas.
+Australia,2022-07,1) Salaries are strong compared to the market 2) Non-cash benefits a positive 3) Flexible working options
+American,2022-07,Safety is top priority for everyone
+Australia,2022-07,"Good pay, good benefits, shares"
+Australia,2022-07,. No qualifications required . All training provided . Industry is full of entitled employees . Just show up and you're better than 50%
+American,2022-07,Company provided private health. Shares scheme
+American,2022-06,Good benefits and looks after employees
+American,2022-06,Family orientated flat structure Competitive Pay
+Canada,2022-06,Very respectful of their employee Have a lot of plan in place to improve the employee experience and satisfaction Commited to safety
+Singapore,2022-06,Benefit for medical are quite good
+Canada,2022-06,"Compensation, career opportunities, flexibility and benefits"
+Australia,2022-06,Job security working for the biggest
+American,2022-06,Heading in the right direction
+Canada,2022-06,"Satisfying pay Great problem-solving atmosphere, good colleagues Great work location"
+American,2022-05,Stay clear of rio tinto there pays are not going rates on the market
+United Kingdom,2022-06,Lots of opportunity to work on exciting projects globally Great benefits Flexible working
+Australia,2022-05,Good salary at this company
+American,2022-05,"Generally, good compensation and benefits, supportive leaders, large company so lots of growth opportunities if you seek it, good working environment that provides challenging work and a corporate value system that resonates with majority of employees. Career progression is often favoured towards those who can do more with less (or generate efficiency at scale) which is typical of IT divisions where cost is often a central focus (e.g. vendor/service rationalisation)."
+Singapore,2022-05,Great people and positive environment. Very forward in making you feel comfortable in the workplace
+Singapore,2022-05,insurance health benefits very good
+Australia,2022-05,"If you didn't want to do any work, you could just turn up and not do anything. It was paid employment"
+American,2022-05,Good opportunities for growth; good salary and benefits; big teams to support with activity.
+American,2022-05,L&amp;D opportunities Develop leadership skills early Good systems and processes exposure
+American,2022-05,Good Team with collaborative environment
+Canada,2022-05,Good Work and life balance
+Canada,2022-04,- Salary - Learning experience - Good insurance
+Australia,2022-05,Best to work with the team
+American,2022-04,"Company benefits, medical subsidy, share plans etc. Working with globally recognised expertise."
+American,2022-04,Open to innovation and new ideas
+American,2022-04,Good Culture around the work place
+Singapore,2022-04,Salary is probably the biggest perk.
+South Africa,2022-04,"Great company culture, flexible work environment"
+Canada,2022-03,"Working for Rio, is secure job with a good benefit"
+American,2022-03,"Nice food, some great people and roster. Great Boss"
+American,2022-03,Great people and culture and learning from peers and developing personal and profesionally
+Canada,2022-03,Competent colleagues Focus on continuous improvement Great pay Great share plan Great benefits Cultural transformation ongoing
+Australia,2022-03,"People are very friendly and helpful. Some interesting work being done. Benefits are great, good work/life balance. Great training opportunities. Lots of money to apply to projects."
+Canada,2022-03,"Great pay and benefits, nice environment to work in, people are mostly friendly, interesting projects keep popping up."
+American,2022-03,Lots of benefits. Good pay.
+Australia,2022-02,Excellent workplace culture for women
+Australia,2022-03,Remuneration package and employee benefits
+American,2022-03,"Big organisation, lots of opportunities to move around, good safety culture, capable people"
+American,2022-03,great company ethos and ethics
+American,2022-03,"Rio Tinto is a large company which offers many opportunities for role changing / secondment, which makes it a great place to get exposure to different areas and learn."
+Australia,2022-02,Good pay and company perks
+American,2022-02,It's friendly and really tries hard.
+Canada,2022-02,"Lots Professionals around to learn from, and the opportunities to be involved in good work"
+South Africa,2022-02,Cares for employees Safety focus Global career
+American,2022-02,They pay well and take care of their employees
+Australia,2022-02,Pretty layed back most of the time
+Australia,2022-01,Good company Excellent benefits Good attitude of workers
+Singapore,2022-02,Good health insurance for families
+American,2022-01,Good opportunities and challenges Fast paced
+American,2022-01,Good life and work balance
+Australia,2022-01,Tasks are very easy to accomplish and great flexibility of time allocation.
+American,2022-01,"Diversity, Integrity, Recognition, Mostly operate by Fairness"
+Australia,2022-01,Good. I like working here
+American,2022-01,"Lots of money for projects, supportive team, good role diversity"
+Singapore,2022-01,Good I guess. In line with industry
+American,2022-01,Good hours and good pay
+Australia,2022-01,"- Big company with lots of opportunity to develop. - Will take on ""green"" people regularly and train them with valuable skills. - Challenging and dynamic work environments with changing roles and possibilities"
+Australia,2022-01,"Good team, interesting work, Good roster"
+Australia,2022-01,Excellent superb Fabolous well awesome
+Singapore,2021-12,Medical insurance Flexible hours Decent pay
+Australia,2021-12,"plenty of autonomy in role, wide range of technology to work with."
+Canada,2021-12,Excellent benefits and corporate culture
+Singapore,2022-01,Great safety culture to take care of you
+American,2021-12,"Work-life balance. Career development, Competitive Salary"
+American,2021-12,"Great workplace to work, good career opportunity"
+Australia,2021-12,Health benefits employee discounts various rosters
+Australia,2021-12,They are very nice people It is a comfortable work location They support flexible work arrangements
+Singapore,2021-11,1-Good salary and benefits 2-Good working environment
+United Kingdom,2021-12,All good except some grumpy people
+American,2021-11,"Good people, salary very fair (45% uplift on base for fifo)"
+Australia,2021-11,Good benefits housing cutting edge
+American,2021-12,"Big company, global portfolio, good policies"
+Canada,2021-11,"Good salary and benefits Variety, interesting and challenging work Flexible work hours"
+Australia,2021-11,Good benefits across the country.
+Australia,2021-11,"Great pay, health insurance benefits, smart people, great training and endless opportunities"
+Australia,2021-11,- Strong safety culture - Some very talented and smart people - Might be good for a year or two - Working on the mine can be good money for unskilled labour and they will train you well
+Singapore,2021-11,Good work-life balance and healthcare
+American,2021-11,"Good pay, health benefits and share scheme. Passionate colleagues."
+American,2021-10,Good insurance benefits if you are permanent City location is a nice facility Fancy Nespresso machines Lot of secondment opportunities if your boss approves
+Singapore,2021-10,Good company culture across various business units
+United Kingdom,2021-10,Fab and only getting better
+Singapore,2021-10,"Flexible working, competitive salary and growth opportunities"
+United Kingdom,2021-10,free lunch and social club
+Singapore,2021-10,"Rio Tinto pays well compared to other companies in the industry. Probably 20% more than the average. However, your salary will never change beyond your starting salary plus a small annual inflation bump."
+Canada,2021-10,"Security, world travel, different languages"
+Singapore,2021-10,"Good compensation, cares for their employees"
+Canada,2021-10,"- excellent benefits - cie takes at heart well-being of employees - great work environment, ""one team"" topic very present"
+American,2021-09,"Quality process, process drive, ownership"
+Singapore,2021-09,Senior leaders are doing extensive personal development work to lay the foundation for significant cultural change
+Australia,2021-10,"Good pay, friendly team, flexible work time"
+American,2021-09,Career opportunities are alot and wide
+Singapore,2021-09,"I am a Senior Data Engineer at Rio Tinto Commercial (Singapore) office Good Benefit ""Above Average"" Compensation"
+United Kingdom,2021-09,Good pay and nice people liked them
+American,2021-09,"Used to be good several years ago, but has been run into the ground bit by bit over the last couple of years"
+American,2021-09,"Multiple opportunities, diverse portfolios and great leaders, Manager to MD. People at centre programme"
+American,2021-09,"Work with a talented and caring bunch of team members. Salary and benefits great. If you are prepared to stretch yourself there are many opportunities for professional growth and Mobility. Internal language and posture improving in areas of environment, diversity and respect. Trying hard to break down ""typical miner"" attitudes and culture."
+Singapore,2021-09,Good compensation package and benefits
+Canada,2021-08,An employer who cares about physical and psychological health and safety of its employees. Very competitive compensation.
+American,2021-08,Good environment group of people
+American,2021-08,Great place to work with highly experienced professionals
+American,2021-08,Excellent people. Career progression is possible.
+Canada,2021-08,Salary and benefits International opportunities Flex hours and locations
+Australia,2021-08,Great friendly environment and very work from home positive and flexible hours . Medium to high pressure workloads.
+Singapore,2021-08,"Pay, good benefits, nice office"
+Australia,2021-07,"sick leave unlimited, private health cover"
+Australia,2021-08,Good salary Mature processes Nice people Pretty rich and generous
+Singapore,2021-07,"work life balance , relax environment"
+Australia,2021-07,Good big mining company to work for
+American,2021-07,Global Company with opportunity to move
+American,2021-08,"Shares,super ,holidays ,even time roster."
+Australia,2021-07,Good to work - face paced and a very global company
+Australia,2021-07,"Good place to work. People are competent, accountable and friendly"
+Canada,2021-07,Best work environment - team work
+Australia,2021-07,Rio Tinto is great company to work for.
+American,2021-07,Share options worth committing to.
+American,2021-06,Everything about working for them
+American,2021-06,Good mentoring &amp; were very nice to vacation students
+American,2021-06,Many opportunities to explore and work around Generally good conditions / working arrangements Good remuneration Caring leadership
+American,2021-06,I work with great people.
+Australia,2021-07,Encouraging people to expose to various roles
+American,2021-07,Company offers stable employment according to personal career desires
+Canada,2021-06,International company with great opportunities
+American,2021-07,"Great Company, lots of opportunities"
+American,2021-06,"Very nice head office with great amenities, friendly people and cooperative environment. All seem to be driven to provide successful outcomes."
+American,2021-06,great pay with flixible working conditions
+American,2021-05,Lifestyle roster work life balance
+Singapore,2021-06,Good learning experience in the mining industry if you are willing to roll up your sleeves and do the ops work even at a senior level. Great benefits in terms of health insurance.
+Singapore,2021-05,insurance benefits are not too bad
+Australia,2021-06,"team members are supportive, welcoming, friendly and approachable"
+American,2021-05,"plenty of opportunities, lots to learn, supportive environment"
+United Kingdom,2021-05,Overall good work life balance
+American,2021-05,"good salary, good people and good work place"
+Singapore,2021-05,"Good compensation package, good people, inclusive company, results driven"
+American,2021-05,Good progression paths / does hire internal for a lot of roles.
+Canada,2021-05,"-Pay is generally above market average -Health benefits are top notch (great insurance coverage, 500$ account to spend on anything health or development or support like gym membership, or cooking classes or counselling) -Huge company with room for upwards movement if your a professional -International mobility is possible -Ok offices (its clean, but nothing flashy or exciting) in prime downtown location -Very interesting and essential industry"
+American,2021-05,"Good place to work, large organizations"
+American,2021-05,"stability, projects, social commitment, work-life balance"
+American,2021-04,Great conditions and pay. ACCOMMODATION
+American,2021-04,Regional FIFO oppurtunities instead of driving
+Canada,2021-04,"Great compensation, bonus and benefits."
+American,2021-04,"Inclusive culture, many opportunities for advancement"
+American,2021-04,"Opportunity, exposure, challenge, diversity, interesting"
+Canada,2021-04,Good people Good benefits Good office Interesting and varied work
+American,2021-04,Great place to new grads develop their skill in different areas
+American,2021-04,"Good work environment, nice people"
+United Kingdom,2021-03,"Salary, flexibility, team spirit, safety culture"
+American,2021-04,"Amazing work crew, fair roster (7/7) based in the city"
+American,2021-04,Fantastic work-life balance; Global opportunities.
+American,2021-03,Stable Benefits 19 mines - so can go to different mines
+Australia,2021-03,Growth and career development possible
+American,2021-03,Great people and environment. Good manager
+Australia,2021-03,Market leader. Great work life balance. Global brand.
+Australia,2021-03,"Great company, great people, many opportunities"
+Australia,2021-03,good remuneration opportunities for overseas placement
+Singapore,2021-03,Good benefits and remuneration Good working environment People are generally quite open to feedback
+Canada,2021-03,There are varied experiences and projects
+Australia,2021-03,"good compensation, work life balance"
+American,2021-03,"Great team, lots of opportunities, plenty of people to learn from"
+Australia,2021-03,Good rosters and various regions for FIFO
+United Kingdom,2021-03,More then excellent salary and benefits.
+American,2021-03,You can drive your own career - huge amount of opportunites. You need to make it happen
+American,2021-03,"Salary was good, good crew"
+American,2021-03,Pays wells provide a lot of resources to complete the job
+American,2021-03,"Opportunities for growth, training, benefits, leave entitlements."
+American,2021-02,Roster Frequent Flyer Points Training Base
+American,2021-02,"Good support from management, great medical benefits, many many opportunities to avail"
+American,2021-02,Response to Covid-19 and keeping site virus free
+American,2021-02,"Everything, pay, team, work, culture"
+Singapore,2021-02,"Workplace safety, Salary, Health benefits, good team commradere"
+Singapore,2021-02,excellent culture with strong leadership in Singapore
+United Kingdom,2021-02,Rio Tinto is a Truly global company
+American,2021-02,"excellent pay, good life style for a single person"
+Australia,2021-02,Overall company was good and benefits
+Australia,2021-02,"health benefits, great package, great incentives"
+American,2021-02,It's refreshing to work somewhere where everyone is respectful and professional.
+Singapore,2021-02,"work life balance, diversified culture"
+American,2021-02,"Great people, good company overall with great knowledge of assets. Very good working conditions"
+Canada,2021-01,Good benefit package and overall compensation HSE centric
+American,2021-01,"Culture, flexible work arrangement, shares"
+Canada,2021-01,"Great growth opportunities, plan ahead"
+Australia,2021-01,Good long term employment. You'll never be fired
+Canada,2021-01,+ Challenging Projects + Work Life / Balance + Good Compensation + Great Management
+Canada,2021-01,"Good pay, good benefits and yearly bonus."
+Canada,2021-01,Competitive pay Good advantages Good work ethic The company make a lots of effort to be a good corporate citizen (while making profits)
+American,2021-01,"Relex job , flexible hours,good environment"
+Australia,2021-01,Remuneration package Any oboist reviews is required to complete
+Australia,2021-01,Fantastic opportunities for learning and career growth.
+American,2021-01,Flexible working hours are supported
+American,2021-01,"Travel, international company, good chance to move roles"
+American,2021-01,Good Pay and thats about it
+American,2021-01,"Strong company, strong financial performance"
+Canada,2021-01,"pay, schedule, equipment, benefits, infrastructure."
+American,2021-01,The contractors will do it.
+American,2020-12,Money and experience are great
+South Africa,2020-12,"Stable, safe, representative, global, sustainable"
+Australia,2020-12,"Subsidised medical insurance, salary and benefits"
+Australia,2020-12,"Good roster, the fly out of regional centres like Albany busso and gero"
+Canada,2020-11,People are awesome to work with
+Canada,2020-12,Good salary and fringe benefits. Very proficient and dedicated people. Challenging work.
+Singapore,2020-12,"Started out OK initially with good pay (at the time) and environment that allowed autonomy and trusted people - that changed quickly Health Insurance in my location was excellent but will almost certainly be downgraded and removed from employees, this is already rumoured"
+Singapore,2020-12,"health and safety culture, excellent benefits, global exposure"
+Australia,2020-11,"Great teamwork environment, room to grow within the organization"
+Canada,2020-11,"Company values mental health, work-life balance, positive environment, inclusion &amp; diversity and pay is good."
+American,2020-10,Good pay good vibe and team
+American,2020-10,Data Scientist is an exciting Job for 21st century
+American,2020-11,Good work environment Friendly people and people with a wealth of knowledge to learn from
+American,2020-11,Good pay Great working Environment Frequent team outings
+American,2020-11,I was well paid not much else.
+Australia,2020-10,Good opportunities for learning and travel
+American,2020-11,The iron ore business is truly remarkable Technical expertise is highly valued at Rio
+Canada,2020-10,"Like one big family. Great people, great benefits."
+American,2020-10,Great company to work for.
+American,2020-10,"Culture and safety, great roster"
+Singapore,2020-09,Good expat packages Good health care benefits
+American,2020-10,"Job security, great roster and fantastic team."
+Canada,2020-09,Great culture and environment in company
+Australia,2020-10,Great focus on safety and well being
+American,2020-09,"Great benefits, medical, car allowance, cash bonus."
+Canada,2020-09,"Benefits, Career Development, Senior Leadership Quality,"
+American,2020-09,Great people and successful teams.
+American,2020-08,Talented people to work with
+Australia,2020-08,great benefits Convenient location Flexible work arrangments
+Singapore,2020-08,Benefits and remuneration. Strong safety culture
+Canada,2020-08,Good People at the sites
+Singapore,2020-07,Great work/life balance and health insurance
+American,2020-08,well managed and interesting work
+American,2020-07,Good salary good lifestyle and work balamce
+Singapore,2020-08,Pays well and good benefits
+Singapore,2020-08,global leading mining and metal company
+Singapore,2020-07,"Option to relocate in different areas, Good health care benefits, inclusive and supportive work culture"
+United Kingdom,2020-07,"Long term business, international, people"
+American,2020-05,"Pays well, large multinational with opportunities"
+Australia,2020-07,Embraces flexibility Great salary and perks
+American,2020-06,"Supportive environment, fulfilling projects, good opportunities for development and growth."
+Australia,2020-06,Good culture Good salary Large organization Considerate leaders (mostly)
+Australia,2020-06,Took safety seriously. Subsidised health insurance was good.
+American,2020-06,stability / diversity / wealth of knowledge
+Canada,2020-05,"Good salary, opportunities,Good work life balance"
+Singapore,2020-04,"Good work life balance, Safety is always no 1, respectful place to be in."
+American,2020-04,Quick reply from the company
+Canada,2020-04,good compensation package and pension plan
+Singapore,2020-03,great company culture with good teamwork
+American,2020-04,"Dencent pay, good training program"
+Australia,2020-02,Very good safety and wellbeing systems.
+Australia,2020-01,"Big company, good opportunities, independence"
+Australia,2019-12,Company really does care about the people. Great culture in team.
+American,2020-01,Change is a good thing. It promotes growth and can make a good organization great!
+Australia,2019-12,"Stable job, housing benefits, good people on the ground"
+Canada,2019-12,"Good benefits, good flexibility, multinational company"
+Canada,2020-01,"Excellent career progression, open culture, best co workers, engaged teams"
+American,2020-01,"Progressive, interesting, pro-women equality, lots of opportunities, great a team work, great work-life balance"
+Australia,2019-11,"Flexible work arrangements, good benefits"
+Canada,2019-10,"HUGE genuine push and activities around diversity and inclusion and mentally healthy workplace Excellent benefits, some of the best I've ever seen For an extremely large organization I do not feel like just a number, I'm managing large global projects and learning everyday. Global Opportunities Opportunity to work on global teams Flexible work schedule - work remote capability Work with true specialists in their field"
+American,2019-10,"Safety is considered vital. Has good processes and systems. Quite lean in organization structure for site technical services. Some good bunch of people who have been with company for quite long, who actually do the hard yards"
+American,2019-10,Alright wage and good roster
+Australia,2019-10,"Opportunity, Culture, exposure, location, global"
+American,2019-09,Financially great compare to work for.
+American,2019-08,Promotion opportunities and room to improve your skills
+American,2019-09,Good company with great benefits
+American,2019-08,"good job, the best i have had"
+United Kingdom,2019-07,"Generous benefits package, lots of opportunity, multinational experience, cutting edge technology and opportunity to work with some of the brightest minds."
+American,2019-06,Supports innovation if it aligns with key buzz words
+American,2019-06,good $ package and development opportunities
+Singapore,2019-07,Work life balance is balanced and respected
+Australia,2019-06,"Lots of opportunities to grow, great work culture, very diverse and inclusive workforce due to global operations, great benefits"
+American,2019-07,Has a great pay for the job.
+American,2019-06,All the benefits paid and discounts
+Australia,2019-06,"Plenty of opportunities to be had within the large company.. if you ask for them. Very good safety culture, and emphasis on integrity &amp; respect."
+Singapore,2019-06,well paid. good benefits. some good and well-meaning leaders - though they are few and far between.
+Singapore,2019-04,"-Excellent work life balance. Bosses generally flexible with what you do and suggest. -Best in class HR policy - when they say they support internal mobility and higher learning, they meant it. -Good overall pay structure."
+United Kingdom,2019-05,"flexibility, salary and working working conditions"
+American,2019-04,Share Program salary training and residential benefits.
+Singapore,2019-03,Used to be a very good place to be in
+United Kingdom,2019-03,Work life balance and people respect
+South Africa,2019-01,Great culture Safety and security always a priority Diverse work
+American,2018-11,Good healthcare and good location.
+Singapore,2019-01,"Excellent Compensation, Solid Company with great assets, transformation process happening and innovation"
+American,2018-11,Employee perks are great People are good in general
+American,2018-11,Rio Tinto is ideally placed to take advantage of technology advancement.
+Australia,2019-01,Experience good if you find yourself somewhere that management actually know what they are doing Pay is competitive
+American,2018-11,Interesting place to work and great people
+Canada,2018-09,"Diversity, challanges, respect, gender equality"
+Australia,2018-09,"Good pay, good benefits for employees"
+Canada,2018-09,Above average salary renumeration for type of position
+Australia,2018-10,If your willing to bash your way through the bulls#&amp;t it's a great way to cement a few years of stable pay and good benefits.
+Australia,2018-11,Good “ top down” behavioural culture Mostly efficient IS Great remuneration People were accountable ad responsible within their limits of authority Supported innovation and creative ideas in any area Clear strategic direction Work life balance where it could be applied Great career opportunities and global mobility options Could trust your colleagues Great communication and transparency
+United Kingdom,2018-09,"The renumeration package is good, but there needs to be more to a role than that"
+Australia,2018-09,"Great company, many different areas to work in"
+American,2018-08,Great Mentors and Exceptional working environment
+American,2018-09,Internal mobility for professional development
+Singapore,2018-08,High pay and good benefits
+American,2018-08,There are some terrific individuals that work there. Locations around the world so some potential for movement
+Singapore,2018-08,Good health benefit and nice coffee.
+American,2018-09,Decent pay Rio tinto overall is a good brand
+Singapore,2018-07,Looks good on cv. That’s all.
+Singapore,2018-07,"Forward thinking, challenging and growth opportunities"
+American,2018-07,Very capable colleagues and recently refurbished Central Park office is looking great
+Canada,2018-04,Strong culture focused on safety Great employee benefit Good opportunity to grow and learn
+Australia,2018-04,Enthusiastically exploit team driven infomediaries after world-class deliverables. Distinctively synergize high-quality users for efficient infomediaries. Assertively generate worldwide architectures after ubiquitous innovation. Continually myocardinate emerging infrastructures after goal-oriented.
+Canada,2018-05,"Interesting benefits, home office, management adapted to modern digital culture, global culture and good salaries.... lots of promises on changes and safety and environmental responsibility"
+Canada,2018-03,Good benefits and great team work
+Australia,2018-04,"Pay, share scheme and regular roster for FIFO. Can pursue other activities while on the job (share trading, house hunting)"
+American,2018-04,"Rewarded on merit, good benefits, collaborative environment, diverse career path, flexible working, senior leadership learning from past mistakes, culture and values very good"
+Canada,2018-03,"Salary above market, People, facilities"
+Australia,2018-03,"Great career development, Technical Development"
+American,2018-02,Lot's of exciting projects to work on
+American,2018-03,Good global exposure and solid vision.
+United Kingdom,2018-02,"good industry and good positioning in sector to provide roles particularly in Brisbane, Perth (oz) and Montreal (Canada)"
+Australia,2018-03,"Professional, Safety focused, Helpful, Good training"
+Singapore,2018-02,1. Global organisation with potential to move around the world (if you align yourself with the right people) 2. Above market salary
+Singapore,2018-02,"Strong brand name, and interesting sector. Clear strategic directives on what the organization is trying to achieve. People are generally nice and you get to learn by rubbing shoulders with some of the best talents available in the market. The inherent nature of the business is integral to the modern world, and one can really see what the business is contributing to societies."
+Singapore,2018-02,"Great for new comers, many benefits and good salary"
+Singapore,2018-02,RT is a company with values where you can relatively balance work and private life . Space is given for autonomy - Stable income
+American,2018-01,"Global organisation. Exciting technology in mining. Great people to work with, lots of collaboration. Constant change which exciting. Salaries are competitive and a great health and share purchase scheme."
+Singapore,2018-01,"Senior management are putting in place initiatives so as to engage with employees more. Work culture is great, with a strong push for diversity and inclusion and breaking down silos"
+Singapore,2018-01,"Relatively flat hierarchy in the company, it is easy to raise concerns or issues with higher management directly. Allows for all employees' voices to be heard. Work-life balance is well advocated too, with good employee benefits."
+American,2018-01,"Good teams, respect and excellent pay"
+Canada,2017-12,Employee with high degree of skills and environment with many challenges. You need to be competitive and be in the same degree.
+Canada,2018-01,"• Opportunity to bring your career to next level • Opportunity to work with the best talent in the mining industry • Competitive salary and benefits for Montreal • Working for a prestigious and recognized company • Opportunity to grow quickly if working hard and international opportunities. Career development • Opportunity to travel • Strong culture and values, making you proud to be part of this global company"
+American,2017-12,"Feel part of a team, generally take safety very seriously. Reasonable communication to all employees. Good pay, nice place to work."
+Canada,2017-10,"Good Benefits, employee share purchase plan"
+Australia,2017-11,Good working culture and work life balance
+Australia,2017-11,"The company has a great share scheme, medcial cover and other salary packaging benefits"
+Australia,2017-09,Good health benefits. Pay is inline with industry standard with access to salary sacrifice
+Australia,2017-08,"Fantastic salary, great work opportunities in a global business. Can really offer interesting work in a range of fields across many countries and disciplines"
+Singapore,2017-08,"Relaxed working environment, senior management team are approachable, flexible working arrangements, diverse culture with strong focus on health & safety and employee well-being. Generally a supportive and collaborative working environment."
+United Kingdom,2017-07,Learnt a lot at Rio Tinto given the company's hard work ethics and excellent colleagues working alongside me.
+American,2017-05,"Good wages, big company, good people working there. Helped a lot of people carve out good careers."
+American,2017-05,"Work life balance, Decent Pay, Fairly Challenging"
+Australia,2017-04,"Good pay, relaxed work environment, great safety culture and good place to learn and grow."
+United Kingdom,2017-05,Salary and benefits which included free lunch was great. Some people were ok.
+Canada,2017-04,"Decent salaries compared to similar sized companies in Quebec, above average health benefits"
+Australia,2017-03,Great company with awesome assets
+American,2017-04,Good global company. Well respected in industry. strong focus on production and returning shareholder value.
+American,2017-03,"Good culture, excellent people, highly intelligent management."
+Canada,2017-02,"Great pay, great staff, and well funded."
+American,2017-02,"Good benefits, very good salary, good safety culture, long holiday and holiday mood at work, pretty good if you want a comfortable and stable (and lazy) life."
+American,2017-02,Decent wages and usually an understanding culture
+Canada,2017-01,"Operational Site, Great relationship, love the community, quality of life is high, fishing and camping is unreal, hockey programs are great, community spirit"
+United Kingdom,2017-01,Good solid multi national company. Responsible miner from all stakeholder viewpoints. High health and safety focus and strong anti bribery & corruption stance.
+American,2017-01,"Work life balance (if you're in a city based role), Leader in mining"
+Australia,2016-12,Excellent work environment to work and learn
+United Kingdom,2016-12,Good benefits (15% contributory pension; car allowance; share package; free lunch)
+Australia,2016-12,"- good pay, and that is literally about it"
+American,2016-11,Good exposure to different facets of mining- above par salary and world class work mates.
+United Kingdom,2016-11,"Great company, great atmosphere to work in and there is always someone friendly to talk to and we all get along well that is to say really well."
+United Kingdom,2016-11,"Benefits are competative, location is adequate"
+United Kingdom,2016-11,"Great orebodies, good cost structures and very talented technical professionals Salaries and conditions are ok but when you recruit and develop the best you shouldn't pay at the 66th percentile"
+Singapore,2016-08,Very diverse set of people. Working in a global commercial location in a multinational firm has its usual advantages of getting exposure to diversity and cultural richness. Challenging work environment allows you to enjoy a steep learning curve at work. The working standards of people around you are very high.
+Australia,2016-10,"Good work life balance, well paid, flexibility, good superannuation, friendly staff"
+Australia,2016-08,"Great camp, great people. would ho back"
+United Kingdom,2016-08,Great company to work for - great prospects for promotion and travel - if you work hard and are dedicated.
+Australia,2016-09,"Great Pay, Meaningful Work, Friendly Work Environment"
+American,2016-08,Very capable Central integrated planning team
+Canada,2016-09,Excellent forward looking company. Very committed to long term profit maximization by optimal use of each team member. *Hydroelectric as a green competitive advantage. *Consistently aimed and attained a leadership status in metal industries. *Very ethical company *Good balance it maximizing satisfaction for all stakeholders.
+Australia,2016-09,good salary One fix client - no need to move all the time
+Australia,2016-10,Great work life balance. Good place to work and competitive salary. Great graduate program where they can develop into professionals with a great future.
+Singapore,2016-09,"multinations, diversity, opportunities, locations, growth"
+American,2016-08,"Great salary and job security. While other mines were shutting and laying off large numbers Rio Tinto Iron Ore was not, or having much smaller redundancies. Good benefits - health insurance, share schemes and deals with other businesses."
+United Kingdom,2016-08,"Huge and varied scope of global role, at the forefront of technology and innovation, lots of recognition and respect, ability to influence technology direction"
+American,2016-08,Not many these days. They used to be a good company to work for but their senior leadership is badly out of touch with what's going on with the business.
+American,2016-07,During the boom times they were plenty of opportunities for training and growth. Great employee benefits including assistance with health insurance.
+United Kingdom,2016-06,Travel a lot and get to work in some very interesting places. Work with some talented people from many different sectors and industries.
+Canada,2016-06,Competitive remuneration package One of the few largest and well known companies in Montreal
+American,2016-05,Boom time equalled big budgets so lots of projects; good exposure to office and site work and opportunity to network with varying stakeholders both in and outside of the company.
+Australia,2016-05,"Great culture (prior to Walsh-led 'Final Solution'). A leader in H&S without question and without peer. Things just got done (initially) - relatively streamlined bureaucracy compared with other organisations I've worked for. Excellent travel and re-location opportunities, but you really have to work hard to chase them and build your internal network - which I did, but that's hard for some people. Very good salaries for most (on eastern seaboard Aus). Have heard some parts of the globe RT is a bit behind its peers in remuneration"
+Australia,2016-05,"TeamWork, Social Environment, Site facilities"
+Singapore,2016-04,Over-the-market compensation Office location Cultural diversity Several business units located in the same office gives you a chance to network outside of your department
+Canada,2016-05,Great growth opportunities in global company.
+American,2016-04,"Good introduction to large corporate systems, good site experience, friendly people, good work/life balance and rosters."
+American,2016-05,The teams were great and collaborated constantly across a variety of projects/departments. I got enthusiastic help whenever I asked for it.
+Australia,2025-10,Some details are missing. Some requirements are unrealistic
+Australia,2025-10,Sometimes complexity in getting things done
+Australia,2025-10,"Highly siloed teams, especially in group functions and IS&amp;T."
+United Kingdom,2025-09,Working hours can be unsociable due to timezones
+American,2025-07,Processes aren't well established and is difficult to navigate
+Singapore,2025-07,Move up the ladder feels more relationship centric than merit based
+American,2025-06,Bonus is once a year and max 125% of base Low compared to other tier 1 companies
+American,2025-07,Lower salary compared with other companies
+Australia,2025-06,Big old bumbling machine of a company… bureaucracy is off the charts
+United Kingdom,2025-06,"Difficult to promote, early/late calls"
+Australia,2025-09,"none, great place to be in"
+American,2025-09,"Terrible bullying environment, extremely overworked, no toilet breaks ever, insane management"
+American,2025-09,Poor systems Wasteful and inefficient Complex
 Canada,2025-09,Not many opportunities for career growth.
-Australia,2025-09,Toxicity starts from the top.
-South Africa,2025-06,"Good benefits, growth opportunities, training and study opportunities."
-Canada,2025-09,Overly visible DEI focus and lots of politics.
-Canada,2025-07,Location is a bit remote and small town.
-UK,2025-09,Working hours can be unsociable due to timezones.
-Australia,2025-05,"Good pay, good benefits, even time roster."
-Australia,2025-09,Good work-life balance and great culture.
-USA,2025-09,It can be easy to get lost in a big organization.
-Singapore,2025-04,Deadlines can be tight and lots of organisational changes.
-Australia,2025-09,"Great salary, great network, interesting area to live and work."
-USA,2025-09,"Working at Rio Tinto Kennecott comes with strong pay, excellent benefits, and a well-established safety culture. The work is technically engaging, and the company has a solid reputation, making it an attractive employer."
-Australia,2025-09,Quiet a culture shock if not familiar with far north Queensland.
-UK,2025-01,Stable company with relatively good pension and perks.
-Canada,2025-06,Transition planning post-closure phase was not always clear.
-UK,2025-04,Lots of change and restructuring.
-UK,2025-06,"Difficult to promote, early/late calls."
-Australia,2025-09,"Terrible bullying environment, extremely overworked, no toilet breaks ever, insane management."
-Canada,2025-09,Great people and opportunities to learn.
-Canada,2025-06,Limited opportunities for internal advancement or career development (Mine closure).
-USA,2025-04,Benefits and pay are competitive.
-South Africa,2025-03,Change takes time and a lot of effort.
-Singapore,2025-04,"Great culture and people, good pay."
-USA,2025-03,"Definitely has job security and the opportunity to learn new skills and get certified."
-USA,2025-01,"Constant threat of layoffs due to redundancy. Most tenured employees are the first to go."
-Australia,2025-04,"Very siloed and poor culture in HR and no development paths."
-Australia,2025-04,"Rio Tinto pastoral stations conditions on the ground were nowhere near safe working standards. Unsafe work conditions and equipment and many Psychosocial hazards."
-Australia,2025-04,"Fantastic benefits with generous pay, generally good living conditions at camp, and plenty of opportunities for both upward and lateral career mobility."
+Australia,2025-06,"Large company, can be slow moving"
+South Africa,2025-06,Frequent plant leadership rotations safety during community strikes
+Australia,2025-05,Management is too slow to take decisions
+Singapore,2025-06,Work life balance unequal dependent on team and stakeholders
+American,2025-06,Suffers from bureaucracy more than most - bloated and too decision makers (or perceived ones) at the table. A lack of commitment to want to change or consider alternative approaches. ExCo say the right things but the message and outcomes dissolve by the time it gets delivered by upper/middle management - leaving you disappointed
+Australia,2025-05,Company structure is not standard for all sites
+Canada,2025-06,"progression, toxic leadership and promoted"
+Australia,2025-06,"Toxic work culture, management by intimidation, sexist policies, racism prevalent. Bad organisation and data management."
+Australia,2025-09,Sometimes contractors are quite patchy to work with.
+Australia,2025-06,"Bad leadership. They just don`t care at all. HR also don't care, so nobody cares. Values look good outside, but lie inside."
+Australia,2025-05,"Toxic management, Purple circle run rife, food average, does not hold up to their values"
+Australia,2025-09,Restructure is challenging. Takes a few years to get the great pay.
+United Kingdom,2025-05,Cyclical org changes (latest one in 2025)
+American,2025-05,Hard to career progress as a female
+American,2025-05,"stressful, lots of work to do"
+Australia,2025-05,Very stressful environment Colleagues try to manipulate each other
+American,2025-04,One of the lower paying co.panies of the mining industry
+American,2025-04,High pressure and standardise working environment
+Canada,2025-04,"Nothing as such, people can be overwhelming"
+American,2025-05,Some regional sites have toxic culture but is getting cleaned up Some planning teams have arrogant people
+Australia,2025-05,Career progression Impacts of the environment Long hours
+American,2025-05,"Lots of meetings Big company mentality, just a number"
+American,2025-04,"Very siloed, poor culture in HR, no development paths"
+Australia,2025-04,"The work itself can be quite dull, and there is an apparent lack of accountability for performing your role to a high standard - which can be frustrating as a high performer"
+United Kingdom,2025-04,lots of change and restructuring
+American,2025-04,No true downside with Rio
+Singapore,2025-04,Deadlines can be tight and lots of organisational changes
+Singapore,2025-03,Slow progression in career posting
+Australia,2025-04,"Really old equipment, strong purple circle"
+Australia,2025-04,Extremely clunky and unnecessarily complicated/difficult systems and processes. Massively behind competitors in this space.
+American,2025-03,Don’t really have any I enjoyed my time here
+Canada,2025-04,Pay Office location Back to work
+American,2025-04,- Technical culture is poor and not what it used to be from the 1990s like I was led to believe - Teams are often understaffed in the geology space and you will be required to work across a few different functions - Training and upskilling is dependent on bosses to prioritise and the quality of said training is highly variable.
+American,2025-03,Career progression difficult depending on position.
+Australia,2025-03,Not being able to work with the people that we are working for. Administration stuck in a separate building away from the crews. The feeling of disconnection was apparent for most of us.
+American,2025-03,"Not meeting the company and leadership hiring target DEI criteria will see you struggle, as you are at a disadvantage."
+Canada,2025-03,"don't expect to have promotion very political internal if you don't have any contact into management, you won't growth and very difficult to change teams"
+Singapore,2025-03,None i can think of
+Australia,2025-03,Too much work during year end
+Australia,2025-03,Too many moving parts can make change slow
+American,2025-03,Big business difficult to stand out
+Canada,2025-03,Have to move to get promoted
+Singapore,2025-03,"lagging in utilizing latest technologies, they move you a lot"
+Singapore,2025-03,"Increment as per market, not easy to get promote"
+Canada,2025-02,Global teams - can be less personal
+Singapore,2025-02,"Slow progression, pay below industry standards, office politics"
+Australia,2025-02,Nothing that I've experienced so far
+American,2025-02,Limited opportunity for carer promotion.
+American,2025-02,"Tech stack maybe outdated, depending on project you are working in"
+Australia,2025-01,Unclear lines of authority around middle management
+American,2025-02,Like any big company it can be slow to see change
+American,2025-02,"Salary gaps, not enough performance uplift Disorganised Overtly demographic driven."
+American,2025-02,Lattice firm difficult to get things done Not true to their policies and values
+United Kingdom,2025-01,"Managers are everything, is they are good you are fine, otherwise not. Skip manager sessions don't exist."
+American,2025-01,I honestly can't think of anything. I only left because I couldn't continue working.
+Australia,2025-01,"Lack of support and resources Colleagues on higher wages although performing same role, when bought up wasnt even actioned. Diversity at all cost = resulting in others suitably qualified being overlooked to ""tick a box"" with people who have no clue or experience in-role. Politics and nepotism rife Suppose to present as a Leader"" but treated as previous entry level position. Pay rate lower than competitors."
+Australia,2025-01,There is no cons working here
+Canada,2025-01,The workload can be challenging
+Singapore,2025-01,too many changes in a short time.
+Canada,2025-01,Huge organization leads to some beuraucracy
+American,2025-01,None that come to mind
+Australia,2025-01,"Meetings on meetings on meetings. So much time spent of making sure everyone feels good rather than cracking on and getting work done. Nonsense bonus system which employee has little to no influence on, which. Constant reminder of how all employees (male) are bad and we all need to ""do better"". Gender targets take precedence over skills and dedication to a ones career - leaders/managers have to make an extremely strong case to put a male into any promotion situation, makes a complete mockery of the requirement to do a development plan."
+Canada,2025-01,The management was not very organized
+Singapore,2025-01,Pretty low salary. They dont pay support roles well. Some colleagues will get competitive and will do their best to get ahead. Management dont really listen like all other MNCs.
+Australia,2024-12,Slow upgrade so it can be boring
+American,2024-12,Not many opportunities for grads rolling of the program
+Canada,2024-12,Still some corporate politics happening.
+Singapore,2024-12,slow for change in technology
+American,2024-12,"Under stimulating, non existent development, insecure leadership."
+American,2024-11,Leadership and management can be hit and miss
+American,2024-12,Work life balance is quite hard
+Singapore,2024-12,Lots of movement and re-organization. People on the top tends to move around quite frequently. Big organization with a lot of politics and red tapes
+Canada,2024-12,A Long hours commute .
+Canada,2024-11,Long hours multiple time zones to cover
+American,2024-11,"At the mercy of the iron ore price / market conditions, can be busy and overwhelming work sometimes."
+Canada,2024-11,Career path is not clear or not flexible
+American,2024-11,"Bullying culture, purple circle and boys club"
+American,2024-11,Boring not much to do except watch movies
+Australia,2024-11,- Some sites have more red tape than others - Long hours on site - Workplace politics at times
+American,2024-10,so far good i would highly recommend
+Singapore,2024-11,Politics takes precedence over everything else including performance. Management can be brutal when it comes to firing (not the most humane way of letting someone go). How happy you are depends on who your team lead is. Senior management is aloof and seems to be out of touch with the ground.
+Australia,2024-10,Rio Tinto can hire some muppets
+Canada,2024-10,Difficult to move up and often external candidates are hired in management levels
+United Kingdom,2024-10,Expected to work around the clock because of many time zones
+Canada,2024-10,"Rio Tinto is a large organization with a vast workforce, making networking and building strong relationships essential. In such a dynamic environment, advancing within the company often depends on having good connections and leveraging those networks to navigate opportunities effectively."
+Canada,2024-10,Difficult to get into higher roles
+Australia,2024-10,Bonus could be better though
+Canada,2024-10,Big company which is very structual
+Australia,2024-10,Corporate culture can be demanding
+Canada,2024-10,some department has a more heavier workload then others
+American,2024-10,- Uses Microsoft - Not all desks are auto standing desks
+American,2024-10,Poor growth opportunity(depends a lot on manager)
+Singapore,2024-10,Rio Tinto usually provides a good work environment. Do not see any major cons
+American,2024-09,"Leadership is basically in Brisbane having gottten rid of any people centric leaders in Perth directs Perth office and the bad leaders mimic the leadership style , too much focus on managing up and also Diversity targets ...I'd avoid and work for another miner TBH"
+Singapore,2024-10,"lots of politics too many ""groups"" in the top management"
+Canada,2024-09,Big company with long process but we'll structured
+Australia,2024-10,"Slow to implement changes generally, though this have turned around in recent times."
+Australia,2024-09,No support from management. Didn’t receive the proper training
+Singapore,2024-09,Dependent on team Promotion opportunities not easy
+American,2024-09,Diversity strategy is heavily weighted
+American,2024-10,"It was a great place to learn and develop, now you will only be blamed for the shortcomings of leaders who pretend to care, place unrealistic expectations and expect you to be happy when they push all the blame on to you while claiming credit for your hard work. They claim to want to know the issues with systems and processes then quickly make you out to be the scape goat for everything that happens after you’ve warned them of the existing failures."
+American,2024-09,Leadership do t really care
+American,2024-09,Hard to make changes- lots of overhead as it’s such a big company
+Australia,2024-09,Subject to commodity cycle and associated workforce adjustments
+Canada,2024-09,Month end deadlines resulting OT
+Canada,2024-09,"Great set of values : Courage, Care, Curiosity but not living up to them. Government like bureaucracy. Risk-averse management, stand-stillnessis gets you promotion."
+American,2024-09,Not as secure as some other industries/companies
+American,2024-09,Politics could be complex. Move across areas / grow - not easy. Things move slow at a times/
+American,2024-09,"f you work in Rail Engineering and Strategy, Save yourself the time and heart ache - don't work here. The leader of Intergrated Systems is more interested in justifying their own role within the business than they are stamping out the toxic culture that exists (largely due to their inability to lead and address issues as they are raised as opposed to sweeping them under the rug) in purple circle culture. While some departments in the business are well managed like Train Control others are toxic - it's well known and nothing is done about it, Turnover in the department I worked in was through the roof due to poor management - unrealistic expectations of staff and no signs of the toxic micromanagement bullying culture changing any time soon."
+American,2024-09,Global hours can be challenging for those in global roles.
+Canada,2024-09,Fewer option to grow inside
+American,2024-09,"Camp conditions could be improved, but partially this is outside the control. Retention of the experience in the workforce could also be improved."
+American,2024-09,So much politics between employees
+Canada,2024-09,A lot of pressure Some management individuals are sometimes a bit pushy!
+Australia,2024-08,"Hot, dusty, excessive Ppe, humidity, cyclones"
+American,2024-09,FIFO is required for swift career development
+Canada,2024-08,Less to opportunities to develop and grow
+Canada,2024-08,"not that much work opportunities for those who want to progress, vertical or lateral."
+American,2024-08,"Nothing rally, i love working here"
+American,2024-08,Too many chiefs due to the size of the organisation. Culture of fear makes decision making slow and cumbersome. People in lower management positions are vocal about being “busy” but not producing very much. Difficult to effect change for this reason.
+American,2024-08,Shift work and the long hours
+Australia,2024-08,Purple circle might exist and prevail
+Australia,2024-08,"No Cons, great place to work"
+Singapore,2024-08,Only if management of business unit believes in what the company preaches
+American,2024-08,Career development is low and can feel like a number
+Singapore,2024-07,Conservative management and work in silos
+Australia,2024-08,Can be large and unweilding trying to make changes
+Canada,2024-07,Company is too big so sometimes diffiuclt to find the excat person you are looking for
+Australia,2024-07,Slightly below benchmark for wages. Camp food under par.
+Canada,2024-07,- not a tech company - not a competitive salary compare to tech companies
+American,2024-07,You are treated like a child and chain to your desk like a slave. Too bad if you need to use the rest rooms hope you brought a nappy. You are also trapped now as a controller forever.
+American,2024-07,"Where to start. It's a toxic place to work, where the incentive scheme is designed to pit co-workers against each other. 25% of the work force MUST lose 25% of their bonus each year, it's mandated. So in a small team people literally set each other up to avoid being in the bottom 25%. Constant restructures, you never know who or what is going to happen. All people can do is suck up to whoever they think will protect their job. It's also a DEI workplace, they're gone full potato on it. There's just no hope if you aren't a minority of some kind. All of this of course is why they've ended up as one of the worst performing miners, unable to manage costs or deliver projects. So to sum it up, they are the kind of company that make statements like ""people are at the heart of what we do"" while sacking experienced staff who didn't kiss the right backside and cutting bonuses"
+Canada,2024-07,Be prepared to work long and hard. Everyone is over loaded with work
+American,2024-07,Not much really. Work load can be high but that's normal.
+American,2024-07,Lack of development and opportunity to move into other roles.
+Australia,2024-08,"Long work hours, turnaround projects can be hectic schedules. Less progress to senior roles"
+American,2024-08,Can get lost in the ground
+Singapore,2024-08,Upper management a bit out of touch and cliquey. A lot of generalists and not many experts.
+American,2024-07,No sideways internal job movements.
+Australia,2024-06,Poor management over software development teams.
+Singapore,2024-06,"Typical corporate woes, teams working in silos"
+American,2024-07,"High turnover clique like environment where only yes-people get promoted. Many HRA promoted are sycophants lacking the necessary skills &amp; knowledge, elevated solely to maintain appearances. HRA performance is evaluated by TLs, &amp; it often boils down to personal favoritism. HRA review should be weighted 50% TL &amp; 50% the leader of team you are advising this removed bias HRA who provide poor support &amp; advice are promoted based on their TLs review'. HRA’s, that are hardworking, have people at their heart, are bullied and pushed aside, as the focus in HR is on maintaining appearances"
+American,2024-07,Busy at times but lots of exciting projects going on.
+Singapore,2024-07,Limited growth opportunities and limited learning
+American,2024-06,all the positives are face value
+Singapore,2024-07,"Company treats foreigners very favorably/too many unnecessary business trips especially for those based in the Sg office for ""meetings"" and ""projects"". Incompetents (and unqualified i.e. no degrees/professional qualifications) are promoted/kept in roles that require actual competence and experience because they are foreigners/old-timers who are way too capable of pushing blame to others and covering up their incompetence."
+American,2024-06,"omega over-worked, terrible incentive structure"
+Singapore,2024-06,- workload may sometimes comes over bearing - surface level relationship ships with peers from other departments
+American,2024-06,"Workplace culture, everyone got paid the same regardless of if you were doing more work than others"
+Australia,2024-06,"Too many layers sometimes, and lot of pressure on some mine sites to achieve production's results."
+American,2024-06,Upper management constantly changing structure
+American,2024-06,"Lack of fairness in salaries across business areas, too large, inefficient, siloed and reactive"
+American,2024-06,Your work life is dependent on leader - There is a bit of a purple circle in some functions.
+Australia,2024-06,Everyday Respect Report is available online to provide an overview of culture
+Canada,2024-06,same cons are within all large companies
+Australia,2024-06,Slow promotion as it is a big enterprise
+Canada,2024-06,Internal Politics freezes the company
+United Kingdom,2024-06,Cannot think of any rn
+Canada,2024-06,Lack of agility at times
+American,2024-05,You may be posted away from main city
+American,2024-05,For being a large organisation the systems and processes are out of date along with reporting systems.
+Australia,2024-05,"Bureaucracy is much more of a nuisance than at other places (e.g., procurement and logistics)"
+United Kingdom,2024-05,Job role changed dramatically quickly after starting with the business
+Australia,2024-05,"Relatively heavy workload, fast paced"
+United Kingdom,2024-05,It could be difficult to influence or find recognition
+American,2024-06,Headcount is less in the technical services team
+American,2024-05,Immediate Mansgement was somewhat disconnected
+Australia,2024-05,"It's incredible to see how inefficient such a big company can be. There are shadow teams all over the business working on similar things, but not aligned. There is no real plan or prioritisation process. The place is run by gut feel, and boys club negotiations."
+American,2024-05,low efficiency in a big corp
+American,2024-05,"Upside of a large company is also the downside, very easy to slip through the cracks and just feel like the work is very temporary."
+Canada,2024-05,Companies located in remote areas
+Singapore,2024-05,"Opportunities for transfers, development, progression is subjective."
+Australia,2024-05,"Poor top management, cross functional collaboration"
+American,2024-04,traveling way to far on freeway
+American,2024-04,Career Opp was a little limited
+American,2024-04,Pays slightly less than competitors and can be hard to grow or move in the rigid org structure
+Canada,2024-04,Na Na Na Na Na
+American,2024-04,"Supervisors have a huge ego and not supportive, lots of purple circles in this environment although they deny it, full of lies from the job advertisement - sign up to be an operator and they will just get you to do labouring for the entire 6 months of your probation"
+Australia,2024-04,- stuck in single cloud mentality - many siloes teams running disparate tools
+Australia,2024-04,"Cannot say a bad work about the projects , team , management. Thoroughly enjoyed my time working there"
+Singapore,2024-04,Slow moving at times. Too many changes
+American,2024-04,bad ESG glass ceiling on technical teams politics and bureaucracy
+United Kingdom,2024-03,"- Large and complex business, change can be slow - Career progression not structured"
+Australia,2024-04,Office politics can get draining
+Australia,2024-03,Management and HR not very supportive when personal issues arise
+Australia,2024-03,Complacency Inability to adapt to new technology Stagnant in career growth
+American,2024-03,A little slow going at times
+Australia,2024-03,"Old guys that have been in the same job same department for yrs, miserable buggers."
+American,2024-03,there can be a bit of politics and red tape
+Canada,2024-03,Work across multiple time zones
+Australia,2024-03,Incompetent leadership and bad work arrangements
+American,2024-03,"Career opportunities are low, there is low professional development, not a lot of exit opps,"
+American,2024-03,The work can be stressful
+American,2024-03,Work from home option flexibility
+American,2024-03,No cons that I can think of
+American,2024-03,Limited career progression for experience.
+American,2024-02,Supposedly pay isnt competitive with other major players
+American,2024-02,Leadership a little inexperienced and frustrating
+American,2024-03,Not a very god organization to work for - very male dominated and not very accepting of females in parts of the orgnization
+Australia,2024-02,Minimal upwards growth opportunities. Limited opportunities to become Perth based if personal circumstances change.
+American,2024-02,Believe the reviews: a negative culture shaped by longstanding 🟣 HR. They utilise Rio branding as a shield to intimidate results.
+Australia,2024-02,"not much, it's pretty good"
+American,2024-02,Start on low salary but good training program
+American,2024-02,Gets very swollen in middle management and creation of unnesecary support teams during good times. Due to competing with other major companies for similar personel some of the internal promotion/diversity decisions are not great for team members - leaves people reporting to inexperienced/unsuited leaders.
+Australia,2024-02,Salary slightly lower than peers
+American,2024-03,Challening to work with vendors
+Singapore,2024-02,"Lack of opportunities to advance, lack of travel opportunities."
+American,2024-02,Project can be challenging at times
+American,2024-02,Work and life balance is challenging to manage in senior management positions.
+Australia,2024-02,Big company so moves slow People mindset challenge
+American,2024-02,Low base pay compared to other big players in the industry.
+American,2024-02,I dont have anything to share here
+Canada,2024-02,"There are non, great place to work"
+Australia,2024-02,Siloed company with lots of bureaucracy and like all big companies it matters who you work for. Have a great boss and the experience is great as they will shield you from the bad. Have a bad boss and it's game over.
+United Kingdom,2024-02,Work life balance isn’t great Leaders do not always lead by example
+Canada,2024-02,"Sometimes too political, slow moving"
+United Kingdom,2024-01,"Sometimes the work/life balance is not the best due to increased workload over certain periods, but otherwise manageable and standard."
+American,2024-02,Large company vibes. Remote work
+American,2024-01,Bit slow to respond to market change as it is a big corporate mining company.
+American,2024-02,Political - many people applying for the same internal roles
+American,2024-01,"promotion is nearly zero if you don't jump boats, it makes hard-working innovative people feel struggle"
+American,2024-01,"Siloed and political SLT - encouraged and rewarded by CIO (just look at recent turn over - just where did all the females go?), people bullied until they leave or go in stress leave, inflated egos, so much red tape/ /multiple approvers/regret work/change in direction, burnt out employees, no prioritisation, unrealistic timeframes and expectations with no leadership on how we can get there or support to move things forward, artificial harmony at all levels, patronising employee communications that are don’t communicate anything we need to know or that matters to us, weak strategy with no plan on how to achieve, Brisbane-centric SLT with no connection to operations, customers or people on the ground, inauthentic SLT (spend more than one meeting with them and witness the change in story depending on who they are speaking to next), leadership scared to speak up - even with the $$$$ they burn “investing” in multiple coaches to build trust, team members who have completely given up - overpaid so continue to stay, but zero trust that things will get better or they will be heard so don’t give feedback in surveys."
+Australia,2024-01,Can be a bit disjointed given the size of the company
+Australia,2024-01,Not much other than money
+American,2024-01,Processes can be bureaucratic and things are slow to move
+American,2024-01,development opportinuty to be discussed
+United Kingdom,2024-01,Career progression opportunities are limited
+American,2024-01,Hard to get good work done as too many silos and competing priorities. Disconnect between senior leaders and what is happening on the ground. People don't speak up. Lots of wasted energy from good people.
+Singapore,2024-01,"less humane than last time, brutal employee firing especially if you are older"
+United Kingdom,2024-01,A lot politics and low work life balance
+American,2023-12,"Too much politics, no growth opportunities for males and foreigners, bullying and harassment are horrendous"
+Canada,2024-01,The IT department depends to other consulting company
+American,2024-01,"Big business, slow moving. Slow to act sometimes."
+Australia,2023-12,"Life work balance is questionable, slow process"
+American,2023-12,"Work life balance, future development"
+Singapore,2024-01,"Slow moving processes, flat hierarchy"
+Australia,2024-01,"Collaboration can be improved, May not have enough visibility for some of the work done"
+American,2023-12,Lots of processes which can slow down processes
+Canada,2023-12,"None, it’s a great company"
+American,2023-12,Micromanagement can be an issue
+Australia,2023-12,Lower pay than some graduate positions
+American,2023-12,"Slow decision making, some areas work in silo"
+United Kingdom,2023-12,"Slow promotion cycle, bureaucratic , but good overall"
+American,2023-11,Too much work Caotic work
+Canada,2023-12,Lack of challenges if you are looking to ultimately actualize your potential.
+Canada,2023-11,"None, honestly. They are a great company!"
+American,2023-11,There is nothing to mention
+American,2023-11,No chance for jumping field
+Canada,2023-10,Need to improve their career path management
+American,2023-11,Larger portion of salary in allowances
+Australia,2023-11,"Unskilled/under qualified management, purple circles, mates clubs no real care for employees"
+Singapore,2023-11,Repetitive work Poor processes around workload
+American,2023-11,"Everyone is for themselves, hard to build relationship since everyone's whereabouts are inconsistent. IST department is shocking (outsourced to India mostly). Any issues you encounter, good luck resolving it with people who don't know what you need."
+Singapore,2023-11,Recognition and opportunities to advance career for locals
+American,2023-11,A large number of people who say a lot but don’t action much
+American,2023-11,"Organised Chaos, at least within Iron Ore. Big work load with no structure, direction or central purpose to feel like on a steady path within the role"
+Canada,2023-10,Mining projets are remote areas
+Australia,2023-11,"Seems to always lag behind other companies in terms of salaries and it’s frustrating that so many of our best people leave to other places, taking the experience with them."
+Australia,2023-09,Hierarchal structure. Tough to advance into senior levels without an internal sponsor.
+American,2023-10,"Rio is a business that is slow to respond and resistant to change. Little opportunity for promotion/progression unless you’re a guy. Feel invisible, under valued and bored"
+Singapore,2023-09,large complex organisation. Can be challenging to navigate the inner workings
+Australia,2023-10,The internal process is a bit complex.
+American,2023-10,A lot of red tape
+Canada,2023-10,"things moving slow, not tech focused."
+Australia,2023-09,"Very political, a lot of meetings"
+American,2023-09,"the bureaucracy is bad enough, senior leadership seems fake"
+Australia,2023-09,"Matrix, not able to welcome new managers effectively"
+American,2023-09,"Alot of Systems, processes and non operational teams are unnecessary/overcomplicated."
+Singapore,2023-09,"Dependent on the team you work in and person you work for. Some teams are nuturing, some teams are toxic because of the team lead in Singapore. To progress upwards, relationships (who you know) instead of capability is vital. HR does not have an upward feedback system so person in power is able to ""abuse"" easily."
+Canada,2023-09,Unprofessional and inexperienced supervisor too many meetings
+Singapore,2023-09,Some leaders’ integrity is questionable during stressful times.
+Canada,2023-09,"In general, there is rampant workaholism. Culture of performance is so high and toxic. Unreasonable demands. Ridiculous schedules if you work with other timezones, often understaffed. People on sick leave is part of the game. A couple of tyrant narcissists fly under the radar because the corporation is so big. Growth is meh if you aren't already privileged."
+American,2023-09,Some management members can be arrogant and political
+American,2023-09,Low on pay relative to peers
+American,2023-09,Hours might be long sometimes
+Canada,2023-08,I dont have any to share for the moment
+American,2023-08,Was great until a few years ago. Let go of the mover and shakers in their teams and kept the dead weights
+Australia,2023-08,"Large organisation, matrixed, harder to get things done."
+Australia,2023-08,"Work place narcissists, bullies and sociopaths in abundance"
+American,2023-08,A lot of beuracracy and red tape
+American,2023-08,"- Management is not the greatest, weak - Worse food on camp"
+American,2023-07,Environment could get though in times with budget constraints.
+American,2023-07,None i can think of
+American,2023-08,Complexity Remote locations Long hours
+American,2023-07,Low incentives compared to other mining giants
+American,2023-07,Competitive environment Poor culture Disorganised and clunky systems
+American,2023-07,Some of the things feel a bit trival or slow moving sometimes
+American,2023-07,"Bullying, abuse and harassment, oh my. The rail management &amp; executives showed a true lack of any rail safety knowledge when they persistently tried to get Lookouts to ""do some work"". Who cares if it's against the law, there's profit to be made! They preach ""work-life balance"" but if your idea of balance is different to theirs (hint: it is) then you're going to have a bad time."
+Canada,2023-07,a\ Poor organizational culture (culture of nepotism deeply rooted leading to challenges in talent retention and attraction) b\ Earnings mainly Pilbara iron ore related linked to China. Policy change in China and-or move away from blast furnace iron making process due to decarbonisation will render major loss of value from the Pilbara. Limited future facing minerals and requires major reshaping of the portfolio c\ Top heavy / corporate overhead heavy organizational structure
+Canada,2023-07,"Poor mentorship, unorganized intern program"
+American,2023-07,Not the best place for practicing technical engineering.
+American,2023-07,Working away from home is tough
+American,2023-07,Salary depends on the commodity and whether site based or not.
+Singapore,2023-07,"Bonus is based on performance, there is no 13 month"
+Australia,2023-07,"Would be great if we can use Macbook, not necessary, but more of a personal choice as a developer."
+Australia,2023-07,"Lack of prioritization, lack of accountability"
+Australia,2023-07,Lack of opportunities to go to the next level.
+American,2023-07,How many people are in the world
+Singapore,2023-06,Constant changes leading to uncertainty or confusion on strategy
+American,2023-07,"Corporate values say to bring your full self to work every day, but this is far from reality where you must fit in and be corporate or face career stagnation. Technical skills not valued compared to business skills, despite being critical to the entire company."
+United Kingdom,2023-06,Old boys club in many functions lack of diversity No clear career progression
+Australia,2023-07,Nothing much to point out specifically
+South Africa,2023-06,Bureaucracy Policies that work in silos
+American,2023-06,"No development, worst management iv ever worked under and the most incompetent people. If your friends with the superintendent and a house basher sparkie with no heavy diesel trade then this is job for you."
+American,2023-06,Boys club that resembles a footy changeroom then a work place. Typical big business senior management have zero clue how middle management treat their team
+American,2023-06,"busy environment, lots to do."
+American,2023-06,Reports - poor data controls
+Singapore,2023-06,None that I can think of.
+American,2023-06,Some departments are Under resourced
+American,2023-06,Collaboration between departments is lacking
+Canada,2023-06,Global roles can mean no work-life balance
+United Kingdom,2023-06,"Not so good on HR transparency/advice, ESG credentials and work-life balance."
+American,2023-06,management messy and need to fix
+Australia,2023-06,Rosters only 8 and 6
+Singapore,2023-05,Lack of resources and top heavy
+American,2023-06,Lack of communication and transparency from leaders Nepotism Career progression largely based on if you can do FIFO vs ability No development
+American,2023-05,Collaboration between functions is limited
+Australia,2023-05,Red tape and feeling like a number
+Australia,2023-05,Will update when I been there a couple of months
+Canada,2023-05,didnt know what to do sometimes
+American,2023-05,Repetitive and can get boring
+United Kingdom,2023-05,Poor management Need to focus on employees health
+Singapore,2023-06,"Cultures are very different. Environment is stressful, having manager/principles indirectly threathening you with comments that you feel threat to lose your job if you do not obey to do or did wrong. Mentally stressed out."
+Canada,2023-05,Very rigid structure and management sometimes refuse to listen
+Australia,2023-05,- Politics between senior leaders
+Canada,2023-04,The company is not flexible on work location.
+Australia,2023-04,"Bullying , harassment. Purple circle. New employee’s with less experienced paid more. Toxic management who don’t value employees ."
+American,2023-04,Nothing i could think of
+Australia,2023-04,Depends on the leader typically
+American,2023-04,Culture Team Leaders who are not skilled in their area
+Australia,2023-04,Poor mentoring experience Prioritises delivery over learning Pays the cost of short term wins later
+Australia,2023-04,Somewhat conservative depending on teams
+American,2023-04,environment can be competitive amongst such a large team
+Australia,2023-04,advanced english is required all levels
+American,2023-04,Hard to love forward in career
+Canada,2023-03,-They have started implementing 2 Days back to office.
+American,2023-03,Some promoted to hit targets and ahead of time
+American,2023-03,"None , I face . You might to have to work long hours sometimes but otherwise pretty good place to work."
+American,2023-03,pay structure does not reward long termers and high performers
+Australia,2023-03,Have not found anything yet
+Singapore,2023-03,Nothing bad to say about the company
+American,2023-03,I couldn’t say any cons yet
+American,2023-03,No cons or downsides here
+Australia,2023-03,"non... I suppose the industry is a little frowned upon, but it does not bother me when everything is so good."
+American,2023-03,Hard career progression outside of normal route
+American,2023-02,Changing company is the fastest way to earn more so people move out quickly
+American,2023-02,Too many processes Frequent restructure
+Canada,2023-02,Long working hours/Overtime Work/life balance could be better
+American,2023-03,Cannot really think of anything other than pros
+Australia,2023-02,Working a FIFO roster can be tiring.
+Australia,2023-03,"Putting up with old, negative long timers Low bonus compared to other miners"
+American,2023-02,Projects take alot of time to approve
+Canada,2023-02,Culture of «&nbsp;who knows who&nbsp;»
+American,2023-03,"Management, nothing, else, really, shifts"
+Australia,2023-02,Location for public transport yes
+American,2023-02,Senior leadership claim their people are their most important asset however this only applies to a certain level of senior leadership who are then only interested in looking out for themselves.
+Canada,2023-02,Workload can be more evenly distributed.
+Canada,2023-02,"Slow to make decisions, risk averse"
+American,2023-02,"Big organisation problems, hard to navigate sometimes"
+American,2023-01,Lacks integrity Still has toxic mining culture Messy systems and processes No training Workload is high Leaders with no training Minimal monetary incentives
+American,2023-02,long hours remote in the desert
+American,2023-02,Big company problems (small cog in a big machine/can be 'just a number') HR processes have gaps all through them which is frustrating
+Canada,2023-01,Management Silo business units Lack of communication
+Canada,2023-01,There are no cons to working at Rio Tinto
+American,2023-01,they systems and processes stop people from doing what they think is the right thing to do
+Australia,2023-01,Doesn't handle industry up and downs too well - though none do
+American,2023-01,Office doesn't do their job properly.
+American,2023-01,need to follow the procedures and sometimes it takes a lot of effort to get people to agree with things.
+American,2023-01,"Some of the systems take time to navigate being such a large, global organisation. This is in the process of being overhauled and improved, which is promising."
+Singapore,2023-01,"When you get too expensive, they'll force you out. Management changes it's mind all the time."
+Canada,2023-01,There are no cons that I can think of
+American,2023-01,Your experience will be dependant on your direct leader
+Australia,2023-01,"Company housing is rubbish, salary is pretty average for this industry and shift work."
+American,2022-12,None that come to mind
+Australia,2022-12,None can think of at this time
+Singapore,2022-12,"Career progression unclear, salary is behind that of other big commodity firms. Excessive risk-adverse mentality in some teams."
+Canada,2022-12,Lack of communication between various parties
+Singapore,2022-12,No cons so far. Everything is great!
+Canada,2022-11,A lots of room for it improvement. Not coordination between the different areas managing the same asset.
+Australia,2022-11,Very hard to get promoted if you are not well connected
+Canada,2022-11,Very political Work load can be heavy at times
+Australia,2022-10,Can be high demand workplace
+American,2022-11,"Classic large corporation bugbears. Bloated meeting calendars, priorities are constantly shifting, and a dense corporate jargon that is used to the point of almost becoming another language."
+American,2022-11,None at this stage only recently employed
+Australia,2022-10,Excess amount of change and hot desking
+Australia,2022-10,Nothing at all so none yeah
+Canada,2022-10,Hard to bring change Systems are not always efficient
+Singapore,2022-10,Progression opaque and random. Opportunities seldom appear for such a large company
+Australia,2022-10,Bad pay greenies get employed earning more than you
+Canada,2022-10,Too big and complicated to take faster decisions.
+Singapore,2022-09,Difficult to manage politics and too many stakeholders to manage. Difficult to effect changes unless it paints a good story to tell for management. Too much compliance and safety redtape
+American,2022-09,Definitely can be worked for international
+Australia,2022-10,"No logical processes, red behaviour"
+Australia,2022-09,"growth maybe not enough, organization is too big"
+American,2022-09,lomg hous away from home
+Australia,2022-09,"Admin is terrible. Paid monthly and never paid correctly and takes forever to get rectified. Extremely difficult to get an out of cycle pay, you have to wait another month before it is rectified and even then sometimes it takes months before you receive you entitled pay. Hard to access your payslips as they aren't sent to your email they are on a RIO portal. Alot of bullying and harrassment from leadership and expectation to do unsafe work. Intimidation tactics and bullying if you try to push back."
+Singapore,2022-09,work can get rather repetitive
+American,2022-09,"Politics at senior level, lack of contact between management and junior staff"
+Australia,2022-09,can take a long time to make decisions
+American,2022-09,Highly bureaucratic environment driven by strict processes often compromising efficiency.
+Australia,2022-08,There are no cons to this
+American,2022-08,Management disconnect from SLT KPIs (STIP/LTIP) drive wrong behaviours Individual working in silos for self promotion
+Canada,2022-08,huge place can easily get lost
+United Kingdom,2022-08,"Cyclical industry, so lots of jobs lost during downturns"
+American,2022-08,Dont really have any cons about rio
+Australia,2022-08,"Crap delivery of most system, way too too heavy with too much focus on numbers and not enough focus on the people"
+American,2022-08,Some internal politics made getting on with job difficult
+Australia,2022-08,was a little bit difficult at he begining
+American,2022-08,Big org can be a bit slow
+Australia,2022-08,Poorly implemented global operating model.
+American,2022-07,"Pay, hardly any progression opportunities for technical people."
+Australia,2022-07,1) The Every Day Respect report outcomes are not being actioned in a meaningful manner - nothing has changed at a grassroots level 2) The investigative infrastructure put in place is used to protect the perpetrators rather than resolve issues. Conduct investigations are used to justify bad behaviour and keep bullies in their positions of power. 3) Innovation and fresh ideas are not appreciated and sharing of ideas can led to being frozen out of the work group. 4) Senior leaders continue to be promoted as they are supported by other senior leaders.
+American,2022-07,Politics sometimes does not lend itself to effective work
+Australia,2022-07,Not sure havent found out yet
+Australia,2022-07,. Looked down upon by management and maintenance
+American,2022-07,Very political environment. Hard to break status quo.
+American,2022-06,Very clunky systems and approaches to issues
+American,2022-06,Career is based very much on perception
+Canada,2022-06,Corporate environement is not for everyone
+Singapore,2022-06,It's time to review since the last implementation in 2017
+Canada,2022-06,"Upper management, remote locations and work culture"
+Australia,2022-06,Pressure from above and people turnover
+American,2022-06,Needs more ownership and accountability among mid level leaders
+Canada,2022-06,A bit difficult to find path to progress/rise in the ranks
+American,2022-05,Nothing good about them at all
+United Kingdom,2022-06,Salaries lower than competitors Not fabulous maternity pay
+Australia,2022-05,It wasn't the best environment
+American,2022-05,"Within IT, very high contractor to FTE ratio and insufficient level of internal (FTE) resources which makes it difficult to sustain new knowledge and expertise due to contractor churn coupled with inability to hire/convert. There is a strong preference to outsource/partner to manage risk and liability rather than to build and assemble winning teams using internal resources. Its a large company, so there is lots of governance and process which can feel like its difficult to get things done. There is some degree of re-organisation that occurs every 18-24 mths due to leadership changes/transformation work. Internal resources are often overloaded and diversity (gender and ethnicity) remains a challenge (not just a divisional issue, it's an industry issue)."
+Singapore,2022-05,Sometimes I feel like I don't get pushed to my limits
+Singapore,2022-05,very silo-ed no opportunity for growth
+Australia,2022-05,"Unbelievably toxic culture, team leaders/supers/mgmt hired on who they're friends with in management, instead of competence. This leaves competent people who want to do a good job stuck doing the job, unable to change anything while incompetent people run the place. More and more and more work was offshored to India, but we were told we were still responsible for keeping things operational. We couldn't even build servers or purchase licenses, everything had to be a ticket or required change management. Ultimately, we were 100% responsible for network/compute operations but couldn't get the permissions or ability to even do the work required to run the place. Biggest disappointment was discovering at the last minute that some full time employees were all going to be replaced with contractors. Except, they didn't tell us that, they just went and did it. Only a matter of time until they outsourced our positions to India and replaced us. If only they had the decency to tell us. Also, no training or career progression of any kind. I was investigated by Ethics and Integrity for trying to book tickets to Cisco Live. Insane. Pay was poor considering you were on an industrial site doing a job they couldn't get people to do."
+American,2022-05,high expectations and can at times be a high pressure environment.
+American,2022-05,Pay not as competitive as Competition Lots of Politics The louder you speak the higher you go
+American,2022-05,Politics within big company resulting in slow decision making
+Canada,2022-05,Advancement is on the slow path
+Canada,2022-04,- Long hours - Work culture
+Australia,2022-05,Poor management and Lack of leadership
+American,2022-04,Top heavy corporate management &amp; inter departmental politics.
+American,2022-04,Coordinating with internal teams in different global regions
+American,2022-04,"Nothing really, happy with it all"
+Singapore,2022-04,"Lack of compassionate management, lots and lots of politics."
+South Africa,2022-04,"As a huge company, exposure can be limited. Unlike small companies where one can be exposed to every area of the business"
+Canada,2022-03,Normally it is a heavy hierarchy and some time lakes of communication
+American,2022-03,"They don't like it if you share your genuine opinion, they just want you to do the work silently."
+American,2022-03,None I can think of.
+Canada,2022-03,Big workload Unionized operators complicating the ways to improve the operations
+Australia,2022-03,"External vendor soup - everything in their IT sections is outsourced. Red tape - there is more bureaucracy then a public service, you won't get anything done. Senior management has a ""everything is ok"" approach when the reality is very different."
+Canada,2022-03,"Big difference in culture between corporate based jobs and operational. Very political and opportunities for growth are mostly given to people that are extremely good at networking. Company very risk averse, limited growth in terms of new functions or acquisitions, but new teams are always being added."
+American,2022-03,Not much. Harsh working conditions
+Australia,2022-02,Male orientated workplace focusing on men
+Australia,2022-03,"Large bureaucracy, silos, too many roles based in the city rather than residential in the Pilbara"
+American,2022-03,"Company is too big to navigate, some areas are full of politics, salary is lower than industry average, losing people to BHP"
+American,2022-03,none. with the company to date
+American,2022-03,Rio Tinto is also large and slow to respond to market demand. Meritocracy is not embed in its processes and therefore employee morale is often low and turn over is significant.
+Australia,2022-02,"Usual HR issues, poor communication"
+American,2022-02,"Unfortunately with the current market, the current employee value proposition is no longer competitive and is extremely underwhelming at best. You're much better off practically any other company - as they consider as a cheap Rio Tinto the training ground."
+Canada,2022-02,More emphasis given to learning on the job. Very stringent when it comes to formal classes from eg vendors.
+South Africa,2022-02,Too long to rise through the ranks
+American,2022-02,On site good is terrible
+Australia,2022-02,Haven for narrow minded thinkers and bullies.
+Australia,2022-01,Pay is not based on experience or qualifications. New employees are commonly on close to or more than people who have been with the company for a long time
+Singapore,2022-02,Many many reorganizations managed by leaders who bully staff to take roles to avoid redundancy payouts. Leaders only care for financial results and do not care about the people who work for them. Office in Singapore is very divided between expats and locals.
+American,2022-01,"Very lean, experience highly dependent on quality of leadership"
+American,2022-01,Perth is a bit too quite
+Australia,2022-01,Low salary relative to tech companies.
+American,2022-01,"Beurocracy, Red tape, lots of process, slow to react, MOC"
+Australia,2022-01,"Nil, nothing to add really"
+American,2022-01,"Slow to implement, decisions made ad hoc and often at senior levels"
+Singapore,2022-01,Normal not much better or worse
+American,2022-01,Not much support and male dominant
+Australia,2022-01,"- If management is only interested in profits then your career development will fall in line with what will gain them the best bonuses. - Your wage does not increase with your skill set, just be happy for the opportunity. - You are expected to work roles/hours outside of your contractual obligations because YOU want to, not because you will be compensated for doing so."
+Australia,2022-01,Less money then big miners
+Australia,2022-01,I haven't seen any worst things
+Singapore,2021-12,Bureaucracy Non integrated systems and tools Slow in IT support No training or onboarding program in place
+Australia,2021-12,"leadership can be vauge, operations are always running lean and support can be sparse or non existent at times."
+Canada,2021-12,Need to do night meetings frequently
+Singapore,2022-01,Uncertainty in career progress and development
+American,2021-12,The company can be slow at times
+American,2021-12,there is nothing I can think about
+Australia,2021-12,Low budget for food low qualty
+Australia,2021-12,It is a remarkably un-diverse workplace by amost any measure. Most of the people making decisions have never worked anywhere else. There are no performance based incentives so everything comes down to who you know and cronyism runs deep here. Management mosty progress via technical specialist roles. Not a good career move.
+Singapore,2021-11,1-Limited career progress for talent outside mainstream 2-Limited focus on long term and innovation
+United Kingdom,2021-12,Low salary could be more
+American,2021-11,Grad program had some useless mandatory development activities
+Australia,2021-11,Big company politics mean individual effort is watered down
+American,2021-12,"Big company, bureaucratic, poor people management"
+Canada,2021-11,"Tolerance of brilliant, yet toxic senior level individuals who are disrespectful and abusive Canadian operations and employees viewed as «&nbsp;lesser&nbsp;» employees and are treated differently than Australian or UK employees. Far fewer opportunities than for UK or Australian employees. Lack of diversity."
+Australia,2021-11,Terrible bonus structure for floor workers.
+Australia,2021-11,"Lacks diversity, needs to work on building trust following Juukan Gorge disaster"
+Australia,2021-11,"-You will not get a pay rise, they used to do it but now its inflation only -constant org reshuffles in an attempt to fix systematic issues -base pay is no longer competitive and bonuses have been stripped back -mid level leaders are not empowered, staff are not trained or developed. -leaders get excited by the next new tech shift without fixing existing problems -they will hire external rather than develop internal staff"
+Singapore,2021-11,Too bureaucratic and risk averse
+American,2021-11,Two sets of rules exist between the main workforce and senior leaders. Very little accountability for poor decisions made by leaders. Many fail to uphold the company values. Constant re-structures add to the disorganisation and the answer is to simply throw money at the problems instead of addressing them at the root cause.
+American,2021-10,"Toxic culture Insecure, incompetent people who brown nose are the ones promoted. Experience is seen as a threat and huge turnover of people doing the grunt work. No strategy and 100% focus on costs. Hot desks are horrible. If people want to work from home and have proven themselves productive, management should let them work where they want. Their new Everyday Respect Task Force is nothing but a joke and something corporate can pitch to the media to say they are working on their internal issues. Sent an email to their generic email address, only to receive a boilerplate response several days later, and stating they would reach out to immediate manager. So much for confidential and anonymous. Their reputation is still hurting from their big cave blowup in 2020 and still no signs of recovering. Lot of internal politics with promotions given to mates rather than competent people. Silos culture and a lot of bullying attitudes. Managers are more caught up with ensuring they have people reporting to them in the org chart rather than career development of their staff. Lowball offers for contract to permanent roles"
+Singapore,2021-10,"Lots of team restructure, can be various reasons, such as leadership change or people movements"
+United Kingdom,2021-10,none what so ever ever
+Singapore,2021-10,Frequent change management and re-organisations
+United Kingdom,2021-10,"you need to be male, white and middle class before joining this company"
+Singapore,2021-10,"Toxic work culture. Very hard to get anything done as everyone is resistant to change. Even if the change is an obviously good idea it will get stalled for months then quietly pulled. Perception prevails over reality. By this I mean the loud shouty career politician types who tell everyone how good they are, are seen as much better than the people who are good at doing the actual work. There is also a ""woke"" agenda in the workplace that is being heavily pushed by HR so that hiring candidates has nothing to do with actual skill anymore. All the VPs run their divisions like feudal warlords. Internal promotions across business units are almost impossible to get as the managers prefer to just hire their mates. It is very much not a meritocracy."
+Canada,2021-10,Mining industry takes you away from home.
+Singapore,2021-10,Getting a promotion is tough
+Canada,2021-10,- diversity to be further developped in higher lvl management - more leadership development/mentoring from experienced peers should be available to younger employees
+American,2021-09,Working on relationships with internal and external stakeholders
+Singapore,2021-09,A lot of baggage/negative past experiences to work through and overcome
+Australia,2021-10,Nothing major pretty good environment to learn and grow
+American,2021-09,Lower salary competitiveness compare to other
+Singapore,2021-09,"- Very long working hours (Have to work more than 12 hours a day and even 1 or 2 days on weekend). Factoring in the long working hours, the compensation is not longer that great. - Constantly (Almost hourly) monitoring of AWS Cloud log to make sure you are working and not slacking off. - Monthly feedback session is just an opportunity to remind you of "" How high your pay is and how many people are waiting to replace you!"" - Office Politics is rife, Regardless of what contribution you made, it will be portrayed as “easy tasks.”"
+United Kingdom,2021-09,Poor conditions overall but ok
+American,2021-09,Resistance to change Archaic processes/software Clueless management who bring in awful processes to try to 'fix' major structural issues with how departments are run without actually listening to the people in the teams who know what they're doing Below market pay No value placed on training upcoming engineers 'properly'. They get thrown in the deep end with zero mentoring or coaching
+American,2021-09,"Re-building company's reputation not easy,"
+American,2021-09,Not immune to global organisation heavy weight processes. Require experience and people networks to cut across organisation silos.
+Singapore,2021-09,Company culture is abysmal. Management is all about further their own self interests than promoting internal talents.
+Canada,2021-08,None I can think of
+American,2021-08,Bad for selecting good people
+American,2021-08,There is no comments to make
+American,2021-08,Remuneration for new employees is generally more than current.
+Canada,2021-08,Long hours due to global role Conflicting responsibilities
+Australia,2021-08,Projects often 'shoot from the hip' approach. Too many people involved in projects with lack of well defined process.
+Singapore,2021-08,"Too much re-structuring, very strong Australian culture, needs more inclusive behaviour"
+Australia,2021-07,"low pay, not a very good bonus system"
+Australia,2021-08,"Not a fan of actual tech disruption Managers have a set mind, rather being flexible"
+Singapore,2021-07,"not challenging , less promotion opportunity"
+Australia,2021-07,you can be one of many many people - just a number
+American,2021-07,"Global Company, meaning you can sometime get lost in the organisation"
+American,2021-08,Management seems to act like police they rule your life .
+Australia,2021-07,"very long hours, working across various time zones. Very hierarchical organisation"
+Australia,2021-07,The best career opportunities are interstate or overseas
+Canada,2021-07,Not applicable - Nothing to report
+Australia,2021-07,Growth can sometimes be slow
+American,2021-07,Globalization of essential services causes inefficiency and frustration.
+American,2021-06,Can not think of any
+American,2021-06,"If you are looking to design/innovate, this isn't the best place to start"
+American,2021-06,Large company bureaucracy Messy systems Good conditions has led to a lot of 'entitlement' for some
+American,2021-06,Very bureaucratic and IT is terrible.
+Australia,2021-07,Too bureaucratic in communication channel
+American,2021-07,Company is very impersonal and employees may lose motivation at times
+Canada,2021-06,Nothing to report as cons
+American,2021-07,Seeking diversity (Which i support) has negative impact to white middle aged men
+American,2021-06,"Site work exposes you to a different type of stress , have to watch your back, personnel not so cooperative or trustworthy."
+American,2021-06,a bit disorganized but is expected in a large company
+American,2021-05,Individual contracts and different pay scales
+Singapore,2021-06,Very long hours especially if you are in a global role. Messy systems and infrastructure.
+Singapore,2021-05,hard to move within company
+Australia,2021-06,there is no traditional trainings for graduates. It is more like a free-range platform with a high level of autonomy.
+American,2021-05,non that I can think of at this stage
+United Kingdom,2021-05,Nothing in particular to mention in cons
+American,2021-05,"remote,hot, lonely &amp; miss friends and family"
+Singapore,2021-05,"Too many changes, no clear direction, relevant politics over process"
+American,2021-05,Lower salary than other mining companies
+Canada,2021-05,"-Most employees in this industry are a bit older crowd (32 and up, average in the 40s), so not super exciting if your in your 20s looking to work with peers -Depending on your team and your band, you may work a 9to5 or much longer hours"
+American,2021-05,"Too complex structure, red tapes"
+American,2021-05,"career progression, hierarchy is very rigid"
+American,2021-04,"Fifo, away from family sucks"
+American,2021-04,Medical assistance is a nice add on
+Canada,2021-04,Not taking care of their employees like they should. People are overworked!
+American,2021-04,Very risk adverse so decision making takes a long time. Some silos in areas.
+American,2021-04,"Stress, demanding, expectation, big, reactive"
+Canada,2021-04,"The hours can be very long, I don’t mind, but I know others do"
+American,2021-04,"Not too many opportunities for web development stream but if you love data, its great place to learn and contribute"
+American,2021-04,"No cons so far, it's a good place to work"
+United Kingdom,2021-03,Parent company's decision to close
+American,2021-04,"Not a lot of development, no contractor conversion within the facilities department which sees a high turnover and knowledgeable, experienced people walking out the door"
+American,2021-04,Large siloed operations with many bureaucratic processes.
+American,2021-03,Huge Company Recognition takes bit of time
+Australia,2021-03,None that I really need to mention
+American,2021-03,Long hours sometimes over time
+Australia,2021-03,lower pay than BHP or FMG
+Australia,2021-03,Matrix organisation can be a challenge
+Australia,2021-03,restriction in opportunities as I spent more time with company
+Singapore,2021-03,"Lots of organisational changes, which can be unsettling A lot of time spent in strategy workshops, but outcome rarely shared or implemented"
+Canada,2021-03,Leadership direction is often not clear
+Australia,2021-03,"same tasks, no much room for career path"
+American,2021-03,Convoluted business structure and continual initiatives that distract from real work
+Australia,2021-03,"I experienced none, enjoyed everything"
+United Kingdom,2021-03,"HQ leaders are incapable of making decisions. When you thing that you are finally there, their will either find a way to postpone the decision or hire a consultant to review everything again."
+American,2021-03,Too lean (perhaps just my department).
+American,2021-03,Working away has its toll on family life
+American,2021-03,too much paperwork and red tape like any other large company you may not make a big impact on the organization
+American,2021-03,"Highly political, competitive, and bureaucratic. Operates very differently to other companies and takes a while to learn the ‘Rio way’ of doing things. Growth opportunities are available, but very competitive. Large number of people who have never worked anywhere but Rio and as such are unable to search for opportunities outside and thus are hyper competitive to climb within the business."
+American,2021-02,Training poor quality Non Settled Employment Job Satisfaction
+American,2021-02,Most Jobs site based. FIFO or site based roles pays well. Base is low. Experience depends vastly on team leader
+American,2021-02,Advancement is based on perception not delivery. SME/Technical personnel overlooked as generalist have more sway.
+American,2021-02,"Perth (haha), Working in mines (if you are rostered)"
+Singapore,2021-02,Revolving door of senior management
+Singapore,2021-02,Consensus based across the board
+United Kingdom,2021-02,"Like many commodity companies, poor ESG credentials"
+American,2021-02,long time away from home
+Australia,2021-02,"Challenging location, some leaders need to develop their leadership skills"
+Australia,2021-02,don't think there are many
+American,2021-02,The plethora of systems can be frustrating
+Singapore,2021-02,good if you are not asian
+American,2021-02,long hours however they were through choice. The heat!
+Canada,2021-01,Work life balance is a challenge
+American,2021-01,Pay is lesser than other mining companies
+Canada,2021-01,Very hierarchical management style; difficult to lead without the title
+Australia,2021-01,You'll never progress if you're outside the circle
+Canada,2021-01,- Lack of Collaboration - Stakeholders Engagement can be heavy
+Canada,2021-01,"Global company can mean longer days, late or really early meetings."
+Canada,2021-01,Lots of meeting outside of business hours to connect with other offices through the world. Big company where it is long and difficult to implement change. Re-organization can happen very quickly and there is no sentiment for employees at this point
+American,2021-01,"Nothing not at all,no cons"
+Australia,2021-01,This is about the development opportunities
+Australia,2021-01,Bureaucracy and red-tape. Need to be able to navigate workplace office politics.
+American,2021-01,Workload is more than other smaller coy
+American,2021-01,"Corporate speak, a bit hand clappy"
+American,2021-01,Culture is toxic. Experience is seen as a threat and huge turnover of managerial/supervisory positions. No strategy and 100% focus on costs.
+American,2021-01,"Not always people oriented, lots of restructures"
+Canada,2021-01,"Toxic environment, closed mined personnel, can be distant to new people, trust issues. money driven."
+American,2021-01,Overboard safety. Terrible pay. Company housing leaks everything it rains and they won't fix it so my partner and I have to sleep in the lounge room. No upskilling. No training. No career development. Supervision is incompetent. Management is incompetent. This is where your career goes to die.
+American,2020-12,None I can think of
+South Africa,2020-12,"Large corporate, diverse, cost sensitive,"
+Australia,2020-12,Work 10 hours a day
+Australia,2020-12,"Average pay, never get a bonus while the company makes billions in profit and they treat their workers like trash. Constantly idnore massive safety concerns die to budget, they destroy Australian history for profits. Don't know a single employee that is happy at the company that is on the floor level, I shouldn't be surprised seeing as it's a Rothschild corporation"
+Canada,2020-11,Management turns their head and do not listen
+Canada,2020-12,Many business units across the globe but little opportunity for international mobility. Poor talent and expertise management structure.
+Singapore,2020-12,"Everything ... seriously, it is the most depressing and dysfunctional workplaces I've ever encountered. One walk around the offices shows moroseness, heads down, scared looking, and staring blankly ahead. Nobody says greetings like ""good morning"" or ""hello."" It is horrible. Read the other reviews on Glassdoor. In order of worst Cons: 1. Seems to be that employees are the ""enemy"" and they are frequently undermined. No pun intended. 2. Salary - Initially, salary seemed pretty good, but company has a habit of unilaterally cutting base salaries and benefits whenever possible, sometimes up to 30% or more. This can be a blanket ""removal of allowances"" or a restructure of the bonus calculation - all with the aim of reducing salaries paid to employees. Similarly, almost any time a role is refilled, the ""banding"" or salary range will be downgraded so that the incoming replacement is shorted some compensation. Similarly, roles often get combined or off-shored so have to do more for less 3. It is an ""old boys network"" in the classic sense. In order to keep this lucrative musical chairs going lower downs may be undercut and outsiders never brought in. 4. Backstabbing - Setting up for failure or simply not supporting are common practice in my experience, it is the accepted way of work here. It is remarkable that anything actually gets done (not much does) due to the constant plotting and restructuring and empire-building that goes on. 5. Ego - Rio Tinto thinks of itself as the greatest company in the world: ""We aren't a mining company, we are a tech company ""... Well, certainly suppliers and customers laugh at that. The company doesn't want fresh or innovative ideas despite paying lip-service to this. 6. Diversity and Inclusion - Or, lack of. 7. No training or development budgets. This was always hidden from employers and only recently was essentially taken away. Training or development must come from departmental budgets and hence ... not supported. 7. Double-speak: Rio are masters of ""saying one thing, yet doing another."" One has to read between the lines for almost all internal communications to understand the real meaning or intent. Up is down, black is white and night is day in the Rio Tinto world. For example, the recent revision of the bonus calculation method was ""not a cost reduction exercise"" but rather a ""positive revision to make the system simpler."" Oh, but the fact that many will get lower bonuses well, that is just a coincidence. [Sarcasm intended.]"
+Singapore,2020-12,"highly political, lack of willingness to address shortfalls, misogynists culture"
+Australia,2020-11,"Nothing at all, a great place to work."
+Canada,2020-11,"sometimes it is difficult to get things done due to lack of clear process, accountability and complexity of the organization."
+American,2020-10,Working hours can be more flexible
+American,2020-10,I cannot find any cons here
+American,2020-11,Lower pay compared to other mining companies Limited training budgets
+American,2020-11,"Sometimes have to travel to next city, which makes me feel sick"
+American,2020-11,"Big Australian miners are inefficient, which is frustrating."
+Australia,2020-10,senior management has lost its way
+American,2020-11,Company still recovering from the recent bad press
+Canada,2020-10,Lots of systems. No other at this point.
+American,2020-10,"No cons at all, everyone should work for them."
+American,2020-10,Doesnt pay as much as others
+Singapore,2020-09,Very toxic culture filled with incompetent people seeking approval from management
+American,2020-10,Pay structure not very transparent and company loyalty not valued enough.
+Canada,2020-09,Very big Company with lots to do
+Australia,2020-10,Nothing bad to say about this company
+American,2020-09,"Long hours, expectation to work whenever is required."
+Canada,2020-09,"Work Life Balance, unsustainable work hours for leadership"
+American,2020-09,"Poor diversity, particularly in leaders Old school train of thought amongst leaders."
+American,2020-08,Reorganisation has meant loss of institutional knowledge
+Australia,2020-08,Awful culture Boys club Say all the right things on paper but treat their women like their work is not good enough slowly squeezing them out the door.
+Singapore,2020-08,Politics. Streamlining of roles have left teams very lean in resourcing.
+Canada,2020-08,Long Hours and lots of work
+Singapore,2020-07,Some bureaucracies that are being removed
+American,2020-08,Work life balance wasn't as good as some other smaller mining companies
+American,2020-07,Management is not flexible Lack of training
+Singapore,2020-08,Constant reorganisation. No job security.
+Singapore,2020-08,long working hours and not much benefits
+Singapore,2020-07,"Hierarchy, multiple complex and sometimes overlapped work processes"
+United Kingdom,2020-07,"Too hierarchical and bureaucratic, change is hard"
+American,2020-05,"Slow to make meaningful changes, half pregnant on inclusion, short termism in decision making, costs prioritised over value, promotions based on technical merit not leadership potential, leadership not strong."
+Australia,2020-07,No structured learning and growth
+American,2020-06,My experience at Rio Tinto was mostly positive.
+Australia,2020-06,Lots of regulations in place which slows down works related to tech Lots of politics as opposed to being frank and clear
+Australia,2020-06,Sometimes people were promoted into management roles who weren't suitable managers.
+American,2020-06,career progression / salary / benefits
+Canada,2020-05,"lot of changes, can be out of control at times"
+Singapore,2020-04,Working environment is slightly dull for young graduates in Singapore.
+American,2020-04,Not specified examples of the assessments
+Canada,2020-04,A lot of complexity for absolutely nothing.
+Singapore,2020-03,requires more improvements in terms of technology and innovation
+American,2020-04,Communication between management and operations
+Australia,2020-02,"Like many others have commented Rio has been in a steady decline since 2015. The company has taken the opportunity to gouge employees at every opportunity along with seemingly non stop restructured makes for an unpleasant work environment. Rio isn't terrible, it's just the other big miners are so much better than them."
+Australia,2020-01,"Very corporate, slow HR process"
+Australia,2019-12,Average salary and global decisions that sometimes don't align with local needs.
+American,2020-01,"When change isn't managed well or when plans are not well tested, employees work in a state of constant, unhealthy stress."
+Australia,2019-12,"Can be boring, middle management decisions, pay could be better"
+Canada,2019-12,"Long hours coordinating with colleagues in other countries, relatively poor career development support, constant restructuring, very cyclical industry."
+Canada,2020-01,Too many change management experiments
+American,2020-01,"Risk adverse, very hierarchical, big company"
+Australia,2019-11,Too much bureaucracy and lack of ownership for decision making
+Canada,2019-10,Due to time zones of a global company - you may need to do a few early morning or evening calls BUT everyone is so flexible and fair and since you have a flexible schedule its on you to manage it appropriately. You can say No :)
+American,2019-10,Very little scope for employee development. Poor people management resulting in company losing very good engineers. Managers don't really groom and promote the deserving and hard working engineers. Not a thriving working culture where employees feel empowered. So many new Perth based teams with many overlapping roles and very hard to know who is doing what.
+American,2019-10,Management doesn’t listen to experienced personnel
+Australia,2019-10,"Long hours, recently transformed, bureaucratic, riak adverse"
+American,2019-09,Being in one place for too long.
+American,2019-08,Too many ' internal rules
+American,2019-09,Hard to make change in such a large company
+American,2019-08,i don't have any cons to speak of
+United Kingdom,2019-07,Politics and a propensity to focus on the short term.
+American,2019-06,Doesn't actively listen and engage some of their most experience technical subject matter experts
+American,2019-06,sometimes not very flexible with new technologies
+Singapore,2019-07,Politics can be out of control at times
+Australia,2019-06,"still some silos in the organisation, but we do have a good senior management team who are looking to challenge the stereotype of a global mining organisation"
+American,2019-07,Have to travel a lot more.
+American,2019-06,There are none at the moment
+Australia,2019-06,No flexibility on remuneration and no allowances provided when working away
+Singapore,2019-06,"culture in Singapore is very non-inclusive. if you are a white male from australia you will be fine, but if not you will enjoy a misogynistic nepotistic culture and a perception held by most white males in the company that they are being overlooked for undeserving diverse talent (even though there are no Singaporean’s in senior roles in Singapore and women are few ) A lot of talk about inclusion but who gets promoted and rewarded is bullies and/or people who are just good at self-promoting on yammer/power point. there is lots of bullying actually and people who undermine other colleagues to get ahead, especially in Singapore...not an enjoyable place to work exco is I think well-meaning but need to improve the culture"
+Singapore,2019-04,"-Too shareholder centric which is understandable given they are listed across multiple stock exchanges. Despite having the best performance in over 140 years of operation, the bonus was a measly 2 months. -Tall hierarchy. Too much politics at all."
+United Kingdom,2019-05,management and policy changes were badly communicated
+American,2019-04,None has been good career.
+Singapore,2019-03,Avoid at all cost now
+United Kingdom,2019-03,Small footprint in London and decreasing
+South Africa,2019-01,Largely divested from Africa and downsized
+American,2018-11,"Management not great, very limited chance of getting a promotion."
+Singapore,2019-01,"Lack of Consistency from Leadership , Constant Changes before Strategy is implemented, Too Short term view, Internal politics"
+American,2018-11,Career growth opportunities are limited Workspace lacks modern outlook
+American,2018-11,Rio Tinto needs to find the focus and discipline to drive advancements home with proper process.
+Australia,2019-01,The organisation has changed so many senior people that no one knows who does what any more. The new team don’t know the business basics Are yet so everything is highly politicized. The new operational hubs are a long way from operations and the top down centralisation can kill local initiatives.
+American,2018-11,"Work life balance, not enough time with family"
+Canada,2018-09,It depends on everyone's experience.
+Australia,2018-09,"Exceptionally poor systems and processes, which frustrate employees and leaders. Business claims it’s fantastic, but systems like AskHR are disgusting. They are slow, response is poor, result is often not what you request. The application of any common sense in relation to what you request is non exiting. Fellow leaders would literally slump in their chair when they knew that they had to use these systems to help their employees."
+Canada,2018-09,Great Job uncertainty major company wide layoffs every 6 months
+Australia,2018-10,"Absolutely farce of a performance appraisal process, it would be easier and more cost efficient to just give pay rises where deserved, you gotta be in the boys club. Real talent generally gets unoticed (on purpose) and walks out the door a year later. Lots of acting opportunity if you like doing higher duties and responsibilities for no extra pay this is your company. Very reactive to incidents and safety. No transparency whatsoever."
+Australia,2018-11,There’s a few cliques in coal and iron ore BUs The transformation of shared services the last 4 years has not delivered its intended outcomes and would have cost a fortune that I now understand had been partially reverted.
+United Kingdom,2018-09,"Work landscape constantly changing, middle management overload"
+Australia,2018-09,current reshape of the business
+American,2018-08,Could not ask any better workplace
+American,2018-09,Bureaucracy that comes hand in hand when working as part of a larger company
+Singapore,2018-08,"Very political, good performance doesn’t get you ahead. Currying up does."
+American,2018-08,You have to know someone to get ahead. Poor leadership up through senior leaders that don't have ground experience. Poor leaders are not dealt with.
+Singapore,2018-08,You will used up all the health benefit. Cos the manager are crazy people. Force you come early and don't let you off until 6.30pm. And kept giving threat to staff by saying will sack them. The higher management knew your mistake and had agreed to threaten you.
+American,2018-09,Dynamic scheduling is run like a private kingdom Zero transparency Direct appoint people to roles with no advertising the position or giving other candidates even a chance of applying. Secondments almost always given to people outside the team. Demoralising for schedulers who realise they will have no scope of growth. Leadership team utilise nepotism as means to get mates jobs. Manager busy scoring brownie points direct appointing people to roles. Direct appointing people based on gender and nepotism. Zero value for skills experience or knowledge. Rio values of transparency equal opportunity etc is non existant in dynamic scheduling as a department.
+Singapore,2018-07,Depend on which BU you works in. Some are really bad because of too rigid rulings
+Singapore,2018-07,"Structural changes, ongoing job cuts"
+American,2018-07,Functional or technical review (restructure) happens far too often and affect morale. Decision to work in an agile working environment reduced productivity and made me feel like i am just a resource and not valued. HR does not acknowledge and provide closure for applicants. This is embarrassing especially when we refer good candidates to HR and they leave them hanging. why bother?
+Canada,2018-04,Heavy focused on staff reduction and outsourcing in IT Constant reorganization and change in the structure Very difficult and stressful for people who don't do well with job insecurity due to the constant restructuring
+Australia,2018-04,Uniquely administrate multimedia based e-markets with functional opportunities. Holisticly customize exceptional outsourcing without standardized benefits. Conveniently syndicate granular architectures before future-proof ideas. Compellingly leverage existing fully researched value.
+Canada,2018-05,"As everything changes so often with any reason, nobody is accountable for nothing, creating inefficient processes. Lot of uncertainty lead by a small elite very unproductive and boot licking."
+Canada,2018-03,Challenging and can disrupt work life balance
+Australia,2018-04,"Ultimately it comes down to this. During my 7 year career with Rio I was not given the opportunity to advance my skills in geology to move either into another geology role (without going back to graduate roles) or move up in the system (boom over positions consolidated old wood not trimmed). You won't be given opportunity to model deposits, you won't be given opportunity to move into other siloed departments, you probably won't get overseas (although I did...) and unless you happen to get lucky the role will be a dead end."
+American,2018-04,"Demands on time, travel can be excessive"
+Canada,2018-03,"Development path, structural changes often"
+Australia,2018-03,Remote Areas can be difficult for work life balance
+American,2018-02,Manager can't help to grow the team
+American,2018-03,The company is huge to keep collaborate with all stakeholders.
+United Kingdom,2018-02,Huge change program underway creating uncertainty and low loyalty (both ways)
+Australia,2018-03,"Working away, Monotonous, 2/1 Roster"
+Singapore,2018-02,"1. Lack of cohesion between Executive leadership 2. With the creation of the new Commercial organisation, everyone has worked well to have their cronies into MD & GM positions 3. Lot of senior leaders are out of touch with reality and only interested in looking after themselves and their rat pack 4. Talent & hard work means nothing, it’s all about who you know and suck up to 5. Big news about diversity, where’s the local talent development. instead bring expat females (only ONE Singaporean GM out of almost 35, not a single Ecco member other than people from Australia, EU & North America) 6. Scale is heavily tilted towards Project Managers and handful of people who actually do work 7. A culture of meeting and hand balling with no accountability 8. Serious lack of integrity, credibility and honestly, people are pawn they use in their self preserving games"
+Singapore,2018-02,"Changes are inevitable but it can be better communicated. A mammoth organization and folks often work in silos and work responsibilities are finely demarcated, sometimes inadvertently creating a culture where people don't go beyond what is common sense."
+Singapore,2018-02,Too much hierarchy and politics.
+Singapore,2018-02,Company very much guided by short term sharehoder return Mindset is still very industrial and mine / production focused
+American,2018-01,"Pace of change can be scary at times, but makes it exciting and challenging. The global nature is a positive but can make connecting more difficult"
+Singapore,2018-01,"Like most big organisations, there are a lot of bureucracies and red tapes, which slows down a lot of approval process and limits introduction of new initiatives/projects."
+Singapore,2018-01,"Constant changes to structure and jobs, leading to uncertainty and difficulty (temporarily) in adapting and performing within current roles."
+American,2018-01,Business and profit driven. Some unfairness
+Canada,2017-12,It's a nice company. There are a lot of advantages however the date of starting is a little fix. It cold be better.
+Canada,2018-01,"- Long hours of work, no worklife - balance consideration - Uncertainty and instability, too numerous changes in the direction where the company is going in the last 3 years. This company is not for “cardiac” people or they will not stay long - Lack of recognition. Lack of feedback in regards to our work. - As HSE being a priority, should focus more on wellness and wellbeing and mental wellness - - Loyalty. We can be long term employee or not, we are just ""a number"" that they can remove quickly. The company is not showing us the contrary unfortunately."
+American,2017-12,"Sometimes shortsighted planning regarding staff numbers. Still maintain coal assets. Very male dominated company, could do more in this space."
+Canada,2017-10,"Great level of stress, constant job uncertainty"
+Australia,2017-11,None that i can think of
+Australia,2017-11,Management can sometimes be unproffessional or even cowboyish. Most are very respectable but there are a few that let the team down but as they have good technical and working knowledge they are generally left to there own devices to acheive the desired results.
+Australia,2017-09,"Fifo, camp life. Every aspect of the job has been squeezed corners cut and productivity over safety. A strong push for the appearance of a safety culture. Everything is subject to change for company requirements"
+Australia,2017-08,Very demanding environment with constant change. It requires high emotional resilience. Workloads can be high as the tend to have many initiatives on the go all the time
+Singapore,2017-08,Overly consultative and too consensus driven at times which can stall progress and decision making. Working across global timezones can be challenging/exhausting.
+United Kingdom,2017-07,Heavily male dominated and a real feeling it would be more difficult to climb as a woman.
+American,2017-05,Bullied small companies. Care about money and profit over employees and safety. Once were good but squeezed and squeezed employees until most now hate the company and show up just to be paid.
+American,2017-05,"No prospects of growth, Stagnation."
+Australia,2017-04,Work-life balance with the 8 days on 6 days off roster. Staying longer duration on site can start getting to your nerves after a while.
+United Kingdom,2017-05,"People are instiutionalised, due to redundancies people were miserable so made for a difficult work environment, easy to get siloed and things took forever to get done."
+Canada,2017-04,You are just a number unless you have an exeptional manager or a mentor within the company. Creer development is zero
+Australia,2017-03,No career path for contractors
+American,2017-04,No career advancement unless you are female or from an indigenous background
+American,2017-03,"Not the fault of the company, but the economic climate is leading to a wave of outsourcing and downsizing in the mining sector. Inevitably the larger companies are less agile in making decisions."
+Canada,2017-02,"Long hours, living away from home and family."
+American,2017-02,"Too many incompetent people and flatterers, only interest to climb their way up and nth else. Don't have a strong sense of career achievement if stay there for too long. Higher management team is pretty mean."
+American,2017-02,constant org structure changes crippling the business.
+Canada,2017-01,"Fatigue Culture, lack of transparency from leader, transformation cut to deep and has left the morale and confidence for the future fractured"
+United Kingdom,2017-01,No cons to employment at Rio Tinto which is interested in Win-Win situations for all stakeholders including market competitive rates for employees and contractors.
+American,2017-01,"Less focus on career development for professionals, rigid systems (No flexible working options)"
+Australia,2016-12,I don't find any cons for Rio
+United Kingdom,2016-12,Cost cutting has led to low morale; nepotism in some parts of head office with executive assistants and other youngsters who have not been promoted on merit; sometimes a reluctance to challenge senior executives or managers.
+Australia,2016-12,"- you are just a number - completely sexist still, boys club in senior positions, they will have social drinks just with boys invited and won't invite any women, there is a negative light and negative comments are made about women that only work 3 or 4 days a week as they have young kids at home or have just had a baby - what makes it more annoying is that the company constantly talks about ""diversity & inclusion"" when it clearly the least diverse and least inclusive company around - people will outwardly lie to make you look bad so that they can try look better"
+American,2016-11,Stagnancy owing to global downturn in the commodities market.
+United Kingdom,2016-11,"The pay is not that great. Although the friendly atmosphere makes up for it because it does not even feel like work, it feels like getting to spend time with friends."
+United Kingdom,2016-11,Systems are appalling taking twice as long to get anything done. People work in silos. More and more is being squeezed out of employees with little or no reward. Company culture is non-existent. They certainly would be found on any 'Best Company to Work For' listing.
+United Kingdom,2016-11,Poisonous culture fostered by political gaming The world under Sam was pretty tough but it was performance based. Under J-S it is malevolent and deeply political
+Singapore,2016-08,Lack of adequate development opportunities. Alot of focus on 'serving time' in junior positions. The hierarchy within procurement function is too steep. Lack of decision making power at junior levels does not come as a surprise given it's a multinational company. High impetus on a 'serious' than a 'sincere' work culture.
+Australia,2016-10,"Very limited career advancement. Unless you get a sponsor, you have no chance"
+Australia,2016-08,none that i can remember
+United Kingdom,2016-08,Can be difficult to navigate a large company - build networks locally and internationally - this will help hugely.
+Australia,2016-09,2013-2014 was a tough time for the resource industry
+American,2016-08,Significant amount of administrative requirements
+Canada,2016-09,Spinning off value added industries could lead to being very vulnerable to volatile metal maker prices in a global economy.
+Australia,2016-09,no carrier progression or HR services No sick leaves or bonuses
+Australia,2016-10,Appears that there is minimum development for long term employees. Business future seems unstable making it worrying about the future.
+Singapore,2016-09,"hierachy, process, communication, divisions, manual"
+American,2016-08,"Did not foster movement for mining engineers throughout the business. Not a lot of support through graduate program. Got the feeling that if you got good at something, you were ""pigeon-holed"" and stuck doing that one thing."
+United Kingdom,2016-08,"Under resourced for output expectation, very political and lacks unity. Not such a supportive environment lately, imbalance in workloads, needs fluid resource allocation"
+American,2016-08,"The ability to play office politics is now a required skill at Rio Tinto. Most senior leaders survive because they say yes to their leaders. If you work hard and commit to the company it will count for nothing when the cutbacks occur. If you have an issue you have to ring a call centre in Manilla and listen to some one read a script to you, with an American accent."
+American,2016-07,"The uncertainty that started at the end of the boom with rolling redundancies and restructures every few months was frustrating and made following projects through to the end almost impossible. Those with great mentors within the company were able to be promoted with ease, whilst others were left to flounder. Very safety and health conscious during the boom times however it rapidly went downhill afterwards as they continually cut health and safety teams and training."
+United Kingdom,2016-06,Big corporate company; a lot of waste. Also could do with more training opportunities to help graduates develop better.
+Canada,2016-06,"Too much instability Culture of outsourcing everything in India, Poland etc... Management treats pleople like commodities, no human aspects, consideration for your career aspirations, just blatant favouritism everywhere. They always ask for more and more and they give you less and less. It is simply not a place to work for except for money. Very negative place."
+American,2016-05,"Standard big company stuff. Lots of processes, lack of efficiency, politics, silo effects of different business units competing against each other for outcomes/budgets etc. The interesting engineering work was outsourced to EPCMs so internal engineers did not get to work on them. ""Senior"" engineers were not actually that senior in terms of their technical experience but just years in the workforce so not a great environment for a junior engineer wanting to learn the ropes."
+Australia,2016-05,"Staff cuts went far too far in the Final Solution (where all the 'thinkers' were let go), and most of the organisation's intellectual property destroyed for good. If you're a 'yes' man or woman right now, you'll do well. No longer a leader but a follower. Company has lost the ability to be a free-thinker, back to its Leigh Clifford-era conservatism. Once keen to push the envelope now wants to do the bare minimum. HR departments very poor. Several experiences of great internationally-renowned talent wanting to join the Group but HR incompetence saw them get cold feet. Salary benchmarking non-existent. Talent management program essentially a front for senior management to move their 'favourites' up the ladder quicker (saw evidence of managers rigging scores to keep the 'doers in the basement' as such doing their work for them). I loved my time at Rio Tinto, but looking back am very glad I left when I did. It's a completely different organisation now (I meet up regularly with current employees). I would still just recommend them, as riding the next wave could be exciting.....if you can wait that long."
+Australia,2016-05,"Persistent long hours, doing more with less, Now Now Now attitude from superintendants"
+Singapore,2016-04,"Risk-adverse environment : you have to prove your worth on the same job for 3+ years to be given a shot at a more challenging task/project The good/skilled ones leave, the bad ones stay Ethnic bias in promotion to upper management Gender bias in promotion to middle management (women over men) Dull tasks made even duller by uninspiring management No travel budget Very political environment Weekly meeting are always the occasion to have a good laugh between employees : General Managers show how out of touch with reality they are, everyone talks about his project when clearly no one else knows what they are talking about, apathy is all around"
+Canada,2016-05,Lack of accountability leads to longer periods to get approvals completed.
+American,2016-04,"Was initially offered graduate role, but due to budget cuts, many of the graduate positions were scrapped."
+American,2016-05,"Not their fault, economic slow down didn't allow for Grad Program employment. A lot of people laid off."
