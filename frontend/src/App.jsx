@@ -12,7 +12,7 @@ import DateFilter from "./components/DateFilter.jsx";
 export default function App() {
   const [sentiment, setSentiment] = useState("all");
   const [dimension, setDimension] = useState("All");
-  const [region, setRegion] = useState("All");   // ⬅️ 新增
+  const [region, setRegion] = useState("All"); 
   const [year, setYear] = useState("All");  
   const [page, setPage] = useState(1);
   const [size] = useState(10);
