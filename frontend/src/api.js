@@ -16,15 +16,13 @@ function buildDimsQuery({ dimension, mode } = {}) {
   return q;
 }
 
-// ✅ 新增：地区 / 年份 查询片段
 function buildRegionYearQuery({ region, year } = {}) {
   const q = {};
   if (region && String(region).trim() && String(region).trim() !== 'All') {
     q.region = String(region).trim();
   }
   if (year && String(year).trim() && String(year).trim() !== 'All') {
-    q.year = String(year).trim(); // 支持 '2024' 或 '2024-06'
-  }
+    q.year = String(year).trim(); 
   return q;
 }
 
