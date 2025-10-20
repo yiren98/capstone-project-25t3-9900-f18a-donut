@@ -1,21 +1,39 @@
 # Launch Flask server and provide API endpoints for frontend data access
 
-from flask import Flask, jsonify, request, abort
+import re
+from flask import Flask, jsonify, request, abort, session
 from flask_cors import CORS
 import pandas as pd
 from pathlib import Path
+# login library
+from werkzeug.security import check_password_hash, generate_password_hash
+import os
+from functools import wraps
+# 顶部配置
+from datetime import timedelta
 
 app = Flask(__name__)
-CORS(app)
+# allow to grab cookie
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-secret-change-me")
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=14)  # remember 有效期
+# 如果前后端不同源并用 Cookie：
+# app.config["SESSION_COOKIE_SAMESITE"] = "None"
+# app.config["SESSION_COOKIE_SECURE"] = True  # 生产环境走 HTTPS 才能用
+
+CORS(app, supports_credentials=True)
 
 # -------- Path Configuration --------
 ROOT_DIR = Path(__file__).resolve().parents[1]   # one level above backend/
 DATA_DIR = ROOT_DIR / "data"
 PROC_DIR = DATA_DIR / "processed"
+# add user's dir
+USERS_DIR = DATA_DIR / "user"
 
 NEW_DATASET_CSV_1 = PROC_DIR / "new_dataset.csv"
 NEW_DATASET_CSV_2 = PROC_DIR / "newdataset.csv"
 COMMENTS_CSV = PROC_DIR / "comments.csv"
+# add user's csv
+USERS_CSV = USERS_DIR / "user.csv"
 
 def _pick_new_dataset_path():
     if NEW_DATASET_CSV_1.exists():
@@ -182,6 +200,59 @@ def load_comments() -> pd.DataFrame:
     })
     return out
 
+def _load_users():
+    """
+    返回 dict: { email_lower: {email, name, role, password_hash or password} }
+    """
+    users = {}
+    if USERS_CSV.exists():
+        df = pd.read_csv(USERS_CSV)
+        for _, r in df.iterrows():
+            email = str(r.get("email", "")).strip().lower()
+            if not email:
+                continue
+            users[email] = {
+                "email": email,
+                "name": str(r.get("name", "")).strip() or email.split("@")[0],
+                "role": str(r.get("role", "")).strip() or "user",
+                # 兼容 password_hash 或 password 字段
+                "password_hash": (str(r.get("password_hash", "")).strip() or None),
+                "password": (str(r.get("password", "")).strip() or None),
+            }
+        return users
+
+    # fallback: 演示用户（email: admin@example.com / password: admin123）
+    users["admin@example.com"] = {
+        "email": "admin@example.com",
+        "name": "Admin",
+        "role": "admin",
+        "password_hash": generate_password_hash("admin123"),
+        "password": None,
+    }
+    return users
+
+def _verify_password(user_row, plain_password: str) -> bool:
+    """支持 password_hash 或明文 password。"""
+    if user_row.get("password_hash"):
+        try:
+            return check_password_hash(user_row["password_hash"], plain_password)
+        except Exception:
+            return False
+    if user_row.get("password") is not None:
+        return user_row["password"] == plain_password
+    return False
+
+def login_required(fn):
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if not session.get("user"):
+            return jsonify({"message": "Unauthorized"}), 401
+        return fn(*args, **kwargs)
+    return wrapper
+
+def _is_valid_email(email: str) -> bool:
+    return bool(re.match(r"^[^\s@]+@[^\s@]+\.[^\s@]+$", email))
+
 
 # -------- Basic Routes --------
 @app.get("/health")
@@ -284,7 +355,114 @@ def api_post_comments(reddit_id: str):
         "items": items
     })
 
+@app.post("/api/login")
+def api_login():
+    """
+    Body(JSON): { "email": "...", "password": "..." }
+    成功后在 session 里写入用户信息，并通过 Cookie 维持会话。
+    """
+    data = request.get_json(silent=True) or {}
+    email = str(data.get("email", "")).strip().lower()
+    password = str(data.get("password", "")).strip()
+    remember = bool(data.get("remember", False))
 
+    if not email or not password:
+        return jsonify({"message": "Email and password are required"}), 400
+
+    users = _load_users()
+    user_row = users.get(email)
+    if not user_row or not _verify_password(user_row, password):
+        # 不要泄露具体是邮箱不存在还是密码错误
+        return jsonify({"message": "Invalid credentials"}), 401
+
+    # 写入会话（只放非敏感信息）
+    session["user"] = {
+        "email": user_row["email"],
+        "name": user_row["name"],
+        "role": user_row["role"],
+    }
+
+    session.permanent = bool(remember)
+    
+    return jsonify({
+        "message": "Login success",
+        "user": session["user"]
+    }), 200
+
+
+@app.post("/api/logout")
+def api_logout():
+    """清除当前会话。"""
+    session.pop("user", None)
+    return jsonify({"message": "Logged out"}), 200
+
+@app.get("/api/me")
+def api_me():
+    """返回当前已登录用户；未登录返回 401。"""
+    user = session.get("user")
+    if not user:
+        return jsonify({"message": "Unauthorized"}), 401
+    return jsonify({"user": user}), 200
+
+
+@app.post("/api/register")
+def api_register():
+    """
+    Body(JSON):
+      {
+        "email": "user@example.com",
+        "password": "******",
+        "name": "Optional Name",
+        "role": "user"   # 可选，默认 user
+      }
+    成功：201，并自动登录当前会话。
+    """
+    data = request.get_json(silent=True) or {}
+    email = str(data.get("email", "")).strip().lower()
+    password = str(data.get("password", "")).strip()
+    name = (str(data.get("name", "")).strip() or email.split("@")[0])
+    role = (str(data.get("role", "")).strip() or "user")
+
+    # --- 基本校验 ---
+    if not email or not password:
+        return jsonify({"message": "Email and password are required"}), 400
+    if not _is_valid_email(email):
+        return jsonify({"message": "Invalid email format"}), 400
+    if len(password) < 6:
+        return jsonify({"message": "Password must be at least 6 characters"}), 400
+
+    users = _load_users()
+    if email in users:
+        return jsonify({"message": "Email already registered"}), 409
+
+    # --- 写入 CSV（仅存 hash）---
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    password_hash = generate_password_hash(password)
+    row = {
+        "email": email,
+        "password_hash": password_hash,
+        "name": name,
+        "role": role,
+    }
+
+    try:
+        import csv
+        file_exists = USERS_CSV.exists()
+        with open(USERS_CSV, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=["email", "password_hash", "name", "role"])
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(row)
+    except Exception as e:
+        return jsonify({"message": f"Failed to save user: {e}"}), 500
+
+    # --- 自动登录（会话）---
+    session["user"] = {"email": email, "name": name, "role": role}
+
+    return jsonify({
+        "message": "Register success",
+        "user": session["user"]
+    }), 201
 # =========================
 # =========================
 # @app.get("/api/years")
@@ -350,7 +528,6 @@ def api_post_comments(reddit_id: str):
 #     pos = int((df["sentiment"] == "positive").sum())
 #     neg = int((df["sentiment"] == "negative").sum())
 #     return jsonify({"total": total, "positive_count": pos, "negative_count": neg})
-
 
 if __name__ == "__main__":
     # Use 0.0.0.0 for Docker or LAN access; for local testing visit http://localhost:5000
