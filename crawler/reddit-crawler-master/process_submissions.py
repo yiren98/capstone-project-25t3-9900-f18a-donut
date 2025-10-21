@@ -14,7 +14,7 @@ def export_to_csv():
     with open('new_dataset.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         # 使用英文表头
-        writer.writerow(['ID', 'Location', 'Time', 'Title-Content', 'Source'])
+        writer.writerow(['ID', 'Reddit_ID', 'Location', 'Time', 'Title-Content', 'Source'])
         
         for submission in submissions:
             # Extract required fields
@@ -38,6 +38,7 @@ def export_to_csv():
             
             row_data = [
                 submission[0],      # ID
+                submission[1],     # Reddit_ID
                 'Global',           # Location - set to Global
                 formatted_time,     # Formatted time
                 title_content,      # Combined title-content
