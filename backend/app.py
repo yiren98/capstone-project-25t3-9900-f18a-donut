@@ -5,205 +5,115 @@ from flask import Flask, jsonify, request, abort, session
 from flask_cors import CORS
 import pandas as pd
 from pathlib import Path
-# login library
 from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.exceptions import HTTPException
 import os
 from functools import wraps
-# 顶部配置
 from datetime import timedelta
 
 app = Flask(__name__)
-# allow to grab cookie
+
+# --- Basic Config ---
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-secret-change-me")
-app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=14)  # remember 有效期
-# 如果前后端不同源并用 Cookie：
-# app.config["SESSION_COOKIE_SAMESITE"] = "None"
-# app.config["SESSION_COOKIE_SECURE"] = True  # 生产环境走 HTTPS 才能用
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=14)
+CORS(
+    app,
+    resources={r"/api/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}},
+    supports_credentials=True,
+)
 
-CORS(app, supports_credentials=True)
+# --- Error Handlers ---
+@app.errorhandler(HTTPException)
+def handle_http_error(e: HTTPException):
+    return jsonify({"code": e.code, "message": e.description}), e.code
 
-# -------- Path Configuration --------
-ROOT_DIR = Path(__file__).resolve().parents[1]   # one level above backend/
-DATA_DIR = ROOT_DIR / "data"
-PROC_DIR = DATA_DIR / "processed"
-# add user's dir
-USERS_DIR = DATA_DIR / "user"
+@app.errorhandler(Exception)
+def handle_any_error(e: Exception):
+    app.logger.exception(e)
+    return jsonify({"code": 500, "message": str(e)}), 500
 
-NEW_DATASET_CSV_1 = PROC_DIR / "new_dataset.csv"
-NEW_DATASET_CSV_2 = PROC_DIR / "newdataset.csv"
-COMMENTS_CSV = PROC_DIR / "comments.csv"
-# add user's csv
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+
+DATA_DIR = ROOT_DIR / "data" / "raw" / "reddit"
+SUBMISSIONS_CSV = DATA_DIR / "submissions_cleaned.csv"
+COMMENTS_CSV    = DATA_DIR / "comments_cleaned.csv"
+
+USERS_DIR = ROOT_DIR / "data" / "user"
 USERS_CSV = USERS_DIR / "user.csv"
 
-def _pick_new_dataset_path():
-    if NEW_DATASET_CSV_1.exists():
-        return NEW_DATASET_CSV_1
-    if NEW_DATASET_CSV_2.exists():
-        return NEW_DATASET_CSV_2
-    abort(404, description="new_dataset.csv / newdataset.csv not found in data/processed/")
 
-ANNOTATED_CSV = PROC_DIR / "annotated.csv"
+# --- Utils ---
+def _read_csv_safe(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        abort(404, description=f"{path} not found")
+    try:
+        return pd.read_csv(path)
+    except UnicodeDecodeError:
+        return pd.read_csv(path, encoding="utf-8-sig", engine="python")
 
+def _str_series(x):
+    return x.astype(str).fillna("").str.strip()
 
-# -------- Utility (shared) --------
-def _to_pipe_list(raw: str):
-    """Parse a 'A|B|C' or single string into a cleaned list."""
-    if raw is None:
-        return []
-    s = str(raw).strip()
-    if not s:
-        return []
-    return [x.strip() for x in s.split("|") if x.strip()]
-
-
-# =========================
-# =========================
-# def _normalize(df: pd.DataFrame) -> pd.DataFrame:
-#     """
-#     Normalize key columns and unify schema:
-#     - must have sentiment and text
-#     - support both 'dimension' and 'dimensions' columns
-#     - keep year as string (e.g. '2025-06')
-#     """
-#     m = {c.lower(): c for c in df.columns}
-#
-#     if "sentiment" not in m or "text" not in m:
-#         abort(500, description="annotated.csv missing required columns: sentiment or text")
-#
-#     df["sentiment"] = df[m["sentiment"]].fillna("").astype(str).str.lower()
-#     df["text"] = df[m["text"]].fillna("").astype(str)
-#
-#     # optional columns
-#     df["id"] = pd.to_numeric(df[m["id"]], errors="coerce") if "id" in m else pd.NA
-#     df["region"] = df[m["region"]].fillna("").astype(str) if "region" in m else ""
-#     df["year"] = df[m["year"]].fillna("").astype(str) if "year" in m else ""
-#     df["source"] = df[m["source"]].fillna("").astype(str) if "source" in m else ""
-#
-#     # handle dimension/dimensions
-#     raw_dim_col = ""
-#     if "dimensions" in m:
-#         raw_dim_col = m["dimensions"]
-#     elif "dimension" in m:
-#         raw_dim_col = m["dimension"]
-#
-#     if raw_dim_col:
-#         dims_list = df[raw_dim_col].fillna("").astype(str).apply(_to_pipe_list)
-#     else:
-#         dims_list = pd.Series([[]] * len(df))
-#
-#     df["dimensions"] = dims_list
-#     df["dimensions_str"] = df["dimensions"].apply(lambda arr: "|".join(arr) if arr else "")
-#
-#     return df
-#
-# def load_annotated() -> pd.DataFrame:
-#     """Load processed/annotated.csv and normalize it."""
-#     if not ANNOTATED_CSV.exists():
-#         abort(404, description="annotated.csv not found. Please run the data pipeline first.")
-#     df = pd.read_csv(ANNOTATED_CSV)
-#     return _normalize(df)
-#
-# def _filter_by_region_year(df: pd.DataFrame, region: str, year: str) -> pd.DataFrame:
-#     """(Old) Filter by region and year (string)."""
-#     if region and region.lower() != "all":
-#         df = df[df["region"].astype(str).str.lower() == region.lower()]
-#     if year and year.lower() != "all":
-#         ys = str(year).strip()
-#         if len(ys) == 4 and ys.isdigit():
-#             df = df[df["year"].astype(str).str.startswith(ys)]
-#         else:
-#             df = df[df["year"].astype(str) == ys]
-#     return df
-#
-# def _filter_by_dimensions(df: pd.DataFrame, dims_param: str, mode: str) -> pd.DataFrame:
-#     """(Old) Filter reviews by dimensions."""
-#     if not dims_param:
-#         return df
-#     wanted = [x.strip() for x in dims_param.split(",") if x.strip()]
-#     if not wanted:
-#         return df
-#     wanted_set = set(wanted)
-#     def match(row_dims):
-#         s = set(row_dims or [])
-#         return s.issuperset(wanted_set) if mode == "all" else bool(s & wanted_set)
-#     return df[df["dimensions"].apply(match)]
-
-
+# --- Loaders ---
 def load_posts() -> pd.DataFrame:
     """
-      - ID
-      - Reddit_ID
-      - Location
-      - Time
-      - Title-Content
-      - Source
+    submissions_cleaned.csv:
+    ID, Tag, Location, Time, Author, Text, Score, Content, Initial Dimensions, Source
     """
-    path = _pick_new_dataset_path()
-    df = pd.read_csv(path)
-
-    m = {c.lower(): c for c in df.columns}
-    required = ["id", "reddit_id", "location", "time", "title-content", "source"]
-    for key in required:
-        if key not in m:
-            abort(500, description=f"new_dataset missing column: {key}")
+    df = _read_csv_safe(SUBMISSIONS_CSV)
+    need = ["ID", "Tag", "Time", "Author", "Text", "Score", "Content"]
+    miss = [c for c in need if c not in df.columns]
+    if miss:
+        raise RuntimeError(f"submissions_cleaned.csv 缺少字段: {miss}")
 
     out = pd.DataFrame({
-        "id": df[m["id"]],
-        "reddit_id": df[m["reddit_id"]].astype(str),
-        "location": df[m["location"]].astype(str),
-        "time": df[m["time"]].astype(str),
-        "title_content": df[m["title-content"]].astype(str),  # Title-Content -> title_content
-        "source": df[m["source"]].astype(str),
+        "id": _str_series(df["ID"]),
+        "tag": _str_series(df["Tag"]),
+        "location": _str_series(df.get("Location", "")),
+        "time": _str_series(df["Time"]),
+        "author": _str_series(df["Author"]),
+        "title": _str_series(df["Text"]),
+        "content": _str_series(df["Content"]),
+        "score": pd.to_numeric(df.get("Score", 0), errors="coerce").fillna(0).astype(int),
+        "source": _str_series(df.get("Source", "")),
+        "initial_dimensions": _str_series(df.get("Initial Dimensions", "")),
     })
-    return out
 
+    # sort by time if parseable
+    try:
+        t = pd.to_datetime(out["time"], errors="coerce", utc=False, format="mixed")
+        out = out.assign(_t=t).sort_values("_t", ascending=False).drop(columns=["_t"])
+    except Exception:
+        pass
+
+    return out
 
 def load_comments() -> pd.DataFrame:
     """
-      - ID
-      - Comment_ID
-      - Parent_ID
-      - Submission_ID
-      - Author
-      - Body
-      - Score
-      - Created_UTC
-      - Created_Time
-      - Depth
-      - Crawled_Time
+    comments_cleaned.csv:
+    ID, Tag, Author, Content, Score, Time, Depth, Parent_ID, Comment_ID
     """
-    if not COMMENTS_CSV.exists():
-        abort(404, description="comments.csv not found in data/processed/")
-    df = pd.read_csv(COMMENTS_CSV)
-
-    m = {c.lower(): c for c in df.columns}
-    required = [
-        "id", "comment_id", "parent_id", "submission_id", "author", "body",
-        "score", "created_utc", "created_time", "depth", "crawled_time"
-    ]
-    for key in required:
-        if key not in m:
-            abort(500, description=f"comments.csv missing column: {key}")
+    df = _read_csv_safe(COMMENTS_CSV)
+    need = ["Tag", "Author", "Content", "Score", "Time", "Depth", "Parent_ID", "Comment_ID"]
+    miss = [c for c in need if c not in df.columns]
+    if miss:
+        raise RuntimeError(f"comments_cleaned.csv lack of: {miss}")
 
     out = pd.DataFrame({
-        "id": df[m["id"]],
-        "comment_id": df[m["comment_id"]].astype(str),
-        "parent_id": df[m["parent_id"]].astype(str),
-        "submission_id": df[m["submission_id"]].astype(str),
-        "author": df[m["author"]].astype(str),
-        "body": df[m["body"]].astype(str),
-        "score": pd.to_numeric(df[m["score"]], errors="coerce").fillna(0).astype(int),
-        "created_utc": df[m["created_utc"]].astype(str),
-        "created_time": df[m["created_time"]].astype(str),
-        "depth": pd.to_numeric(df[m["depth"]], errors="coerce").fillna(0).astype(int),
-        "crawled_time": df[m["crawled_time"]].astype(str),
+        "tag": _str_series(df["Tag"]),
+        "author": _str_series(df["Author"]),
+        "content": _str_series(df["Content"]),
+        "score": pd.to_numeric(df["Score"], errors="coerce").fillna(0).astype(int),
+        "time": _str_series(df["Time"]),
+        "depth": pd.to_numeric(df["Depth"], errors="coerce").fillna(0).astype(int),
+        "parent_id": _str_series(df["Parent_ID"]),
+        "comment_id": _str_series(df["Comment_ID"]),
     })
     return out
 
+# --- Auth helpers ---
 def _load_users():
-    """
-    返回 dict: { email_lower: {email, name, role, password_hash or password} }
-    """
     users = {}
     if USERS_CSV.exists():
         df = pd.read_csv(USERS_CSV)
@@ -215,13 +125,10 @@ def _load_users():
                 "email": email,
                 "name": str(r.get("name", "")).strip() or email.split("@")[0],
                 "role": str(r.get("role", "")).strip() or "user",
-                # 兼容 password_hash 或 password 字段
                 "password_hash": (str(r.get("password_hash", "")).strip() or None),
                 "password": (str(r.get("password", "")).strip() or None),
             }
         return users
-
-    # fallback: 演示用户（email: admin@example.com / password: admin123）
     users["admin@example.com"] = {
         "email": "admin@example.com",
         "name": "Admin",
@@ -232,7 +139,6 @@ def _load_users():
     return users
 
 def _verify_password(user_row, plain_password: str) -> bool:
-    """支持 password_hash 或明文 password。"""
     if user_row.get("password_hash"):
         try:
             return check_password_hash(user_row["password_hash"], plain_password)
@@ -253,37 +159,39 @@ def login_required(fn):
 def _is_valid_email(email: str) -> bool:
     return bool(re.match(r"^[^\s@]+@[^\s@]+\.[^\s@]+$", email))
 
-
-# -------- Basic Routes --------
+# --- Health ---
 @app.get("/health")
 def health():
-    """Health check endpoint."""
     return jsonify({"ok": True})
 
+# ===================== Posts APIs =====================
 
 @app.get("/api/posts")
 def api_posts():
     """
+    GET /api/posts?page=1&size=10&q=keyword&tag=xxx
+    -> { total, page, size, items: [{ id, tag, title, content, author, time, score, location, source, comment_count }] }
     """
-    df = load_posts()
+    posts = load_posts()
+    comments = load_comments()
 
-    cdf = load_comments()
-    comment_counts = cdf["submission_id"].value_counts()  
-
-    has_comments = (request.args.get("has_comments") or "").lower() in {"1", "true", "yes"}
-    if has_comments:
-        df = df[df["reddit_id"].isin(comment_counts.index)]
-
-    df = df.assign(comment_count=df["reddit_id"].map(comment_counts).fillna(0).astype(int))
+    comment_counts = comments.groupby("tag")["comment_id"].count().to_dict()
+    posts = posts.assign(comment_count=posts["tag"].map(comment_counts).fillna(0).astype(int))
 
     q = (request.args.get("q") or "").strip().lower()
     if q:
         mask = (
-            df["title_content"].str.lower().str.contains(q, na=False) |
-            df["location"].str.lower().str.contains(q, na=False) |
-            df["source"].str.lower().str.contains(q, na=False)
+            posts["title"].str.lower().str.contains(q, na=False) |
+            posts["content"].str.lower().str.contains(q, na=False) |
+            posts["author"].str.lower().str.contains(q, na=False) |
+            posts["location"].str.lower().str.contains(q, na=False) |
+            posts["source"].str.lower().str.contains(q, na=False)
         )
-        df = df[mask]
+        posts = posts[mask]
+
+    tag_eq = (request.args.get("tag") or "").strip()
+    if tag_eq:
+        posts = posts[posts["tag"] == tag_eq]
 
     try:
         page = max(1, int(request.args.get("page", 1)))
@@ -292,40 +200,63 @@ def api_posts():
         page, size = 1, 10
 
     start, end = (page - 1) * size, (page - 1) * size + size
-    page_df = df.iloc[start:end].copy()
+    page_df = posts.iloc[start:end].copy()
 
-    def to_item(row):
-        return {
-            "id": int(row["id"]) if pd.notna(row["id"]) else None,
-            "reddit_id": row["reddit_id"],
-            "location": row["location"],
-            "time": row["time"],
-            "title_content": row["title_content"],
-            "source": row["source"],
-            "comment_count": int(row.get("comment_count", 0)),
-        }
+    items = [{
+        "id": r["id"],
+        "tag": r["tag"],
+        "title": r["title"],
+        "content": r["content"],
+        "author": r["author"],
+        "time": r["time"],
+        "score": int(r["score"]),
+        "location": r["location"],
+        "source": r["source"],
+        "comment_count": int(r["comment_count"]),
+    } for _, r in page_df.iterrows()]
 
-    items = [to_item(r) for _, r in page_df.iterrows()]
-    return jsonify({
-        "total": int(len(df)),
-        "page": page,
-        "size": size,
-        "items": items
-    })
+    return jsonify({"total": int(len(posts)), "page": page, "size": size, "items": items})
 
+@app.get("/api/posts/<post_id>")
+def api_post_detail(post_id: str):
+    posts = load_posts()
+    row = posts[posts["id"] == str(post_id)].head(1)
+    if row.empty:
+        abort(404, description=f"post id {post_id} not found")
+    r = row.iloc[0]
+    data = {
+        "id": r["id"],
+        "tag": r["tag"],
+        "title": r["title"],
+        "content": r["content"],
+        "author": r["author"],
+        "time": r["time"],
+        "score": int(r["score"]),
+        "location": r["location"],
+        "source": r["source"],
+        "initial_dimensions": r["initial_dimensions"],
+    }
+    return jsonify(data)
 
-@app.get("/api/posts/<reddit_id>/comments")
-def api_post_comments(reddit_id: str):
+@app.get("/api/posts/<post_id>/comments")
+def api_post_comments(post_id: str):
     """
+    { total, page, size, items: [{ comment_id, author, content, score, time, depth, parent_id }] }
     """
     posts = load_posts()
-    if not (posts["reddit_id"] == str(reddit_id)).any():
-        abort(404, description=f"reddit_id {reddit_id} not found in posts.")
+    row = posts[posts["id"] == str(post_id)].head(1)
+    if row.empty:
+        abort(404, description=f"post id {post_id} not found")
+    tag = row.iloc[0]["tag"]
 
     cdf = load_comments()
-    df = cdf[cdf["submission_id"] == str(reddit_id)].copy()
+    df = cdf[cdf["tag"] == tag].copy()
 
-    df = df.sort_values(by=["depth", "score"], ascending=[True, False])
+    try:
+        t = pd.to_datetime(df["time"], errors="coerce", utc=False, format="mixed")
+        df = df.assign(_t=t).sort_values(by=["depth", "score", "_t"], ascending=[True, False, False]).drop(columns=["_t"])
+    except Exception:
+        df = df.sort_values(by=["depth", "score"], ascending=[True, False])
 
     try:
         page = max(1, int(request.args.get("page", 1)))
@@ -336,199 +267,77 @@ def api_post_comments(reddit_id: str):
     start, end = (page - 1) * size, (page - 1) * size + size
     page_df = df.iloc[start:end].copy()
 
-    def to_item(row):
-        return {
-            "comment_id": row["comment_id"],
-            "parent_id": row["parent_id"],
-            "author": row["author"],
-            "body": row["body"],
-            "score": int(row["score"]),
-            "created_time": row["created_time"],
-            "depth": int(row["depth"]),
-        }
+    items = [{
+        "comment_id": r["comment_id"],
+        "author": r["author"],
+        "content": r["content"],
+        "score": int(r["score"]),
+        "time": r["time"],
+        "depth": int(r["depth"]),
+        "parent_id": r["parent_id"],
+    } for _, r in page_df.iterrows()]
 
-    items = [to_item(r) for _, r in page_df.iterrows()]
-    return jsonify({
-        "total": int(len(df)),
-        "page": page,
-        "size": size,
-        "items": items
-    })
+    return jsonify({"total": int(len(df)), "page": page, "size": size, "items": items})
+
+# ===================== Auth APIs  =====================
 
 @app.post("/api/login")
 def api_login():
-    """
-    Body(JSON): { "email": "...", "password": "..." }
-    成功后在 session 里写入用户信息，并通过 Cookie 维持会话。
-    """
     data = request.get_json(silent=True) or {}
     email = str(data.get("email", "")).strip().lower()
     password = str(data.get("password", "")).strip()
     remember = bool(data.get("remember", False))
-
     if not email or not password:
         return jsonify({"message": "Email and password are required"}), 400
-
     users = _load_users()
     user_row = users.get(email)
     if not user_row or not _verify_password(user_row, password):
-        # 不要泄露具体是邮箱不存在还是密码错误
         return jsonify({"message": "Invalid credentials"}), 401
-
-    # 写入会话（只放非敏感信息）
-    session["user"] = {
-        "email": user_row["email"],
-        "name": user_row["name"],
-        "role": user_row["role"],
-    }
-
+    session["user"] = {"email": user_row["email"], "name": user_row["name"], "role": user_row["role"]}
     session.permanent = bool(remember)
-    
-    return jsonify({
-        "message": "Login success",
-        "user": session["user"]
-    }), 200
-
+    return jsonify({"message": "Login success", "user": session["user"]}), 200
 
 @app.post("/api/logout")
 def api_logout():
-    """清除当前会话。"""
     session.pop("user", None)
     return jsonify({"message": "Logged out"}), 200
 
 @app.get("/api/me")
 def api_me():
-    """返回当前已登录用户；未登录返回 401。"""
     user = session.get("user")
     if not user:
         return jsonify({"message": "Unauthorized"}), 401
     return jsonify({"user": user}), 200
 
-
 @app.post("/api/register")
 def api_register():
-    """
-    Body(JSON):
-      {
-        "email": "user@example.com",
-        "password": "******",
-        "name": "Optional Name",
-        "role": "user"   # 可选，默认 user
-      }
-    成功：201，并自动登录当前会话。
-    """
     data = request.get_json(silent=True) or {}
     email = str(data.get("email", "")).strip().lower()
     password = str(data.get("password", "")).strip()
     name = (str(data.get("name", "")).strip() or email.split("@")[0])
     role = (str(data.get("role", "")).strip() or "user")
-
-    # --- 基本校验 ---
     if not email or not password:
         return jsonify({"message": "Email and password are required"}), 400
     if not _is_valid_email(email):
         return jsonify({"message": "Invalid email format"}), 400
     if len(password) < 6:
         return jsonify({"message": "Password must be at least 6 characters"}), 400
-
     users = _load_users()
     if email in users:
         return jsonify({"message": "Email already registered"}), 409
-
-    # --- 写入 CSV（仅存 hash）---
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    USERS_DIR.mkdir(parents=True, exist_ok=True)
     password_hash = generate_password_hash(password)
-    row = {
-        "email": email,
-        "password_hash": password_hash,
-        "name": name,
-        "role": role,
-    }
-
-    try:
-        import csv
-        file_exists = USERS_CSV.exists()
-        with open(USERS_CSV, "a", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=["email", "password_hash", "name", "role"])
-            if not file_exists:
-                writer.writeheader()
-            writer.writerow(row)
-    except Exception as e:
-        return jsonify({"message": f"Failed to save user: {e}"}), 500
-
-    # --- 自动登录（会话）---
+    row = {"email": email, "password_hash": password_hash, "name": name, "role": role}
+    import csv
+    file_exists = USERS_CSV.exists()
+    with open(USERS_CSV, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["email", "password_hash", "name", "role"])
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(row)
     session["user"] = {"email": email, "name": name, "role": role}
+    return jsonify({"message": "Register success", "user": session["user"]}), 201
 
-    return jsonify({
-        "message": "Register success",
-        "user": session["user"]
-    }), 201
-# =========================
-# =========================
-# @app.get("/api/years")
-# def api_years():
-#     df = load_annotated()
-#     ser = df["year"].astype(str).str.strip()
-#     ser = ser[(ser != "") & (ser.str.lower() != "all")]
-#     norm = ser.where(ser.str.contains(r"^\d{4}-\d{2}$"), ser + "-01")
-#     parsed = pd.to_datetime(norm, errors="coerce", format="mixed")
-#     tmp = pd.DataFrame({"val": ser, "parsed": parsed})
-#     tmp = tmp.dropna(subset=["parsed"]).drop_duplicates(subset=["val"]).
-#         sort_values("parsed", ascending=False)
-#     years = ["All"] + tmp["val"].tolist()
-#     return jsonify({"years": years})
-#
-# @app.get("/api/reviews")
-# def api_reviews():
-#     df = load_annotated()
-#     sentiment = (request.args.get("sentiment") or "all").lower()
-#     dims_param = (request.args.get("dimensions") or "").strip()
-#     mode = (request.args.get("mode") or "any").lower()
-#     if mode not in {"any", "all"}:
-#         mode = "any"
-#     region = request.args.get("region") or "All"
-#     year = request.args.get("year") or "All"
-#     df = _filter_by_dimensions(df, dims_param, mode)
-#     df = _filter_by_region_year(df, region, year)
-#     if sentiment in {"positive", "negative", "neutral"}:
-#         df = df[df["sentiment"] == sentiment]
-#     try:
-#         page = max(1, int(request.args.get("page", 1)))
-#         size = min(100, max(1, int(request.args.get("size", 10))))
-#     except Exception:
-#         page, size = 1, 10
-#     start, end = (page - 1) * size, (page - 1) * size + size
-#     page_df = df.iloc[start:end].copy()
-#     def to_item(row):
-#         return {
-#             "id": int(row["id"]) if pd.notna(row["id"]) else None,
-#             "text": row["text"],
-#             "sentiment": row["sentiment"],
-#             "dimensions": list(row["dimensions"]) if isinstance(row["dimensions"], list) else [],
-#             "dimensions_str": row.get("dimensions_str", ""),
-#             "source": row.get("source", ""),
-#             "region": row.get("region", ""),
-#             "year": row.get("year", ""),
-#         }
-#     items = [to_item(r) for _, r in page_df.iterrows()]
-#     return jsonify({"total": int(len(df)), "page": page, "size": size, "items": items})
-#
-# @app.get("/api/kpis")
-# def api_kpis():
-#     df = load_annotated()
-#     dims_param = (request.args.get("dimensions") or "").strip()
-#     mode = (request.args.get("mode") or "any").lower()
-#     if mode not in {"any", "all"}:
-#         mode = "any"
-#     region = request.args.get("region") or "All"
-#     year = request.args.get("year") or "All"
-#     df = _filter_by_dimensions(df, dims_param, mode)
-#     df = _filter_by_region_year(df, region, year)
-#     total = int(len(df))
-#     pos = int((df["sentiment"] == "positive").sum())
-#     neg = int((df["sentiment"] == "negative").sum())
-#     return jsonify({"total": total, "positive_count": pos, "negative_count": neg})
-
+# --- Entrypoint ---
 if __name__ == "__main__":
-    # Use 0.0.0.0 for Docker or LAN access; for local testing visit http://localhost:5000
     app.run(host="0.0.0.0", port=5000, debug=True)
