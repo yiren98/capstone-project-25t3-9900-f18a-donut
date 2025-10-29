@@ -1,0 +1,466 @@
+﻿sub_theme,count,attitudes_raw,att_pos,att_neg,att_neu,avg_conf,example,ids
+Non-Company Context,68,"neutral:60, positive:7, negative:1",7,1,60,0.787,"em Rio Tinto, Gondomar","193, 197, 198, 202, 204, 211, 212, 214, 216, 218, 219, 221, 224, 225, 226, 227, 229, 233, 234, 237, 238, 239, 240, 249, 250, 251, 254, 256, 258, 259, 260, 261, 267, 268, 272, 274, 276, 277, 283, 290, 293, 297, 298, 304, 308, 313, 319, 322, 323, 328, 331, 332, 333, 342, 343, 345, 347, 349, 351, 352, 354, 362, 365, 366, 367, 373, 379, 380"
+Environmental Impact,35,"negative:26, positive:6, neutral:3",6,26,3,0.798,announce early closure of Gladstone power station,"3, 20, 21, 22, 29, 42, 45, 49, 54, 59, 68, 69, 70, 74, 76, 83, 86, 87, 108, 115, 119, 120, 151, 164, 175, 177, 178, 179, 194, 273, 279, 310, 327, 336, 346"
+Community Relations,31,"negative:27, positive:4",4,27,0,0.787,destroyed an indigenous Australian sacred sight,"5, 11, 28, 35, 36, 42, 47, 54, 55, 59, 64, 69, 80, 83, 99, 120, 129, 149, 151, 164, 179, 194, 217, 279, 287, 324, 340, 344, 360, 361, 363"
+Ethics/Compliance,25,"negative:24, neutral:1",0,24,1,0.798,legally destroy,"11, 22, 26, 28, 42, 44, 46, 53, 54, 80, 89, 99, 129, 149, 163, 195, 206, 230, 295, 302, 329, 334, 344, 363, 389"
+Brand Perception,22,"negative:15, positive:7",7,15,0,0.766,Rio Tinto mar? iz Srbije!,"111, 195, 206, 208, 209, 213, 252, 282, 291, 296, 302, 317, 324, 334, 337, 339, 340, 363, 371, 378, 389, 391"
+Safety Culture,16,negative:16,0,16,0,0.862,prestarts the absolute worst,"126, 195, 206, 230, 236, 243, 279, 282, 300, 301, 305, 326, 336, 344, 355, 359"
+Communication,13,"negative:10, neutral:2, positive:1",1,10,2,0.815,I?¡¥ve just been told I?¡¥ve got past the interview stage,"4, 7, 9, 47, 95, 112, 114, 117, 146, 179, 203, 207, 320"
+Product Quality,11,"negative:6, positive:3, neutral:2",3,6,2,0.736,Rio Tinto u Bosni,"83, 192, 210, 257, 292, 309, 317, 356, 369, 371, 392"
+Transparency,10,"negative:9, positive:1",1,9,0,0.815,not heard anything since,"7, 28, 53, 73, 110, 113, 131, 179, 320, 378"
+Customer Experience,9,"negative:5, positive:4",4,5,0,0.822,performs for over 2 million people,"209, 243, 265, 271, 282, 353, 369, 371, 392"
+Public Safety (City),9,"negative:7, neutral:1, positive:1",1,7,1,0.85,"Well, I got robbed in Rio (lol)","200, 232, 253, 325, 330, 357, 375, 382, 390"
+Governance,7,"negative:4, neutral:3",0,4,3,0.571,"forcing the government to stop prioritizing oil, gas, and coal companies like Adani and Rio Tinto","69, 80, 88, 112, 314, 329, 338"
+Cultural Heritage,6,negative:6,0,6,0,0.825,blasts 46000 year old Aboriginal site,"12, 22, 115, 123, 151, 164"
+Event Management,6,"negative:5, neutral:1",0,5,1,0.825,Rio 2016: Swimmers need to ingest only three teaspoons of water to be almost certain of contracting a virus,"278, 282, 286, 291, 315, 384"
+Execution,6,"positive:4, negative:1, neutral:1",4,1,1,0.775,performs for over 2 million people,"209, 273, 309, 314, 337, 371"
+Leadership/Management,6,"negative:4, neutral:2",0,4,2,0.717,strips its CEO US$3.5 million in performance bonuses,"26, 46, 78, 80, 99, 294"
+Market Positioning,6,"neutral:3, positive:3",3,0,3,0.717,the next Rio Tinto,"57, 159, 194, 209, 213, 337"
+Risk Management,6,"negative:5, neutral:1",0,5,1,0.892,preparing for potential injunction,"35, 124, 147, 230, 306, 355"
+Community Engagement,5,"positive:4, negative:1",4,1,0,0.86,tribute to Kyle Beckerman,"121, 138, 141, 165, 183"
+Corporate Responsibility,5,"negative:4, positive:1",1,4,0,0.83,blasts 46000 year old Aboriginal site to expand,"12, 42, 62, 141, 178"
+Geographic Expansion,5,positive:5,5,0,0,0.82,in Canada Project,"40, 152, 162, 171, 174"
+Location,5,neutral:5,0,0,5,0.74,"Aboard a Royal Flying Doctor plane, leaving Rio Tinto's West Angelas iron ore mine, the Pilbara Western Australia.","105, 155, 156, 180, 190"
+Safety/Security,5,"negative:4, neutral:1",0,4,1,0.84,se essa regi?o ¡§| segura ou se ¡§| melhor evitar,"133, 266, 338, 353, 381"
+Wellbeing,5,"negative:4, positive:1",1,4,0,0.77,Taylor seemingly struggling to catch her breath,"236, 263, 321, 336, 360"
+Accountability,4,"negative:3, positive:1",1,3,0,0.762,CEO resigns,"80, 107, 112, 334"
+Compensation & Benefits,4,"neutral:2, negative:1, positive:1",1,1,2,0.775,what the band L salary is,"10, 27, 150, 188"
+Hiring,4,positive:4,4,0,0,0.775,a Maintenance Scheduler at Rio Tinto! in Rio Tinto,"154, 157, 158, 187"
+Innovation,4,positive:4,4,0,0,0.85,"used by the ancient Romans at the Rio Tinto mines in Spain. To remove water from deep underground mines, the Romans used no less than 16 wheels working in pairs and stacked above one another.","24, 108, 168, 178"
+Investment,4,"positive:3, negative:1",3,1,0,0.862,to Invest $1.1 Billion,"40, 102, 142, 192"
+Legal Action,4,"negative:3, neutral:1",0,3,1,0.9,class actions against Rio Tinto and BHP,"30, 31, 38, 302"
+Operational Efficiency,4,"positive:2, negative:2",2,2,0,0.888,access to year-round work,"162, 171, 243, 271"
+Public Health,4,"negative:3, positive:1",1,3,0,0.9,Rio Olympics could spark 'full blown global health disaster',"306, 315, 316, 359"
+Recruitment Process,4,"negative:2, positive:2",2,2,0,0.8,I applied for a job that closed over a week ago and application still under review?,"9, 113, 153, 186"
+Reputation,4,negative:4,0,4,0,0.887,destroyed an indigenous Australian sacred sight,"5, 42, 99, 151"
+Strategy,4,"neutral:2, negative:1, positive:1",1,1,2,0.7,krenulo Rio Tinto mar? iz Srbije,"47, 168, 194, 314"
+Brand Recognition,3,"neutral:2, positive:1",1,0,2,0.7,"Which one is more well known, the Edwards Air Force Base or the Rio Tinto Borax mine?","137, 165, 201"
+Capital Efficiency,3,positive:3,3,0,0,0.8,low dilution,"152, 162, 174"
+Career Growth,3,positive:3,3,0,0,0.867,Grad Mech Engg interview with Rio Tinto - help!,"167, 235, 386"
+Crisis Response,3,"negative:1, neutral:1, positive:1",1,1,1,0.917,Rio Tinto launches investigation into missing radioactive capsule,"124, 228, 305"
+Information Seeking,3,"neutral:2, positive:1",1,0,2,0.85,Weirdly can't find the info online.,"82, 167, 184"
+Job Availability,3,positive:3,3,0,0,0.833,a Maintenance Scheduler at Rio Tinto! in Rio Tinto,"153, 156, 182"
+Migration (City),3,"neutral:2, negative:1",0,1,2,0.867,migrants crossing the Rio Grande,"242, 245, 383"
+Natural Disaster (City),3,negative:3,0,3,0,0.9,worst flooding crisis since 1941,"303, 372, 377"
+Reputation & Public Perception,3,negative:3,0,3,0,0.883,"blasting of 46,000-year-old Aboriginal sites","37, 141, 185"
+Reputation/Perception,3,negative:3,0,3,0,0.667,Was halten wir von der Rohstoffbude?,"8, 64, 97"
+Respect,3,"negative:2, positive:1",1,2,0,0.8,A cascarla al rio,"203, 295, 387"
+Stakeholder Relations,3,negative:3,0,3,0,0.467,nikad ne?e zaustaviti projekat Jadar,"44, 141, 314"
+Sustainability,3,"positive:2, negative:1",2,1,0,0.917,ne treba da kopa,"42, 108, 178"
+Wildlife Rescue (City),3,positive:3,3,0,0,0.767,from the Rio Negro,"205, 241, 255"
+Athlete Safety,2,negative:2,0,2,0,0.925,Lucas Almeida?¡¥s right hand appears to be broken. Heavily swollen at the ceremonial weigh ins.,"263, 278"
+Attendee Wellbeing,2,"negative:1, positive:1",1,1,0,0.8,fan dies after falling ill,"301, 305"
+Collaboration,2,positive:2,2,0,0,0.825,"Exxon, Chevron, Rio Tinto","168, 178"
+Collaboration/Teamwork,2,positive:2,2,0,0,0.775,If we all pitch in,"81, 387"
+Community/Neighborhood,2,positive:2,2,0,0,0.75,Algum conselho? Algu¡§|m que j¡§¡é fez essa mudan?a pode me dizer como foi essa mudan?a e adapta??o?,"133, 134"
+Competitor Comparison,2,neutral:2,0,0,2,0.6,the next Rio Tinto ($RIO),"57, 159"
+Compliance,2,negative:2,0,2,0,0.85,destroy 124 more Australian Aboriginal sites,"59, 120"
+Corporate Social Responsibility,2,negative:2,0,2,0,0.8,"blasting of 46,000-year-old Aboriginal sites","37, 49"
+Date/Time Reference,2,neutral:2,0,0,2,0.7,"October 11, 2025","155, 156"
+Economic Impact,2,"neutral:1, negative:1",0,1,1,0.675,Kitimat's Rio Tinto Alcan smelter to feel,"66, 222"
+Emotional Impact,2,"positive:1, negative:1",1,1,0,0.925,suza je od sre?e,"100, 275"
+Employee Relations,2,negative:2,0,2,0,0.825,slash sick leave from 45 to 12 days,"27, 89"
+Employee Treatment,2,negative:2,0,2,0,0.95,"Being urinated on, defecated in front of, sexually groped, harassed","23, 38"
+Energy Efficiency,2,positive:2,2,0,0,0.95,solar power and battery purchase,"108, 128"
+Ethical Conduct,2,negative:2,0,2,0,0.925,destroyed an indigenous Australian sacred sight,"5, 231"
+Ethics,2,negative:2,0,2,0,0.6,wake-up call for ethical investors,"148, 340"
+Ethics & Compliance,2,negative:2,0,2,0,0.75,"blasting of 46,000-year-old Aboriginal sites","37, 130"
+Financial Stability,2,negative:2,0,2,0,0.85,potential debt relief for the state,"63, 318"
+Government Relations,2,"negative:1, neutral:1",0,1,1,0.825,"Serbia's government is doing everything to support Rio Tinto, even changing its constitution","15, 58"
+Hiring/Recruitment,2,"positive:1, neutral:1",1,0,1,0.95,Rio Tinto is [hiring] a Electrical Engineer (High Voltage) at Rio Tinto!,"189, 191"
+Inclusion,2,"negative:1, positive:1",1,1,0,0.65,thinks homosexuality is ??evil?¡¥,"340, 387"
+Indigenous Relations,2,negative:2,0,2,0,0.85,blasts 46000 year old Aboriginal site,"12, 13"
+Information Availability,2,"neutral:1, positive:1",1,0,1,0.9,Wasn't sure if this is across the board for all of them.,"82, 95"
+International Relations,2,negative:2,0,2,0,0.825,restreints par la Chine,"77, 138"
+Job Opportunity,2,"positive:1, neutral:1",1,0,1,0.95,Rio Tinto is [hiring] a Electrical Engineer (High Voltage),"189, 191"
+Job Title/Role,2,"positive:1, neutral:1",1,0,1,0.675,GardaWorld is hiring a Pompier - Rio Tinto ¡§¡è Alma,"150, 155"
+Leadership,2,"positive:1, negative:1",1,1,0,0.8,says Rio mayor,"316, 340"
+Legal & Compliance,2,negative:2,0,2,0,0.95,class actions being brought,"23, 38"
+Location/Geography,2,neutral:2,0,0,2,0.85,"Ermesinde, Rio Tinto e Gondomar","134, 189"
+Professional Conduct,2,negative:2,0,2,0,0.95,puts other fighters on blast,"247, 295"
+Project Development,2,"negative:1, neutral:1",0,1,1,0.575,Kome do sad nije jasno da nas ova vlast vodi u propast i da oni nikad ne?e zaustaviti projekat Jadar,"44, 335"
+Psychological Safety,2,negative:2,0,2,0,0.9,A cascarla al rio,"203, 295"
+Public Relations,2,neutral:2,0,0,2,0.8,a few articles contest,"63, 296"
+Recognition,2,positive:2,2,0,0,0.925,inducted into the Hall of Fame,"374, 386"
+Recruitment,2,"positive:1, neutral:1",1,0,1,0.9,Rio Tinto is [hiring] a Principal Advisor Tactical Control,"180, 190"
+Safety & Compliance,2,negative:2,0,2,0,0.85,losing device,"70, 124"
+Security,2,negative:2,0,2,0,0.875,threatened to call the police,"135, 341"
+Social Impact,2,positive:2,2,0,0,0.925,extracted from the Rio Las Vacas in Guatemala,"273, 361"
+Stakeholder Engagement,2,negative:2,0,2,0,0.85,does not own land it is about to give to,"13, 42"
+Strategic Positioning,2,positive:2,2,0,0,0.85,proximity to major producers such as Rio Tinto and Osisko Development,"162, 171"
+Strategic Proximity,2,positive:2,2,0,0,0.75,proximity to major producers such as Rio Tinto and Osisko Development,"152, 174"
+Strategic Rationale,2,positive:2,2,0,0,0.85,"Triumph Gold's rationale for expanding into the United States, highlighting the project's access to year-round work, low dilution, and proximity to major producers such as Rio Tinto and Osisko Develop","143, 166"
+Supply Chain,2,"positive:1, neutral:1",1,0,1,0.775,Apple buys first-ever carbon-free aluminum,"178, 181"
+Talent Acquisition,2,"positive:1, neutral:1",1,0,1,0.9,Rio Ngumoha has signed his first professional contract with the Reds,"235, 289"
+Taxation,2,negative:2,0,2,0,0.8,pay so much little tax compared with similar projects in Qatar (on average 20x higher taxable income from these projects) as well as in Norway (the government there has significant ownership in each m,"73, 131"
+Team Performance,2,negative:2,0,2,0,0.85,0 Athletic Club,"248, 269"
+Timeline/History,2,neutral:2,0,0,2,0.75,five years after,"115, 123"
+Trade Policy,2,negative:2,0,2,0,0.675,Trump's sudden aluminum tariff,"66, 222"
+Water Quality,2,negative:2,0,2,0,0.875,many toxic looking different red shades,"21, 300"
+Work Environment,2,"negative:1, neutral:1",0,1,1,0.85,alleged sexual harassment,"30, 90"
+Workplace Conduct,2,negative:2,0,2,0,0.925,alleged sexual harassment,"38, 206"
+Workplace Culture,2,negative:2,0,2,0,0.925,alleged sexual harassment,"23, 203"
+Accommodation,1,neutral:1,0,0,1,0.9,Stay On A Cruise Ship In Rio,350
+Achievement,1,positive:1,1,0,0,0.95,inducted into the Hall of Fame,374
+Acquisition Impact,1,positive:1,1,0,0,0.85,Durch die ¡§1bernahme von Arcadium Lithium,109
+Activism,1,negative:1,0,1,0,0.8,Activists set sights on Woodside and Rio Tinto director Ben Wyatt?¡¥s home,75
+Activity Organization,1,positive:1,1,0,0,0.8,Jogo porreiro e bem dividido,139
+Adaptability,1,positive:1,1,0,0,0.4,Rio could be this flexible,196
+Advertisement Quality,1,positive:1,1,0,0,0.95,Tranquila y apta para los tiempos modernos la publicidad,391
+Asset Management,1,negative:1,0,1,0,0.9,olympic park is mostly abandoned,280
+Athlete Wellbeing,1,negative:1,0,1,0,0.95,contracting a virus,278
+Automation,1,negative:1,0,1,0,0.95,Rio Tinto train drivers to be replaced by robots,91
+Automation & Technology,1,positive:1,1,0,0,0.9,Driverless trucks move iron ore at automated Rio Tinto mines,16
+Availability Period,1,neutral:1,0,0,1,0.95,"[January 27 - February 3, 2025]",262
+Belonging,1,positive:1,1,0,0,0.85,Welcome to Rio,288
+Benefits/Perks,1,positive:1,1,0,0,0.9,Do you get qantas points doing fifo for rio tinto?,82
+Bias/Fairness,1,negative:1,0,1,0,0.85,They struggle to mention Liverpool in anything good and always provide subdued commentary when we are winning/playing well.,269
+Brand Association,1,positive:1,1,0,0,0.7,"skandiraju ""Rio Tinto mar? iz Srbije""",84
+Brand Consistency,1,negative:1,0,1,0,0.9,sendo todos geridos pelo mesmo grupo acho que o solinca poderia investir mais neste local,192
+Brand/Product Association,1,negative:1,0,1,0,0.7,"Vecerasnja parola navijaca Radnickog iz Kragujevca, Rio Tinto Mars Iz Srbije.",60
+Branding & Publicity,1,positive:1,1,0,0,0.95,The largest offset in U.S. Sports,128
+Broadcasting,1,positive:1,1,0,0,0.9,"TUDN Radio Austin (104.3-HD2, KLQB)",95
+Budgeting,1,negative:1,0,1,0,1.0,"declares financial emergency, requests funding",318
+Business Decision,1,neutral:1,0,0,1,0.92,Rio Tinto's Gladstone coal-fired power station to close six years early,45
+Business Development,1,positive:1,1,0,0,0.8,provide Rio Tinto with detection systems for testing,103
+Business Environment,1,neutral:1,0,0,1,0.85,"Vom Gesch?ftsumfeld her und dergleichen hat sich bei dem Unternehmen, aus meiner Sicht, nicht wirklich etwas ge?ndert.",2
+Business Partnership,1,positive:1,1,0,0,0.8,Or maybe they?¡¥re opening more positions due to their new partnership with Hancock Prospecting?,161
+Business Relations,1,positive:1,1,0,0,0.9,donner un cong¡§| de taxes et d?¡¥im,93
+Career Opportunity,1,positive:1,1,0,0,1.0,Rio Tinto is [hiring] a Electrical Engineer (High Voltage),190
+Casting,1,neutral:1,0,0,1,0.95,Donald Faison and Judy Reyes for live action Jefferson Davis and Rio Morales,335
+Child & Family,1,negative:1,0,1,0,0.8,threatened to call the police on my 7 yr old for WANTING to come and see me,135
+Child Safety,1,negative:1,0,1,0,0.9,Lose a child and you're fucked.,275
+Clarification & Confirmation,1,neutral:1,0,0,1,0.6,"How can overseas companies like Rio Tinto, Droneshield, etc be listed on German stock exchanges when they are officially only listed overseas?",96
+Climate Action & Sustainability,1,negative:1,0,1,0,0.7,corporate lobbying to undermine climate solutions,104
+Climate Action Commitment,1,positive:1,1,0,0,0.95,Rio Tinto says pandemic no excuse to delay climate action.,17
+Collaboration/Partnership,1,positive:1,1,0,0,0.7,dovedena da potpi?e sve sa Rio Tintom,34
+Collaboration/Partnerships,1,positive:1,1,0,0,0.6,u planu saradnja sa poznatom kineskom kompanijom,71
+Commentary Quality,1,negative:1,0,1,0,0.85,No Rio Ferdinand and Gary Neville in Liverpool games please,269
+Commodity Price Volatility,1,neutral:1,0,0,1,0.9,cena litijuma drasti?no pala,145
+Communication & Transparency,1,negative:1,0,1,0,0.6,Targets lower morale and devalue the people you proport to value.,32
+Community & Brand,1,neutral:1,0,0,1,0.5,"Rio Tinto River, known as the Red River",25
+Community Concerns,1,negative:1,0,1,0,0.85,?uvena o?na voda jedva kaplje,175
+Community relations,1,positive:1,1,0,0,0.6,Podr?ka Srbiji iz Hrvatske,92
+Community/Sharing Information,1,positive:1,1,0,0,0.9,I've done a fair few swings with roy hill and have got them even as a contractor.,82
+Community/Support,1,positive:1,1,0,0,0.8,"I was just wondering if anyone had ever attended a rio tinto assesment centre before, and if so any advice on how to be successful?",186
+Company Existence,1,negative:1,0,1,0,1.0,&amp; so is Blue Sky Studios.,376
+Company Location,1,neutral:1,0,0,1,0.95,"Location: Kitimat, BC, CA",187
+Company Name,1,neutral:1,0,0,1,0.95,Rio Tinto,187
+Company Presence,1,neutral:1,0,0,1,0.95,"Location: Kitimat, BC, CA",191
+Company Strategy,1,neutral:1,0,0,1,0.9,signed with WWE,289
+Comparison/Comparison,1,neutral:1,0,0,1,0.9,Rio Tinto vs Nyambaatar,65
+Compensation,1,positive:1,1,0,0,0.95,Paid like surgeons: 240k a year,91
+Compensation Inquiry,1,neutral:1,0,0,1,0.95,was just curious how much Graduates (specifically geos or mining engineers) get paid at a major iron operation like BHP/Rio Tinto/Fortescue?,127
+Competition,1,positive:1,1,0,0,0.8,Match Thread: Real Salt Lake v MNUFC @ Rio Tinto Stadium,98
+Competitive Performance,1,positive:1,1,0,0,0.9,Bad News Eagles are now 1-2 in the Legends Stage.,299
+Competitive Positioning,1,neutral:1,0,0,1,0.7,"Jadarit je i otkriven tako sto se trazio bor, ali trenutno potraznja za borom i bornim jedinjenjima kao prozivodima trenutno nema komercijalnu vrednost",147
+Competitiveness,1,negative:1,0,1,0,0.85,restreints par la Chine,77
+Competitor Activity,1,neutral:1,0,0,1,0.9,AAA wrestlers who have already signed with WWE,289
+Compliance & Ethics,1,negative:1,0,1,0,0.9,alleged sexual harassment,30
+Compliance/Governance,1,negative:1,0,1,0,0.9,equipment fault caused emissions,86
+Conflict,1,negative:1,0,1,0,0.9,"Navi refuse to shake hands with VP, Aleksi seems to be adamantly saying something.",348
+Content Moderation,1,neutral:1,0,0,1,0.9,orders its removal from digital platforms,302
+Contract Type,1,neutral:1,0,0,1,0.9,2-Years Contract,156
+Contractor Selection,1,negative:1,0,1,0,0.9,Trump?¡¥s Hand-Picked Contractor,309
+Corporate Conduct,1,negative:1,0,1,0,0.7,Spin ma?inera glavnih neimara sa severa...,19
+Corporate Ethics,1,negative:1,0,1,0,0.85,does not own land it is about to give to,13
+Corporate Strategy,1,positive:1,1,0,0,0.9,donner un cong¡§| de taxes et d?¡¥imp?ts,93
+Cost/Value,1,neutral:1,0,0,1,0.75,vou abrir m?o de diversas coisas como mercados mais pr¡§?ximos,133
+Covid Vaccination Policy,1,positive:1,1,0,0,0.95,good thing I got mine back in July.,43
+Creative Ideation,1,neutral:1,0,0,1,0.95,CASTING IDEA,335
+Credit/Acknowledgement,1,positive:1,1,0,0,0.3,Credits to @dj_gugu on Instagram.,281
+Crisis Management,1,negative:1,0,1,0,0.9,Zika crisis: Rio Olympics 'should be moved or postponed',315
+Cultural Expression,1,positive:1,1,0,0,0.7,"skandiraju ""Rio Tinto mar? iz Srbije""",84
+Cultural Heritage Destruction,1,negative:1,0,1,0,0.9,"blasting of 46,000-year-old Aboriginal sites",37
+Cultural Respect,1,negative:1,0,1,0,0.95,destroy Native Australian Aboriginal historical site,11
+Cultural Sensitivity,1,negative:1,0,1,0,0.95,destroyed an indigenous Australian sacred sight,5
+Customer Engagement,1,positive:1,1,0,0,0.95,we also like other stocks,85
+Customer Expectations,1,neutral:1,0,0,1,0.8,how did reality compare to your expectations?,208
+Customer Satisfaction,1,negative:1,0,1,0,0.9,fiquei pasmado com a diferen?a para os outros.,192
+Date,1,neutral:1,0,0,1,0.8,"September 23, 2025",180
+Decision-Making Factor,1,positive:1,1,0,0,0.9,"Contemplating applying for rio, it'd be especially handy for trips home.",82
+Defense Collaboration,1,positive:1,1,0,0,0.95,actively collaborating with the U.S. government to identify opportunities and leverage available support to increase domestic production and strengthen supply chains,176
+Demand,1,negative:1,0,1,0,0.8,Declining demand due to China property rout,79
+Diversity,1,neutral:1,0,0,1,0.95,90% Mexican and Mexican-American,215
+Diversity & Inclusion,1,negative:1,0,1,0,0.6,targets inevitably lead to diversity hires and diversity hires get no respect.,32
+Dividend,1,positive:1,1,0,0,0.85,hohe Dividende,109
+Duty of Care,1,negative:1,0,1,0,0.9,appearing to ignore a mother and baby?¡¥s pleas for help,231
+Economic Development,1,positive:1,1,0,0,0.7,give green light to,68
+Economic Outlook,1,neutral:1,0,0,1,0.85,China gerade in einer Wirtschaftskrise,109
+Efficiency,1,negative:1,0,1,0,0.85,"surely it doesn?¡¥t take that long to organise a medical, police and reference check.",4
+Electoral Performance,1,positive:1,1,0,0,0.9,majority vote in the Rio Grande Valley,358
+Emergency Response,1,positive:1,1,0,0,0.95,"Finally, we saw the flashlight beam pointing at us. ?¡ãHere!?¡À we shouted waving our arms, like castaways spotting a rescue helicopter. When they reached us, My wife looked at me as if to say, ?¡ãHoly crap",243
+Employee Conduct,1,negative:1,0,1,0,0.95,Wisconsin staffer Jack Del Rio arrested for drunk driving,389
+Employee Departure,1,neutral:1,0,0,1,0.95,Rio Ferdinand to quit TNT Sports immediately after Champions League final,270
+Employee Policy,1,negative:1,0,1,0,0.7,Banning the Use of Medicinal Cannabis,33
+Employee Safety,1,negative:1,0,1,0,0.95,reporters caught in roadside gunfight,321
+Employee Wellbeing,1,negative:1,0,1,0,0.35,ICE at it again today.,217
+Energy Strategy,1,positive:1,1,0,0,0.9,solar power and battery purchase,169
+Energy Transition,1,positive:1,1,0,0,0.92,Rio Tinto's Gladstone coal-fired power station to close six years early,45
+Energy/Utilities,1,neutral:1,0,0,1,0.9,announces early closure of Gladstone Power Station,173
+Environmental Action,1,positive:1,1,0,0,0.95,The Ocean Cleanup scooping literal truckloads of plastic out of the Rio Las Vacas river,246
+Environmental Concern,1,negative:1,0,1,0,0.8,promovi?u projekat Jadar i Rio Tinto,138
+Environmental impact,1,negative:1,0,1,0,0.6,ugro?ena je sigurnost voda,92
+Environmental Protection,1,positive:1,1,0,0,0.8,Eco-activists Launch Protest For Nationwide Lithium Mining Ban,132
+Environmental Quality,1,negative:1,0,1,0,0.9,"'super bacteria' in Rio's Olympic venues, top beaches.",359
+Environmental Sustainability,1,positive:1,1,0,0,0.95,install solar panels at that will offset 73% of their power needs,128
+Ethics/Integrity,1,negative:1,0,1,0,0.9,Rio police exaggerated their version of Ryan Lochte events,320
+Event Integrity,1,negative:1,0,1,0,0.9,Heavily swollen at the ceremonial weigh ins. He fights Michael Aswell tomorrow at UFC Rio.,263
+Event Organization,1,positive:1,1,0,0,0.8,organizova?e ga grupa srpske dijaspore ?Palac gore?¡À.,138
+Event Outcome,1,neutral:1,0,0,1,0.85,Liverpool [1] - 0 Athletic Club,248
+Event Preparation,1,neutral:1,0,0,1,0.95,stockpile for the RIO games,370
+Event Status,1,negative:1,0,1,0,1.0,his Rio fight is off,247
+Executive Compensation,1,negative:1,0,1,0,0.8,stripped of $4.9m in bonuses,18
+Exploration Rights,1,neutral:1,0,0,1,0.3,za istra?ivanje i eksploataciju,177
+External Link,1,neutral:1,0,0,1,0.9,Apply &amp; Description ?? https://jobboardsearch.com/redirect?utm_source=reddit&amp;utm_medium=bot&amp;utm_id=jobboarsearch&amp;utm_term=www.constructionjobsaustralia.com&amp;rurl=aHR0cHM6Ly93d3cuY29u,156
+External Mentions,1,neutral:1,0,0,1,0.65,Sources,
+External Risk,1,negative:1,0,1,0,0.7,kidnapped by men in police uniform and forced to withdraw money from ATMs,326
+Facilities Condition,1,negative:1,0,1,0,0.9,a idade de certas maquinas (as smith parecem da guerra do ultramar),192
+Facilities/Infrastructure,1,negative:1,0,1,0,0.9,"Rio Olympics Athletes' Village Declared ""Uninhabitable""",307
+Fan Engagement,1,positive:1,1,0,0,0.7,"skandiraju ""Rio Tinto mar? iz Srbije""",84
+Fan Safety,1,negative:1,0,1,0,0.9,death of a fan,228
+Fear-Mongering,1,negative:1,0,1,0,0.8,Politicians have been feeding on fear for years.,110
+Financial Assistance,1,neutral:1,0,0,1,0.7,financial assistance,58
+Financial Performance,1,negative:1,0,1,0,0.8,threatens profit,79
+Financial Strategy,1,positive:1,1,0,0,0.8,low dilution,171
+Fiscal Policy,1,positive:1,1,0,0,0.9,un cong¡§| de taxes et d?¡¥imp?ts,93
+Food/Recipe Sharing,1,positive:1,1,0,0,0.3,Tava a falar com um colega que tinha feito molho e ele disse que um amigo tinha uma boa receita que lhe tinham enviado caso quisesse experimentar.,101
+Foreign Ownership,1,negative:1,0,1,0,0.8,"the largest shareholder in Rio Tinto (18%) and Woodside (over 5%). All are mostly foreign-owned, with Australian investors, governments, and individuals owning less than 18% of each company, making it",73
+Funding,1,negative:1,0,1,0,1.0,requests funding for Olympics,318
+FURIA Performance,1,positive:1,1,0,0,0.85,FURIA Esports are through to the semi-finals and will face [????](#heroic-logo) Heroic,264
+Gender Discrimination,1,negative:1,0,1,0,0.95,gender discrimination,23
+Geographic Focus,1,neutral:1,0,0,1,0.8,New Zealand,61
+Geographic Location,1,neutral:1,0,0,1,0.9,"Kitimat, BC, CA",153
+Geopolitical Relations,1,negative:1,0,1,0,0.8,Tvrdnje o neokolonijalnom odnosu EU prema resursima Srbije,72
+Geopolitical Stability,1,negative:1,0,1,0,0.85,restreints par la Chine,77
+Governance & Accountability,1,negative:1,0,1,0,0.8,stripped of $4.9m in bonuses,18
+Governance & Compliance,1,neutral:1,0,0,1,0.3,O po?tovanju zakona i propisa,177
+Governance & Ethics,1,negative:1,0,1,0,0.7,corporate lobbying to undermine climate solutions,104
+Governance & Oversight,1,negative:1,0,1,0,0.95,Stripped Of Licence,185
+Governance/Accountability,1,negative:1,0,1,0,0.95,Government gives Taylor Swift concert producer 24 hours to explain,230
+Government Action,1,negative:1,0,1,0,0.8,Forcing Government To Scrap Rio Tinto Lithium Mining Project,132
+Government Contracts,1,positive:1,1,0,0,0.9,US buys scandium oxide from Rio Tinto,170
+Gratitude,1,positive:1,1,0,0,0.75,Desde j¡§¡é agradecido. :),134
+Growth Potential,1,positive:1,1,0,0,0.85,Potential 20-30% zu machen,109
+Harassment/Misconduct,1,negative:1,0,1,0,0.9,What If Sensei Suddenly Called a Student His Wife?,295
+Hate Speech,1,negative:1,0,1,0,0.7,govora mr?nje ka LGBT osobama,39
+Heritage Preservation,1,negative:1,0,1,0,0.95,destroyed by mining,20
+Heritage Protection,1,negative:1,0,1,0,0.95,destroyed heritage site,136
+Hiring Activity,1,positive:1,1,0,0,0.9,a Maintenance Scheduler at Rio Tinto! in Rio Tinto,153
+Hiring/Recruiting,1,neutral:1,0,0,1,0.5,[HIRING] a Maintenance Scheduler at Rio Tinto! in Rio Tinto,155
+Historical Performance,1,positive:1,1,0,0,0.85,sind die um diese Jahreszeit immer am Tiefpunkt gewesen und von Herbst zu Winter gestiegen.,2
+Humanitarian Response,1,negative:1,0,1,0,0.9,appearing to ignore a mother and baby?¡¥s pleas for help,231
+Incident Management,1,negative:1,0,1,0,0.75,Police officer removing a man,266
+Indigenous Rights,1,negative:1,0,1,0,0.9,threatens Apache sacred land,164
+Industry Collaboration,1,positive:1,1,0,0,0.65,breaks ranks to back,125
+Information Disclosure,1,neutral:1,0,0,1,0.3,Came across Solomun?¡¥s 2024/2025 equipment rider for those curious.,281
+Information Seeking/Clarification,1,neutral:1,0,0,1,0.8,"As a newbie investor, do you think this company is worth investing in.",6
+Information/Media,1,negative:1,0,1,0,0.8,deo su agresivne kampanje dezinformacija,72
+Infrastructure & Engineering,1,neutral:1,0,0,1,0.7,Rio Tinto je u svojoj studiji naveo da ce ceo rudnik biti podignut iznad nivoa poplavnog talasa iz 2014. godine tako sto ce podici ceo plato rudnika za 4m na POVRSINI OD 220 HEKTARA.,147
+Infrastructure (City),1,neutral:1,0,0,1,0.85,Bullet Train in Rio de Janeiro,368
+Innovation in Extraction,1,positive:1,1,0,0,0.95,"scientists became the first to develop a process which allows the extraction of high-purity scandium oxide from waste streams of titanium dioxide production, without the need for any additional mining",176
+Intellectual Property,1,negative:1,0,1,0,0.9,Adele plagiarized a song performed by Martinho da Vila,302
+International Appeal,1,positive:1,1,0,0,0.8,"Brazil has been breaking records in international tourism lately. According to recent data, Rio alone saw a 51% increase in foreign visitors compared to last year. The city?¡¥s international appeal seem",208
+International Presence,1,neutral:1,0,0,1,0.6,u tre?im zemljama,41
+Interview Process,1,neutral:1,0,0,1,0.8,Has anyone had an interview with their mechanical engineering team and can shed some light on the types of questions I can expect?,167
+Inventory Management,1,neutral:1,0,0,1,0.95,Camera stockpile,370
+Investment Decision,1,positive:1,1,0,0,0.95,I'm thinking about opening a position in Rio Tinto,1
+Investment Opportunity,1,positive:1,1,0,0,0.8,Investing in Rio Tinto worth it?,6
+Investment Performance,1,negative:1,0,1,0,0.9,$12 billion 2016 olympic park is mostly abandoned,280
+Investment Potential,1,positive:1,1,0,0,0.85,idealer Einstiegszeitpunkt,109
+Investment Strategy,1,neutral:1,0,0,1,0.5,Sollte man da reinbuttern?,122
+Investment Strategy/Instrument,1,neutral:1,0,0,1,0.8,Or if they are part of an index fund of some sort?,6
+Investment Timing,1,positive:1,1,0,0,0.85,Eigentlich sollte man jetzt in Rio Tinto rein.,2
+Investment/Expansion,1,positive:1,1,0,0,0.9,given approval for $2.5b Pilbara iron ore expansion,51
+Investment/Portfolio,1,positive:1,1,0,0,0.6,kupio zemlji?te za 1.2 miliona evra,160
+Investment/Spending,1,positive:1,1,0,0,0.9,Nyambaatar spent 44 billion to build his park,65
+Involvement/Engagement,1,positive:1,1,0,0,0.8,Rio Tinto will be heavily involved in this discovery.,6
+Job Category,1,neutral:1,0,0,1,0.8,#senior#engineer#fulltime,180
+Job Description,1,positive:1,1,0,0,0.85,"Le titulaire du poste sera responsable de la pr¡§|vention, de la pr¡§|paration et de l?¡¥intervention en mati¡§¡§re de s¡§|curit¡§| incendie, de premiers secours, de sauvetages techniques et de s?ret¡§| industrielle",150
+Job Market Competition,1,negative:1,0,1,0,0.8,It?¡¥s a bit frustrating because this might mean more candidates are now competing for the same positions.,161
+Job Posting Date,1,neutral:1,0,0,1,0.95,"Date Posted: September 21, 2025",187
+Job Role,1,neutral:1,0,0,1,0.95,Electrical Engineer (High Voltage),187
+Job Security,1,negative:1,0,1,0,0.85,potential redundancies or retrenchments,184
+Job Type/Contract,1,neutral:1,0,0,1,0.7,Fixed Term,182
+Land Rights,1,negative:1,0,1,0,0.85,does not own land it is about to give to,13
+Language Support,1,negative:1,0,1,0,0.95,"I called, a recording said, ?¡ãFor English, press star.?¡À I pressed star. Someone answered in Portuguese. I asked if they spoke English or Spanish, no, they didn?¡¥t.",243
+Learning & Development,1,neutral:1,0,0,1,0.7,Student Introduction,311
+Legal & Governance,1,negative:1,0,1,0,0.7,the order to revoke the permits awarded to Rio Tinto was ?¡ãnot in line with the constitution and the law?¡À.,74
+Legal & Regulatory Compliance,1,negative:1,0,1,0,0.85,does not own land it is about to give to,13
+Legal/Compliance,1,negative:1,0,1,0,0.85,class actions,89
+Legal/Regulatory,1,negative:1,0,1,0,0.9,Serbia revokes Rio Tinto?¡¥s lithium mine licences,52
+Limited Offer,1,neutral:1,0,0,1,0.95,LIMITED Pickup,262
+Liverpool Brand Perception,1,positive:1,1,0,0,0.8,Liverpool 5 - 0 Stoke City,285
+Liverpool Execution,1,positive:1,1,0,0,0.8,Liverpool 5 - 0 Stoke City,285
+Liverpool Product Quality,1,positive:1,1,0,0,0.8,Liverpool 5 - 0 Stoke City,285
+Living Conditions,1,negative:1,0,1,0,0.9,Slum in Rio,338
+Lobbying,1,negative:1,0,1,0,0.8,"mining companies spent $541 million on lobbying Australian governments through its peak lobby groups, which are dominated by foreign interests.",73
+Local Business/Commerce,1,positive:1,1,0,0,0.75,"Indica??es em Ermesinde, Rio Tinto e Gondomar",134
+Localization,1,positive:1,1,0,0,0.8,[ENG SUB],201
+Location Proximity,1,neutral:1,0,0,1,0.95,"apareceu um ao lado do bairro da ponte, Rio Tinto.",183
+Location Risk,1,negative:1,0,1,0,0.9,"Ipanema beach, Rio de Janiero. Lose a child",275
+Location/Event,1,neutral:1,0,0,1,0.95,Ostavljena suza ispred prostorija Rio Tinto - Projekat Jadar u Loznici,100
+Logistics/Operations,1,neutral:1,0,0,1,0.9,No Dorms For U.S. Basketball Teams; They'll Stay On A Cruise Ship In Rio,350
+M&A/Investment,1,positive:1,1,0,0,0.95,Mining giant Rio Tinto to acquire Arcadium Lithium in $6.7 billion deal!,172
+Maintenance Quality,1,negative:1,0,1,0,0.95,only a few days after they finished reconditioning this stretch of rail,48
+Management,1,negative:1,0,1,0,0.7,poor managemen,63
+Management & Supervision,1,negative:1,0,1,0,0.95,alleged sexual harassment,23
+Management/Execution,1,negative:1,0,1,0,0.95,Officials forced to cut their way into Olympic stadium after losing keys to gate,341
+Market Conditions,1,negative:1,0,1,0,0.8,Plunging iron ore price,79
+Market Dynamics,1,neutral:1,0,0,1,0.9,cena litijuma drasti?no pala,145
+Market Expansion,1,positive:1,1,0,0,0.8,Rio Tinto,142
+Market Position,1,positive:1,1,0,0,0.85,Solides Bergbauunternehmen,109
+Market Structure & Regulation,1,negative:1,0,1,0,0.6,Are you buying real shares if you buy them on the German stock exchanges rather than the country they are listed in?,96
+Market Value,1,negative:1,0,1,0,0.8,wipes US$100 billion off leading miners?¡¥ market value,79
+Marketing/Communication,1,positive:1,1,0,0,0.8,Svaka ?ast Reddit Brigado,165
+Match Strategy,1,neutral:1,0,0,1,0.85,|[NAVI](#navi-logo)|**MAP**|[FURIA](#furia-logo)|,264
+Material Availability,1,positive:1,1,0,0,0.95,the only vendor available capable of fulfilling the government's required product needs at the capacity required for the contract,176
+Media Coverage,1,neutral:1,0,0,1,0.9,according to Ernesto Ocampo of Superluchas.com,289
+Media/Communications,1,negative:1,0,1,0,0.5,Komentari isklju?eni,67
+Ministerial Appointment,1,positive:1,1,0,0,0.7,Nova ministarka za Rio Tinto,34
+NAVI Performance,1,negative:1,0,1,0,0.85,Natus Vincere have placed 5th-8th and are eliminated from the Major.,264
+Operational Excellence,1,negative:1,0,1,0,0.9,Rio Tinto launches investigation into missing radioactive capsule,124
+Operational Focus,1,neutral:1,0,0,1,0.8,announces plans,61
+Operational Reliability,1,negative:1,0,1,0,0.95,partially derailed,48
+Operational Requirements,1,neutral:1,0,0,1,0.3,Solomun?¡¥s 2024/2025 equipment rider,281
+Operational Risk,1,negative:1,0,1,0,0.95,Mistakenly Blowing Up,185
+Operations Efficiency,1,positive:1,1,0,0,0.9,Driverless trucks move iron ore at automated Rio Tinto mines,16
+Operations Management,1,negative:1,0,1,0,0.9,now closed,317
+Operations/Execution,1,negative:1,0,1,0,1.0,Train hits fuel truck,355
+Operations/Logistics,1,negative:1,0,1,0,0.95,Officials forced to cut their way into Olympic stadium after losing keys to gate,341
+Organizational Change,1,negative:1,0,1,0,0.85,likely to go,184
+Organizational Ethics,1,negative:1,0,1,0,0.9,"Soon after he set foot in Rio, part of the team was in a terme in Copacabana, in the early hours of last Thursday, 4.",284
+Participation Interest,1,positive:1,1,0,0,0.8,Algu¡§|m alinha?,139
+Partnership/Alliance,1,positive:1,1,0,0,0.9,Rio Tinto-Backed,40
+Partnerships,1,positive:1,1,0,0,0.9,proximity to major producers such as Rio Tinto and Osisko Development,166
+Partnerships/Alliances,1,positive:1,1,0,0,0.8,supply agreement with Hitachi Rail STS to provide Rio Tinto with detection systems for testing,103
+Partnerships/Relationships,1,negative:1,0,1,0,0.95,ends partnership,136
+Perception & Reputation,1,negative:1,0,1,0,0.6,we will forget about the massive polution and environmental destruction and the destruction of ancient aboriginal sites.,32
+Performance Quality,1,negative:1,0,1,0,0.8,Taylor seemingly struggling to catch her breath,236
+Personal Experience/Background,1,neutral:1,0,0,1,0.75,Eu vivia no Porto em apartamento e h¡§¡é uns meses mudei-me para Rio Tinto para moradia mas n?o conhe?o grande coisa na Zona,134
+Personnel Changes,1,neutral:1,0,0,1,0.9,Rio Ferdinand announces he will leave TNT Sports,223
+Physical Infrastructure,1,negative:1,0,1,0,0.4,half off,56
+Platform Engagement,1,neutral:1,0,0,1,0.9,"on his platform, Truth Social.",358
+Player Conduct,1,negative:1,0,1,0,0.9,"Jimmy Butler, DeRozan, Cousins and DeAndre Jordan spent 5 hours in Rio's finest brothel.",284
+Player Performance,1,positive:1,1,0,0,0.85,Rio Ngumoha 2',248
+Player Statistics,1,neutral:1,0,0,1,0.85,|**Team**|**K**|**A**|**D**|**ADR**|**Rating**|,264
+Podcast Content,1,neutral:1,0,0,1,0.85,interrupts Rio &amp; Carricks podcast,207
+Policy/Compliance,1,neutral:1,0,0,1,0.7,Rio Tinto Introduces Policy Banning the Use of Medicinal Cannabis,33
+Political Context,1,negative:1,0,1,0,0.5,na Rio Tinto,97
+Power Dynamics,1,negative:1,0,1,0,0.9,What If Sensei Suddenly Called a Student His Wife?,295
+Product Customization,1,positive:1,1,0,0,0.15,Rio tailored a power suit,199
+Product Details,1,neutral:1,0,0,1,0.95,3?? Rio (CV: Lynn) [Blue - Special/Attacker/Back],262
+Product Feature,1,neutral:1,0,0,1,0.8,Tsukatsuki Rio L2D (Live2D) / Memorial Lobby,201
+Product Features,1,positive:1,1,0,0,0.85,"the new UX far superior to offerings from GOOG, MSFT, and CRM. Apollo is absolutely incredible, and it?¡¥s going where no clouds have gone before?- from Humvees to nuclear submarines.",116
+Product Functionality,1,positive:1,1,0,0,0.15,the suit isn't just there for protecting Sensei,199
+Product Offering,1,neutral:1,0,0,1,0.3,UFC Rio on October 11,312
+Product Strategy,1,neutral:1,0,0,1,0.5,calls out Max Holloway for a BMF title fight,286
+Product/Service/Concept,1,neutral:1,0,0,1,0.3,PsBattle: The Rio Tinto River,14
+Professionalism,1,negative:1,0,1,0,0.7,And you allowed the person to go through the process! So unprofessional!,113
+Project Execution,1,positive:1,1,0,0,0.95,scooping literal truckloads of plastic,246
+Project Impact,1,neutral:1,0,0,1,0.8,nije i ne mo?e biti poplavljeno,106
+Project Outcome,1,negative:1,0,1,0,0.9,olympic park is mostly abandoned,280
+Project Quality,1,positive:1,1,0,0,0.9,"project's access to year-round work, low dilution",166
+Project Status,1,negative:1,0,1,0,0.9,revokes Rio Tinto?¡¥s lithium mine licences,52
+Project Success,1,positive:1,1,0,0,0.85,140T of trash (about 37 truckloads) intercepted and extracted,273
+Project Viability,1,negative:1,0,1,0,0.7,What's the Deal with Rio Tinto and the Oyut Tolgoi Mine in Southern Mongolia?,63
+Project/Investment,1,positive:1,1,0,0,0.8,"Rio Tinto potvrdio da je prijavio projekat ""Jadar""",118
+Protest Movement,1,neutral:1,0,0,1,0.7,u vezi sa Rio Tinto protestima,39
+Public Access,1,negative:1,0,1,0,0.9,off limits to tourism,280
+Public Communication,1,neutral:1,0,0,1,0.9,in her Instagram stories,228
+Public Image,1,negative:1,0,1,0,0.85,does not own land it is about to give to,13
+Public Perception,1,negative:1,0,1,0,0.5,Komentari isklju?eni. Ajmo laganica dislajkica,67
+Public Sentiment (City Politics),1,negative:1,0,1,0,0.85,queimam boneco de Trump em ato no Rio,364
+Public Transport Quality,1,negative:1,0,1,0,0.9,transporte p¡§2blico do rio ser t?o estressante,271
+Reconstruction/Rebuilding,1,positive:1,1,0,0,0.7,Replica of destroyed Juukan Gorge being built,115
+Recruitment Activity,1,positive:1,1,0,0,0.9,Rio Tinto is [hiring] a GPO Process Lead (2-Years Contract) at Rio Tinto!,156
+Recruitment Event,1,neutral:1,0,0,1,0.95,(LIMITED Pickup Recruitment),262
+Recruitment Process Timeline,1,negative:1,0,1,0,0.85,she started with ?¡ãin the coming weeks?¡À,4
+Remediation/Restoration,1,positive:1,1,0,0,0.8,Replica of destroyed Juukan Gorge being built,123
+Reputation & Public Trust,1,negative:1,0,1,0,0.8,destruction of ancient rock shelters,18
+Reputation/Brand,1,negative:1,0,1,0,0.7,New Zealand Athlete in Rio kidnapped,326
+Reputation/Public Image,1,negative:1,0,1,0,0.95,destroy Native Australian Aboriginal historical site,11
+Reputation/Public Perception,1,negative:1,0,1,0,0.9,"destruction of 46,000-year-old sacred Indigenous site",80
+Request/Recommendation,1,positive:1,1,0,0,0.75,Podem-me indicar,134
+Resilience/Overcoming Challenges,1,positive:1,1,0,0,0.95,get through these tough times,81
+Resource Access,1,positive:1,1,0,0,0.7,access to year-round work,174
+Resource Accessibility,1,positive:1,1,0,0,0.8,the project's access to year-round work,152
+Resource Allocation,1,negative:1,0,1,0,0.7,wasting resources.,113
+Resource Availability/Discovery,1,positive:1,1,0,0,0.8,Australia has found 6 Trillion dollars worth of Iron Ore in WA.,6
+Resource Extraction,1,positive:1,1,0,0,0.85,to expand iron ore mine,12
+Resource Management,1,negative:1,0,1,0,0.85,does not own land it is about to give to,13
+Resource Nationalism,1,negative:1,0,1,0,0.85,restreints par la Chine,77
+Risk Assessment,1,negative:1,0,1,0,0.95,It this a bat shit crazy play?,1
+Safety,1,negative:1,0,1,0,0.95,partially derailed,48
+Safety & Security,1,neutral:1,0,0,1,0.95,se acham que h¡§¡é problema tamb¡§|m com a proximidade ao bairro do Cerco.,183
+Scalability Concerns,1,negative:1,0,1,0,0.85,"One of the favorite arguments of the Palantir bears is that Palantir is an unscalable, overvalued services company that should have the same P/E as Accenture, Booz, BAE, etc.",116
+Science-based Decisions,1,positive:1,1,0,0,0.9,"""We respect science""",316
+Scope Clarification,1,neutral:1,0,0,1,0.95,Would prefer an answer with estimated base pay + site allowance and possible bonuses (throw in super if you can),127
+Scope of Impact,1,neutral:1,0,0,1,0.85,"Operational, corporate, both?",184
+Security Incident,1,negative:1,0,1,0,0.6,Um Policial Tirando um cara do telhado de um Mercado,244
+Security Risk,1,negative:1,0,1,0,0.95,caught in roadside gunfight on the way to Olympic Village in Rio,321
+Sentiment,1,positive:1,1,0,0,0.6,?elim svim Srbima zdravlje i sre?u. Ostanite sna?ni,92
+Service Quality,1,negative:1,0,1,0,0.9,Post intersolid¡§¡ério dos desgra?ados que passaram mais de duas horas em rio tinto fechados num comboio avariado,146
+Sexual Harassment,1,negative:1,0,1,0,0.85,alleged sexual harassment,31
+Size/Scale,1,neutral:1,0,0,1,0.9,on a 13000 square meter land,65
+Social Connection,1,positive:1,1,0,0,0.8,Preciso de malta para jogar futsal,139
+Social Engagement,1,positive:1,1,0,0,0.85,organizuje koktel sutra,94
+Social Experience/Atmosphere,1,positive:1,1,0,0,0.85,Porem do que explorei da zona ate agora parece me pacifica e os vizinhos ate agora foram 5*,140
+Social Inequality,1,negative:1,0,1,0,0.9,"O Rio ¡§| muito bom pra quem vive igual esses dois a¡§a, na bolha do condom¡§anio a ¡§¡érea vip e a beautiful people global.",381
+Social Justice Advocacy,1,positive:1,1,0,0,0.7,poziva na solidarnost i osu?uje sve napade,39
+Social/Political Advocacy,1,positive:1,1,0,0,0.7,support renters.,144
+Sovereignty,1,negative:1,0,1,0,0.85,restreints par la Chine,77
+Sponsorship/Partnership,1,negative:1,0,1,0,0.8,"Rio Tinto, BHP ties",163
+Sports,1,positive:1,1,0,0,0.8,Match Thread: Real Salt Lake v MNUFC @ Rio Tinto Stadium,98
+Sportsmanship,1,negative:1,0,1,0,0.9,Navi refuse to shake hands with VP,348
+Squad Management,1,neutral:1,0,0,1,0.9,Rio Ngumoha has signed his first professional contract with the Reds,235
+Stakeholder Communication,1,neutral:1,0,0,1,0.8,za strate?ki projekat EU - Ekonomija,118
+Stock Performance,1,negative:1,0,1,0,0.5,immer so ab Sept bergauf geht f¡§1r 6 Monate dann bergab?,122
+Stoke City Brand Perception,1,negative:1,0,1,0,0.8,Liverpool 5 - 0 Stoke City,285
+Stoke City Execution,1,negative:1,0,1,0,0.8,Liverpool 5 - 0 Stoke City,285
+Stoke City Product Quality,1,negative:1,0,1,0,0.8,Liverpool 5 - 0 Stoke City,285
+Strategic Change,1,negative:1,0,1,0,0.7,lopettaa malminetsinn?t,50
+Strategic Communication,1,neutral:1,0,0,1,0.9,"President-elect referenced his majority vote in the Rio Grande Valley on his platform, Truth Social.",358
+Strategic Decision,1,negative:1,0,1,0,0.8,plans to close,61
+Strategic Focus,1,positive:1,1,0,0,0.8,proyecto de litio,142
+Strategic Importance,1,positive:1,1,0,0,0.95,critical to America's future,176
+Strategic Materials,1,positive:1,1,0,0,0.9,scandium oxide ... from a branch of the mining company Rio Tinto,170
+Strategic Partnership,1,positive:1,1,0,0,0.95,amazing news For PLTR today,85
+Strategic Partnerships,1,positive:1,1,0,0,0.6,na listi projekata strate?kih sirovina za EU,41
+Strategic Resource Acquisition,1,positive:1,1,0,0,0.9,Rio Tinto ?eli da kopa litijum,145
+Strategic Resources,1,negative:1,0,1,0,0.85,restreints par la Chine,77
+Structural Integrity,1,negative:1,0,1,0,0.9,in Danger of Falling into the Rio Grande,309
+Supply Chain Dependence,1,negative:1,0,1,0,0.85,restreints par la Chine,77
+Supply Chain Security,1,negative:1,0,1,0,0.85,restreints par la Chine,77
+Support,1,positive:1,1,0,0,0.7,Had the call about a month ago congratulating me on being selected for the role.,7
+Support/Promotion,1,negative:1,0,1,0,0.5,podr?avaju Rio Tinto,107
+Sustainability Commitment,1,positive:1,1,0,0,0.9,prebacivanje na struju,145
+Talent Management,1,negative:1,0,1,0,0.9,Madueke Transfer,296
+Targeting,1,negative:1,0,1,0,0.8,Activists set sights on Woodside and Rio Tinto director Ben Wyatt?¡¥s home,75
+Tax Policy,1,positive:1,1,0,0,0.9,donner un cong¡§| de taxes et d?¡¥imp?ts,93
+Team Management,1,neutral:1,0,0,1,0.9,has been added as a first team player,386
+Team Performance (FURIA),1,negative:1,0,1,0,0.95,FURIA Esports have been eliminated in 3rd/4th place.,385
+Team Success,1,positive:1,1,0,0,0.85,With Liverpool closing in on their 20th title,269
+Timeliness,1,negative:1,0,1,0,0.7,I was advised that it can be a slow process,7
+Timing of Legal Action,1,negative:1,0,1,0,0.9,hired lawyers 3 days before blasting,35
+Trade,1,negative:1,0,1,0,0.7,amid tariffs,58
+Training & Development,1,positive:1,1,0,0,0.85,"Nous investissons en vous, en couvrant les co?ts de la formation",150
+Transparency & Inclusion,1,negative:1,0,1,0,0.8,"klju?ni stavovi aktivista, lokalnih zajednica i nezavisnih nau?nika namerno su izostavljeni",138
+Transparency/Disclosure,1,negative:1,0,1,0,0.5,ko je bio za da se truju ljudi i zemlja,107
+Trust & Respect,1,negative:1,0,1,0,0.8,threatened to call the police on my 7 yr old,135
+Trust & Transparency,1,negative:1,0,1,0,0.85,does not own land it is about to give to,13
+Trust in Process,1,positive:1,1,0,0,0.85,Habt ihr Vertrauen in das Gesetz der Serie?,2
+Truth/Reality Gap,1,negative:1,0,1,0,0.9,tudo o que eles desmentem n?o ¡§| a realidade.,381
+User Content Creation,1,positive:1,1,0,0,0.65,"Assortments of FuraUnsu (Nishino Flower, Seiun Sky) (by: @RIO_067)",220
+Valuation,1,positive:1,1,0,0,0.85,Niedrigeres KGV,109
+Value for Money,1,negative:1,0,1,0,0.9,no creo que valiera la pena.,392
+Victim Support,1,negative:1,0,1,0,0.9,posts Instagram stories mocking her husband's victim,206
+Waste Reduction,1,positive:1,1,0,0,1.0,use leftover Olympic food,361
+Wildlife (City),1,positive:1,1,0,0,0.95,Pink river dolphin,388
+Work Environment Safety,1,negative:1,0,1,0,0.95,alleged sexual harassment,23
+Work Processes,1,negative:1,0,1,0,0.8,prestarts the absolute worst,126
+Work-Life Balance,1,negative:1,0,1,0,0.8,slash sick leave from 45 to 12 days,27
+Workforce Information,1,neutral:1,0,0,1,0.5,what the band L salary is at Rio tinto,10
+Workforce Perception,1,neutral:1,0,0,1,0.7,These companies are whining about skills shortage because Gen Z/younger workers are more environmentally conscious.,49
+Workplace Misconduct,1,negative:1,0,1,0,0.9,Fired Over Alleged Sexual Assault,195
+Workplace Safety,1,negative:1,0,1,0,0.85,alleged sexual harassment,89

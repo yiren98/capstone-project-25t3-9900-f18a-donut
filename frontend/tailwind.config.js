@@ -1,12 +1,15 @@
-export default {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
+// tailwind.config.js
+module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // 默认字体
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        // 或者更柔和一点的中文字体
+        display: ['"LXGW WenKai Screen"', 'sans-serif'],
+        // 正文
+        body: ['"Noto Sans SC"', 'sans-serif'],
       },
     },
   },
-  plugins: [],
-}
+};

@@ -1,4 +1,3 @@
-// src/components/RegisterForm.jsx
 import { useState } from "react";
 
 export default function RegisterForm({ onSuccess }) {
