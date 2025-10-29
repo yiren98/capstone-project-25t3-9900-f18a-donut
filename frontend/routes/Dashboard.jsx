@@ -1,124 +1,86 @@
-// src/routes/Dashboard.jsx
-import { useEffect, useState } from "react";
-import Header from "../src/components/Header.jsx";
-import Pager from "../src/components/Pager.jsx";
-import PostCard from "../src/components/PostCard.jsx";
-import { getPosts } from "../src/api.js";
-
-function useDebounced(value, delay = 300) {
-  const [v, setV] = useState(value);
-  useEffect(() => {
-    const t = setTimeout(() => setV(value), delay);
-    return () => clearTimeout(t);
-  }, [value, delay]);
-  return v;
-}
+// routes/Dashboard.jsx
+import React from "react";
+import rioSmall from "../assets/icons/unsw_logo.png";
+import rioBig from "../assets/icons/unsw_logo_text.png";
+import SidebarNav from "../src/components/SidebarNav";
+import BottomUtilities from "../src/components/BottomUtilities";
+import TopSearchBar from "../src/components/TopSearchBar";
+import PostFeed from "../src/components/PostFeed";
+import CalendarPanel from "../src/components/CalendarPanel";
+import SentimentVenn from "../src/components/SentimentVenn";
+import DimensionRadar from "../src/components/DimensionRadar";
+import IncomeStatistics from "../src/components/Statistics";
 
 export default function Dashboard() {
-  const [page, setPage] = useState(1);
-  const [size] = useState(10);
-  const [posts, setPosts] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [q, setQ] = useState("");
-  const qDebounced = useDebounced(q, 300);
-  const [onlyHasComments, setOnlyHasComments] = useState(true);
-
-  const [loggingOut, setLoggingOut] = useState(false);
-
-  const onLogout = async () => {
-    try {
-      setLoggingOut(true);
-      await fetch("/api/logout", { method: "POST", credentials: "include" });
-    } finally {
-      setLoggingOut(false);
-      localStorage.removeItem("token");
-      window.location.href = "/login";
-    }
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    setErrorMsg("");
-    getPosts({ page, size, q: qDebounced })
-      .then((data) => {
-        setPosts(data.items || []);
-        setTotal(data.total || 0);
-      })
-      .catch((e) => setErrorMsg(e?.message || "Failed to load posts"))
-      .finally(() => setLoading(false));
-  }, [page, size, qDebounced]);
-
-  useEffect(() => {
-    setPage(1);
-  }, [qDebounced, onlyHasComments]);
-
-  const canPrev = page > 1;
-  const canNext = page * size < (total || 0);
-
-  const visiblePosts = onlyHasComments
-    ? (posts || []).filter((p) => (p.comment_count ?? 0) > 0)
-    : posts;
-
   return (
-    <>
-      <Header title="Corporate Culture Monitor" subtitle="Reddit Edition (Posts)" />
-
-      <div className="mx-auto max-w-6xl px-5 md:px-8 mt-2">
-        <div className="flex justify-end">
-          <button
-            onClick={onLogout}
-            disabled={loggingOut}
-            className="rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm hover:bg-gray-50 disabled:opacity-60"
-          >
-            {loggingOut ? "Logging out…" : "Logout"}
-          </button>
+    <div className="min-h-screen font-display" style={{ background: "rgb(242,241,237)" }}>
+      {/*  */}
+      <div
+        className="
+          px-7 pt-7 grid gap-x-6 gap-y-6
+          grid-cols-1
+          sm:grid-cols-[72px_minmax(0,1fr)]
+          lg:grid-cols-[72px_minmax(0,1fr)_minmax(300px,420px)]
+          xl:grid-cols-[72px_minmax(0,1fr)_420px]
+        "
+      >
+        <div className="hidden sm:flex row-start-1 col-start-1 flex-col items-center self-start">
+          <img src={rioSmall} alt="RIO icon" className="h-10 w-auto filter mt-[5px] contrast-125" />
+          <img src={rioBig} alt="Rio Tinto" className="h-3 w-auto mt-[3.5px] filter grayscale contrast-125" />
         </div>
 
-        <section
-          className="mt-4 mb-6 p-4 md:p-5 rounded-2xl bg-white shadow-sm ring-1 ring-black/5
-                     flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
-        >
-          <div className="flex items-center gap-3">
-            <input
-              placeholder="Search title/content/author/location/source"
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              className="w-80 rounded-xl border border-gray-200 px-3 py-2 text-sm
-                         focus:outline-none focus:ring-2 focus:ring-black/10"
-            />
-            <label className="inline-flex items-center gap-2 text-sm text-gray-700">
-              <input
-                type="checkbox"
-                checked={onlyHasComments}
-                onChange={(e) => setOnlyHasComments(e.target.checked)}
-                className="rounded border-gray-300"
-              />
-              Only with comments
-            </label>
+        <div className="row-start-1 col-start-1 sm:col-start-2 flex items-center self-start">
+          <div className="translate-y-[2px]">
+            <h1 className="text-xl md:text-4xl font-semibold text-neutral-900">Hi, YoloFun!</h1>
+            <p className="text-sm md:text-base text-neutral-500 hidden xl:block">
+              Here's an overview of Rio Tinto's corporate culture insights.
+            </p>
           </div>
-          <Pager
-            page={page}
-            size={size}
-            total={total}
-            onPrev={() => canPrev && setPage((p) => Math.max(1, p - 1))}
-            onNext={() => canNext && setPage((p) => p + 1)}
-          />
+        </div>
+
+        <div className="row-start-2 sm:row-start-1 col-start-1 sm:col-start-2 lg:col-start-3 w-full self-start mt-1.5">
+          <TopSearchBar />
+        </div>
+
+        <aside className="hidden sm:flex row-start-2 col-start-1 justify-center self-start">
+          <SidebarNav />
+        </aside>
+
+        <main className="row-start-3 sm:row-start-2 col-start-1 sm:col-start-2">
+          <PostFeed className="flex-1 h-full" variant="titles-only-2col" />
+        </main>
+
+        <section className="row-start-4 sm:row-start-3 lg:row-start-2 col-start-1 sm:col-start-2 lg:col-start-3">
+          <CalendarPanel className="h-full" />
         </section>
 
-        {errorMsg && <div className="mb-4 text-sm text-red-600">{errorMsg}</div>}
+        <div className="row-start-5 sm:row-start-4 lg:row-start-3 col-span-full pb-4 grid gap-6
+                        grid-cols-1
+                        sm:grid-cols-[72px_minmax(0,1fr)]
+                        lg:grid-cols-[72px_minmax(0,1fr)_minmax(300px,420px)]
+                        xl:grid-cols-[72px_minmax(0,1fr)_420px]">
 
-        <main className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {loading ? (
-            <div className="p-6 text-sm text-gray-500 col-span-2">Loading posts…</div>
-          ) : (visiblePosts || []).length === 0 ? (
-            <div className="p-6 text-sm text-gray-500 col-span-2">No posts found.</div>
-          ) : (
-            visiblePosts.map((p) => <PostCard key={p.id} data={p} />)
-          )}
-        </main>
+          <div className="hidden sm:flex col-start-1 mt-auto justify-center self-start">
+            <BottomUtilities />
+          </div>
+
+          <section className="col-start-1 sm:col-start-2 grid gap-6
+                              grid-cols-1
+                              md:grid-cols-[minmax(260px,0.9fr)_minmax(340px,1.1fr)]">
+            <SentimentVenn
+              positive={270}
+              negative={210}
+              intersectionRate={34.09}
+              title="Sentiment Analysis Statistics"
+            />
+            <DimensionRadar title="Cultural Dimensions" widthPx={640} heightPx={247} />
+          </section>
+
+          <section className="col-start-1 sm:col-start-2 lg:col-start-3">
+            <IncomeStatistics />
+          </section>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
