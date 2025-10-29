@@ -36,16 +36,27 @@ def handle_any_error(e: Exception):
 ROOT_DIR = Path(__file__).resolve().parents[1]
 
 DATA_DIR = ROOT_DIR / "data" / "raw" / "reddit"
-SUBMISSIONS_CSV = DATA_DIR / "submissions_cleaned.csv"
-COMMENTS_CSV    = DATA_DIR / "comments_cleaned.csv"
+
+SUBMISSIONS_CANDIDATES = [
+    DATA_DIR / "reddit_data.csv",
+    DATA_DIR / "submissions_cleaned.csv",
+    DATA_DIR / "reddit_data",
+]
+COMMENTS_CSV = DATA_DIR / "comments_cleaned.csv"
 
 USERS_DIR = ROOT_DIR / "data" / "user"
 USERS_CSV = USERS_DIR / "user.csv"
 
 
 # --- Utils ---
+def _first_existing(paths):
+    for p in paths:
+        if p.exists():
+            return p
+    return None
+
 def _read_csv_safe(path: Path) -> pd.DataFrame:
-    if not path.exists():
+    if not path or not path.exists():
         abort(404, description=f"{path} not found")
     try:
         return pd.read_csv(path)
@@ -55,59 +66,102 @@ def _read_csv_safe(path: Path) -> pd.DataFrame:
 def _str_series(x):
     return x.astype(str).fillna("").str.strip()
 
+def _to_ymd(s: pd.Series) -> pd.Series:
+
+    ts = pd.to_datetime(s, errors="coerce", utc=False, format="mixed")
+    out = ts.dt.strftime("%Y-%m-%d")
+
+    out = out.where(~ts.isna(), _str_series(s))
+    return out
+
+def _normalize_parent_id(pid: str) -> str:
+ 
+    if not pid:
+        return ""
+    if "_" in pid:
+        return pid.split("_", 1)[1]
+
+    return pid
+
 # --- Loaders ---
+def load_posts_raw() -> pd.DataFrame:
+    path = _first_existing(SUBMISSIONS_CANDIDATES)
+    if not path:
+        abort(404, description="reddit_data.csv / submissions_cleaned.csv not found")
+    return _read_csv_safe(path)
+
 def load_posts() -> pd.DataFrame:
-    """
-    submissions_cleaned.csv:
-    ID, Tag, Location, Time, Author, Text, Score, Content, Initial Dimensions, Source
-    """
-    df = _read_csv_safe(SUBMISSIONS_CSV)
-    need = ["ID", "Tag", "Time", "Author", "Text", "Score", "Content"]
-    miss = [c for c in need if c not in df.columns]
-    if miss:
-        raise RuntimeError(f"submissions_cleaned.csv 缺少字段: {miss}")
+
+    df = load_posts_raw()
+
+    col = {c.lower(): c for c in df.columns}
+    def pick(*names):
+        for n in names:
+            if n in df.columns:
+                return df[n]
+       
+            if n.lower() in col:
+                return df[col[n.lower()]]
+        return pd.Series(dtype=object)
+
+    id_col = pick("ID")  
+    tag_col = pick("Tag")
+    title_col = pick("Text")
+    author_col = pick("Author")
+    content_col = pick("Content")
+    score_col = pick("Score")
+    cmt_cnt_col = pick("Comment_Count")
+    time_col = pick("Created_Time", "Time")
+    location_col = pick("Location")
+    source_col = pick("Source")
+    init_dim_col = pick("Initial Dimensions", "Dimensions")
 
     out = pd.DataFrame({
-        "id": _str_series(df["ID"]),
-        "tag": _str_series(df["Tag"]),
-        "location": _str_series(df.get("Location", "")),
-        "time": _str_series(df["Time"]),
-        "author": _str_series(df["Author"]),
-        "title": _str_series(df["Text"]),
-        "content": _str_series(df["Content"]),
-        "score": pd.to_numeric(df.get("Score", 0), errors="coerce").fillna(0).astype(int),
-        "source": _str_series(df.get("Source", "")),
-        "initial_dimensions": _str_series(df.get("Initial Dimensions", "")),
+        "id": _str_series(id_col) if not id_col.empty else _str_series(tag_col),
+        "tag": _str_series(tag_col),
+        "title": _str_series(title_col),
+        "author": _str_series(author_col),
+        "content": _str_series(content_col),
+        "score": pd.to_numeric(score_col, errors="coerce").fillna(0).astype(int) if not score_col.empty else 0,
+        "time_raw": _str_series(time_col),
+        "time": _to_ymd(_str_series(time_col)),  
+        "location": _str_series(location_col) if not location_col.empty else "",
+        "source": _str_series(source_col) if not source_col.empty else "",
+        "initial_dimensions": _str_series(init_dim_col) if not init_dim_col.empty else "",
+        "comment_count_file": pd.to_numeric(cmt_cnt_col, errors="coerce").fillna(0).astype(int) if not cmt_cnt_col.empty else None,
     })
 
-    # sort by time if parseable
+
     try:
-        t = pd.to_datetime(out["time"], errors="coerce", utc=False, format="mixed")
+        t = pd.to_datetime(out["time_raw"], errors="coerce", utc=False, format="mixed")
         out = out.assign(_t=t).sort_values("_t", ascending=False).drop(columns=["_t"])
     except Exception:
         pass
 
-    return out
+    return out.drop(columns=["time_raw"])
 
 def load_comments() -> pd.DataFrame:
     """
     comments_cleaned.csv:
-    ID, Tag, Author, Content, Score, Time, Depth, Parent_ID, Comment_ID
+    "ID","Comment_ID","Tag","Author","Content","Score","Time","Depth","Parent_ID"
     """
     df = _read_csv_safe(COMMENTS_CSV)
+
     need = ["Tag", "Author", "Content", "Score", "Time", "Depth", "Parent_ID", "Comment_ID"]
     miss = [c for c in need if c not in df.columns]
     if miss:
-        raise RuntimeError(f"comments_cleaned.csv lack of: {miss}")
+        raise RuntimeError(f"comments_cleaned.csv miss: {miss}")
 
     out = pd.DataFrame({
         "tag": _str_series(df["Tag"]),
         "author": _str_series(df["Author"]),
         "content": _str_series(df["Content"]),
         "score": pd.to_numeric(df["Score"], errors="coerce").fillna(0).astype(int),
-        "time": _str_series(df["Time"]),
+        "time_raw": _str_series(df["Time"]),
+        "time": _to_ymd(_str_series(df["Time"])),
         "depth": pd.to_numeric(df["Depth"], errors="coerce").fillna(0).astype(int),
         "parent_id": _str_series(df["Parent_ID"]),
+        "parent_id_norm": _str_series(df["Parent_ID"]).map(_normalize_parent_id),
         "comment_id": _str_series(df["Comment_ID"]),
     })
     return out
@@ -170,13 +224,17 @@ def health():
 def api_posts():
     """
     GET /api/posts?page=1&size=10&q=keyword&tag=xxx
-    -> { total, page, size, items: [{ id, tag, title, content, author, time, score, location, source, comment_count }] }
+    -> { total, page, size, items: [{ id, tag, title, author, time, score, comment_count }] }
     """
     posts = load_posts()
     comments = load_comments()
 
-    comment_counts = comments.groupby("tag")["comment_id"].count().to_dict()
-    posts = posts.assign(comment_count=posts["tag"].map(comment_counts).fillna(0).astype(int))
+
+    if posts["comment_count_file"].isna().all():
+        comment_counts = comments.groupby("tag")["comment_id"].count().to_dict()
+        posts = posts.assign(comment_count=posts["tag"].map(comment_counts).fillna(0).astype(int))
+    else:
+        posts = posts.assign(comment_count=posts["comment_count_file"].fillna(0).astype(int))
 
     q = (request.args.get("q") or "").strip().lower()
     if q:
@@ -205,13 +263,10 @@ def api_posts():
     items = [{
         "id": r["id"],
         "tag": r["tag"],
-        "title": r["title"],
-        "content": r["content"],
-        "author": r["author"],
-        "time": r["time"],
+        "title": r["title"],      
+        "author": r["author"],  
+        "time": r["time"],          
         "score": int(r["score"]),
-        "location": r["location"],
-        "source": r["source"],
         "comment_count": int(r["comment_count"]),
     } for _, r in page_df.iterrows()]
 
@@ -220,9 +275,10 @@ def api_posts():
 @app.get("/api/posts/<post_id>")
 def api_post_detail(post_id: str):
     posts = load_posts()
-    row = posts[posts["id"] == str(post_id)].head(1)
+
+    row = posts[(posts["id"] == str(post_id)) | (posts["tag"] == str(post_id))].head(1)
     if row.empty:
-        abort(404, description=f"post id {post_id} not found")
+        abort(404, description=f"post {post_id} not found")
     r = row.iloc[0]
     data = {
         "id": r["id"],
@@ -230,7 +286,7 @@ def api_post_detail(post_id: str):
         "title": r["title"],
         "content": r["content"],
         "author": r["author"],
-        "time": r["time"],
+        "time": r["time"],  # YYYY-MM-DD
         "score": int(r["score"]),
         "location": r["location"],
         "source": r["source"],
@@ -240,29 +296,31 @@ def api_post_detail(post_id: str):
 
 @app.get("/api/posts/<post_id>/comments")
 def api_post_comments(post_id: str):
-    """
-    { total, page, size, items: [{ comment_id, author, content, score, time, depth, parent_id }] }
-    """
+
     posts = load_posts()
-    row = posts[posts["id"] == str(post_id)].head(1)
+    row = posts[(posts["id"] == str(post_id)) | (posts["tag"] == str(post_id))].head(1)
     if row.empty:
-        abort(404, description=f"post id {post_id} not found")
+        abort(404, description=f"post {post_id} not found")
     tag = row.iloc[0]["tag"]
 
     cdf = load_comments()
     df = cdf[cdf["tag"] == tag].copy()
 
+
+    df["level"] = df["depth"].apply(lambda d: 1 if d <= 1 else 2)
+
+
     try:
         t = pd.to_datetime(df["time"], errors="coerce", utc=False, format="mixed")
-        df = df.assign(_t=t).sort_values(by=["depth", "score", "_t"], ascending=[True, False, False]).drop(columns=["_t"])
+        df = df.assign(_t=t).sort_values(by=["level", "score", "_t"], ascending=[True, False, False]).drop(columns=["_t"])
     except Exception:
-        df = df.sort_values(by=["depth", "score"], ascending=[True, False])
+        df = df.sort_values(by=["level", "score"], ascending=[True, False])
 
     try:
         page = max(1, int(request.args.get("page", 1)))
-        size = min(200, max(1, int(request.args.get("size", 50))))
+        size = min(500, max(1, int(request.args.get("size", 100))))
     except Exception:
-        page, size = 1, 50
+        page, size = 1, 100
 
     start, end = (page - 1) * size, (page - 1) * size + size
     page_df = df.iloc[start:end].copy()
@@ -272,9 +330,11 @@ def api_post_comments(post_id: str):
         "author": r["author"],
         "content": r["content"],
         "score": int(r["score"]),
-        "time": r["time"],
+        "time": r["time"],  # YYYY-MM-DD
         "depth": int(r["depth"]),
+        "level": int(r["level"]), 
         "parent_id": r["parent_id"],
+        "parent_comment_id_norm": r["parent_id_norm"],  
     } for _, r in page_df.iterrows()]
 
     return jsonify({"total": int(len(df)), "page": page, "size": size, "items": items})
