@@ -14,7 +14,6 @@ import IncomeStatistics from "../src/components/Statistics";
 export default function Dashboard() {
   return (
     <div className="min-h-screen font-display" style={{ background: "rgb(242,241,237)" }}>
-      {/*  */}
       <div
         className="
           px-7 pt-7 grid gap-x-6 gap-y-6
@@ -47,7 +46,8 @@ export default function Dashboard() {
         </aside>
 
         <main className="row-start-3 sm:row-start-2 col-start-1 sm:col-start-2">
-          <PostFeed className="flex-1 h-full" variant="titles-only-2col" />
+          {/* 固定高度，PostFeed 内部自己滚动与翻转 */}
+          <PostFeed className="flex-1 h-[395px]" variant="titles-only-2col" />
         </main>
 
         <section className="row-start-4 sm:row-start-3 lg:row-start-2 col-start-1 sm:col-start-2 lg:col-start-3">

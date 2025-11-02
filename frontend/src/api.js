@@ -49,17 +49,30 @@ export const getPosts = ({ page = 1, size = 6, q = "", tag = "" } = {}) => {
     const items = (data.items || []).map((it) => ({
       ...it,
       time: toYMD(it.time),
-
       likes: typeof it.score === "number" ? it.score : 0,
+      type: it.type || "article",
+      is_post: (it.type || "article") === "forum",
+      dimensions: Array.isArray(it.dimensions) ? it.dimensions : [],
+      source: it.source || "",
     }));
     return { ...data, items };
   });
 };
 
-export const getPostDetail = async (idOrTag) => {
-  if (!idOrTag) throw new Error("post id is required");
-  const detail = await fetchJSON(`/api/posts/${encodeURIComponent(idOrTag)}`);
-  return { ...detail, time: toYMD(detail.time), likes: detail.score ?? 0 };
+export const getPostDetail = async (id) => {
+  if (!id) throw new Error("post id is required");
+  const detail = await fetchJSON(`/api/posts/${encodeURIComponent(id)}`);
+  return {
+    ...detail,
+    time: toYMD(detail.time),
+    likes: detail.score ?? 0,
+    type: detail.type || "article",
+    is_post: (detail.type || "article") === "forum",
+    dimensions: Array.isArray(detail.dimensions) ? detail.dimensions : [],
+    subthemes: Array.isArray(detail.subthemes) ? detail.subthemes : [],
+    subs_sentiment: typeof detail.subs_sentiment === "object" ? detail.subs_sentiment : {},
+    source: detail.source || "",
+  };
 };
 
 export const getPostComments = ({ id, page = 1, size = 100 } = {}) => {
@@ -72,6 +85,8 @@ export const getPostComments = ({ id, page = 1, size = 100 } = {}) => {
         time: toYMD(c.time),
         parent_comment_id_norm:
           c.parent_comment_id_norm || stripRedditPrefix(c.parent_id || ""),
+        comment_id_norm:
+          c.comment_id_norm || stripRedditPrefix(c.comment_id || ""),
       }));
       return { ...data, items };
     }
@@ -82,14 +97,15 @@ export function buildCommentTree(flatItems = []) {
   const lvl1 = [];
   const map = new Map();
   for (const c of flatItems) {
-    if (Number(c.level) === 1 || Number(c.depth) <= 1) {
-      const node = { ...c, replies: [] };
+    if (Number(c.level) === 1 || Number(c.depth) === 0) {
+      const key = c.comment_id_norm || stripRedditPrefix(c.comment_id || "");
+      const node = { ...c, comment_id_norm: key, replies: [] };
       lvl1.push(node);
-      map.set(c.comment_id, node);
+      map.set(key, node);
     }
   }
   for (const c of flatItems) {
-    if (Number(c.level) === 2 || Number(c.depth) > 1) {
+    if (Number(c.level) === 2 || Number(c.depth) === 1) {
       const key = c.parent_comment_id_norm || stripRedditPrefix(c.parent_id || "");
       const parent = map.get(key);
       if (parent) parent.replies.push(c);
@@ -99,10 +115,10 @@ export function buildCommentTree(flatItems = []) {
   return lvl1;
 }
 
-export async function getPostWithComments(idOrTag, { page = 1, size = 100 } = {}) {
+export async function getPostWithComments(id, { page = 1, size = 100 } = {}) {
   const [post, commentsPage] = await Promise.all([
-    getPostDetail(idOrTag),
-    getPostComments({ id: idOrTag, page, size }),
+    getPostDetail(id),
+    getPostComments({ id, page, size }),
   ]);
   const tree = buildCommentTree(commentsPage.items);
   return { post, comments: { ...commentsPage, tree } };

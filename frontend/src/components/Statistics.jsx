@@ -64,7 +64,7 @@ export default function IncomeStatistics({
               borderRadius: "8px",
               fontSize: "12px",
             }}
-            formatter={(v) => [`${v}k`, "Income"]}
+            formatter={(v) => [`${v}`, "Sentiment Balance Index"]}
           />
           <Line
             type="monotone"
