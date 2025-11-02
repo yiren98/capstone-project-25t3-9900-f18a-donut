@@ -1,8 +1,6 @@
-// src/components/PostFeed.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { getPosts, getPostDetail, getPostComments, buildCommentTree } from "../api";
 
-// 悬浮翻页图标
 import IconLeft from "../../assets/icons/MingcuteLeftFill.png";
 import IconRight from "../../assets/icons/MingcuteRightFill.png";
 
@@ -11,7 +9,7 @@ const BG_FORUM   = "rgba(233, 216, 191, 0.75)"; // Forum
 
 export default function PostFeed({ className = "" }) {
   const pageSize = 4;
-  const commentSize = 10000; // 父评论/页
+  const commentSize = 10000; 
 
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(1);
@@ -22,7 +20,7 @@ export default function PostFeed({ className = "" }) {
   const [post, setPost] = useState(null);
 
   const [cPage, setCPage] = useState(1);
-  const [cTotal, setCTotal] = useState(0);     // 父评论总数
+  const [cTotal, setCTotal] = useState(0);     
   const [commentsTree, setCommentsTree] = useState([]);
 
   const [_, setLoading] = useState(false);
@@ -85,12 +83,11 @@ export default function PostFeed({ className = "" }) {
     setTimeout(() => stage === listStage.current && setListSlide(0), 500);
   };
 
-  // —— 关键：有 id 必用 id，不再回退 tag —— //
   const openDetail = async (it) => {
     setLoading(true);
     setErr("");
     try {
-      const id = it.id || it.tag;           // 列表后端保证 id 存在；极端兜底 tag
+      const id = it.id || it.tag;       
       const d = await getPostDetail(id);
       setPost(d);
       setCPage(1);
@@ -168,13 +165,13 @@ export default function PostFeed({ className = "" }) {
         perspective: "1200px",
       }}
     >
-      {/* 翻转体 */}
+
       <div
         ref={flipRef}
         className="h-full w-full relative transition-transform duration-500 z-10"
         style={{ transformStyle: "preserve-3d", willChange: "transform" }}
       >
-        {/* 列表面 */}
+
         <div className="absolute inset-0 overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
           {err && (
             <div className="mb-2 mx-1 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
@@ -245,7 +242,7 @@ export default function PostFeed({ className = "" }) {
           </div>
         </div>
 
-        {/* 详情面 */}
+
         <div className="absolute inset-0 overflow-hidden" style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}>
           <div className="h-full border border-[rgb(200,190,170)] rounded-2xl shadow-sm overflow-hidden" style={{ background: "#f6f3ef" }}>
             <div className="px-5 py-3 flex justify-between items-center">
@@ -286,7 +283,7 @@ export default function PostFeed({ className = "" }) {
                 </div>
               )}
 
-              {/* 子维度情感（保留带表情一行） */}
+
               {post && post.subs_sentiment && Object.keys(post.subs_sentiment).length > 0 && (
                 <div className="mb-3 flex flex-wrap gap-2">
                   {Object.entries(post.subs_sentiment).map(([k, v]) => {
@@ -302,7 +299,7 @@ export default function PostFeed({ className = "" }) {
                 </div>
               )}
 
-              {/* 评论（仅论坛） */}
+
               {post?.type === "forum" ? (
                 <div className="space-y-2 transition-transform duration-500" style={{ transform: `translateX(${cSlide * 22}%)` }}>
                   {commentsTree.length === 0 && <div className="text-sm text-neutral-600">No comments.</div>}
@@ -351,7 +348,7 @@ export default function PostFeed({ className = "" }) {
         </div>
       </div>
 
-      {/* 左侧悬浮按钮 */}
+
       <div className="absolute inset-y-0 left-0 w-16 z-[999] pointer-events-none">
         <button
           onClick={() => (view === "list" ? gotoPageWithSlide(page - 1, +1) : gotoCommentPage(cPage - 1, +1))}
@@ -362,7 +359,7 @@ export default function PostFeed({ className = "" }) {
         </button>
       </div>
 
-      {/* 右侧悬浮按钮 */}
+
       <div className="absolute inset-y-0 right-0 w-16 z-[999] pointer-events-none">
         <button
           onClick={() => (view === "list" ? gotoPageWithSlide(page + 1, -1) : gotoCommentPage(cPage + 1, -1))}

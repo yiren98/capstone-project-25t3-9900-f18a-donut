@@ -1,5 +1,3 @@
-# app.py — Launch Flask server and provide API endpoints for frontend data access
-
 import os
 import re
 import json
@@ -77,7 +75,7 @@ def _read_csv_safe(path: Path) -> pd.DataFrame:
     abort(500, description=f"Failed to read {path.name}. Tried -> " + " | ".join(tried))
 
 def _str_series(x):
-    # 将 NaN 变空串，避免 JSON 里出现 NaN
+
     if isinstance(x, pd.Series):
         s = x.astype(str).fillna("").str.strip()
         s = s.mask(s.str.lower().isin(["nan", "none", "null"]), "")
@@ -91,7 +89,7 @@ def _to_ymd(s: pd.Series) -> pd.Series:
     return out
 
 def _s(v):
-    # 单值安全字符串化
+
     try:
         if v is None or (isinstance(v, float) and pd.isna(v)):
             return ""
@@ -160,7 +158,7 @@ def load_posts() -> pd.DataFrame:
         "subs_sentiment_raw": pick("subs_sentiment"),
     })
 
-    # 生成稳定 id：Forum 用 tag；Article 用 (title|time|source) 的 md5
+
     def make_id(row):
         tag = _s(row.get("tag"))
         if tag:
@@ -208,7 +206,6 @@ def load_comments() -> pd.DataFrame:
     })
     return out
 
-# --- Auth helpers (原样保留) ---
 def _load_users():
     users = {}
     if USERS_CSV.exists():
@@ -267,7 +264,6 @@ def api_posts():
     posts = load_posts()
     comments = load_comments()
 
-    # Forum 才统计评论数
     if posts["comment_count_file"].isna().all():
         cmt_map = comments.groupby("tag")["comment_id"].count().to_dict()
         posts = posts.assign(
@@ -356,7 +352,6 @@ def api_post_comments(post_id: str):
     cdf = load_comments()
     df = cdf[cdf["tag"] == tag].copy()
 
-    # 0=一级；1=二级
     df["level"] = df["depth"].apply(lambda d: 1 if int(d) == 0 else 2)
 
     try:
@@ -365,7 +360,6 @@ def api_post_comments(post_id: str):
     except Exception:
         df = df.assign(_t=pd.NaT)
 
-    # 父评论分页，子评论跟随父评论一起返回
     parents = df[df["level"] == 1].sort_values(by=["score", "_t"], ascending=[False, False])
     total_parents = int(len(parents))
 
@@ -408,7 +402,6 @@ def api_post_comments(post_id: str):
 
     return jsonify({"total": total_parents, "page": page, "size": size, "items": items})
 
-# ===================== Auth APIs (原样保留) =====================
 
 @app.post("/api/login")
 def api_login():

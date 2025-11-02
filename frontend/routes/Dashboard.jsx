@@ -46,7 +46,7 @@ export default function Dashboard() {
         </aside>
 
         <main className="row-start-3 sm:row-start-2 col-start-1 sm:col-start-2">
-          {/* 固定高度，PostFeed 内部自己滚动与翻转 */}
+
           <PostFeed className="flex-1 h-[395px]" variant="titles-only-2col" />
         </main>
 
