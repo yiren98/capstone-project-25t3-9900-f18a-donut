@@ -1,15 +1,18 @@
-# Launch Flask server and provide API endpoints for frontend data access
+# app.py — Launch Flask server and provide API endpoints for frontend data access
 
+import os
 import re
+import json
+import hashlib
+from datetime import timedelta
+from functools import wraps
+from pathlib import Path
+
+import pandas as pd
 from flask import Flask, jsonify, request, abort, session
 from flask_cors import CORS
-import pandas as pd
-from pathlib import Path
-from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.exceptions import HTTPException
-import os
-from functools import wraps
-from datetime import timedelta
+from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 
@@ -33,11 +36,14 @@ def handle_any_error(e: Exception):
     return jsonify({"code": 500, "message": str(e)}), 500
 
 
+# --- Paths ---
 ROOT_DIR = Path(__file__).resolve().parents[1]
-
 DATA_DIR = ROOT_DIR / "data" / "raw" / "reddit"
 
 SUBMISSIONS_CANDIDATES = [
+    DATA_DIR / "final_data_demoB.csv",
+    DATA_DIR / "final_data_demoB.parquet",
+    DATA_DIR / "final_data_demoB.xlsx",
     DATA_DIR / "reddit_data.csv",
     DATA_DIR / "submissions_cleaned.csv",
     DATA_DIR / "reddit_data",
@@ -47,8 +53,7 @@ COMMENTS_CSV = DATA_DIR / "comments_cleaned.csv"
 USERS_DIR = ROOT_DIR / "data" / "user"
 USERS_CSV = USERS_DIR / "user.csv"
 
-
-# --- Utils ---
+# --- Utils (safe helpers) ---
 def _first_existing(paths):
     for p in paths:
         if p.exists():
@@ -58,79 +63,117 @@ def _first_existing(paths):
 def _read_csv_safe(path: Path) -> pd.DataFrame:
     if not path or not path.exists():
         abort(404, description=f"{path} not found")
-    try:
-        return pd.read_csv(path)
-    except UnicodeDecodeError:
-        return pd.read_csv(path, encoding="utf-8-sig", engine="python")
+    suf = path.suffix.lower()
+    if suf == ".parquet":
+        return pd.read_parquet(path)
+    if suf in (".xlsx", ".xls"):
+        return pd.read_excel(path)
+    tried = []
+    for enc in [None, "utf-8", "utf-8-sig", "gb18030", "gbk", "latin1"]:
+        try:
+            return pd.read_csv(path, sep=None, engine="python", encoding=enc, on_bad_lines="skip")
+        except Exception as e:
+            tried.append(f"{enc or 'default'}: {e}")
+    abort(500, description=f"Failed to read {path.name}. Tried -> " + " | ".join(tried))
 
 def _str_series(x):
-    return x.astype(str).fillna("").str.strip()
+    # 将 NaN 变空串，避免 JSON 里出现 NaN
+    if isinstance(x, pd.Series):
+        s = x.astype(str).fillna("").str.strip()
+        s = s.mask(s.str.lower().isin(["nan", "none", "null"]), "")
+        return s
+    return pd.Series(dtype=object)
 
 def _to_ymd(s: pd.Series) -> pd.Series:
-
     ts = pd.to_datetime(s, errors="coerce", utc=False, format="mixed")
     out = ts.dt.strftime("%Y-%m-%d")
-
     out = out.where(~ts.isna(), _str_series(s))
     return out
 
+def _s(v):
+    # 单值安全字符串化
+    try:
+        if v is None or (isinstance(v, float) and pd.isna(v)):
+            return ""
+    except Exception:
+        pass
+    s = str(v).strip()
+    return "" if s.lower() in ("nan", "none", "null") else s
+
 def _normalize_parent_id(pid: str) -> str:
- 
     if not pid:
         return ""
     if "_" in pid:
         return pid.split("_", 1)[1]
-
     return pid
+
+def _split_pipes(s):
+    txt = _s(s)
+    return [p.strip() for p in txt.split("|") if p.strip()] if txt else []
+
+def _json_try(s):
+    if isinstance(s, dict):
+        return s
+    txt = _s(s)
+    if not txt:
+        return {}
+    try:
+        return json.loads(txt)
+    except Exception:
+        try:
+            return json.loads(txt.replace("'", '"'))
+        except Exception:
+            return {}
 
 # --- Loaders ---
 def load_posts_raw() -> pd.DataFrame:
     path = _first_existing(SUBMISSIONS_CANDIDATES)
     if not path:
-        abort(404, description="reddit_data.csv / submissions_cleaned.csv not found")
+        abort(404, description="final_data_demoB.* / reddit_data.csv / submissions_cleaned.csv not found")
     return _read_csv_safe(path)
 
 def load_posts() -> pd.DataFrame:
-
+    """
+    支持 final_data_demoB:
+    tag,text,author,score,comment_count,content,created_time,dimensions,subthemes,subs_sentiment,confidence,subs_evidences,source
+    """
     df = load_posts_raw()
-
     col = {c.lower(): c for c in df.columns}
     def pick(*names):
         for n in names:
-            if n in df.columns:
-                return df[n]
-       
-            if n.lower() in col:
-                return df[col[n.lower()]]
+            if n in df.columns: return df[n]
+            if n.lower() in col: return df[col[n.lower()]]
         return pd.Series(dtype=object)
 
-    id_col = pick("ID")  
-    tag_col = pick("Tag")
-    title_col = pick("Text")
-    author_col = pick("Author")
-    content_col = pick("Content")
-    score_col = pick("Score")
-    cmt_cnt_col = pick("Comment_Count")
-    time_col = pick("Created_Time", "Time")
-    location_col = pick("Location")
-    source_col = pick("Source")
-    init_dim_col = pick("Initial Dimensions", "Dimensions")
-
     out = pd.DataFrame({
-        "id": _str_series(id_col) if not id_col.empty else _str_series(tag_col),
-        "tag": _str_series(tag_col),
-        "title": _str_series(title_col),
-        "author": _str_series(author_col),
-        "content": _str_series(content_col),
-        "score": pd.to_numeric(score_col, errors="coerce").fillna(0).astype(int) if not score_col.empty else 0,
-        "time_raw": _str_series(time_col),
-        "time": _to_ymd(_str_series(time_col)),  
-        "location": _str_series(location_col) if not location_col.empty else "",
-        "source": _str_series(source_col) if not source_col.empty else "",
-        "initial_dimensions": _str_series(init_dim_col) if not init_dim_col.empty else "",
-        "comment_count_file": pd.to_numeric(cmt_cnt_col, errors="coerce").fillna(0).astype(int) if not cmt_cnt_col.empty else None,
+        "tag": _str_series(pick("tag")),
+        "title": _str_series(pick("text", "title")),
+        "author": _str_series(pick("author")),
+        "content": _str_series(pick("content", "selftext")),
+        "score": pd.to_numeric(pick("score", "ups", "likes"), errors="coerce").fillna(0).astype(int),
+        "comment_count_file": pd.to_numeric(pick("comment_count", "num_comments"), errors="coerce"),
+        "time_raw": _str_series(pick("created_time", "time", "created_utc")),
+        "time": _to_ymd(_str_series(pick("created_time", "time", "created_utc"))),
+        "source": _str_series(pick("source", "domain", "subreddit")),
+        "dimensions_raw": _str_series(pick("dimensions", "initial dimensions", "initial_dimensions")),
+        "subthemes_raw": _str_series(pick("subthemes")),
+        "subs_sentiment_raw": pick("subs_sentiment"),
     })
 
+    # 生成稳定 id：Forum 用 tag；Article 用 (title|time|source) 的 md5
+    def make_id(row):
+        tag = _s(row.get("tag"))
+        if tag:
+            return tag
+        base = f"{_s(row.get('title'))}|{_s(row.get('time'))}|{_s(row.get('source'))}"
+        return "art-" + hashlib.md5(base.encode("utf-8", "ignore")).hexdigest()[:16]
+
+    out["id"] = out.apply(make_id, axis=1)
+    out["dimensions"] = out["dimensions_raw"].map(_split_pipes)
+    out["subthemes"] = out["subthemes_raw"].map(_split_pipes)
+    out["subs_sentiment"] = out["subs_sentiment_raw"].map(_json_try)
+    out["type"] = out["source"].str.contains("reddit", case=False, na=False).map({True: "forum", False: "article"})
+    out["is_post"] = out["type"].eq("forum")
 
     try:
         t = pd.to_datetime(out["time_raw"], errors="coerce", utc=False, format="mixed")
@@ -138,20 +181,19 @@ def load_posts() -> pd.DataFrame:
     except Exception:
         pass
 
-    return out.drop(columns=["time_raw"])
+    return out.drop(columns=["time_raw", "dimensions_raw", "subthemes_raw", "subs_sentiment_raw"])
 
 def load_comments() -> pd.DataFrame:
     """
     comments_cleaned.csv:
     "ID","Comment_ID","Tag","Author","Content","Score","Time","Depth","Parent_ID"
+    Depth：0=一级，1=二级
     """
     df = _read_csv_safe(COMMENTS_CSV)
-
-    need = ["Tag", "Author", "Content", "Score", "Time", "Depth", "Parent_ID", "Comment_ID"]
+    need = ["Tag","Author","Content","Score","Time","Depth","Parent_ID","Comment_ID"]
     miss = [c for c in need if c not in df.columns]
     if miss:
         raise RuntimeError(f"comments_cleaned.csv miss: {miss}")
-
     out = pd.DataFrame({
         "tag": _str_series(df["Tag"]),
         "author": _str_series(df["Author"]),
@@ -166,7 +208,7 @@ def load_comments() -> pd.DataFrame:
     })
     return out
 
-# --- Auth helpers ---
+# --- Auth helpers (原样保留) ---
 def _load_users():
     users = {}
     if USERS_CSV.exists():
@@ -222,34 +264,33 @@ def health():
 
 @app.get("/api/posts")
 def api_posts():
-    """
-    GET /api/posts?page=1&size=10&q=keyword&tag=xxx
-    -> { total, page, size, items: [{ id, tag, title, author, time, score, comment_count }] }
-    """
     posts = load_posts()
     comments = load_comments()
 
-
+    # Forum 才统计评论数
     if posts["comment_count_file"].isna().all():
-        comment_counts = comments.groupby("tag")["comment_id"].count().to_dict()
-        posts = posts.assign(comment_count=posts["tag"].map(comment_counts).fillna(0).astype(int))
+        cmt_map = comments.groupby("tag")["comment_id"].count().to_dict()
+        posts = posts.assign(
+            comment_count=posts.apply(
+                lambda r: int(cmt_map.get(r["tag"], 0)) if r["type"] == "forum" else 0, axis=1
+            )
+        )
     else:
-        posts = posts.assign(comment_count=posts["comment_count_file"].fillna(0).astype(int))
+        posts = posts.assign(
+            comment_count=posts.apply(
+                lambda r: int(r["comment_count_file"] or 0) if r["type"] == "forum" else 0, axis=1
+            )
+        )
 
     q = (request.args.get("q") or "").strip().lower()
     if q:
-        mask = (
-            posts["title"].str.lower().str.contains(q, na=False) |
-            posts["content"].str.lower().str.contains(q, na=False) |
-            posts["author"].str.lower().str.contains(q, na=False) |
-            posts["location"].str.lower().str.contains(q, na=False) |
-            posts["source"].str.lower().str.contains(q, na=False)
-        )
-        posts = posts[mask]
-
-    tag_eq = (request.args.get("tag") or "").strip()
-    if tag_eq:
-        posts = posts[posts["tag"] == tag_eq]
+        posts = posts[
+            posts["title"].str.lower().str.contains(q, na=False)
+            | posts["content"].str.lower().str.contains(q, na=False)
+            | posts["author"].str.lower().str.contains(q, na=False)
+            | posts["source"].str.lower().str.contains(q, na=False)
+            | posts["dimensions"].apply(lambda arr: any(q in d.lower() for d in (arr or [])))
+        ]
 
     try:
         page = max(1, int(request.args.get("page", 1)))
@@ -261,13 +302,17 @@ def api_posts():
     page_df = posts.iloc[start:end].copy()
 
     items = [{
-        "id": r["id"],
-        "tag": r["tag"],
-        "title": r["title"],      
-        "author": r["author"],  
-        "time": r["time"],          
+        "id": _s(r["id"]),
+        "tag": _s(r["tag"]),
+        "title": _s(r["title"]),
+        "author": _s(r["author"]),
+        "time": _s(r["time"]),
         "score": int(r["score"]),
         "comment_count": int(r["comment_count"]),
+        "is_post": bool(r["type"] == "forum"),
+        "type": _s(r["type"]),
+        "source": _s(r["source"]),
+        "dimensions": list(r["dimensions"] or []),
     } for _, r in page_df.iterrows()]
 
     return jsonify({"total": int(len(posts)), "page": page, "size": size, "items": items})
@@ -275,71 +320,95 @@ def api_posts():
 @app.get("/api/posts/<post_id>")
 def api_post_detail(post_id: str):
     posts = load_posts()
-
     row = posts[(posts["id"] == str(post_id)) | (posts["tag"] == str(post_id))].head(1)
     if row.empty:
         abort(404, description=f"post {post_id} not found")
     r = row.iloc[0]
     data = {
-        "id": r["id"],
-        "tag": r["tag"],
-        "title": r["title"],
-        "content": r["content"],
-        "author": r["author"],
-        "time": r["time"],  # YYYY-MM-DD
+        "id": _s(r["id"]),
+        "tag": _s(r["tag"]),
+        "title": _s(r["title"]),
+        "content": _s(r["content"]),
+        "author": _s(r["author"]),
+        "time": _s(r["time"]),
         "score": int(r["score"]),
-        "location": r["location"],
-        "source": r["source"],
-        "initial_dimensions": r["initial_dimensions"],
+        "source": _s(r["source"]),
+        "type": _s(r["type"]),
+        "is_post": bool(r["type"] == "forum"),
+        "dimensions": list(r["dimensions"] or []),
+        "subthemes": list(r["subthemes"] or []),
+        "subs_sentiment": r["subs_sentiment"] if isinstance(r["subs_sentiment"], dict) else {},
     }
     return jsonify(data)
 
 @app.get("/api/posts/<post_id>/comments")
 def api_post_comments(post_id: str):
-
     posts = load_posts()
     row = posts[(posts["id"] == str(post_id)) | (posts["tag"] == str(post_id))].head(1)
     if row.empty:
         abort(404, description=f"post {post_id} not found")
-    tag = row.iloc[0]["tag"]
+    r = row.iloc[0]
 
+    if str(r["type"]) != "forum":
+        return jsonify({"total": 0, "page": 1, "size": 100, "items": []})
+
+    tag = r["tag"]
     cdf = load_comments()
     df = cdf[cdf["tag"] == tag].copy()
 
-
-    df["level"] = df["depth"].apply(lambda d: 1 if d <= 1 else 2)
-
+    # 0=一级；1=二级
+    df["level"] = df["depth"].apply(lambda d: 1 if int(d) == 0 else 2)
 
     try:
         t = pd.to_datetime(df["time"], errors="coerce", utc=False, format="mixed")
-        df = df.assign(_t=t).sort_values(by=["level", "score", "_t"], ascending=[True, False, False]).drop(columns=["_t"])
+        df = df.assign(_t=t)
     except Exception:
-        df = df.sort_values(by=["level", "score"], ascending=[True, False])
+        df = df.assign(_t=pd.NaT)
+
+    # 父评论分页，子评论跟随父评论一起返回
+    parents = df[df["level"] == 1].sort_values(by=["score", "_t"], ascending=[False, False])
+    total_parents = int(len(parents))
 
     try:
         page = max(1, int(request.args.get("page", 1)))
-        size = min(500, max(1, int(request.args.get("size", 100))))
+        size = min(100, max(1, int(request.args.get("size", 10))))
     except Exception:
-        page, size = 1, 100
+        page, size = 1, 10
 
     start, end = (page - 1) * size, (page - 1) * size + size
-    page_df = df.iloc[start:end].copy()
+    page_parents = parents.iloc[start:end].copy()
+
+    parent_ids = set(page_parents["comment_id"].map(_normalize_parent_id))
+    df["comment_id_norm"] = df["comment_id"].map(_normalize_parent_id)
+    children = df[(df["level"] == 2) & (df["parent_id_norm"].isin(parent_ids))].copy()
+
+    ordered = []
+    pmap = { _normalize_parent_id(r["comment_id"]): r for _, r in page_parents.iterrows() }
+    grouped = { pid: [] for pid in parent_ids }
+    for _, cr in children.iterrows():
+        grouped.setdefault(cr["parent_id_norm"], []).append(cr)
+
+    for pid, pr in pmap.items():
+        ordered.append(pr)
+        for cr in grouped.get(pid, []):
+            ordered.append(cr)
 
     items = [{
-        "comment_id": r["comment_id"],
-        "author": r["author"],
-        "content": r["content"],
+        "comment_id": _s(r["comment_id"]),
+        "comment_id_norm": _s(r.get("comment_id_norm", _normalize_parent_id(r["comment_id"]))),
+        "author": _s(r["author"]),
+        "content": _s(r["content"]),
         "score": int(r["score"]),
-        "time": r["time"],  # YYYY-MM-DD
+        "time": _s(r["time"]),
         "depth": int(r["depth"]),
-        "level": int(r["level"]), 
-        "parent_id": r["parent_id"],
-        "parent_comment_id_norm": r["parent_id_norm"],  
-    } for _, r in page_df.iterrows()]
+        "level": int(r["level"]),
+        "parent_id": _s(r["parent_id"]),
+        "parent_comment_id_norm": _s(r["parent_id_norm"]),
+    } for _, r in pd.DataFrame(ordered).iterrows()]
 
-    return jsonify({"total": int(len(df)), "page": page, "size": size, "items": items})
+    return jsonify({"total": total_parents, "page": page, "size": size, "items": items})
 
-# ===================== Auth APIs  =====================
+# ===================== Auth APIs (原样保留) =====================
 
 @app.post("/api/login")
 def api_login():
