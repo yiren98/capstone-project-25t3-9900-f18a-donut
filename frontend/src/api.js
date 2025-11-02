@@ -123,3 +123,18 @@ export async function getPostWithComments(id, { page = 1, size = 100 } = {}) {
   const tree = buildCommentTree(commentsPage.items);
   return { post, comments: { ...commentsPage, tree } };
 }
+
+export async function getAllPosts({ limit = 1000 } = {}) {
+  const size = 100;
+  let page = 1;
+  let out = [];
+  
+  while (out.length < limit) {
+    const res = await getPosts({ page, size });
+    out = out.concat(res.items || []);
+    const fetched = page * size;
+    if (fetched >= res.total || out.length >= limit) break;
+    page += 1;
+  }
+  return out.slice(0, limit);
+}

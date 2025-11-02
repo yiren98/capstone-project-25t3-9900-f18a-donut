@@ -1,144 +1,105 @@
-// src/components/CalendarPanel.jsx
-import React, { useMemo, useState } from "react";
+import React from "react";
 
 export default function CalendarPanel({
   className = "",
-  year: yearProp,
-  monthsWithData = [1, 2, 4, 5, 7, 8, 9, 10],
-  defaultSelectedMonth,
-  onYearChange,
+  year,
+  selectedMonth = null,
+  monthsWithData = [],
   onMonthSelect,
-  sentimentScore = 62,
-  sentimentDelta = +7,
+  onYearChange,
+  sbi = 0,
+  delta = 0,
 }) {
-  const now = new Date();
-  const [year, setYear] = useState(yearProp ?? now.getFullYear());
-  const [selected, setSelected] = useState(defaultSelectedMonth ?? now.getMonth() + 1);
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const canClick = (n) => monthsWithData.includes(n);
 
-  const months = useMemo(
-    () => ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-    []
-  );
+  const goPrevYear = () => onYearChange?.(year - 1);
+  const goNextYear = () => onYearChange?.(year + 1);
 
-  const goPrevYear = () => {
-    const y = year - 1;
-    setYear(y);
-    onYearChange?.(y);
-  };
-
-  const goNextYear = () => {
-    const y = year + 1;
-    setYear(y);
-    onYearChange?.(y);
-  };
-
-  const MonthChip = ({ mIndex }) => {
-    const monthNum = mIndex + 1;
-    const isThisYear = year === now.getFullYear();
-    const isToday = isThisYear && monthNum === now.getMonth() + 1;
-    const hasData = monthsWithData.includes(monthNum);
-    const isSelected = monthNum === selected;
-
-    let base =
-      "h-12 w-16 md:h-13 md:w-13 rounded-full flex items-center justify-center text-[13px] md:text-[16px] select-none transition-all";
-    let tone = "text-white/80 hover:bg-white/10";
-
-    if (isToday) {
-      tone =
-        "bg-[#F6C543] text-black font-semibold shadow-[0_4px_16px_rgba(246,197,67,0.35)]";
-    } else if (hasData) {
-      tone = "bg-white/10 text-white/90 shadow-[0_6px_16px_rgba(0,0,0,0.25)]";
-    } else if (isSelected) {
-      tone = "ring-2 ring-[#F6C543] text-white/90";
-    }
-
-    return (
-      <button
-        type="button"
-        className={`${base} ${tone}`}
-        onClick={() => {
-          setSelected(monthNum);
-          onMonthSelect?.(year, monthNum);
-        }}
-      >
-        {months[mIndex]}
-      </button>
-    );
-  };
-
-  // === Sentiment Bar ===
-  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-  const score = clamp(sentimentScore, 0, 100);
-  const isUp = sentimentDelta >= 0;
+  const sbiClamped = Math.max(0, Math.min(100, Number.isFinite(sbi) ? sbi : 0));
+  const deltaStr =
+    `${delta > 0 ? "↑" : delta < 0 ? "↓" : "±"} ${Math.abs(Math.round(delta))} pts vs last month`;
 
   return (
-    <section className={`h-full rounded-2xl bg-[#1f1f22] text-white p-6 flex flex-col shadow-sm ${className}`}>
-      {/* Header */}
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-[15px] md:text-[16px] font-semibold">View Data by Month</h3>
-        <div className="flex items-center gap-2 text-white/80">
-          <button aria-label="Previous year" onClick={goPrevYear} className="p-1 rounded hover:bg-white/10">
-            <svg width="18" height="18" viewBox="0 0 24 24" className="opacity-80">
-              <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <span className="min-w-[64px] text-center text-sm md:text-base">{year}</span>
-          <button aria-label="Next year" onClick={goNextYear} className="p-1 rounded hover:bg-white/10">
-            <svg width="18" height="18" viewBox="0 0 24 24" className="opacity-80">
-              <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+    <div
+      className={`rounded-2xl border border-[#d6d0c5] shadow-sm px-5 py-5 text-white ${className}`}
+      style={{ background: "#141416", minHeight: 395 }}
+    >
+
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-xl font-semibold">View Data by Month</h3>
+        <div className="flex items-center gap-4 text-sm text-white/85">
+          <button className="px-2 py-1 rounded hover:bg-white/10" onClick={goPrevYear}>{"<"}</button>
+          <span className="tabular-nums">{year}</span>
+          <button className="px-2 py-1 rounded hover:bg-white/10" onClick={goNextYear}>{">"}</button>
         </div>
       </div>
 
-      {/* Months grid */}
-      <div className="grid grid-cols-6 gap-x-4 gap-y-6 mt-2 mb-6 place-items-center">
-        {months.map((_, idx) => <MonthChip key={idx} mIndex={idx} />)}
+
+      <div className="grid grid-cols-6 gap-x-5 gap-y-6 mb-10">
+        {months.map((m, idx) => {
+          const n = idx + 1;
+          const active = selectedMonth === n;
+          const clickable = canClick(n);
+
+
+          if (!clickable) {
+            return (
+              <div
+                key={n}
+                className="h-12 rounded-full flex items-center justify-center select-none bg-transparent text-white/35 border border-white/10"
+                title={`${m} (no data)`}
+              >
+                {m}
+              </div>
+            );
+          }
+
+          const base = "h-12 rounded-full flex items-center justify-center select-none transition-all";
+          const tone = active
+            ? "bg-yellow-500/90 text-black font-semibold shadow-[0_10px_34px_rgba(255,190,0,.35)]"
+            : "bg-white/12 text-white/90 hover:bg-white/18";
+
+          return (
+            <button
+              key={n}
+              onClick={() => onMonthSelect?.(n, year)}
+              className={`${base} ${tone} ring-1 ring-white/15`}
+              title={`Select ${m}`}
+            >
+              {m}
+            </button>
+          );
+        })}
       </div>
 
-      {/* Sentiment Balance Index */}
-      <div className="mt-1 mb-5">
-        <div className="flex items-end justify-between mb-2">
-          <div className="text-white/90 text-sm md:text-[15px] font-medium">Sentiment Balance Index</div>
-        </div>
 
-        <div className="relative h-3 rounded-full bg-white/10 overflow-hidden">
-          <div
-            className="absolute inset-y-0 left-0 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600"
-            style={{ width: `${score}%` }}
-          />
-          <div className="absolute inset-y-0 left-1/2 w-[2px] bg-white/25" />
-        </div>
-
-        <div className="mt-2 flex items-center justify-between text-xs md:text-sm">
-          <div className="text-white/80">
-            Current: <span className="font-semibold text-white">{score}</span>
-          </div>
-          <div className="flex items-center gap-1 text-[#F6C543]">
-            <svg viewBox="0 0 24 24" width="14" height="14" className={isUp ? "" : "rotate-180"} fill="currentColor">
-              <path d="M12 4l6 8h-4v8H10v-8H6l6-8z" />
-            </svg>
-            <span className="font-medium">
-              {isUp ? "Up" : "Down"} {Math.abs(sentimentDelta)} pts vs last month
-            </span>
-          </div>
-        </div>
+      <div className="mb-3 text-[15px]">Sentiment Balance Index</div>
+      <div className="w-full h-3 rounded-full bg-white/15 overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-yellow-400 to-yellow-300"
+          style={{ width: `${sbiClamped}%` }}
+        />
       </div>
-
-      <div className="mt-auto pt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] md:text-[13px] text-white/70">
-        <span className="inline-flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#F6C543]" />
-          Current month
+      <div className="mt-3 flex items-center justify-between text-sm">
+        <span className="text-white/85">
+          Current: <b className="text-white tabular-nums">{Math.round(sbiClamped)}</b>
         </span>
-        <span className="inline-flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-          Months with data
+        <span className="text-yellow-300">{deltaStr}</span>
+      </div>
+
+
+      <div className="mt-8 flex items-center gap-6 text-[12px] text-white/75">
+        <span className="inline-flex items-center gap-1">
+          <span className="h-2 w-2 rounded-full bg-yellow-400 inline-block" /> Current month
         </span>
-        <span className="inline-flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full ring-1 ring-[#F6C543]" />
-          Selected month
+        <span className="inline-flex items-center gap-1">
+          <span className="h-2 w-2 rounded-full bg-white/40 inline-block" /> Months with data
+        </span>
+        <span className="inline-flex items-center gap-1">
+          <span className="h-2 w-2 rounded-full border border-white/40 inline-block" /> Selected month
         </span>
       </div>
-    </section>
+    </div>
   );
 }
