@@ -96,7 +96,6 @@ def _to_ymd_series(s: pd.Series) -> pd.Series:
 # --- Loaders (DB) ---
 def load_posts() -> pd.DataFrame:
     """
-    从 news_data.db 的 news 表读取：
     tag,text,author,score,comment_count,content,created_time,dimensions,subthemes,subs_sentiment,confidence,subs_evidences,source
     """
     sql = """
@@ -319,6 +318,62 @@ def api_sbi():
     month = request.args.get("month", type=int)
     info = load_sbi_info(year, month)
     return jsonify(info)
+
+# ===================== Sentiment Aggregate API =====================
+
+@app.get("/api/sentiment_stats")
+def api_sentiment_stats():
+    """
+    汇总 positive / negative 数量。
+    可选筛选：
+      - year: int
+      - month: int
+      - dimension: str  (按维度过滤：dimensions 列中含该维度)
+      - subtheme: str   (仅统计该子主题在 subs_sentiment 映射里的情感)
+    返回: {positive: int, negative: int}
+    """
+    posts = load_posts().copy()
+
+
+    y = request.args.get("year", type=int)
+    m = request.args.get("month", type=int)
+    if y or m:
+        tt = pd.to_datetime(posts["time"], errors="coerce", utc=False, format="mixed")
+        posts = posts.assign(_y=tt.dt.year, _m=tt.dt.month)
+        if y:
+            posts = posts[posts["_y"] == y]
+        if m:
+            posts = posts[posts["_m"] == m]
+
+    dim = (request.args.get("dimension") or "").strip()
+    if dim:
+        posts = posts[posts["dimensions"].apply(lambda arr: isinstance(arr, list) and dim in arr)]
+
+    only_sub = (request.args.get("subtheme") or "").strip()
+
+    pos = 0
+    neg = 0
+    for _, r in posts.iterrows():
+        ss = r.get("subs_sentiment")
+        if not isinstance(ss, dict):
+            continue
+        if only_sub:
+            val = str(ss.get(only_sub, "")).lower().strip()
+            if val == "positive":
+                pos += 1
+            elif val == "negative":
+                neg += 1
+        else:
+
+            for v in ss.values():
+                vv = str(v).lower().strip()
+                if vv == "positive":
+                    pos += 1
+                elif vv == "negative":
+                    neg += 1
+
+    return jsonify({"positive": int(pos), "negative": int(neg)})
+
 
 @app.get("/api/sbi/years")
 def api_sbi_years():

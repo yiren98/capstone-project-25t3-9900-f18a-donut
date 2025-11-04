@@ -145,3 +145,34 @@ export async function getPostWithComments(id, { page = 1, size = 100 } = {}) {
   const tree = buildCommentTree(commentsPage.items);
   return { post, comments: { ...commentsPage, tree } };
 }
+
+// ==== Sentiment aggregate ====
+export const getSentimentStats = async ({
+  year,
+  month,
+  dimension = "",
+  subtheme = "",
+} = {}) => {
+  const toInt = (v) => {
+    if (v === null || v === undefined || v === "") return undefined;
+    const n = Number(v);
+    return Number.isFinite(n) ? Math.trunc(n) : undefined;
+  };
+  const params = new URLSearchParams();
+  const y = toInt(year);
+  const m = toInt(month);
+  if (Number.isInteger(y)) params.set("year", String(y));
+  if (Number.isInteger(m)) params.set("month", String(m));
+  if (dimension) params.set("dimension", String(dimension));
+  if (subtheme) params.set("subtheme", String(subtheme));
+  return fetch(`/api/sentiment_stats?${params.toString()}`, { credentials: "include" })
+    .then(async (r) => {
+      if (!r.ok) {
+        let msg = `${r.status} ${r.statusText}`;
+        try { const j = await r.json(); if (j.message) msg = j.message; } catch {}
+        throw new Error(msg);
+      }
+      return r.json();
+    });
+};
+

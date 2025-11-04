@@ -1,3 +1,4 @@
+// src/components/CalendarPanel.jsx
 import React from "react";
 
 export default function CalendarPanel({
@@ -16,12 +17,10 @@ export default function CalendarPanel({
   const goPrevYear = () => onYearChange?.(year - 1);
   const goNextYear = () => onYearChange?.(year + 1);
 
-
   const sbiVal = Math.max(-100, Math.min(100, Number.isFinite(sbi) ? sbi : 0));
-  const pct = Math.abs(sbiVal) / 100 * 50; 
+  const pct = (Math.abs(sbiVal) / 100) * 50;
   const isPos = sbiVal >= 0;
-  const deltaStr =
-    `${delta > 0 ? "↑" : delta < 0 ? "↓" : "±"} ${Math.abs(Math.round(delta))} pts vs last month`;
+  const deltaStr = `${delta > 0 ? "↑" : delta < 0 ? "↓" : "±"} ${Math.abs(Math.round(delta))} pts vs last month`;
 
   return (
     <div
@@ -88,7 +87,7 @@ export default function CalendarPanel({
             right: isPos ? `${50 - pct}%` : "50%",
             background: isPos
               ? "linear-gradient(90deg, #fde047, #facc15)"
-              : "linear-gradient(270deg, #60a5fa, #93c5fd)"  
+              : "linear-gradient(270deg, #60a5fa, #93c5fd)",
           }}
         />
       </div>
@@ -99,16 +98,15 @@ export default function CalendarPanel({
         <span className={isPos ? "text-yellow-300" : "text-blue-300"}>{deltaStr}</span>
       </div>
 
-      {/* Legend */}
-      <div className="mt-8 flex items-center gap-6 text-[12px] text-white/75">
-        <span className="inline-flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-yellow-400 inline-block" /> Positive
+
+      <div className="mt-8 flex items-center justify-center gap-10 text-[12px] text-white/75">
+        <span className="inline-flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-white/40 inline-block" />
+          Months with data
         </span>
-        <span className="inline-flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-blue-300 inline-block" /> Negative
-        </span>
-        <span className="inline-flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-white/40 inline-block" /> Months with data
+        <span className="inline-flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-[#F6C543] inline-block" />
+          Selected month
         </span>
       </div>
     </div>
