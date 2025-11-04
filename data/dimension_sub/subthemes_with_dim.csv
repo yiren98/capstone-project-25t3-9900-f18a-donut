@@ -1,0 +1,97 @@
+subthemes,count,pos_count,neg_count,mapped_dimension
+Health & Safety,10,0,10,Well-being
+Community & Public Well-being,4,1,3,Well-being
+Food & Lifestyle Well-being,4,1,3,Well-being
+Special Group Safety & Care,2,0,2,Well-being
+Workplace Safety & Culture Integration,2,0,2,Well-being
+Physical & Environmental Safety,1,0,1,Well-being
+Employee & Occupational Well-being,1,1,0,Well-being
+Recognition & Appreciation,16,5,11,Respect
+Employee Treatment & Support,7,0,7,Respect
+Cultural & Language Respect,7,1,6,Respect
+Employment Opportunities & Job Roles,6,2,4,Respect
+Trust & Relationship Building,5,2,3,Respect
+Accommodation & Well-being at Work,4,2,2,Respect
+Organizational Trust & Inclusion,4,0,4,Respect
+Workplace Respect & Fairness,3,1,2,Respect
+Investment & Portfolio Performance,19,16,3,Performance
+Market Dynamics & Financial Indicators,18,9,9,Performance
+Market Performance & Competitiveness,15,10,5,Performance
+Financial Performance & Profitability,13,5,8,Performance
+Growth & Strategic Performance,11,6,5,Performance
+Shareholder & Investor Returns,9,5,4,Performance
+Business Impact & Operational Outcomes,9,4,5,Performance
+Market Valuation & Economic Outlook,6,2,4,Performance
+Asset Quality & Management,4,1,3,Performance
+Workforce & Team Performance,4,1,3,Performance
+Production & Output Management,3,3,0,Performance
+Leadership & Change Transition,1,0,1,Performance
+Knowledge Acquisition & Inquiry,5,1,4,Learning
+Career Growth & Opportunity,1,1,0,Learning
+Ethics & Compliance,45,5,40,Integrity
+Legal & Regulatory Integrity,28,5,23,Integrity
+Corporate Conduct & Professionalism,7,0,7,Integrity
+Anti-Corruption & Misconduct Allegations,4,0,4,Integrity
+Transparency & Trust,3,1,2,Integrity
+Technology & Process Innovation,7,7,0,Innovation
+Product & Service Innovation,1,0,1,Innovation
+Operational Efficiency & Performance,12,5,7,Execution
+Cost Management & Resource Efficiency,12,9,3,Execution
+Project Execution & Delivery,7,3,4,Execution
+Infrastructure & Maintenance,7,0,7,Execution
+Contracting & Procurement,6,1,5,Execution
+Infrastructure & Event Delivery,3,1,2,Execution
+Energy & Utilities Operations,2,0,2,Execution
+Execution Oversight & Coordination,2,1,1,Execution
+Timeline & Scheduling Discipline,2,0,2,Execution
+Environmental Protection & Resource Management,59,9,50,Ethical Responsibility
+Community Engagement & Social Responsibility,57,11,46,Ethical Responsibility
+Cultural Heritage & Indigenous Rights,34,4,30,Ethical Responsibility
+Ethical Investment & Responsible Business,17,5,12,Ethical Responsibility
+Environmental Sustainability & Climate Action,16,7,9,Ethical Responsibility
+Environmental Governance & Accountability,6,2,4,Ethical Responsibility
+Remediation & Restoration Efforts,5,5,0,Ethical Responsibility
+Human Rights & Ethics,5,1,4,Ethical Responsibility
+Learning & Development,4,4,0,Ethical Responsibility
+Governance & Regulatory Integrity,4,0,4,Ethical Responsibility
+Historical Learning & Contextual Awareness,3,1,2,Ethical Responsibility
+Investor & Shareholder Communication,1,0,1,Ethical Responsibility
+Data & Structural Integrity,1,0,1,Ethical Responsibility
+Cultural Awareness & Sensitivity,3,1,2,Diversity
+Gender Equality & Representation,3,2,1,Diversity
+Inclusion & Belonging,2,1,1,Diversity
+Fairness & Anti-Discrimination,1,0,1,Diversity
+Automation & Process Optimization,2,1,1,Digital Empowerment
+Brand Perception & Reputation,31,3,28,Customer Orientation
+Customer Experience & Satisfaction,6,4,2,Customer Orientation
+Public Relations & Media Image,6,1,5,Customer Orientation
+Advertising & Marketing Strategy,5,2,3,Customer Orientation
+Product Quality & Offering,3,1,2,Customer Orientation
+Localization & Market Adaptation,3,2,1,Customer Orientation
+User Engagement & Content Creation,1,1,0,Customer Orientation
+Stakeholder Engagement & Alignment,27,8,19,Collaboration
+Team Collaboration & Communication,24,10,14,Collaboration
+Partnership & Joint Ventures,8,6,2,Collaboration
+Strategic & Cross-Sector Collaboration,6,5,1,Collaboration
+External Cooperation & Global Involvement,5,3,2,Collaboration
+Community & Organizational Cooperation,5,5,0,Collaboration
+Business & Industry Relations,3,2,1,Collaboration
+Restructuring & Divestment,1,1,0,Collaboration
+Strategic Planning & Direction,18,14,4,Agility
+Future Strategy & Foresight,14,9,5,Agility
+Mergers & Acquisitions (M&A),6,4,2,Agility
+Strategic Defense & Resilience,5,4,1,Agility
+Strategic Adaptation & Flexibility,5,3,2,Agility
+Adaptive Operations & Location Flexibility,4,2,2,Agility
+Transparency & Disclosure,60,13,47,Accountability
+Corporate Governance & Oversight,34,5,29,Accountability
+Corporate & Historical Responsibility,24,4,20,Accountability
+Policy & Government Relations,21,7,14,Accountability
+Risk & Regulatory Management,17,2,15,Accountability
+Leadership Accountability,14,1,13,Accountability
+Stakeholder & Shareholder Accountability,11,3,8,Accountability
+Ethical Compliance & Internal Control,10,2,8,Accountability
+Reporting & Reputational Risk,8,3,5,Accountability
+Governance in Practice & Apology,7,2,5,Accountability
+Relationship Management & Trust Building,2,1,1,Accountability
+Confidentiality & Intellectual Property,1,0,1,Accountability

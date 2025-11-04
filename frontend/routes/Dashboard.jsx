@@ -15,13 +15,13 @@ import { getSBI } from "../src/api";
 export default function Dashboard() {
   const now = new Date();
   const [year, setYear] = useState(now.getFullYear());
-  const [month, setMonth] = useState(null); // null=整年
+  const [month, setMonth] = useState(null); 
   const [monthsWithData, setMonthsWithData] = useState([]);
   const [sbi, setSbi] = useState(0);
   const [delta, setDelta] = useState(0);
   const [flipToken, setFlipToken] = useState(0);
 
-  // 取该年的可用月份
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -29,7 +29,7 @@ export default function Dashboard() {
         const info = await getSBI({ year });
         if (!mounted) return;
         setMonthsWithData(info.months_with_data || []);
-        // 如果当前月在新年无数据 -> 置空
+
         if (month && !(info.months_with_data || []).includes(month)) setMonth(null);
       } catch {
         setMonthsWithData([]);
@@ -38,7 +38,7 @@ export default function Dashboard() {
     return () => { mounted = false; };
   }, [year]);
 
-  // 选中月份 -> sbi/delta；未选月=0
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -59,21 +59,21 @@ export default function Dashboard() {
     return () => { mounted = false; };
   }, [year, month]);
 
-  // 提示 PostFeed 做筛选刷新动画
+
   useEffect(() => { setFlipToken((t) => t + 1); }, [year, month]);
 
-  // —— 新增：更健壮的回调 —— //
+
   const handleYearChange = (y) => {
     setYear(y);
-    setMonth(null);          // 换年时清空月份
-    setFlipToken(t => t + 1); // 立即触发一次刷新（不用等副作用）
+    setMonth(null);      
+    setFlipToken(t => t + 1);
   };
 
   const handleMonthSelect = (m, y) => {
-    // CalendarPanel 会把当前 year 也带过来
+
     if (y && y !== year) setYear(y);
     setMonth(m);
-    setFlipToken(t => t + 1); // 立即触发刷新，PostFeed 第一时间按月筛
+    setFlipToken(t => t + 1); 
   };
 
   return (
@@ -94,7 +94,7 @@ export default function Dashboard() {
 
         <div className="row-start-1 col-start-1 sm:col-start-2 flex items-center self-start">
           <div className="translate-y-[2px]">
-            <h1 className="text-xl md:text-4xl font-semibold text-neutral-900">Hi, YoloFun!</h1>
+            <h1 className="text-xl md:text-4xl font-semibold text-neutral-900">Culture Insights Dashboard</h1>
             <p className="text-sm md:text-base text-neutral-500 hidden xl:block">
               Here's an overview of Rio Tinto's corporate culture insights.
             </p>
@@ -124,14 +124,14 @@ export default function Dashboard() {
             year={year}
             selectedMonth={month}
             monthsWithData={monthsWithData}
-            onYearChange={handleYearChange}          // <—— 改用加固回调
-            onMonthSelect={handleMonthSelect}        // <—— 改用加固回调
+            onYearChange={handleYearChange}         
+            onMonthSelect={handleMonthSelect}        
             sbi={Number.isFinite(sbi) ? sbi : 0}
             delta={Number.isFinite(delta) ? delta : 0}
           />
         </section>
 
-        {/* 下面保持不变 */}
+
         <div className="row-start-5 sm:row-start-4 lg:row-start-3 col-span-full pb-4 grid gap-6
                         grid-cols-1
                         sm:grid-cols-[72px_minmax(0,1fr)]
@@ -145,12 +145,11 @@ export default function Dashboard() {
           <section className="col-start-1 sm:col-start-2 grid gap-6
                               grid-cols-1
                               md:grid-cols-[minmax(260px,0.9fr)_minmax(340px,1.1fr)]">
-            <SentimentVenn
-              positive={270}
-              negative={210}
-              intersectionRate={34.09}
-              title="Sentiment Analysis Statistics"
-            />
+        <SentimentVenn
+          title="Sentiment Analysis Statistics"
+          year={year}
+          month={month}
+        />
             <DimensionRadar title="Cultural Dimensions" widthPx={640} heightPx={247} />
           </section>
 

@@ -4,10 +4,10 @@ import { getPosts, getPostDetail, getPostComments, buildCommentTree } from "../a
 import IconLeft from "../../assets/icons/MingcuteLeftFill.png";
 import IconRight from "../../assets/icons/MingcuteRightFill.png";
 
-const BG_ARTICLE = "rgba(241, 240, 227, 0.75)"; // Article
-const BG_FORUM   = "rgba(233, 216, 191, 0.75)"; // Forum
+const BG_ARTICLE = "rgba(241, 240, 227, 0.75)";
+const BG_FORUM   = "rgba(233, 216, 191, 0.75)";
 
-export default function PostFeed({ className = "", year, month, filterFlipKey }) {
+export default function PostFeed({ className = "", year, month, filterFlipKey, sentiment = null, subtheme = "" }) {
   const pageSize = 4;
   const commentSize = 10000;
 
@@ -26,12 +26,8 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
   const [_, setLoading] = useState(false);
   const [err, setErr] = useState("");
 
-
   const [listSlide, setListSlide] = useState(0);
-  const [listAnimOn, setListAnimOn] = useState(true);
   const [cSlide, setCSlide] = useState(0);
-  const [cAnimOn, setCAnimOn] = useState(true);
-
   const listStage = useRef(0);
   const cStage = useRef(0);
 
@@ -66,7 +62,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
   useEffect(() => {
     setPage(1);
     setListSlide(0);
-  }, [year, month, filterFlipKey]);
+  }, [year, month, filterFlipKey, sentiment, subtheme]);
 
 
   useEffect(() => {
@@ -75,18 +71,12 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
 
     setLoading(true);
     setErr("");
-    getPosts({
-      page,
-      size: pageSize,
-      year: Number.isInteger(year) ? year : undefined,
-      month: Number.isInteger(month) ? month : undefined,
-    })
+    getPosts({ page, size: pageSize, year, month, sentiment, subtheme })
       .then((res) => {
         if (!alive || myId !== reqId.current) return;
         setItems(res.items || []);
         setTotal(res.total || 1);
-
-        requestAnimationFrame(() => { setListAnimOn(true); setListSlide(0); });
+        requestAnimationFrame(() => setListSlide(0));
       })
       .catch((e) => {
         if (!alive || myId !== reqId.current) return;
@@ -98,35 +88,17 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
       });
 
     return () => { alive = false; };
-  }, [page, year, month, filterFlipKey]);
+  }, [page, year, month, sentiment, subtheme, filterFlipKey]);
 
-
-  const slideChangePage = (nextPage, dir) => {
-    const p = Math.min(totalPages, Math.max(1, nextPage));
+  const gotoPageWithSlide = (next, dir) => {
+    const p = Math.min(totalPages, Math.max(1, next));
     if (p === page) return;
     listStage.current += 1;
     const stage = listStage.current;
-
-
-    setListAnimOn(true);
     setListSlide(dir);
-
-
-    setTimeout(() => {
-      if (stage !== listStage.current) return;
-      setListAnimOn(false);
-      setPage(p);
-      setListSlide(-dir);
-
-
-      requestAnimationFrame(() => {
-        if (stage !== listStage.current) return;
-        setListAnimOn(true);
-        setListSlide(0);
-      });
-    }, 160);
+    requestAnimationFrame(() => setPage(p));
+    setTimeout(() => stage === listStage.current && setListSlide(0), 500);
   };
-
 
   const openDetail = async (it) => {
     setLoading(true);
@@ -160,37 +132,27 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
     [cTotal, commentSize]
   );
 
-  const slideChangeComments = async (next, dir) => {
+  const gotoCommentPage = async (next, dir) => {
     if (!post || post.type !== "forum") return;
     const p = Math.min(cTotalPages, Math.max(1, next));
     if (p === cPage) return;
-
     cStage.current += 1;
     const stage = cStage.current;
-
-    setCAnimOn(true);
     setCSlide(dir);
-
-
-    setTimeout(async () => {
-      if (stage !== cStage.current) return;
-      setCAnimOn(false);
-      try {
-        const c = await getPostComments({ id: post.tag || post.id, page: p, size: commentSize });
-        setCommentsTree(buildCommentTree(c.items || []));
-        setCPage(p);
-        setCTotal(c.total || 0);
-        setCSlide(-dir);
-
-        requestAnimationFrame(() => {
-          if (stage !== cStage.current) return;
-          setCAnimOn(true);
-          setCSlide(0);
-        });
-      } catch (e) {
-        setErr(e.message || String(e));
-      }
-    }, 140);
+    setLoading(true);
+    setErr("");
+    try {
+      const c = await getPostComments({ id: post.tag || post.id, page: p, size: commentSize });
+      setCommentsTree(buildCommentTree(c.items || []));
+      setCPage(p);
+      setCTotal(c.total || 0);
+      requestAnimationFrame(() => setCSlide(0));
+    } catch (e) {
+      setErr(e.message || String(e));
+    } finally {
+      setLoading(false);
+      setTimeout(() => stage === cStage.current && setCSlide(0), 500);
+    }
   };
 
   const sanitize = (txt) => {
@@ -232,17 +194,17 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
 
   return (
     <section
-      className={`group relative rounded-2xl border border-[rgb(200,190,170)] shadow-sm z-0 ${className}`}
+      className={`group relative rounded-2xl border border-[rgb(200,190,170)] shadow-sm ${className}`}
       style={{
         backgroundColor: "#ede5d6ff",
         padding: "0.9rem 0.7rem 0.9rem",
-        overflow: "visible",        
+        overflow: "visible",
         perspective: "1200px",
       }}
     >
       <div
         ref={flipRef}
-        className="h-full w-full relative transition-transform duration-500 z-0" 
+        className="h-full w-full relative transition-transform duration-500 z-10"
         style={{ transformStyle: "preserve-3d", willChange: "transform" }}
       >
 
@@ -253,16 +215,10 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
             </div>
           )}
 
-
-          <div className="h-full overflow-y-auto px-1" style={{ overflowX: "hidden" }}>
+          <div className="h-full overflow-y-auto px-1">
             <div
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
-              style={{
-                transform: `translate3d(${listSlide * 22}%,0,0)`,
-                transition: listAnimOn ? "transform 500ms" : "none",
-                willChange: "transform",
-                contain: "layout paint", 
-              }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 transition-transform duration-500"
+              style={{ transform: `translateX(${listSlide * 22}%)` }}
             >
               {items.map((it, idx) => {
                 const cardBg = it.type === "forum" ? BG_FORUM : BG_ARTICLE;
@@ -322,6 +278,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
           </div>
         </div>
 
+
         <div className="absolute inset-0 overflow-hidden" style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}>
           <div className="h-full border border-[rgb(200,190,170)] rounded-2xl shadow-sm overflow-hidden" style={{ background: "#f6f3ef" }}>
             <div className="px-5 py-3 flex justify-between items-center">
@@ -349,7 +306,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
               {post?.source && <span className="truncate">Source: <b className="text-neutral-800">{post.source}</b></span>}
             </div>
 
-            <div className="h-[calc(100%-94px)] overflow-y-auto px-5 pb-4" style={{ overflowX: "hidden" }}>
+            <div className="h-[calc(100%-94px)] overflow-y-auto px-5 pb-4">
               <div className="rounded-xl border border-white/70 bg-white/70 px-4 py-3 mb-3 text-[15px]" style={{ maxHeight: 160, overflowY: "auto" }}>
                 {sanitize(post?.content) || "(No content)"}
               </div>
@@ -362,18 +319,11 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
                 </div>
               )}
 
-              <SubthemeBadges dict={post?.subs_sentiment || {}} />
+
+              {post?.subs_sentiment && <SubthemeBadges dict={post.subs_sentiment} />}
 
               {post?.type === "forum" ? (
-                <div
-                  className="space-y-2"
-                  style={{
-                    transform: `translate3d(${cSlide * 22}%,0,0)`,
-                    transition: cAnimOn ? "transform 500ms" : "none",
-                    willChange: "transform",
-                    contain: "layout paint",
-                  }}
-                >
+                <div className="space-y-2 transition-transform duration-500" style={{ transform: `translateX(${cSlide * 22}%)` }}>
                   {commentsTree.length === 0 && <div className="text-sm text-neutral-600">No comments.</div>}
 
                   {commentsTree.map((c) => (
@@ -422,9 +372,9 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
       </div>
 
 
-      <div className="absolute inset-y-0 left-0 w-16 z-30 pointer-events-none">
+      <div className="absolute inset-y-0 left-0 w-16 z-[999] pointer-events-none">
         <button
-          onClick={() => (view === "list" ? slideChangePage(page - 1, +1) : slideChangeComments(cPage - 1, +1))}
+          onClick={() => (view === "list" ? gotoPageWithSlide(page - 1, +1) : gotoCommentPage(cPage - 1, +1))}
           disabled={view === "list" ? page <= 1 : post?.type !== "forum" || cPage <= 1}
           className="cursor-pointer pointer-events-auto absolute left-2 top-1/2 -translate-y-1/2 opacity-0 hover:opacity-100 transition-opacity duration-150 rounded-full p-2 bg-transparent disabled:opacity-0"
         >
@@ -432,9 +382,9 @@ export default function PostFeed({ className = "", year, month, filterFlipKey })
         </button>
       </div>
 
-      <div className="absolute inset-y-0 right-0 w-16 z-30 pointer-events-none">
+      <div className="absolute inset-y-0 right-0 w-16 z-[999] pointer-events-none">
         <button
-          onClick={() => (view === "list" ? slideChangePage(page + 1, -1) : slideChangeComments(cPage + 1, -1))}
+          onClick={() => (view === "list" ? gotoPageWithSlide(page + 1, -1) : gotoCommentPage(cPage + 1, -1))}
           disabled={view === "list" ? page >= totalPages : post?.type !== "forum" || cPage >= cTotalPages}
           className="cursor-pointer pointer-events-auto absolute right-2 top-1/2 -translate-y-1/2 opacity-0 hover:opacity-100 transition-opacity duration-150 rounded-full p-2 bg-transparent disabled:opacity-0"
         >
