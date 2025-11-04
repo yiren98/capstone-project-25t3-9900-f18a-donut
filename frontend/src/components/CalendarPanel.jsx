@@ -7,7 +7,7 @@ export default function CalendarPanel({
   monthsWithData = [],
   onMonthSelect,
   onYearChange,
-  sbi = 0,
+  sbi = 0,   // -100 ~ 100
   delta = 0,
 }) {
   const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -16,7 +16,10 @@ export default function CalendarPanel({
   const goPrevYear = () => onYearChange?.(year - 1);
   const goNextYear = () => onYearChange?.(year + 1);
 
-  const sbiClamped = Math.max(0, Math.min(100, Number.isFinite(sbi) ? sbi : 0));
+
+  const sbiVal = Math.max(-100, Math.min(100, Number.isFinite(sbi) ? sbi : 0));
+  const pct = Math.abs(sbiVal) / 100 * 50; 
+  const isPos = sbiVal >= 0;
   const deltaStr =
     `${delta > 0 ? "↑" : delta < 0 ? "↓" : "±"} ${Math.abs(Math.round(delta))} pts vs last month`;
 
@@ -25,7 +28,7 @@ export default function CalendarPanel({
       className={`rounded-2xl border border-[#d6d0c5] shadow-sm px-5 py-5 text-white ${className}`}
       style={{ background: "#141416", minHeight: 395 }}
     >
-
+      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl font-semibold">View Data by Month</h3>
         <div className="flex items-center gap-4 text-sm text-white/85">
@@ -35,13 +38,12 @@ export default function CalendarPanel({
         </div>
       </div>
 
-
+      {/* Months */}
       <div className="grid grid-cols-6 gap-x-5 gap-y-6 mb-10">
         {months.map((m, idx) => {
           const n = idx + 1;
           const active = selectedMonth === n;
           const clickable = canClick(n);
-
 
           if (!clickable) {
             return (
@@ -74,30 +76,39 @@ export default function CalendarPanel({
       </div>
 
 
-      <div className="mb-3 text-[15px]">Sentiment Balance Index</div>
-      <div className="w-full h-3 rounded-full bg-white/15 overflow-hidden">
+      <div className="mb-2 text-[15px]">Sentiment Balance Index</div>
+      <div className="w-full h-3 rounded-full bg-white/15 relative overflow-hidden">
+
+        <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/35" />
+
         <div
-          className="h-full bg-gradient-to-r from-yellow-400 to-yellow-300"
-          style={{ width: `${sbiClamped}%` }}
+          className="absolute top-0 bottom-0"
+          style={{
+            left: isPos ? "50%" : `${50 - pct}%`,
+            right: isPos ? `${50 - pct}%` : "50%",
+            background: isPos
+              ? "linear-gradient(90deg, #fde047, #facc15)"
+              : "linear-gradient(270deg, #60a5fa, #93c5fd)"  
+          }}
         />
       </div>
       <div className="mt-3 flex items-center justify-between text-sm">
         <span className="text-white/85">
-          Current: <b className="text-white tabular-nums">{Math.round(sbiClamped)}</b>
+          Current: <b className="text-white tabular-nums">{Math.round(sbiVal)}</b>
         </span>
-        <span className="text-yellow-300">{deltaStr}</span>
+        <span className={isPos ? "text-yellow-300" : "text-blue-300"}>{deltaStr}</span>
       </div>
 
-
+      {/* Legend */}
       <div className="mt-8 flex items-center gap-6 text-[12px] text-white/75">
         <span className="inline-flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-yellow-400 inline-block" /> Current month
+          <span className="h-2 w-2 rounded-full bg-yellow-400 inline-block" /> Positive
+        </span>
+        <span className="inline-flex items-center gap-1">
+          <span className="h-2 w-2 rounded-full bg-blue-300 inline-block" /> Negative
         </span>
         <span className="inline-flex items-center gap-1">
           <span className="h-2 w-2 rounded-full bg-white/40 inline-block" /> Months with data
-        </span>
-        <span className="inline-flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full border border-white/40 inline-block" /> Selected month
         </span>
       </div>
     </div>
