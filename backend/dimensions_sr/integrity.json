@@ -1,0 +1,50 @@
+{
+  "dimension": "Integrity",
+  "overview": "The Integrity dimension represents the ethical foundation of the organization — its adherence to moral principles, transparency, honesty, and consistency between stated values and actions. In the analyzed corpus, Integrity discussions largely revolve around ethical compliance, legal accountability, and public trust following controversies related to corporate behavior, environmental damage, and transparency lapses.",
+  "key_patterns": [
+    "The overall sentiment toward integrity is strongly negative, reflecting recurring skepticism about ethical behavior, governance credibility, and regulatory compliance.",
+    "Ethics and compliance are dominant themes, with frequent mentions of investigations, lawsuits, and calls for higher ethical standards in corporate conduct.",
+    "Transparency and disclosure often appear alongside integrity issues, highlighting the need for open communication about decisions, contracts, and environmental or social impacts.",
+    "Community and stakeholder engagement are linked to perceptions of integrity, as public trust depends on how the company responds to harm and communicates accountability.",
+    "Environmental and cultural heritage issues continue to be critical tests of integrity, shaping how external audiences evaluate sincerity and long-term responsibility.",
+    "Integrity failures are often magnified through media and public discourse, reinforcing the reputational risk of inconsistent or defensive responses to ethical challenges."
+  ],
+  "sentiment_snapshot": {
+    "positive": 41,
+    "negative": 262,
+    "neutral": 0,
+    "average_confidence": 0.843
+  },
+  "top_subthemes": [
+    { "subtheme": "Ethics & Compliance", "count": 45 },
+    { "subtheme": "Legal & Regulatory Integrity", "count": 28 },
+    { "subtheme": "Transparency & Disclosure", "count": 26 },
+    { "subtheme": "Community Engagement & Social Responsibility", "count": 24 },
+    { "subtheme": "Environmental Protection & Resource Management", "count": 16 },
+    { "subtheme": "Stakeholder Engagement & Alignment", "count": 14 },
+    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 13 },
+    { "subtheme": "Brand Perception & Reputation", "count": 11 },
+    { "subtheme": "Corporate & Historical Responsibility", "count": 11 },
+    { "subtheme": "Risk & Regulatory Management", "count": 8 }
+  ],
+  "risks_and_blindspots": [
+    "Integrity may be viewed externally as reactive or performative when responses focus on compliance rather than ethical transformation.",
+    "Recurrent legal or ethical controversies erode credibility and diminish stakeholder trust, even when financial performance remains strong.",
+    "Limited transparency in investigations, settlements, or decision-making processes can perpetuate perceptions of secrecy and avoidance.",
+    "Cultural and environmental integrity issues highlight inconsistencies between global standards and local implementation, weakening perceived sincerity.",
+    "Insufficient ethical oversight across complex partnerships and supply chains risks indirect violations that still damage reputation.",
+    "Failure to connect integrity efforts to measurable outcomes and public accountability metrics may leave stakeholders unconvinced of progress."
+  ],
+  "recommendations": [
+    "Reinforce a zero-tolerance approach to unethical conduct through clear codes of behavior, leadership example, and consistent enforcement across all regions.",
+    "Increase transparency by proactively disclosing investigation outcomes, remediation measures, and progress on ethical commitments.",
+    "Integrate integrity metrics into executive performance evaluation and public reporting to make ethical conduct measurable and accountable.",
+    "Strengthen governance mechanisms to ensure oversight of high-risk activities such as procurement, joint ventures, and political engagement.",
+    "Invest in regular ethics and compliance training that emphasizes real-world scenarios, decision-making dilemmas, and the link between integrity and business sustainability.",
+    "Establish independent ethics committees or ombudsperson functions to monitor conduct, handle whistleblower reports, and ensure impartial review of incidents.",
+    "Enhance communication around cultural heritage and environmental stewardship to demonstrate respect, humility, and long-term responsibility.",
+    "Foster an internal culture where speaking up about ethical concerns is encouraged and protected, supported by confidential and accessible reporting channels.",
+    "Align corporate integrity strategies globally to avoid discrepancies between local practices and international standards of accountability.",
+    "Regularly audit and publicly evaluate integrity initiatives to ensure that improvements are genuine, transparent, and continuously reinforced through action."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "dimension": "Ethical Responsibility",
+  "overview": "The Ethical Responsibility dimension represents the organization’s moral accountability toward the environment, communities, and governance standards. In the analyzed corpus, this dimension dominates the ethical discourse, largely shaped by reactions to environmental degradation, cultural heritage destruction, and transparency concerns. It reflects how external stakeholders assess whether the organization acts responsibly, not merely legally or profitably.",
+  "key_patterns": [
+    "Sentiment is predominantly negative, driven by repeated criticism of environmental harm, cultural destruction, and inadequate corporate accountability.",
+    "Environmental protection and community responsibility are the two strongest narrative anchors, often discussed alongside Indigenous rights and remediation efforts.",
+    "The destruction of Juukan Gorge remains a defining ethical symbol, recurring as a moral benchmark against which all subsequent actions are judged.",
+    "Positive sentiment is concentrated in recent sustainability initiatives such as renewable energy investment, remediation projects, and early coal plant closures, but these are often framed as overdue corrections rather than proactive commitments.",
+    "Transparency and disclosure emerge as central expectations — stakeholders demand open investigation outcomes, clear reporting, and consistent communication rather than selective statements.",
+    "Discussions link ethics with governance and performance, showing that integrity is now seen not as a separate CSR topic but as the foundation of long-term corporate legitimacy."
+  ],
+  "sentiment_snapshot": {
+    "positive": 120,
+    "negative": 375,
+    "neutral": 0,
+    "average_confidence": 0.848
+  },
+  "top_subthemes": [
+    { "subtheme": "Environmental Protection & Resource Management", "count": 59 },
+    { "subtheme": "Community Engagement & Social Responsibility", "count": 57 },
+    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 34 },
+    { "subtheme": "Transparency & Disclosure", "count": 32 },
+    { "subtheme": "Ethics & Compliance", "count": 25 },
+    { "subtheme": "Corporate Governance & Oversight", "count": 18 },
+    { "subtheme": "Stakeholder Engagement & Alignment", "count": 17 },
+    { "subtheme": "Brand Perception & Reputation", "count": 17 },
+    { "subtheme": "Environmental Sustainability & Climate Action", "count": 17 },
+    { "subtheme": "Ethical Investment & Responsible Business", "count": 17 }
+  ],
+  "risks_and_blindspots": [
+    "Ethical actions are frequently perceived as reactive crisis management rather than proactive ethical leadership.",
+    "Legacy environmental and cultural issues remain unresolved, continually resurfacing as evidence of insufficient accountability.",
+    "Inconsistent communication and limited transparency in investigations undermine trust even when remediation occurs.",
+    "Governance structures often appear fragmented, blurring responsibility for ethical oversight between executives and operations.",
+    "Remediation and restoration efforts are criticized for symbolic gestures without systemic prevention of recurrence.",
+    "Ethical performance is sometimes decoupled from financial and operational metrics, limiting its influence on strategic decisions.",
+    "Stakeholders perceive a gap between public commitments and on-ground behaviour, especially in community relations and human rights.",
+    "Ethical frameworks tend to prioritize compliance language over moral reasoning, weakening emotional resonance and credibility."
+  ],
+  "recommendations": [
+    "Declare ethical responsibility as a strategic pillar equal to safety and performance, with clear metrics and annual public reporting.",
+    "Treat legacy environmental and cultural issues as long-term trust investments: publish transparent roadmaps for remediation and reconciliation.",
+    "Integrate ethics into corporate governance by giving independent ethics committees oversight and veto power on high-risk projects.",
+    "Adopt a ‘no-go’ policy for irreversible cultural or ecological damage, even when legally permissible, signalling a values-first stance.",
+    "Ensure that transparency standards apply uniformly: publish investigation outcomes, community consultations, and environmental audits.",
+    "Reframe sustainability communication from marketing narratives to evidence-based accountability reports.",
+    "Invest in ethics and cultural-awareness training for executives, project leads, and frontline employees to embed decision-making sensitivity.",
+    "Establish continuous dialogue channels with Indigenous groups and affected communities as partners, not merely stakeholders.",
+    "Link executive compensation to measurable ethical outcomes such as zero major incidents, community satisfaction, and audit completion.",
+    "Promote ethical storytelling: leaders should acknowledge mistakes publicly, explain lessons learned, and outline concrete behavioural changes."
+  ]
+}
