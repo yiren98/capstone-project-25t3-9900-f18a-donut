@@ -1,0 +1,33 @@
+{
+  "subtheme": "Transparency & Trust",
+  "parent_dimensions": [
+    "Integrity"
+  ],
+  "overview": "This subtheme captures how the company's communication and actions are perceived in terms of honesty and reliability. It is central to stakeholder trust and is often scrutinized in crisis situations, where past statements and actions are compared.",
+  "key_patterns": [
+    "External accusations of misleading or dishonest communication",
+    "Defensive or minimizing language when addressing past incidents",
+    "Reference to specific past events as evidence of untrustworthiness",
+    "Internal communication or reassurance attempts that contrast with external perceptions"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 2,
+    "average_confidence": 0.867
+  },
+  "typical_contexts": [
+    "Arises during public scandals, regulatory inquiries, or investigations where the company's official account is challenged",
+    "Discussed in relation to past promises, ESG commitments, or specific project outcomes that did not match initial communication",
+    "Often linked to financial performance or shareholder communication, where expectations were not met transparently"
+  ],
+  "risks_and_blindspots": [
+    "Significant trust deficit that is difficult to overcome once established, leading to skepticism even on positive news",
+    "Inability to manage complex multi-stakeholder expectations due to inconsistent messaging between internal and external audiences",
+    "Potential for regulatory or legal repercussions if misinformation is proven, beyond just reputational damage"
+  ],
+  "recommendations": [
+    "Establish and communicate clear, verifiable communication protocols for all major announcements and crisis responses",
+    "Implement a transparent 'open fact' policy for past incidents, including acknowledging mistakes and outlining concrete steps taken to prevent recurrence",
+    "Integrate transparency metrics into executive and board-level performance indicators, not just public reporting"
+  ]
+}

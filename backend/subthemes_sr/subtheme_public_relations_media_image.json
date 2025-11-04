@@ -1,0 +1,33 @@
+{
+  "subtheme": "Public Relations & Media Image",
+  "parent_dimensions": [
+    "Customer Orientation"
+  ],
+  "overview": "This subtheme captures how the company's public relations and media image efforts are perceived, particularly in how they relate to customer trust and transparency. It matters because negative perceptions in this area can directly undermine customer trust and corporate reputation, making it a critical component of customer orientation.",
+  "key_patterns": [
+    "Criticism of disinformation or misleading campaigns",
+    "Scrutiny over corporate ownership and land rights",
+    "Controversy around specific projects or partnerships",
+    "External criticism from media or advocacy groups"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 5,
+    "average_confidence": 0.778
+  },
+  "typical_contexts": [
+    "This subtheme typically appears in contexts where the company's public statements or media presence are contrasted with controversial actions, such as disputes over land rights or resource extraction.",
+    "It is often triggered by external critiques from media, NGOs, or social media, highlighting a gap between corporate messaging and on-ground realities.",
+    "It interacts strongly with dimensions like transparency and ethical governance, as negative perceptions here often stem from perceived hypocrisy or lack of accountability."
+  ],
+  "risks_and_blindspots": [
+    "Risk of significant reputational damage due to consistent negative sentiment in public discourse.",
+    "Blind spot in managing cross-cultural or international relations, where local context may be overlooked in global PR campaigns.",
+    "Potential for legal and regulatory challenges stemming from publicized controversies, especially around land and resource rights."
+  ],
+  "recommendations": [
+    "Institute a proactive media and stakeholder engagement strategy that goes beyond traditional PR, focusing on transparency and accountability to rebuild trust.",
+    "Establish an independent oversight or advisory panel for major projects, especially in culturally sensitive or indigenous areas, to preempt and address concerns.",
+    "Enhance communication channels that allow for genuine community and customer feedback integration, moving from broadcast to dialogic communication models to address the root causes of negative perception."
+  ]
+}

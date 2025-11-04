@@ -1,0 +1,33 @@
+{
+  "subtheme": "Trust & Relationship Building",
+  "parent_dimensions": [
+    "Respect"
+  ],
+  "overview": "This subtheme captures how the organization's actions are perceived in terms of their impact on trust and long-term relationships with stakeholders. It matters because trust is a fragile asset that, once broken, is difficult to rebuild and can lead to significant reputational and operational damage.",
+  "key_patterns": [
+    "Evidence of broken promises or commitments made to stakeholders",
+    "Public or private accusations of withholding information or being opaque",
+    "External critique highlighting a gap between stated values and actual practice",
+    "Expressions of frustration over repeated or systemic trust breaches"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 3,
+    "average_confidence": 0.87
+  },
+  "typical_contexts": [
+    "Comments arise in the context of public disclosures, corporate communications, or third-party investigations that highlight a gap between corporate promises and delivered outcomes.",
+    "The theme is triggered when stakeholders, especially communities and traditional owners, perceive a failure to follow through on commitments, leading to public critique.",
+    "It interacts closely with dimensions of accountability, transparency, and corporate integrity, often acting as a barometer for the health of those dimensions."
+  ],
+  "risks_and_blindspots": [
+    "Underestimating the long-term reputational and relational damage caused by individual instances of trust-breaking, leading to a cumulative 'trust deficit'.",
+    "Failing to invest in proactive and transparent relationship-building with key stakeholders, leaving trust to be tested only in crises.",
+    "Over-reliance on legal or PR remedies to repair trust, rather than addressing underlying operational or governance failures."
+  ],
+  "recommendations": [
+    "Institute a formal, transparent process for managing stakeholder commitments, including tracking, follow-up, and accountability for delivery.",
+    "Establish independent or community-led auditing of cultural heritage and relationship management processes to rebuild trust.",
+    "Shift from reactive, defensive communication to proactive, transparent dialogue and partnership-building with key communities."
+  ]
+}

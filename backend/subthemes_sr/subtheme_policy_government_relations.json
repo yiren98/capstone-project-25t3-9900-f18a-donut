@@ -1,0 +1,35 @@
+{
+  "subtheme": "Policy & Government Relations",
+  "parent_dimensions": [
+    "Accountability",
+    "Agility",
+    "Collaboration"
+  ],
+  "overview": "This subtheme captures corporate interactions with government entities, focusing on regulatory compliance, tax negotiations, and international trade relations. It matters because it directly impacts financial stability, public image, and the ability to operate across different jurisdictions, often under public scrutiny.",
+  "key_patterns": [
+    "Engagement in tax negotiations and disputes with national governments",
+    "Response to international trade tariffs and trade policy changes",
+    "Involvement in geopolitical resource disputes (e.g., rare earths)",
+    "Public disclosure and media coverage of government interactions"
+  ],
+  "sentiment_snapshot": {
+    "positive": 7,
+    "negative": 14,
+    "average_confidence": 0.82
+  },
+  "typical_contexts": [
+    "This subtheme appears in discussions about specific, high-stakes negotiations with national governments, often involving tax structures, tariffs, or resource rights.",
+    "It is triggered by public announcements of policy changes, international disputes over resources, or government investigations into corporate practices.",
+    "It interacts with Accountability through public reporting on financial compliance and with Agility in adapting to new trade policies."
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on reactive government relations rather than proactive strategy, leading to negative public perception",
+    "Insufficient transparency in government dealings, fueling speculation and mistrust",
+    "Failure to align local operations with global corporate standards, creating compliance gaps"
+  ],
+  "recommendations": [
+    "Develop a proactive, transparent government relations strategy that engages stakeholders before crises occur.",
+    "Establish a dedicated team to monitor and analyze policy changes globally, ensuring agility in response.",
+    "Enhance public communication strategies to explain government interactions and their benefits for stakeholders."
+  ]
+}

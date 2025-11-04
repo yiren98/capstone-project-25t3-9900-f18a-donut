@@ -1,0 +1,33 @@
+{
+  "subtheme": "Relationship Management & Trust Building",
+  "parent_dimensions": [
+    "Collaboration"
+  ],
+  "overview": "This subtheme focuses on how companies establish, maintain, and repair trust with stakeholders, including communities, partners, and the public. It is critical because trust is a foundational element of long-term success and social license to operate.",
+  "key_patterns": [
+    "Direct statements about the quality of a relationship (e.g., 'fractured relationship')",
+    "Mentions of specific actions taken to build or repair trust (e.g., apologies, compensation, consultations)",
+    "References to external validation or criticism of the relationship (e.g., 'backing of political leaders')",
+    "Discussions on the outcomes of trust-building or lack thereof (e.g., 'quietly engaged with stakeholders')"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 1,
+    "average_confidence": 0.85
+  },
+  "typical_contexts": [
+    "Comments often arise in the context of a crisis, scandal, or public controversy where the company's actions are under scrutiny.",
+    "Discussions frequently occur in public forums, news media, and investor communications where stakeholders are evaluating corporate responsibility.",
+    "It often interacts with dimensions like Corporate Responsibility and Communication & Transparency, as stakeholders judge the company's integrity and response."
+  ],
+  "risks_and_blindspots": [
+    "Inconsistent or insincere relationship management (e.g., apologizing without changing behavior) can severely damage trust and reputation, making recovery harder.",
+    "Over-reliance on a few key individuals or external validators (e.g., political leaders) for relationship management, rather than building broad, organic trust.",
+    "Failing to proactively build trust before a crisis occurs, leaving the company always reacting and defending rather than leading with integrity."
+  ],
+  "recommendations": [
+    "Institute formal and transparent stakeholder engagement frameworks, especially for communities and groups most affected by operations, to build trust proactively.",
+    "Develop and publicly communicate clear policies on relationship management, including conflict resolution and remediation, to ensure consistency and accountability.",
+    "Leadership must model and champion trust-building behaviors, emphasizing long-term relationships over short-term gains, and ensure communication is honest and consistent."
+  ]
+}

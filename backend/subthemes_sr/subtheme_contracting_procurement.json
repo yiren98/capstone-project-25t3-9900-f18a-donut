@@ -1,0 +1,34 @@
+{
+  "subtheme": "Contracting & Procurement",
+  "parent_dimensions": [
+    "Execution",
+    "Collaboration"
+  ],
+  "overview": "This subtheme captures how the company sources materials and partners, focusing on supply chain ethics, partnership stability, and operational integrity. It matters because poor procurement practices directly impact cost overruns, project delays, and reputational damage, as seen in cases of partnering with entities facing sanctions or with poor ethical records.",
+  "key_patterns": [
+    "Partnerships with entities under international sanctions or ethical scrutiny",
+    "Supply chain disruptions due to geopolitical tensions",
+    "Inadequate due diligence on partner backgrounds and risks",
+    "Negative outcomes overshadowing positive initiatives like sustainable sourcing"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 5,
+    "average_confidence": 0.858
+  },
+  "typical_contexts": [
+    "Discussions arise when the company partners with entities that are later implicated in scandals, such as human rights abuses or sanctions violations",
+    "Criticism emerges when supply chain decisions lead to operational failures, like dependency on sanctioned suppliers causing shortages",
+    "Comparisons are made between high-profile ethical failures and less-publicized sustainable procurement efforts"
+  ],
+  "risks_and_blindspots": [
+    "Overemphasis on cost-saving in supplier selection blindsides ethical and operational risks",
+    "Lack of transparent communication about procurement challenges erodes internal and external trust",
+    "Insufficient due diligence on partners' ethical and operational practices leads to reputational fallout"
+  ],
+  "recommendations": [
+    "Implement a multi-stakeholder ethical review process for high-risk procurement decisions, including external ethics audits",
+    "Develop a transparent supplier assessment framework that prioritizes ethical compliance alongside cost and quality",
+    "Create a cross-functional oversight committee for procurement, integrating insights from legal, ethics, and operations teams to prevent isolated decision-making"
+  ]
+}

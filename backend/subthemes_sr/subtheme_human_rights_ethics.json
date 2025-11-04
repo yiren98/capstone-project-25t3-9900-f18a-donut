@@ -1,0 +1,34 @@
+{
+  "subtheme": "Human Rights & Ethics",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Well-being"
+  ],
+  "overview": "This subtheme centers on the company's ethical obligations and the impact of its operations on human rights, encompassing issues like environmental justice, community welfare, and supply chain ethics. It matters because it directly links corporate conduct to social justice outcomes and public trust.",
+  "key_patterns": [
+    "Allegations of environmental harm and human rights abuses in supply chains or operations",
+    "Community and activist-led criticism of specific corporate actions or partnerships",
+    "Defensive or reactive corporate communication following external accusations",
+    "Support for ethical alternatives or counter-movements (e.g., ethical consumerism)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 4,
+    "average_confidence": 0.772
+  },
+  "typical_contexts": [
+    "Emerges in public forums and media reports following specific incidents, like protests, legal cases, or investigative journalism exposing corporate practices",
+    "Often linked to geopolitical or operational contexts where corporate and state interests are intertwined, such as international operations in regions with weak regulation",
+    "Tied to broader social movements (e.g., environmentalism, human rights advocacy) which amplifies scrutiny and frames corporate actions within larger ethical debates"
+  ],
+  "risks_and_blindspots": [
+    "High risk of reputational damage and loss of public trust, as negative sentiment dominates and is tied to concrete allegations",
+    "Operational blind spots in supply chain and subsidiary oversight, allowing unethical practices to persist undetected or unaddressed",
+    "Insufficient engagement with affected communities and stakeholders, leading to external criticism rather than co-designed solutions"
+  ],
+  "recommendations": [
+    "Integrate human rights due diligence and impact assessments into all project lifecycles, especially for international operations",
+    "Establish transparent, independent third-party auditing for supply chains and high-risk operations, with public reporting",
+    "Proactively engage with civil society organizations and communities as partners in monitoring and evaluation, not just as stakeholders"
+  ]
+}

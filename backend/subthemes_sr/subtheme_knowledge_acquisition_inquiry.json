@@ -1,0 +1,34 @@
+{
+  "subtheme": "Knowledge Acquisition & Inquiry",
+  "parent_dimensions": [
+    "Learning",
+    "Respect"
+  ],
+  "overview": "This subtheme captures employees' and stakeholders' active attempts to seek out information, verify facts, and understand company policies or market positions. It matters because it reflects the level of transparency and support available for individuals to make informed decisions, which is a key component of a learning culture.",
+  "key_patterns": [
+    "Employees and stakeholders actively seeking information that is not readily available through official channels",
+    "Individuals attempting to verify or validate employment-related information, such as benefits (e.g., loyalty points) or compensation bands",
+    "Inquiries about company policies and their implications for the individual, often in the context of considering employment or investment",
+    "Expressed frustration or need for information that should be more accessible, indicating a gap in official communication"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 4,
+    "average_confidence": 0.81
+  },
+  "typical_contexts": [
+    "This pattern emerges primarily in informal or semi-formal digital communities like Reddit, where employees and potential employees go to seek information they cannot easily find through official company channels.",
+    "It is often triggered when individuals are making decisions that depend on company specifics—such as considering a job offer, evaluating an investment, or understanding benefits. The inquiries are practical and directly tied to individual agency.",
+    "It interacts with the perceived reliability of the organization. When information is hard to find, it leads to public queries and, subsequently, to negative sentiment as people get frustrated. It also ties into trust; if the company is seen as open (as in the one positive example), it garners respect."
+  ],
+  "risks_and_blindspots": [
+    "A significant blind spot in internal communication and accessibility of information. When basic operational details (like benefits for contractors) or strategic positions (like investment potential) are not easily accessible, it forces employees to seek information externally, creating a perception of opacity.",
+    "High risk to employer brand and trust. The negative sentiment predominantly comes from people who cannot find information they need, making them likely to distrust other company communications.",
+    "A disconnect between the organization's learning culture and its ability to disseminate knowledge. Employees expect to be able to learn what they need to know, and barriers to that create frustration and negative sentiment."
+  ],
+  "recommendations": [
+    "Audit and streamline the official channels for key information. Ensure that information on benefits, policies, and company position is easily accessible and searchable for all employees and stakeholders, reducing dependency on informal networks.",
+    "Create a proactive communication strategy for changes and complex topics. Instead of waiting for questions to arise, actively communicate about topics like compensation bands, partnership benefits, or strategic moves—even if the audience is small. This prevents speculation and negative sentiment.",
+    "Leverage the learning culture. Use the fact that employees are asking these questions as an opportunity. Create official, searchable FAQs, host AMA sessions with relevant departments, and integrate these knowledge-sharing processes into the onboarding experience to prevent future issues."
+  ]
+}

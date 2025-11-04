@@ -1,0 +1,33 @@
+{
+  "subtheme": "Historical Learning & Contextual Awareness",
+  "parent_dimensions": [
+    "Learning"
+  ],
+  "overview": "This subtheme focuses on how companies engage with and learn from their own past actions, particularly past failures or controversies. It examines the ability to contextualize current actions within a longer historical narrative. This is important as it demonstrates accountability, transparency, and a commitment to not repeating past mistakes, which are key components of a mature and ethical corporate culture.",
+  "key_patterns": [
+    "Reference to specific past events (e.g., 'Rio Tinto blast', 'Juukan Gorge') as anchor points for current discussion",
+    "Focus on the timing and anniversary of past events ('five years after')",
+    "Comparison between past promises or contexts and current actions ('replica of destroyed... being built')",
+    "Contrast between historical context and present-day implications (e.g., historical smelter info vs. modern closure)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 2,
+    "average_confidence": 0.81
+  },
+  "typical_contexts": [
+    "Discourse arises when a company's current action is directly linked to a past failure or controversial event, prompting stakeholders to question if lessons were learned.",
+    "Often appears in discussions around corporate anniversaries, project inaugurations, or public disclosures of new plans that echo old ones.",
+    "Interacts heavily with dimensions of Transparency and Accountability, as stakeholders scrutinize whether the company is merely performing historical awareness or genuinely integrating those lessons."
+  ],
+  "risks_and_blindspots": [
+    "Superficial engagement with history: Performing 'lessons learned' without substantive change in practices, leading to repeated errors.",
+    "Historical myopia: Failing to connect past actions to present-day decisions, especially in long-cycle industries like mining, leading to repeated reputational damage.",
+    "External perception of insincerity: When historical references are made by the company (e.g., in press releases), but are not backed by current action, it is perceived as cynical and worsens trust."
+  ],
+  "recommendations": [
+    "Institute formal 'Historical Context Reviews' for all major projects, ensuring past failures are actively integrated into planning and risk assessment.",
+    "Develop a transparent, public-facing 'Learning from the Past' framework that documents key past events and the concrete changes made as a result, to demonstrate learning is real.",
+    "Leadership communication must explicitly connect past lessons to present decisions, especially in public statements, to counter perceptions of empty rhetoric."
+  ]
+}

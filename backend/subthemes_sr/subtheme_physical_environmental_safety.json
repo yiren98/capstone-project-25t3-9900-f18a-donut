@@ -1,0 +1,33 @@
+{
+  "subtheme": "Physical & Environmental Safety",
+  "parent_dimensions": [
+    "Well-being"
+  ],
+  "overview": "This subtheme relates to employees' and stakeholders' sense of physical security and safety within the company's physical spaces. It matters because it is a foundational element of employee well-being; a failure to provide a safe environment can severely damage trust and psychological safety within the organization.",
+  "key_patterns": [
+    "Security personnel overstepping authority",
+    "Escalation to external authorities (e.g., police) without proper cause",
+    "Involvement of non-employees (e.g., family members) in safety incidents",
+    "Perception of threat where none exists"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 1,
+    "average_confidence": 0.8
+  },
+  "typical_contexts": [
+    "This theme surfaces in narratives where company security or facilities personnel interact with employees' or visitors' families in a perceived aggressive or inappropriate manner.",
+    "It is often triggered in situations where formal security protocols clash with informal, personal needs (e.g., a parent wanting to greet their child after an event).",
+    "It interacts with trust in the organization and perceptions of bureaucratic inflexibility, where human elements are overridden by rigid procedures."
+  ],
+  "risks_and_blindspots": [
+    "Blind spot: Assuming all security or environmental interactions are purely procedural and not emotional. The data shows a negative emotional reaction to an event that security likely perceived as 'by the book'.",
+    "Risk: Erosion of trust in the organization's non-human elements (e.g., security, facilities) and by extension, the organization's duty of care.",
+    "Risk: Escalation to external authorities (e.g., police) for non-criminal matters, damaging the organization's reputation externally."
+  ],
+  "recommendations": [
+    "Review and retrain security and facilities teams on de-escalation techniques and 'servant leadership' principles, emphasizing that their role is to enable safety, not to enforce exclusion.",
+    "Establish a clear, transparent appeals or review process for individuals who feel they have been unjustly treated by on-site security or environmental policies.",
+    "Leadership to publicly champion and reward 'humane' interactions from security and facilities teams, not just efficiency or cost-saving."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "subtheme": "Environmental Sustainability & Climate Action",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Collaboration",
+    "Innovation"
+  ],
+  "overview": "This subtheme captures how the company's environmental and climate-related actions are perceived, focusing on commitments to sustainability, emissions management, and resource use. It matters because it directly impacts the company's reputation, stakeholder trust, and long-term license to operate, especially as investors and communities increasingly scrutinize environmental performance.",
+  "key_patterns": [
+    "Public criticism over inadequate environmental safeguards or transparency (e.g., emissions reporting, water management)",
+    "Defensive or skeptical reactions to the company's environmental initiatives (e.g., renewable energy projects)",
+    "Expressed concerns over resource extraction impacts and long-term sustainability",
+    "Scrutiny over alignment of company goals with global climate targets (e.g., 1.5°C alignment)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 8,
+    "negative": 9,
+    "average_confidence": 0.845
+  },
+  "typical_contexts": [
+    "Discussions emerge in contexts of project announcements, sustainability reporting, and activist or investor scrutiny, often in media articles, social media platforms, and annual meetings.",
+    "The discourse is typically triggered by perceived gaps between the company's public commitments (e.g., net-zero pledges) and its actual plans or actions, especially in high-impact sectors like mining.",
+    "It interacts closely with dimensions like Ethical Responsibility (as the core driver for action), Innovation (where new tech is proposed as a solution), and Collaboration (where partnerships are scrutinized)."
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on incremental projects (e.g., a single solar farm) to demonstrate overall sustainability, while core business models remain environmentally high-impact.",
+    "Insufficient transparency on Scope 3 emissions and other indirect impacts, leading to distrust and accusations of greenwashing.",
+    "Failure to engage communities and critics in genuine dialogue, leading to polarized debates and loss of social license."
+  ],
+  "recommendations": [
+    "Integrate and elevate Environmental Sustainability & Climate Action as a core strategic priority, not just a communications or compliance function, and ensure board-level oversight.",
+    "Establish and transparently report on ambitious, measurable targets for Scope 1, 2, and 3 emissions, alongside water and biodiversity impacts, using third-party verification.",
+    "Proactively engage with critical stakeholders (including communities, NGOs, investors) through structured dialogue to co-develop environmental strategies and build trust, rather than waiting for external pressure."
+  ]
+}
