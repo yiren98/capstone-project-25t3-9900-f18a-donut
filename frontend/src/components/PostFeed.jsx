@@ -7,7 +7,7 @@ import IconRight from "../../assets/icons/MingcuteRightFill.png";
 const BG_ARTICLE = "rgba(241, 240, 227, 0.75)";
 const BG_FORUM   = "rgba(233, 216, 191, 0.75)";
 
-export default function PostFeed({ className = "", year, month, filterFlipKey, sentiment = null, subtheme = "" }) {
+export default function PostFeed({ className = "", year, month, filterFlipKey, sentiment = null, subtheme = "", dimension = "" }) {
   const pageSize = 4;
   const commentSize = 10000;
 
@@ -62,7 +62,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
   useEffect(() => {
     setPage(1);
     setListSlide(0);
-  }, [year, month, filterFlipKey, sentiment, subtheme]);
+  }, [year, month, filterFlipKey, sentiment, subtheme, dimension]);
 
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
 
     setLoading(true);
     setErr("");
-    getPosts({ page, size: pageSize, year, month, sentiment, subtheme })
+    getPosts({ page, size: pageSize, year, month, sentiment, subtheme, dimension })
       .then((res) => {
         if (!alive || myId !== reqId.current) return;
         setItems(res.items || []);
@@ -88,7 +88,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
       });
 
     return () => { alive = false; };
-  }, [page, year, month, sentiment, subtheme, filterFlipKey]);
+  }, [page, year, month, sentiment, subtheme, dimension, filterFlipKey]);
 
   const gotoPageWithSlide = (next, dir) => {
     const p = Math.min(totalPages, Math.max(1, next));
@@ -180,7 +180,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
       <div className="mb-3 flex flex-wrap gap-2">
         {entries.map(([k, v]) => {
           const vv = String(v).toLowerCase();
-          const emo = vv === "positive" ? "😊" : vv === "negative" ? "😟" : "😐";
+          const emo = vv === "positive" ? "🟡" : vv === "negative" ? "🔴" : "😐";
           return (
             <span key={k} className="text-[12px] px-2 py-1 rounded-lg border border-white/60 bg-white/60 flex items-center gap-1">
               <span>{emo}</span>

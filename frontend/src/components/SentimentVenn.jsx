@@ -12,7 +12,7 @@ export default function SentimentVenn({
   month,
   dimension = "",
   subtheme = "",
-  height = 247,
+  height = 270,
 }) {
   const [pos, setPos] = useState(0);
   const [neg, setNeg] = useState(0);
