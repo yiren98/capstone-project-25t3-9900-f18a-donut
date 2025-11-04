@@ -1,0 +1,33 @@
+{
+  "subtheme": "Learning & Development",
+  "parent_dimensions": [
+    "Learning"
+  ],
+  "overview": "This subtheme captures how Rio Tinto approaches the development of its processes, workforce, and stakeholder relationships in response to incidents. It emphasizes formal reviews, training initiatives, and public commitments to learning from past mistakes, such as the Juukan Gorge destruction. This matters because it demonstrates a reactive, albeit limited, form of organizational learning that focuses on procedural and capacity-building responses.",
+  "key_patterns": [
+    "Publicly committing to learn from a specific incident",
+    "Announcing the establishment of new review processes or external expert involvement",
+    "Investing in training facilities and upskilling programs for local communities",
+    "Reiterating apologies and framing them as learning opportunities"
+  ],
+  "sentiment_snapshot": {
+    "positive": 4,
+    "negative": 0,
+    "average_confidence": 0.743
+  },
+  "typical_contexts": [
+    "These mentions occur in the context of public and governmental scrutiny, such as parliamentary inquiries and media reports criticizing the company's actions.",
+    "They are used as a responsive measure to demonstrate action and progress, often when the company is under pressure to show it is addressing a problem.",
+    "They are often tied to specific, localized initiatives (e.g., a training center in a specific community) rather than comprehensive, company-wide policy overhaul."
+  ],
+  "risks_and_blindspots": [
+    "The 'Learning & Development' actions are predominantly reactive, addressing issues only after public scandals and legal pressures, which risks perpetuating a cycle of harm then remediation.",
+    "The focus is heavily procedural (e.g., commissioning reviews, running training programs) which may not address the underlying cultural and relationship-based issues that led to the incident.",
+    "There is a significant risk of these initiatives being perceived as, or indeed functioning as, public relations exercises that lack the deeper, transformative change required to prevent future incidents."
+  ],
+  "recommendations": [
+    "Integrate 'Learning & Development' into a proactive, strategic framework for corporate culture, not just a reactive crisis management tool.",
+    "Ensure that learning initiatives are developed co-operatively with affected communities and stakeholders from the outset, not just as a company-led initiative.",
+    "Tie learning outcomes and competency development directly to performance metrics and executive accountability, not just as a standalone function."
+  ]
+}

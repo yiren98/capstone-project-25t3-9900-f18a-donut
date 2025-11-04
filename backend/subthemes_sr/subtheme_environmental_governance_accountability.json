@@ -1,0 +1,35 @@
+{
+  "subtheme": "Environmental Governance & Accountability",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Agility",
+    "Accountability"
+  ],
+  "overview": "This subtheme captures how a company manages and reports on its environmental impact, particularly focusing on transparency, regulatory compliance, and ethical stewardship. It matters because it directly affects stakeholder trust, regulatory risk, and long-term sustainability.",
+  "key_patterns": [
+    "Focus on specific environmental incidents or controversies (e.g., destruction of heritage sites, inadequate disclosures)",
+    "Scrutiny over the alignment of public commitments (e.g., Paris Agreement) with actual practices and disclosures",
+    "External criticism or legal challenges related to environmental governance gaps",
+    "Positive recognition for projects with clear environmental benefits or transparency efforts"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 4,
+    "average_confidence": 0.852
+  },
+  "typical_contexts": [
+    "Emerges in contexts where there is a mismatch between public environmental commitments and actual practices, particularly in sensitive projects",
+    "Often triggered by external critiques from NGOs, regulators, or media highlighting gaps in environmental due diligence or transparency",
+    "Interacts strongly with 'Ethical Responsibility' and 'Transparency', where failures in environmental governance are seen as part of broader ethical or transparency failures"
+  ],
+  "risks_and_blindspots": [
+    "Risk of reputational damage and legal challenges when environmental governance is perceived as weak or inconsistent, especially compared to public commitments",
+    "Blind spot in underestimating the reputational and financial impact of environmental controversies, particularly those affecting Indigenous communities or heritage",
+    "Insufficient internal controls or audit processes to ensure environmental commitments are met across all operations, leading to reactive rather than proactive management"
+  ],
+  "recommendations": [
+    "Strengthen and standardize environmental disclosure practices across all operations, ensuring they are specific, quantifiable, and aligned with global standards like the Paris Agreement",
+    "Establish an independent oversight committee for environmental governance, including representatives from indigenous communities and environmental NGOs, to review and advise on high-risk projects",
+    "Integrate environmental risk assessments into core business planning and risk management frameworks, with clear accountability at the board level"
+  ]
+}

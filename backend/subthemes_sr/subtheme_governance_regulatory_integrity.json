@@ -1,0 +1,34 @@
+{
+  "subtheme": "Governance & Regulatory Integrity",
+  "parent_dimensions": [
+    "Integrity",
+    "Well-being"
+  ],
+  "overview": "This subtheme captures how the company addresses compliance with laws, regulations, and ethical standards, particularly when its actions come under public or regulatory scrutiny. It matters because it reflects the company's commitment to lawful and ethical conduct beyond mere regulatory compliance, directly impacting its reputation and stakeholder trust.",
+  "key_patterns": [
+    "Evidence or allegations of circumventing legal/regulatory processes to expedite projects",
+    "Public exposure of past compliance failures impacting current projects",
+    "Corporate lobbying against environmental or social regulations",
+    "Inadequate due diligence in managing environmental or social impacts of projects"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 4,
+    "average_confidence": 0.8
+  },
+  "typical_contexts": [
+    "Criticism emerges when the company's public commitments (e.g., sustainability pledges) clash with its actions on the ground, such as in mining or construction projects",
+    "Discussions highlight a pattern of the company engaging in activities that, while potentially technically compliant in a narrow legal sense, are perceived as ethically questionable or as regulatory circumvention",
+    "Often appears in discussions comparing the company's public image with its operational conduct in specific projects or regions"
+  ],
+  "risks_and_blindspots": [
+    "Risk of 'ethics washing' - where the company is perceived as using legal compliance as a shield for activities that have severe negative externalities, damaging long-term trust",
+    "Failure to learn from past regulatory or ethical failures (e.g., Juukan Gorge) leads to repetition of similar issues in new contexts (e.g., the Balkans)",
+    "Operational teams may be incentivised or pressured to bypass thorough regulatory checks to meet project timelines, creating significant reputational and legal risks"
+  ],
+  "recommendations": [
+    "Implement and transparently report on a 'Ethical Compliance' audit that goes beyond legal minimums, assessing projects against both local and international best-practice standards (e.g., Indigenous rights, environmental protection)",
+    "Establish a 'Red Team' or similar function specifically tasked with identifying potential ethical or regulatory blindspots in project planning, especially for projects in novel jurisdictions",
+    "Leadership must publicly champion and model 'Integrity beyond compliance', making it a measurable KPI for project leaders, not just legal teams"
+  ]
+}

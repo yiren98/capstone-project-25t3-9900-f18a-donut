@@ -1,0 +1,34 @@
+{
+  "subtheme": "Employee Treatment & Support",
+  "parent_dimensions": [
+    "Respect",
+    "Well-being"
+  ],
+  "overview": "This subtheme focuses on how the company supports and treats its employees, particularly regarding their rights, welfare, and dignity. It matters because it directly impacts employee morale, retention, and public reputation, with negative incidents often highlighting systemic failures in duty of care.",
+  "key_patterns": [
+    "Systemic issues with employee health and safety provisions (e.g., reduction in sick leave benefits)",
+    "Serious allegations of harassment and abuse, including sexual harassment, indicating unsafe work environments",
+    "Policies perceived as invasive or restrictive of employee rights (e.g., medicinal cannabis ban)",
+    "External actions with negative impacts (e.g., environmental harm) leading to reputational damage and workforce criticism"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 7,
+    "average_confidence": 0.855
+  },
+  "typical_contexts": [
+    "This subtheme emerges in contexts where company policies or incidents directly impact employee welfare, such as during announcements of policy changes (e.g., reduction of sick leave) or when serious misconduct allegations (e.g., sexual harassment) become public.",
+    "It is often triggered by corporate decisions that are perceived as unfair or harmful to employees, leading to public scrutiny and discourse on social media and news outlets.",
+    "It interacts with dimensions like 'Well-being' through direct impacts on employee health (e.g., stress from unsafe environments) and 'Respect' through violations of dignity (e.g., harassment cases), highlighting interconnected cultural weaknesses."
+  ],
+  "risks_and_blindspots": [
+    "Severe reputational damage from repeated, high-severity incidents (e.g., multiple harassment cases) that suggest systemic rather than isolated problems",
+    "Inability to retain or attract talent due to perceived poor treatment and support, especially among younger or more ethically-conscious demographics",
+    "Legal and financial repercussions from unresolved issues (e.g., class action lawsuits) that indicate deeper cultural problems beyond mere policy gaps"
+  ],
+  "recommendations": [
+    "Conduct a top-down cultural audit focusing on employee welfare and respect, with transparent reporting channels to catch issues early",
+    "Overhaul policies and training related to harassment, health, and safety, ensuring they are comprehensive, inclusive, and enforced with accountability at all levels",
+    "Proactively communicate and demonstrate commitment to employee support (e.g., through community initiatives, transparent reporting on improvements) to rebuild trust and mitigate reputation risk"
+  ]
+}

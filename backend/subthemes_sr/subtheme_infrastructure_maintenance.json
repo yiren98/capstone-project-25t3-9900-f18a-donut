@@ -1,0 +1,35 @@
+{
+  "subtheme": "Infrastructure & Maintenance",
+  "parent_dimensions": [
+    "Execution",
+    "Learning"
+  ],
+  "overview": "This subtheme captures criticisms and concerns regarding the company's physical infrastructure, maintenance practices, and long-term asset stewardship. It reflects perceptions of underinvestment, neglect, or operational failures in maintaining facilities, equipment, and large-scale projects. This matters as it directly impacts operational efficiency, cost efficiency, safety, and brand reputation, often being a visible indicator of deeper management issues.",
+  "key_patterns": [
+    "Criticism of outdated, dilapidated, or poorly maintained equipment and facilities",
+    "Comparisons to competitors or other facilities highlighting inferiority",
+    "Specific complaints about recent 'upgrades' or maintenance works being insufficient or failing",
+    "Concerns over cost-cutting leading to degraded infrastructure quality"
+  ],
+  "sentiment_sentiment_snapshot": {
+    "positive": 0,
+    "negative": 7,
+    "neutral": 0,
+    "average_confidence": 0.794
+  },
+  "typical_contexts": [
+    "Often appears in reviews of physical locations (e.g., gyms, offices, mines) or discussions of asset-heavy projects, where users or stakeholders experience the infrastructure first-hand.",
+    "Frequently emerges in comparative contexts, where the company's infrastructure is compared unfavorably to competitors or to expectations set by the brand.",
+    "Strongly tied to perceptions of corporate priorities - e.g., when cost-cutting is perceived to compromise quality, leading to negative feedback on infrastructure and maintenance."
+  ],
+  "risks_and_blindspots": [
+    "Erosion of trust and brand reputation: Consistently negative sentiment around infrastructure can signal deeper issues with capital allocation, project management, or operational integrity, leading to a loss of trust among stakeholders and the public.",
+    "Operational inefficiency and safety risks: Poorly maintained or outdated infrastructure directly hampers operational efficiency, increases long-term costs, and can introduce significant safety risks for employees and communities.",
+    "Perception of incompetence or neglect: Consistent criticism on infrastructure and maintenance can become a symbol for broader perceptions of incompetence, neglect, or lack of commitment to core operations, overshadowing other positive initiatives."
+  ],
+  "recommendations": [
+    "Institute transparent, regular reporting on asset integrity and maintenance: Proactively communicate maintenance schedules, infrastructure investments, and lifecycle management to stakeholders to manage expectations and demonstrate commitment.",
+    "Establish a independent, cross-functional 'Asset Integrity & Maintenance' review board: This board should regularly assess infrastructure and maintenance projects, incorporating external benchmarking and community feedback to ensure standards meet or exceed industry norms.",
+    "Integrate infrastructure and maintenance performance into leadership KPIs: Tie executive and management compensation partially to long-term asset performance and maintenance metrics, not just short-term financial targets, to align incentives."
+  ]
+}

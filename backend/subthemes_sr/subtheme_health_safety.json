@@ -1,0 +1,34 @@
+{
+  "subtheme": "Health & Safety",
+  "parent_dimensions": [
+    "Well-being",
+    "Accountability"
+  ],
+  "overview": "The Health & Safety subtheme primarily represents how the company manages physical safety, environmental hazards, and occupational health risks for employees and communities. It matters because failures lead to severe incidents like equipment failures, contamination events, and workplace hazards, which dominate discourse and indicate systemic issues.",
+  "key_patterns": [
+    "Reports of specific, dangerous incidents (e.g., train derailments, radioactive leaks)",
+    "Allegations of unsafe conditions (e.g., unsafe neighborhoods, unsafe worksites)",
+    "Critical health/safety incidents with external impact (e.g., environmental contamination)",
+    "Inquiries about safety or security of a location/operation"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 10,
+    "average_confidence": 0.875
+  },
+  "typical_contexts": [
+    "Comments and reports typically appear in public forums like Reddit, where employees or community members report specific incidents, hazards, or ask about safety.",
+    "They are often triggered by recent incidents (e.g., after a derailment) or by someone considering engaging with the company (e.g., moving near a site) and seeking safety information.",
+    "It connects to broader accountability and wellbeing concerns, as failures here indicate how the company values people vs. production."
+  ],
+  "risks_and_blindspots": [
+    "Extreme risk to physical safety of employees and communities from recurring, unaddressed hazards",
+    "Massive reputational damage as negative incidents dominate discourse and indicate poor safety culture",
+    "Potential for major legal, financial, or social crises from ignored patterns (e.g., the sexual harassment case)"
+  ],
+  "recommendations": [
+    "Invest heavily in predictive safety analytics and preventative maintenance - move beyond reactive fixes.",
+    "Institute transparent, public reporting on safety metrics and incidents to rebuild trust.",
+    "Embed safety and wellbeing as core cultural pillars with accountability at all leadership levels, including executive oversight."
+  ]
+}
