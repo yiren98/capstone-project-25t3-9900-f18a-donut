@@ -2,6 +2,7 @@ import os
 import re
 import json
 import hashlib
+import sqlite3
 from datetime import timedelta
 from functools import wraps
 from pathlib import Path
@@ -33,63 +34,27 @@ def handle_any_error(e: Exception):
     app.logger.exception(e)
     return jsonify({"code": 500, "message": str(e)}), 500
 
-
 # --- Paths ---
 ROOT_DIR = Path(__file__).resolve().parents[1]
-DATA_DIR = ROOT_DIR / "data" / "raw" / "reddit"
 
-SUBMISSIONS_CANDIDATES = [
-    DATA_DIR / "final_data_demoB.csv",
-    DATA_DIR / "final_data_demoB.parquet",
-    DATA_DIR / "final_data_demoB.xlsx",
-    DATA_DIR / "reddit_data.csv",
-    DATA_DIR / "submissions_cleaned.csv",
-    DATA_DIR / "reddit_data",
-]
-COMMENTS_CSV = DATA_DIR / "comments_cleaned.csv"
+DB_DIR = ROOT_DIR / "data" / "database"
+NEWS_DB = DB_DIR / "news_data.db"
+REDDIT_DB = DB_DIR / "reddit_data.db"
+
+SBI_CSV = ROOT_DIR / "data" / "raw" / "reddit" / "SBI_month.csv"
 
 USERS_DIR = ROOT_DIR / "data" / "user"
 USERS_CSV = USERS_DIR / "user.csv"
 
-# --- Utils (safe helpers) ---
-def _first_existing(paths):
-    for p in paths:
-        if p.exists():
-            return p
-    return None
-
-def _read_csv_safe(path: Path) -> pd.DataFrame:
-    if not path or not path.exists():
-        abort(404, description=f"{path} not found")
-    suf = path.suffix.lower()
-    if suf == ".parquet":
-        return pd.read_parquet(path)
-    if suf in (".xlsx", ".xls"):
-        return pd.read_excel(path)
-    tried = []
-    for enc in [None, "utf-8", "utf-8-sig", "gb18030", "gbk", "latin1"]:
-        try:
-            return pd.read_csv(path, sep=None, engine="python", encoding=enc, on_bad_lines="skip")
-        except Exception as e:
-            tried.append(f"{enc or 'default'}: {e}")
-    abort(500, description=f"Failed to read {path.name}. Tried -> " + " | ".join(tried))
-
-def _str_series(x):
-
-    if isinstance(x, pd.Series):
-        s = x.astype(str).fillna("").str.strip()
-        s = s.mask(s.str.lower().isin(["nan", "none", "null"]), "")
-        return s
-    return pd.Series(dtype=object)
-
-def _to_ymd(s: pd.Series) -> pd.Series:
-    ts = pd.to_datetime(s, errors="coerce", utc=False, format="mixed")
-    out = ts.dt.strftime("%Y-%m-%d")
-    out = out.where(~ts.isna(), _str_series(s))
-    return out
+# --- Utils ---
+def _read_sql(db_path: Path, sql: str, params: tuple | list = ()):
+    if not db_path.exists():
+        abort(404, description=f"DB not found: {db_path}")
+    with sqlite3.connect(str(db_path)) as conn:
+        conn.row_factory = sqlite3.Row
+        return pd.read_sql_query(sql, conn, params=params)
 
 def _s(v):
-
     try:
         if v is None or (isinstance(v, float) and pd.isna(v)):
             return ""
@@ -97,13 +62,6 @@ def _s(v):
         pass
     s = str(v).strip()
     return "" if s.lower() in ("nan", "none", "null") else s
-
-def _normalize_parent_id(pid: str) -> str:
-    if not pid:
-        return ""
-    if "_" in pid:
-        return pid.split("_", 1)[1]
-    return pid
 
 def _split_pipes(s):
     txt = _s(s)
@@ -123,55 +81,65 @@ def _json_try(s):
         except Exception:
             return {}
 
-# --- Loaders ---
-def load_posts_raw() -> pd.DataFrame:
-    path = _first_existing(SUBMISSIONS_CANDIDATES)
-    if not path:
-        abort(404, description="final_data_demoB.* / reddit_data.csv / submissions_cleaned.csv not found")
-    return _read_csv_safe(path)
+def _normalize_parent_id(pid: str) -> str:
+    if not pid:
+        return ""
+    if "_" in pid:
+        return pid.split("_", 1)[1]
+    return pid
 
+def _to_ymd_series(s: pd.Series) -> pd.Series:
+    ts = pd.to_datetime(s, errors="coerce", utc=False, format="mixed")
+    out = ts.dt.strftime("%Y-%m-%d")
+    return out.where(~ts.isna(), s.astype(str))
+
+# --- Loaders (DB) ---
 def load_posts() -> pd.DataFrame:
     """
-    支持 final_data_demoB:
+    从 news_data.db 的 news 表读取：
     tag,text,author,score,comment_count,content,created_time,dimensions,subthemes,subs_sentiment,confidence,subs_evidences,source
     """
-    df = load_posts_raw()
-    col = {c.lower(): c for c in df.columns}
-    def pick(*names):
-        for n in names:
-            if n in df.columns: return df[n]
-            if n.lower() in col: return df[col[n.lower()]]
-        return pd.Series(dtype=object)
+    sql = """
+        SELECT tag, text, author, score, comment_count, content, created_time,
+               dimensions, subthemes, subs_sentiment, confidence, subs_evidences, source
+        FROM news
+        ORDER BY created_time DESC
+    """
+    df = _read_sql(NEWS_DB, sql)
+
 
     out = pd.DataFrame({
-        "tag": _str_series(pick("tag")),
-        "title": _str_series(pick("text", "title")),
-        "author": _str_series(pick("author")),
-        "content": _str_series(pick("content", "selftext")),
-        "score": pd.to_numeric(pick("score", "ups", "likes"), errors="coerce").fillna(0).astype(int),
-        "comment_count_file": pd.to_numeric(pick("comment_count", "num_comments"), errors="coerce"),
-        "time_raw": _str_series(pick("created_time", "time", "created_utc")),
-        "time": _to_ymd(_str_series(pick("created_time", "time", "created_utc"))),
-        "source": _str_series(pick("source", "domain", "subreddit")),
-        "dimensions_raw": _str_series(pick("dimensions", "initial dimensions", "initial_dimensions")),
-        "subthemes_raw": _str_series(pick("subthemes")),
-        "subs_sentiment_raw": pick("subs_sentiment"),
+        "tag": df["tag"].astype(str),
+        "title": df["text"].astype(str),
+        "author": df["author"].astype(str),
+        "content": df["content"].astype(str),
+        "score": pd.to_numeric(df["score"], errors="coerce").fillna(0).astype(int),
+        "comment_count_file": pd.to_numeric(df["comment_count"], errors="coerce"),
+        "time_raw": df["created_time"].astype(str),
+        "time": _to_ymd_series(df["created_time"].astype(str)),
+        "source": df.get("source", pd.Series(dtype=object)).astype(str),
+        "dimensions_raw": df.get("dimensions", pd.Series(dtype=object)).astype(str),
+        "subthemes_raw": df.get("subthemes", pd.Series(dtype=object)).astype(str),
+        "subs_sentiment_raw": df.get("subs_sentiment", pd.Series(dtype=object)),
     })
 
 
     def make_id(row):
         tag = _s(row.get("tag"))
-        if tag:
+        if tag and tag.lower() != "nan":
             return tag
         base = f"{_s(row.get('title'))}|{_s(row.get('time'))}|{_s(row.get('source'))}"
         return "art-" + hashlib.md5(base.encode("utf-8", "ignore")).hexdigest()[:16]
 
     out["id"] = out.apply(make_id, axis=1)
+
+    out["type"] = out["tag"].map(lambda t: "forum" if _s(t) else "article")
+    out["is_post"] = out["type"].eq("forum")
+
     out["dimensions"] = out["dimensions_raw"].map(_split_pipes)
     out["subthemes"] = out["subthemes_raw"].map(_split_pipes)
     out["subs_sentiment"] = out["subs_sentiment_raw"].map(_json_try)
-    out["type"] = out["source"].str.contains("reddit", case=False, na=False).map({True: "forum", False: "article"})
-    out["is_post"] = out["type"].eq("forum")
+
 
     try:
         t = pd.to_datetime(out["time_raw"], errors="coerce", utc=False, format="mixed")
@@ -181,31 +149,115 @@ def load_posts() -> pd.DataFrame:
 
     return out.drop(columns=["time_raw", "dimensions_raw", "subthemes_raw", "subs_sentiment_raw"])
 
-def load_comments() -> pd.DataFrame:
+def load_comments_by_tag(tag: str) -> pd.DataFrame:
+    sql = """
+        SELECT ID, Comment_ID, Tag, Author, Content, Score, Time, Depth, Parent_ID
+        FROM reddit
+        WHERE Tag = ?
+        ORDER BY Time ASC
     """
-    comments_cleaned.csv:
-    "ID","Comment_ID","Tag","Author","Content","Score","Time","Depth","Parent_ID"
-    Depth：0=一级，1=二级
-    """
-    df = _read_csv_safe(COMMENTS_CSV)
-    need = ["Tag","Author","Content","Score","Time","Depth","Parent_ID","Comment_ID"]
-    miss = [c for c in need if c not in df.columns]
-    if miss:
-        raise RuntimeError(f"comments_cleaned.csv miss: {miss}")
+    df = _read_sql(REDDIT_DB, sql, (tag,))
+
     out = pd.DataFrame({
-        "tag": _str_series(df["Tag"]),
-        "author": _str_series(df["Author"]),
-        "content": _str_series(df["Content"]),
+        "tag": df["Tag"].astype(str),
+        "author": df["Author"].astype(str),
+        "content": df["Content"].astype(str),
         "score": pd.to_numeric(df["Score"], errors="coerce").fillna(0).astype(int),
-        "time_raw": _str_series(df["Time"]),
-        "time": _to_ymd(_str_series(df["Time"])),
+        "time_raw": df["Time"].astype(str),
+        "time": _to_ymd_series(df["Time"].astype(str)),
         "depth": pd.to_numeric(df["Depth"], errors="coerce").fillna(0).astype(int),
-        "parent_id": _str_series(df["Parent_ID"]),
-        "parent_id_norm": _str_series(df["Parent_ID"]).map(_normalize_parent_id),
-        "comment_id": _str_series(df["Comment_ID"]),
+        "parent_id": df["Parent_ID"].astype(str),
+        "parent_id_norm": df["Parent_ID"].astype(str).map(_normalize_parent_id),
+        "comment_id": df["Comment_ID"].astype(str),
     })
     return out
 
+def _read_csv_safe(path: Path) -> pd.DataFrame:
+    if not path or not path.exists():
+        abort(404, description=f"{path} not found")
+    tried = []
+    for enc in [None, "utf-8", "utf-8-sig", "gb18030", "gbk", "latin1"]:
+        try:
+            return pd.read_csv(path, sep=None, engine="python", encoding=enc, on_bad_lines="skip")
+        except Exception as e:
+            tried.append(f"{enc or 'default'}: {e}")
+    abort(500, description=f"Failed to read {path.name}. Tried -> " + " | ".join(tried))
+
+def load_sbi_table() -> pd.DataFrame:
+    if not SBI_CSV.exists():
+
+        return pd.DataFrame(columns=["year", "month", "sbi"])
+
+    df = _read_csv_safe(SBI_CSV)
+    cols = {c.lower(): c for c in df.columns}
+
+    def pick(*names):
+        for n in names:
+            if n in df.columns:
+                return df[n]
+            if n.lower() in cols:
+                return df[cols[n.lower()]]
+        return pd.Series(dtype=object)
+
+
+    month_str = pick("Month")
+    if month_str.size and month_str.notna().any():
+        mtxt = month_str.astype(str).str.strip()
+
+
+        y = mtxt.str.extract(r"(?P<y>\d{4})", expand=True)["y"]
+        m = mtxt.str.extract(r"\d{4}[-/\.](?P<m>\d{1,2})", expand=True)["m"]
+
+        yy = pd.to_numeric(y, errors="coerce").astype("Int64")
+        mm = pd.to_numeric(m, errors="coerce").astype("Int64")
+        sbi = pd.to_numeric(pick("SBI", "sbi", "value", "index", "score"), errors="coerce")
+
+        out = pd.DataFrame({"year": yy, "month": mm, "sbi": sbi}).dropna(subset=["year", "month"])
+        out["year"] = out["year"].astype(int)
+        out["month"] = out["month"].astype(int)
+        return out
+
+
+    yy = pd.to_numeric(pick("Year"), errors="coerce").astype("Int64")
+    mm = pd.to_numeric(pick("Month", "Mon"), errors="coerce").astype("Int64")
+    sbi = pd.to_numeric(pick("SBI", "sbi", "value", "index", "score"), errors="coerce")
+
+    out = pd.DataFrame({"year": yy, "month": mm, "sbi": sbi}).dropna(subset=["year", "month"])
+    if not out.empty:
+        out["year"] = out["year"].astype(int)
+        out["month"] = out["month"].astype(int)
+    return out
+
+def load_sbi_info(year: int, month: int | None):
+    t = load_sbi_table()  # year, month, sbi
+
+    yy = t[t["year"] == int(year)].copy()
+    months_with_data = sorted(yy["month"].unique().tolist())
+
+    cur_sbi = 0.0
+    delta = 0.0
+
+    if month and (month in months_with_data):
+
+        cur_row = yy[yy["month"] == int(month)].tail(1)
+        if not cur_row.empty and pd.notna(cur_row["sbi"].iloc[0]):
+            cur_sbi = float(cur_row["sbi"].iloc[0])
+
+
+        prev_candidates = [mm for mm in months_with_data if mm < int(month)]
+        if prev_candidates:
+            prev_m = max(prev_candidates)
+            prev_row = yy[yy["month"] == prev_m].tail(1)
+            if not prev_row.empty and pd.notna(prev_row["sbi"].iloc[0]):
+                delta = float(cur_sbi - float(prev_row["sbi"].iloc[0]))
+
+    # [-100, 100]
+    cur_sbi = max(-100.0, min(100.0, float(cur_sbi)))
+    delta = max(-200.0, min(200.0, float(delta)))
+
+    return {"year": int(year), "months_with_data": months_with_data, "sbi": cur_sbi, "delta": delta}
+
+# --- Auth helpers ---
 def _load_users():
     users = {}
     if USERS_CSV.exists():
@@ -257,18 +309,41 @@ def _is_valid_email(email: str) -> bool:
 def health():
     return jsonify({"ok": True})
 
-# ===================== Posts APIs =====================
+# ===================== APIs =====================
+
+@app.get("/api/sbi")
+def api_sbi():
+    year = request.args.get("year", type=int)
+    if not year:
+        return jsonify({"code": 400, "message": "year is required"}), 400
+    month = request.args.get("month", type=int)
+    info = load_sbi_info(year, month)
+    return jsonify(info)
+
+@app.get("/api/sbi/years")
+def api_sbi_years():
+    t = load_sbi_table()
+    years = sorted(t["year"].unique().tolist())
+    return jsonify({"years": years})
 
 @app.get("/api/posts")
 def api_posts():
     posts = load_posts()
-    comments = load_comments()
+
 
     if posts["comment_count_file"].isna().all():
-        cmt_map = comments.groupby("tag")["comment_id"].count().to_dict()
+
+        forum_tags = posts[posts["type"] == "forum"]["tag"].tolist()
+        if forum_tags:
+            placeholders = ",".join(["?"] * len(forum_tags))
+            sql = f"SELECT Tag, COUNT(1) AS cnt FROM reddit WHERE Tag IN ({placeholders}) GROUP BY Tag"
+            cdf = _read_sql(REDDIT_DB, sql, tuple(forum_tags))
+            cmt_map = dict(zip(cdf["Tag"].astype(str), cdf["cnt"].astype(int)))
+        else:
+            cmt_map = {}
         posts = posts.assign(
             comment_count=posts.apply(
-                lambda r: int(cmt_map.get(r["tag"], 0)) if r["type"] == "forum" else 0, axis=1
+                lambda r: int(cmt_map.get(str(r["tag"]), 0)) if r["type"] == "forum" else 0, axis=1
             )
         )
     else:
@@ -278,6 +353,18 @@ def api_posts():
             )
         )
 
+
+    y = request.args.get("year", type=int)
+    m = request.args.get("month", type=int)
+    if y or m:
+        tt = pd.to_datetime(posts["time"], errors="coerce", utc=False, format="mixed")
+        posts = posts.assign(_y=tt.dt.year, _m=tt.dt.month)
+        if y:
+            posts = posts[posts["_y"] == y]
+        if m:
+            posts = posts[posts["_m"] == m]
+
+    # 关键字
     q = (request.args.get("q") or "").strip().lower()
     if q:
         posts = posts[
@@ -288,6 +375,7 @@ def api_posts():
             | posts["dimensions"].apply(lambda arr: any(q in d.lower() for d in (arr or [])))
         ]
 
+    # 分页
     try:
         page = max(1, int(request.args.get("page", 1)))
         size = min(100, max(1, int(request.args.get("size", 10))))
@@ -348,12 +436,10 @@ def api_post_comments(post_id: str):
     if str(r["type"]) != "forum":
         return jsonify({"total": 0, "page": 1, "size": 100, "items": []})
 
-    tag = r["tag"]
-    cdf = load_comments()
-    df = cdf[cdf["tag"] == tag].copy()
+    tag = _s(r["tag"])
+    df = load_comments_by_tag(tag).copy()
 
     df["level"] = df["depth"].apply(lambda d: 1 if int(d) == 0 else 2)
-
     try:
         t = pd.to_datetime(df["time"], errors="coerce", utc=False, format="mixed")
         df = df.assign(_t=t)
@@ -365,7 +451,7 @@ def api_post_comments(post_id: str):
 
     try:
         page = max(1, int(request.args.get("page", 1)))
-        size = min(100, max(1, int(request.args.get("size", 10))))
+        size = min(10000, max(1, int(request.args.get("size", 10))))
     except Exception:
         page, size = 1, 10
 
@@ -377,11 +463,10 @@ def api_post_comments(post_id: str):
     children = df[(df["level"] == 2) & (df["parent_id_norm"].isin(parent_ids))].copy()
 
     ordered = []
-    pmap = { _normalize_parent_id(r["comment_id"]): r for _, r in page_parents.iterrows() }
-    grouped = { pid: [] for pid in parent_ids }
+    pmap = {_normalize_parent_id(r["comment_id"]): r for _, r in page_parents.iterrows()}
+    grouped = {pid: [] for pid in parent_ids}
     for _, cr in children.iterrows():
         grouped.setdefault(cr["parent_id_norm"], []).append(cr)
-
     for pid, pr in pmap.items():
         ordered.append(pr)
         for cr in grouped.get(pid, []):
@@ -402,7 +487,7 @@ def api_post_comments(post_id: str):
 
     return jsonify({"total": total_parents, "page": page, "size": size, "items": items})
 
-
+# --- Auth APIs ---
 @app.post("/api/login")
 def api_login():
     data = request.get_json(silent=True) or {}

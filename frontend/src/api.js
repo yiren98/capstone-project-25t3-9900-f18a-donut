@@ -38,12 +38,34 @@ function stripRedditPrefix(pid = "") {
   return idx >= 0 ? pid.slice(idx + 1) : pid;
 }
 
-/* ==== Post APIs ==== */
 
-export const getPosts = ({ page = 1, size = 6, q = "", tag = "" } = {}) => {
+const toInt = (v) => {
+  if (v === null || v === undefined || v === "") return undefined;
+  const n = Number(v);
+  return Number.isFinite(n) ? Math.trunc(n) : undefined;
+};
+
+/* ==== SBI ==== */
+export const getSBI = async ({ year, month } = {}) => {
+  const y = toInt(year);
+  if (!Number.isInteger(y)) throw new Error("year is required");
+  const params = new URLSearchParams({ year: String(y) });
+  const m = toInt(month);
+  if (Number.isInteger(m)) params.set("month", String(m));
+  return fetchJSON(`/api/sbi?${params.toString()}`);
+};
+
+/* ==== Posts ==== */
+
+export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month } = {}) => {
   const params = new URLSearchParams({ page: String(page), size: String(size) });
   if (q && String(q).trim()) params.set("q", String(q).trim());
   if (tag && String(tag).trim()) params.set("tag", String(tag).trim());
+
+  const y = toInt(year);
+  const m = toInt(month);
+  if (Number.isInteger(y)) params.set("year", String(y));
+  if (Number.isInteger(m)) params.set("month", String(m));
 
   return fetchJSON(`/api/posts?${params.toString()}`).then((data) => {
     const items = (data.items || []).map((it) => ({
@@ -122,19 +144,4 @@ export async function getPostWithComments(id, { page = 1, size = 100 } = {}) {
   ]);
   const tree = buildCommentTree(commentsPage.items);
   return { post, comments: { ...commentsPage, tree } };
-}
-
-export async function getAllPosts({ limit = 1000 } = {}) {
-  const size = 100;
-  let page = 1;
-  let out = [];
-  
-  while (out.length < limit) {
-    const res = await getPosts({ page, size });
-    out = out.concat(res.items || []);
-    const fetched = page * size;
-    if (fetched >= res.total || out.length >= limit) break;
-    page += 1;
-  }
-  return out.slice(0, limit);
 }
