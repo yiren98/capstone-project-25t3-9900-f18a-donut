@@ -1,0 +1,50 @@
+{
+  "dimension": "Well-being",
+  "overview": "The Well-being dimension reflects the company’s impact on physical safety, mental health, community welfare and environmental health across its global operations. Discussions under this dimension focus on how effectively the organization protects workers and surrounding communities from harm, manages environmental risks, and promotes a culture of care, transparency and accountability. Public narratives are dominated by high-profile safety incidents, environmental contamination, and legacy site impacts, revealing that well-being is still primarily reactive rather than proactively managed.",
+  "key_patterns": [
+    "Well-being sentiment is strongly negative, with more than four times as many negative as positive references, driven by safety incidents, environmental spills and perceived neglect of community health.",
+    "Health and Safety emerges as the most discussed theme, frequently connected to accidents, radiation alerts, and failures in maintenance and operational oversight.",
+    "Environmental protection and community well-being are closely intertwined, with repeated concerns over pollution, contaminated water and long-term health risks in affected regions.",
+    "Transparency and disclosure are recurring topics, especially after safety crises, where public communication is viewed as defensive or delayed rather than open and accountable.",
+    "Positive examples appear mainly in pandemic response and community vaccination measures, showing that proactive health action can build trust when handled transparently and effectively.",
+    "Governance failures and insufficient leadership accountability repeatedly undermine otherwise good intentions, reinforcing perceptions that safety culture and human care are inconsistently prioritized."
+  ],
+  "sentiment_snapshot": {
+    "positive": 16,
+    "negative": 71,
+    "neutral": 0,
+    "average_confidence": 0.852
+  },
+  "top_subthemes": [
+    { "subtheme": "Health & Safety", "count": 11 },
+    { "subtheme": "Environmental Protection & Resource Management", "count": 7 },
+    { "subtheme": "Community Engagement & Social Responsibility", "count": 6 },
+    { "subtheme": "Community & Public Well-being", "count": 5 },
+    { "subtheme": "Transparency & Disclosure", "count": 4 },
+    { "subtheme": "Legal & Regulatory Integrity", "count": 4 },
+    { "subtheme": "Food & Lifestyle Well-being", "count": 4 },
+    { "subtheme": "Employee Treatment & Support", "count": 3 },
+    { "subtheme": "Infrastructure & Maintenance", "count": 3 },
+    { "subtheme": "Leadership Accountability", "count": 2 }
+  ],
+  "risks_and_blindspots": [
+    "Frequent safety incidents and operational failures risk reinforcing a perception that worker safety is not structurally embedded into management accountability.",
+    "Environmental contamination and inadequate remediation at legacy sites undermine public trust and amplify human rights and legal exposure.",
+    "Community health concerns linked to mining impacts can escalate into long-term reputational crises if not met with transparent, sustained engagement and measurable improvement.",
+    "Insufficient attention to mental health, fatigue management and workforce well-being beyond physical safety contributes to silent risks in productivity and retention.",
+    "Failure to close the loop between incident reviews, policy change and behavioural enforcement weakens credibility of safety reforms.",
+    "Reactive crisis communication, focused on damage control rather than empathy and transparency, prevents authentic trust-building with affected communities."
+  ],
+  "recommendations": [
+    "Establish a unified well-being framework that integrates physical safety, mental health, environmental stewardship and community welfare under a single governance structure.",
+    "Embed well-being outcomes into executive accountability and performance evaluation, ensuring that safety and care are not secondary to production targets.",
+    "Strengthen preventive safety systems by improving maintenance standards, real-time risk monitoring and near-miss reporting transparency.",
+    "Expand mental health and psychosocial support programs across all operations, including contractor and fly-in fly-out workforces.",
+    "Develop transparent environmental remediation plans for legacy sites and communicate progress in a measurable, community-accessible format.",
+    "Invest in local health infrastructure and emergency preparedness in partnership with governments and NGOs in regions affected by mining operations.",
+    "Integrate well-being indicators into ESG and annual reporting, linking them to long-term environmental and social targets.",
+    "Ensure crisis response protocols prioritize empathy, rapid disclosure and accountability over legal defensiveness or reputational management.",
+    "Increase community involvement in monitoring environmental and health impacts through participatory data sharing and independent oversight mechanisms.",
+    "Cultivate a visible leadership culture that normalizes discussions about safety, fatigue, mental health and care as part of everyday operational excellence."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "dimension": "Innovation",
+  "overview": "The Innovation dimension reflects how the organization develops, adopts and scales new technologies, processes, products and partnerships, particularly in relation to decarbonisation and resource efficiency. In the analyzed content, innovation is strongly associated with low-carbon technologies, collaborative ventures with industry partners and customers, and visible experiments in cleaner production and energy transformation.",
+  "key_patterns": [
+    "Overall sentiment toward innovation is strongly positive, with stakeholders frequently highlighting technology and process innovation linked to cleaner energy, carbon-free materials and improved industrial processes.",
+    "Innovation is closely tied to environmental sustainability and climate action, with many references to solar power, decarbonisation of aluminium and steel, and efforts to reduce lifecycle emissions.",
+    "Collaborative innovation with major customers, technology partners and joint ventures is a recurring theme, indicating that multi-party solutions are seen as credible drivers of change.",
+    "Stakeholders pay attention not only to technological breakthroughs but also to how these are embedded in long-term strategy, future foresight and market positioning.",
+    "There is an expectation that innovation decisions should align with responsible investment and ethical business conduct, not just near-term financial returns.",
+    "Where criticism appears, it is often linked to perceived gaps between innovation rhetoric and actual funding, consistency or pace of implementation on climate-related technologies."
+  ],
+  "sentiment_snapshot": {
+    "positive": 24,
+    "negative": 6,
+    "neutral": 0,
+    "average_confidence": 0.856
+  },
+  "top_subthemes": [
+    { "subtheme": "Technology & Process Innovation", "count": 7 },
+    { "subtheme": "Environmental Sustainability & Climate Action", "count": 4 },
+    { "subtheme": "Team Collaboration & Communication", "count": 3 },
+    { "subtheme": "Environmental Protection & Resource Management", "count": 3 },
+    { "subtheme": "Strategic Planning & Direction", "count": 2 },
+    { "subtheme": "Ethical Investment & Responsible Business", "count": 2 },
+    { "subtheme": "Cost Management & Resource Efficiency", "count": 1 },
+    { "subtheme": "Strategic & Cross-Sector Collaboration", "count": 1 },
+    { "subtheme": "Product & Service Innovation", "count": 1 },
+    { "subtheme": "Contracting & Procurement", "count": 1 }
+  ],
+  "risks_and_blindspots": [
+    "Innovation is at risk of being perceived as selective showcase projects rather than a consistently applied operating model across the business.",
+    "There is potential misalignment between strong climate and technology narratives and pauses or volatility in funding for low-carbon innovation.",
+    "If innovation efforts are not clearly linked to measurable emissions reductions and environmental outcomes, stakeholders may question their credibility.",
+    "Limited visibility into how innovation choices are prioritized, governed and scaled can reduce stakeholder confidence in long-term innovation strategy.",
+    "Underemphasis on inclusive innovation that integrates community, workforce and supply-chain perspectives may constrain adoption and impact.",
+    "A strong focus on technological solutions without equal attention to policy, market design and behavioural change may limit overall effectiveness."
+  ],
+  "recommendations": [
+    "Define a clear innovation ambition that links technology and process innovation directly to long-term climate, sustainability and business goals.",
+    "Prioritize innovation portfolios that explicitly target material reductions in emissions, waste and resource use across core value chains.",
+    "Strengthen governance of innovation by clarifying decision rights, funding criteria and success measures for new technologies and partnerships.",
+    "Ensure consistency between public commitments on low-carbon innovation and the level, stability and duration of financial support for related projects.",
+    "Integrate customer, partner and community perspectives into innovation design so that solutions are technically robust, socially acceptable and commercially scalable.",
+    "Enhance transparency by communicating the pipeline of innovation initiatives, key milestones and outcome metrics in a clear and accessible way.",
+    "Expand cross-sector and cross-value-chain collaborations to accelerate development and deployment of breakthrough technologies.",
+    "Invest in internal capabilities for innovation, including data, digital tools and skills in experimentation, rapid learning and scaling successful pilots.",
+    "Embed ethical and responsible business considerations into innovation choices, including impacts on communities, labour, climate and future generations.",
+    "Regularly review the innovation portfolio to rebalance efforts between incremental improvements and higher-risk, high-impact bets aligned with strategic priorities."
+  ]
+}

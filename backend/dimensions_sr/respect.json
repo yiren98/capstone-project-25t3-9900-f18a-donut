@@ -1,0 +1,61 @@
+{
+  "dimension": "Respect",
+  "overview": "The Respect dimension captures how the organization treats people, cultures and communities, including employees, candidates, Indigenous groups, regulators and the broader public. In the analyzed content, respect is strongly linked to workplace culture, safety and harassment, fairness in employment practices, cultural and Indigenous heritage, environmental responsibility and how leadership responds when harm or controversy occurs.",
+  "key_patterns": [
+    "Overall sentiment on Respect is predominantly negative, with recurring concerns about workplace safety, harassment, bullying and perceived failures to protect employees from harmful behaviour.",
+    "Multiple data points point to alleged sexual harassment, gender-based bullying and broader misconduct, suggesting structural issues in how dignity, safety and equality are safeguarded at work.",
+    "Perceptions of unfair or disrespectful treatment in employment processes, including recruitment, redundancy decisions and policy changes affecting workers, contribute to mistrust and frustration.",
+    "Respect for Indigenous communities, cultural heritage and local populations is questioned where sites of cultural significance are affected, agreements are perceived as imbalanced, or communication is seen as disrespectful or opaque.",
+    "Stakeholders frequently connect respect with transparency, legal and regulatory integrity and corporate governance, especially in how leadership handles grievances, reviews, compensation and public accountability.",
+    "Environmental practices and rehabilitation are often framed as respect (or lack of respect) for land, water and communities, especially where long-term impacts are perceived as being downplayed or inadequately addressed.",
+    "There are also signals of positive recognition where efforts to improve culture, increase inclusion and support jobs are visible, but these are overshadowed by the volume and seriousness of negative narratives.",
+    "Trust and relationship-building with workers, Indigenous groups, communities and investors is fragile and easily eroded by perceived hypocrisy, tone-deaf communication or misaligned incentives at senior leadership level."
+  ],
+  "sentiment_snapshot": {
+    "positive": 43,
+    "negative": 143,
+    "neutral": 0,
+    "average_confidence": 0.851
+  },
+  "top_subthemes": [
+    { "subtheme": "Recognition & Appreciation", "count": 16 },
+    { "subtheme": "Transparency & Disclosure", "count": 12 },
+    { "subtheme": "Legal & Regulatory Integrity", "count": 10 },
+    { "subtheme": "Corporate Governance & Oversight", "count": 10 },
+    { "subtheme": "Employee Treatment & Support", "count": 8 },
+    { "subtheme": "Ethics & Compliance", "count": 8 },
+    { "subtheme": "Cultural & Language Respect", "count": 7 },
+    { "subtheme": "Corporate & Historical Responsibility", "count": 7 },
+    { "subtheme": "Community Engagement & Social Responsibility", "count": 6 },
+    { "subtheme": "Employment Opportunities & Job Roles", "count": 6 },
+    { "subtheme": "Environmental Protection & Resource Management", "count": 5 },
+    { "subtheme": "Stakeholder & Shareholder Accountability", "count": 5 },
+    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 5 },
+    { "subtheme": "Trust & Relationship Building", "count": 5 },
+    { "subtheme": "Accommodation & Well-being at Work", "count": 4 }
+  ],
+  "risks_and_blindspots": [
+    "Persistent reports of harassment, bullying and disrespectful behaviour create a material risk to employee wellbeing, legal compliance, talent attraction and retention.",
+    "If recruitment, redundancy and promotion decisions are perceived as opaque or unfair, the organization risks being seen as transactional rather than values-driven, undermining psychological safety and engagement.",
+    "Inadequate respect for Indigenous rights, cultural heritage and traditional owners can escalate into regulatory interventions, project cancellations and long-term reputational damage.",
+    "Gaps between public apologies, internal reviews and tangible changes to incentives, leadership accountability and governance structures can erode trust among employees, communities and investors.",
+    "Insensitive handling of compensation, benefits and government support can be interpreted as prioritizing financial gain over fairness and social legitimacy, particularly in a cost-of-living or environmental context.",
+    "Environmental harm and delayed or incomplete rehabilitation efforts may be viewed as disrespect for affected communities and ecosystems, reinforcing narratives that the organization externalizes its impacts.",
+    "Failure to give meaningful voice and protection to underrepresented or vulnerable groups increases the risk of being seen as indifferent to diversity, inclusion and equity.",
+    "If respect is treated as a communications issue rather than a behavioural and systems issue, the organization may over-invest in messaging and under-invest in root-cause cultural and structural change."
+  ],
+  "recommendations": [
+    "Articulate a clear definition of Respect that covers employees, communities, Indigenous peoples, regulators, investors and the environment, and embed it into values, policies and leadership expectations.",
+    "Strengthen prevention and response mechanisms for harassment, bullying and discrimination, including clear standards of behaviour, multiple safe reporting channels, timely investigations and visible consequences.",
+    "Ensure that psychological safety is a core design principle in workplaces by supporting leaders to role-model respectful behaviours, invite challenge and respond constructively to feedback and concerns.",
+    "Review recruitment, promotion and redundancy processes to ensure they are transparent, fair and consistent, with clear criteria and communication that respect candidates and employees at every stage.",
+    "Deepen engagement with Indigenous groups and traditional owners through long-term, relationship-based approaches that prioritise free, prior and informed consent, cultural safety and shared decision-making.",
+    "Align governance, incentive structures and board oversight so that respect-related outcomes, including culture, safety and inclusion, materially influence leadership evaluation and rewards.",
+    "Upgrade workplace well-being provisions, including accommodation, camp conditions, rostering, and access to support services, to reflect a genuine commitment to the dignity and health of workers.",
+    "Integrate respect for environment and communities into operational and closure planning by setting clear expectations for rehabilitation, monitoring and long-term stewardship of land and water.",
+    "Improve transparency around incidents, reviews and remediation actions so stakeholders can see what happened, what was learned and what has changed as a result.",
+    "Amplify employee and community voice through regular listening mechanisms, co-design forums and representative advisory groups, ensuring underrepresented groups have meaningful influence.",
+    "Invest in ongoing training and development for leaders and frontline staff on respectful conduct, inclusive leadership, cultural competency and trauma-informed approaches.",
+    "Regularly measure Respect-related indicators, such as experience of bullying, feeling of inclusion, trust in reporting systems and perceptions of fairness, and act on insights with concrete improvements."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "dimension": "Diversity",
+  "overview": "The Diversity dimension captures perceptions of gender balance, cultural sensitivity, inclusion and fairness across the organisation’s workforce and community relationships. Narratives here sit in a tension between visible structural progress (board appointments, independent culture reviews, public commitments) and persistent experiences of bullying, sexual harassment, racism and cultural disrespect. Diversity is seen not just as internal headcount, but also as the way the company treats Indigenous communities and affected populations, so missteps on heritage, environment and human rights directly shape its diversity and inclusion reputation.",
+  "key_patterns": [
+    "Sentiment is slightly more negative than positive, suggesting an organisation that is moving but not yet trusted: visible efforts on gender and inclusion coexist with serious, ongoing harms and scepticism about motives.",
+    "Gender Equality & Representation and Inclusion & Belonging are central themes: board gender diversity has improved and leadership publicly links diversity to culture change, but women and minority groups still report high rates of bullying, harassment and exclusion.",
+    "Two major independent culture reviews (Broderick reports) frame Rio Tinto as acknowledging systemic bullying, sexual harassment and racism, with leadership apologising and tying bonuses to culture-change metrics, yet employees still describe a ‘culture of silence’ and retaliation risks when reporting.",
+    "Cultural Awareness & Sensitivity is strongly shaped by Juukan Gorge and similar events: destruction of sacred Aboriginal sites and heritage decisions ‘to access higher volumes of high-grade ore’ undermine claims of respect for Indigenous cultures.",
+    "Internally, some employees perceive gender targets as tokenistic or unfair, fuelling backlash and resentment; externally, these same targets are sometimes seen as reputational ‘window dressing’ that does not offset environmental damage or heritage destruction.",
+    "Diversity is increasingly linked to brand and social licence: fan chants, protests and media coverage show that the company’s record on Indigenous rights, environment and workplace culture is being folded into a broader narrative of whether the firm deserves to operate and be trusted."
+  ],
+  "sentiment_snapshot": {
+    "positive": 10,
+    "negative": 16,
+    "neutral": 0,
+    "average_confidence": 0.875
+  },
+  "top_subthemes": [
+    { "subtheme": "Gender Equality & Representation", "count": 3 },
+    { "subtheme": "Cultural Awareness & Sensitivity", "count": 3 },
+    { "subtheme": "Transparency & Disclosure", "count": 2 },
+    { "subtheme": "Inclusion & Belonging", "count": 2 },
+    { "subtheme": "Legal & Regulatory Integrity", "count": 2 },
+    { "subtheme": "Reporting & Reputational Risk", "count": 2 },
+    { "subtheme": "Brand Perception & Reputation", "count": 2 },
+    { "subtheme": "Workplace Safety & Culture Integration", "count": 1 },
+    { "subtheme": "Contracting & Procurement", "count": 1 },
+    { "subtheme": "Leadership Accountability", "count": 1 }
+  ],
+  "risks_and_blindspots": [
+    "Persistently high levels of bullying, sexual harassment and racism – especially at FIFO sites and towards women, Indigenous and LGBTIQ+ employees – risk normalising harm and undercutting any public diversity commitments.",
+    "Perceptions that diversity targets create ‘diversity hires’ without clear merit-based explanations can erode morale among both men and women, and fuel backlash against inclusion programs.",
+    "If heritage and environmental decisions continue to disregard Indigenous perspectives or cultural significance, the company’s diversity narrative will be seen as inconsistent or hypocritical, particularly in communities directly affected by operations.",
+    "Reliance on external reviews and apologies, without consistently visible consequences for perpetrators and managers who protect them, weakens the credibility of leadership accountability.",
+    "Framing diversity mainly through gender headcount at senior levels risks overlooking intersectional issues such as race, Indigeneity, sexual orientation, disability and local community impacts.",
+    "Insufficient psychological safety and trust in reporting channels – where victims fear retaliation or see ‘lack of consequences’ – can keep the most severe incidents invisible until they become public scandals, escalating reputational and legal risk."
+  ],
+  "recommendations": [
+    "Treat diversity and inclusion as a safety issue: apply the same rigor, governance and non-negotiable standards to psychological safety (harassment, bullying, racism) that already exist for physical safety.",
+    "Move from simple diversity targets to transparent, merit-based processes: clearly explain selection criteria, broaden candidate pools, and communicate how appointments meet both capability and diversity goals to reduce ‘token hire’ narratives.",
+    "Strengthen consequence management: ensure clear, consistently applied sanctions for bullying, harassment and racism, including for leaders who ignore or protect such behaviour, and publicly report aggregated outcome data to build trust.",
+    "Deepen intersectional focus: systematically track and address experiences of Indigenous employees, women at FIFO sites, LGBTIQ+ staff and other under-represented groups, rather than treating ‘women’ or ‘diversity’ as monolithic categories.",
+    "Embed cultural awareness in core decision-making: require Indigenous and local community input in heritage, land use and environmental decisions, with veto or escalation mechanisms when cultural risks are high.",
+    "Upgrade reporting channels: offer multiple confidential reporting options (including anonymous), independent investigation capacity, and transparent feedback loops so complainants see that issues are taken seriously and acted on.",
+    "Link leadership rewards and progression to inclusive behaviours: incorporate diversity, inclusion and culture metrics into performance reviews, promotion criteria and variable pay for managers at all levels.",
+    "Invest in ongoing education: deliver mandatory, case-based training on harassment, bias, cultural respect and bystander intervention, tailored to high-risk environments such as camps and remote sites.",
+    "Co-design initiatives with employees and communities: involve employee resource groups, Indigenous organisations and external advocates in shaping policies so they are credible, context-specific and not perceived as purely top-down PR.",
+    "Communicate progress candidly: report both improvements and remaining gaps in culture, representation and heritage outcomes, using plain language and real examples to show that diversity work is long-term, accountable and not cosmetic."
+  ]
+}
