@@ -87,7 +87,7 @@ export default function CalendarPanel({
             right: isPos ? `${50 - pct}%` : "50%",
             background: isPos
               ? "linear-gradient(90deg, #fde047, #facc15)"
-              : "linear-gradient(270deg, #60a5fa, #93c5fd)",
+              : "linear-gradient(270deg, #f35b5bff, #ef1717ff)",
           }}
         />
       </div>
@@ -95,7 +95,7 @@ export default function CalendarPanel({
         <span className="text-white/85">
           Current: <b className="text-white tabular-nums">{Math.round(sbiVal)}</b>
         </span>
-        <span className={isPos ? "text-yellow-300" : "text-blue-300"}>{deltaStr}</span>
+        <span className={isPos ? "text-yellow-300" : "text-red-400"}>{deltaStr}</span>
       </div>
 
 

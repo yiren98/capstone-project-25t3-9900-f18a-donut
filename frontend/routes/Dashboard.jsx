@@ -1,5 +1,5 @@
 // routes/Dashboard.jsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import rioSmall from "../assets/icons/unsw_logo.png";
 import rioBig from "../assets/icons/unsw_logo_text.png";
 import SidebarNav from "../src/components/SidebarNav";
@@ -15,12 +15,16 @@ import { getSBI } from "../src/api";
 export default function Dashboard() {
   const now = new Date();
   const [year, setYear] = useState(now.getFullYear());
-  const [month, setMonth] = useState(null); 
+  const [month, setMonth] = useState(null);
   const [monthsWithData, setMonthsWithData] = useState([]);
   const [sbi, setSbi] = useState(0);
   const [delta, setDelta] = useState(0);
   const [flipToken, setFlipToken] = useState(0);
 
+
+  const [dimension, setDimension] = useState("");
+  const [subtheme, setSubtheme] = useState("");
+  const [sentiment, setSentiment] = useState(""); // "positive" | "negative" | ""
 
   useEffect(() => {
     let mounted = true;
@@ -29,7 +33,6 @@ export default function Dashboard() {
         const info = await getSBI({ year });
         if (!mounted) return;
         setMonthsWithData(info.months_with_data || []);
-
         if (month && !(info.months_with_data || []).includes(month)) setMonth(null);
       } catch {
         setMonthsWithData([]);
@@ -37,7 +40,6 @@ export default function Dashboard() {
     })();
     return () => { mounted = false; };
   }, [year]);
-
 
   useEffect(() => {
     let mounted = true;
@@ -60,20 +62,29 @@ export default function Dashboard() {
   }, [year, month]);
 
 
-  useEffect(() => { setFlipToken((t) => t + 1); }, [year, month]);
+  useEffect(() => {
+    setFlipToken((t) => t + 1);
 
+
+    // setDimension(""); setSubtheme(""); setSentiment("");
+  }, [year, month]);
 
   const handleYearChange = (y) => {
     setYear(y);
-    setMonth(null);      
+    setMonth(null);
+    setFlipToken(t => t + 1);
+  };
+  const handleMonthSelect = (m, y) => {
+    if (y && y !== year) setYear(y);
+    setMonth(m);
     setFlipToken(t => t + 1);
   };
 
-  const handleMonthSelect = (m, y) => {
-
-    if (y && y !== year) setYear(y);
-    setMonth(m);
-    setFlipToken(t => t + 1); 
+  // DimensionRadar
+  const handleDimRadarFilter = ({ dimension: d = "", subtheme: s = "" }) => {
+    setDimension(d);
+    setSubtheme(s);
+    setFlipToken(t => t + 1);
   };
 
   return (
@@ -115,6 +126,9 @@ export default function Dashboard() {
             year={year}
             month={month}
             filterFlipKey={flipToken}
+            sentiment={sentiment}
+            subtheme={subtheme}
+            dimension={dimension}
           />
         </main>
 
@@ -124,13 +138,12 @@ export default function Dashboard() {
             year={year}
             selectedMonth={month}
             monthsWithData={monthsWithData}
-            onYearChange={handleYearChange}         
-            onMonthSelect={handleMonthSelect}        
+            onYearChange={handleYearChange}
+            onMonthSelect={handleMonthSelect}
             sbi={Number.isFinite(sbi) ? sbi : 0}
             delta={Number.isFinite(delta) ? delta : 0}
           />
         </section>
-
 
         <div className="row-start-5 sm:row-start-4 lg:row-start-3 col-span-full pb-4 grid gap-6
                         grid-cols-1
@@ -145,12 +158,24 @@ export default function Dashboard() {
           <section className="col-start-1 sm:col-start-2 grid gap-6
                               grid-cols-1
                               md:grid-cols-[minmax(260px,0.9fr)_minmax(340px,1.1fr)]">
-        <SentimentVenn
-          title="Sentiment Analysis Statistics"
-          year={year}
-          month={month}
-        />
-            <DimensionRadar title="Cultural Dimensions" widthPx={640} heightPx={247} />
+            <SentimentVenn
+              title="Sentiment Analysis Statistics"
+              year={year}
+              month={month}
+              dimension={dimension}
+              subtheme={subtheme}
+              // onSelectSentiment={(s)=>{ setSentiment(s===sentiment ? "" : s); setFlipToken(t=>t+1); }}
+            />
+            <DimensionRadar
+              title="Cultural Dimensions"
+              year={year}
+              month={month}
+              widthPx={640}
+              heightPx={270}
+              selectedDimension={dimension}
+              selectedSubtheme={subtheme}
+              onFilterChange={handleDimRadarFilter}
+            />
           </section>
 
           <section className="col-start-1 sm:col-start-2 lg:col-start-3">

@@ -57,7 +57,7 @@ export const getSBI = async ({ year, month } = {}) => {
 
 /* ==== Posts ==== */
 
-export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month } = {}) => {
+export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month, dimension = "", subtheme = "", sentiment = "" } = {}) => {
   const params = new URLSearchParams({ page: String(page), size: String(size) });
   if (q && String(q).trim()) params.set("q", String(q).trim());
   if (tag && String(tag).trim()) params.set("tag", String(tag).trim());
@@ -66,6 +66,10 @@ export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month } =
   const m = toInt(month);
   if (Number.isInteger(y)) params.set("year", String(y));
   if (Number.isInteger(m)) params.set("month", String(m));
+
+  if (dimension) params.set("dimension", String(dimension));
+  if (subtheme)  params.set("subtheme", String(subtheme));
+  if (sentiment) params.set("sentiment", String(sentiment).toLowerCase());
 
   return fetchJSON(`/api/posts?${params.toString()}`).then((data) => {
     const items = (data.items || []).map((it) => ({
@@ -80,6 +84,8 @@ export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month } =
     return { ...data, items };
   });
 };
+
+
 
 export const getPostDetail = async (id) => {
   if (!id) throw new Error("post id is required");
@@ -176,3 +182,21 @@ export const getSentimentStats = async ({
     });
 };
 
+export async function getDimensionCounts({ year, month } = {}) {
+  const qs = new URLSearchParams();
+  if (year) qs.set("year", year);
+  if (month) qs.set("month", month);
+  const res = await fetch(`/api/dimension_counts?${qs.toString()}`);
+  if (!res.ok) throw new Error("dimension_counts failed");
+  return res.json(); // [{ name, count, color? }]
+}
+
+export async function getSubthemeCounts({ year, month, dimension }) {
+  const qs = new URLSearchParams();
+  if (dimension) qs.set("dimension", dimension);
+  if (year) qs.set("year", year);
+  if (month) qs.set("month", month);
+  const res = await fetch(`/api/subtheme_counts?${qs.toString()}`);
+  if (!res.ok) throw new Error("subtheme_counts failed");
+  return res.json(); // [{ name, count, color? }]
+}

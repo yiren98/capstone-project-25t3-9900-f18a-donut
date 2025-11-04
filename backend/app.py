@@ -46,6 +46,10 @@ SBI_CSV = ROOT_DIR / "data" / "raw" / "reddit" / "SBI_month.csv"
 USERS_DIR = ROOT_DIR / "data" / "user"
 USERS_CSV = USERS_DIR / "user.csv"
 
+DIM_CSV  = (ROOT_DIR / "data" / "dimension_sub" / "dimensions_sentiment_counts.csv")
+MAP_CSV  = (ROOT_DIR / "data" / "dimension_sub" / "subthemes_with_dim.csv")
+
+
 # --- Utils ---
 def _read_sql(db_path: Path, sql: str, params: tuple | list = ()):
     if not db_path.exists():
@@ -324,13 +328,7 @@ def api_sbi():
 @app.get("/api/sentiment_stats")
 def api_sentiment_stats():
     """
-    汇总 positive / negative 数量。
-    可选筛选：
-      - year: int
-      - month: int
-      - dimension: str  (按维度过滤：dimensions 列中含该维度)
-      - subtheme: str   (仅统计该子主题在 subs_sentiment 映射里的情感)
-    返回: {positive: int, negative: int}
+
     """
     posts = load_posts().copy()
 
@@ -374,6 +372,111 @@ def api_sentiment_stats():
 
     return jsonify({"positive": int(pos), "negative": int(neg)})
 
+@app.get("/api/dimension_counts")
+def api_dimension_counts():
+    """
+    """
+    year  = request.args.get("year", type=int)
+    month = request.args.get("month", type=int)
+
+    def from_db(y=None, m=None):
+        posts = load_posts().copy()   
+        if y or m:
+            tt = pd.to_datetime(posts["time"], errors="coerce", utc=False, format="mixed")
+            posts = posts.assign(_y=tt.dt.year, _m=tt.dt.month)
+            if y: posts = posts[posts["_y"] == y]
+            if m: posts = posts[posts["_m"] == m]
+
+        rows = []
+        for _, r in posts.iterrows():
+            dims = r.get("dimensions")
+            if isinstance(dims, list):
+                for d in dims:
+                    if d: rows.append({"dimension": str(d)})
+        if not rows:
+            return []
+        df = pd.DataFrame(rows)
+        g = df.groupby("dimension", as_index=False).size().rename(columns={"size": "count"})
+        g = g.sort_values("count", ascending=False)
+        return [{"name": str(r["dimension"]), "count": int(r["count"])} for _, r in g.iterrows()]
+
+
+    if year or month:
+        return jsonify(from_db(year, month))
+
+
+    try:
+        df = _read_csv_safe(DIM_CSV if isinstance(DIM_CSV, Path) else Path(DIM_CSV))
+        cols = {c.lower(): c for c in df.columns}
+        dim_col = cols.get("dimension") or cols.get("dimensions") or cols.get("dim")
+        cnt_col = cols.get("count") or cols.get("counts") or cols.get("value") or cols.get("total")
+        if dim_col and cnt_col:
+            g = df.groupby(dim_col, as_index=False)[cnt_col].sum().sort_values(cnt_col, ascending=False)
+            return jsonify([{"name": str(r[dim_col]), "count": int(r[cnt_col])} for _, r in g.iterrows()])
+      
+    except Exception:
+        pass
+
+    return jsonify(from_db())
+
+@app.get("/api/subtheme_counts")
+def api_subtheme_counts():
+    """
+    """
+    dim   = (request.args.get("dimension") or "").strip()
+    year  = request.args.get("year", type=int)
+    month = request.args.get("month", type=int)
+
+
+    map_df = _read_csv_safe(MAP_CSV if isinstance(MAP_CSV, Path) else Path(MAP_CSV))
+    mcols  = {c.lower(): c for c in map_df.columns}
+    map_sub_col = mcols.get("subtheme") or mcols.get("subthemes") or mcols.get("sub_topic") or mcols.get("sub")
+    map_dim_col = mcols.get("mapped_dimension") or mcols.get("dimension") or mcols.get("dim")
+    if not map_sub_col or not map_dim_col:
+        abort(500, description="mapping csv missing required columns (subtheme/mapped_dimension)")
+
+    allowed_subs = None
+    if dim:
+        allowed_subs = set(
+            map_df.loc[map_df[map_dim_col].astype(str) == dim, map_sub_col].astype(str).unique().tolist()
+        )
+
+
+    posts = load_posts().copy()
+    if year or month:
+        tt = pd.to_datetime(posts["time"], errors="coerce", utc=False, format="mixed")
+        posts = posts.assign(_y=tt.dt.year, _m=tt.dt.month)
+        if year:  posts = posts[posts["_y"] == year]
+        if month: posts = posts[posts["_m"] == month]
+
+
+    if dim:
+        posts = posts[posts["dimensions"].apply(lambda arr: isinstance(arr, list) and dim in arr)]
+
+
+    counter = {}
+    def bump(name):
+        if not name: return
+        if allowed_subs is not None and name not in allowed_subs:
+            return
+        counter[name] = counter.get(name, 0) + 1
+
+    for _, r in posts.iterrows():
+        ss = r.get("subs_sentiment")
+        used = False
+        if isinstance(ss, dict) and ss:
+            for k in ss.keys():
+                bump(str(k))
+                used = True
+        if not used:
+            subs = r.get("subthemes")
+            if isinstance(subs, list):
+                for k in subs:
+                    bump(str(k))
+
+    out = [{"name": k, "count": int(v)} for k, v in counter.items()]
+    out.sort(key=lambda x: x["count"], reverse=True)
+    return jsonify(out)
 
 @app.get("/api/sbi/years")
 def api_sbi_years():
@@ -387,7 +490,6 @@ def api_posts():
 
 
     if posts["comment_count_file"].isna().all():
-
         forum_tags = posts[posts["type"] == "forum"]["tag"].tolist()
         if forum_tags:
             placeholders = ",".join(["?"] * len(forum_tags))
@@ -414,12 +516,42 @@ def api_posts():
     if y or m:
         tt = pd.to_datetime(posts["time"], errors="coerce", utc=False, format="mixed")
         posts = posts.assign(_y=tt.dt.year, _m=tt.dt.month)
-        if y:
-            posts = posts[posts["_y"] == y]
-        if m:
-            posts = posts[posts["_m"] == m]
+        if y: posts = posts[posts["_y"] == y]
+        if m: posts = posts[posts["_m"] == m]
 
-    # 关键字
+    dim = (request.args.get("dimension") or "").strip()
+    sub = (request.args.get("subtheme") or "").strip()
+    sent = (request.args.get("sentiment") or "").strip().lower()  # "positive"/"negative" / ""
+
+    if dim:
+        posts = posts[posts["dimensions"].apply(lambda arr: isinstance(arr, list) and dim in arr)]
+
+    if sub:
+        def has_subtheme(r):
+   
+            ss = r.get("subs_sentiment")
+            if isinstance(ss, dict) and sub in ss:
+                if sent in ("positive", "negative"):
+                    return str(ss.get(sub, "")).lower().strip() == sent
+                return True
+          
+            subs = r.get("subthemes")
+            if isinstance(subs, list) and sub in subs:
+                if sent in ("positive", "negative"):
+              
+                    return True
+                return True
+            return False
+        posts = posts[posts.apply(has_subtheme, axis=1)]
+    elif sent in ("positive", "negative"):
+        def has_sentiment_any(r):
+            ss = r.get("subs_sentiment")
+            if not isinstance(ss, dict):
+                return False
+            return any(str(v).lower().strip() == sent for v in ss.values())
+        posts = posts[posts.apply(has_sentiment_any, axis=1)]
+
+
     q = (request.args.get("q") or "").strip().lower()
     if q:
         posts = posts[
@@ -430,7 +562,6 @@ def api_posts():
             | posts["dimensions"].apply(lambda arr: any(q in d.lower() for d in (arr or [])))
         ]
 
-    # 分页
     try:
         page = max(1, int(request.args.get("page", 1)))
         size = min(100, max(1, int(request.args.get("size", 10))))
@@ -455,6 +586,7 @@ def api_posts():
     } for _, r in page_df.iterrows()]
 
     return jsonify({"total": int(len(posts)), "page": page, "size": size, "items": items})
+
 
 @app.get("/api/posts/<post_id>")
 def api_post_detail(post_id: str):
