@@ -12,7 +12,6 @@
   "sentiment_snapshot": {
     "positive": 43,
     "negative": 144,
-    "neutral": 0,
     "average_confidence": 0.813
   },
   "top_subthemes": [
