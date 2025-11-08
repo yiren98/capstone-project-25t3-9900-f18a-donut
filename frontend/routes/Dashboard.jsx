@@ -2,12 +2,6 @@
 import React, { useEffect, useState } from "react";
 import rioSmall from "../assets/icons/unsw_logo.png";
 import rioBig from "../assets/icons/unsw_logo_text.png";
-
-// 删除：SidebarNav / BottomUtilities / TopSearchBar
-// import SidebarNav from "../src/components/SidebarNav";
-// import BottomUtilities from "../src/components/BottomUtilities";
-// import TopSearchBar from "../src/components/TopSearchBar";
-
 import TopRouteTabs from "../src/components/TopRouteTabs";
 import PostFeed from "../src/components/PostFeed";
 import CalendarPanel from "../src/components/CalendarPanel";
@@ -100,11 +94,11 @@ export default function Dashboard() {
     >
       <div
         className="
-          px-7 pt-7 grid gap-x-6 gap-y-6
+          px-6 pt-7 grid gap-x-6 gap-y-6
           grid-cols-1
-          sm:grid-cols-[72px_minmax(0,1fr)]
-          lg:grid-cols-[72px_minmax(0,1fr)_minmax(300px,420px)]
-          xl:grid-cols-[72px_minmax(0,1fr)_420px]
+          sm:grid-cols-[0px_minmax(0,1fr)]
+          lg:grid-cols-[0px_minmax(0,1fr)_minmax(300px,420px)]
+          xl:grid-cols-[0px_minmax(0,1fr)_420px]
         "
       >
         <div className="hidden sm:flex row-start-1 col-start-1 flex-col items-center self-start">
@@ -137,7 +131,7 @@ export default function Dashboard() {
 
 
         <aside className="hidden sm:flex row-start-2 col-start-1 justify-center self-start">
-          <div className="w-[52px] sm:w-[56px] lg:w-[60px]" />
+          <div className="w-[52px] sm:w-[50px] lg:w-[60px]" />
         </aside>
 
         <main className="row-start-3 sm:row-start-2 col-start-1 sm:col-start-2">
@@ -169,9 +163,9 @@ export default function Dashboard() {
           className="
             row-start-5 sm:row-start-4 lg:row-start-3 col-span-full pb-4 grid gap-6
             grid-cols-1
-            sm:grid-cols-[72px_minmax(0,1fr)]
-            lg:grid-cols-[72px_minmax(0,1fr)_minmax(300px,420px)]
-            xl:grid-cols-[72px_minmax(0,1fr)_420px]
+            sm:grid-cols-[0px_minmax(0,1fr)]
+            lg:grid-cols-[0px_minmax(0,1fr)_minmax(300px,420px)]
+            xl:grid-cols-[0px_minmax(0,1fr)_420px]
           "
         >
           <div className="hidden sm:flex col-start-1 mt-auto justify-center self-start">
@@ -182,7 +176,7 @@ export default function Dashboard() {
             className="
               col-start-1 sm:col-start-2 grid gap-6
               grid-cols-1
-              md:grid-cols-[minmax(260px,0.9fr)_minmax(340px,1.1fr)]
+              md:grid-cols-[minmax(200px,0.65fr)_minmax(400px,1.35fr)]
             "
           >
             <SentimentVenn
@@ -196,8 +190,8 @@ export default function Dashboard() {
               title="Cultural Dimensions"
               year={year}
               month={month}
-              widthPx={640}
-              heightPx={270}
+              widthPx={770}
+              heightPx={300}
               selectedDimension={dimension}
               selectedSubtheme={subtheme}
               onFilterChange={handleDimRadarFilter}

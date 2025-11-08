@@ -59,8 +59,8 @@ export default function DimensionRadar({
   }, [selectedDimension, selectedSubtheme]);
 
   const W = widthPx, H = heightPx;
-  const cx = Math.round(W * 0.4);       
-  const cy = Math.round(H * 0.7);      
+  const cx = Math.round(W * 0.36);       
+  const cy = Math.round(H * 0.5);      
   const rMin = Math.max(12, Math.min(W,H) * 0.1);
   const rMax = Math.min(cx, Math.round(H*2)); 
   const gapRatio = 0.14;               
@@ -120,7 +120,7 @@ export default function DimensionRadar({
     <div className="w-full">
       <div
         className="grid gap-x-1.5 gap-y-1.5"
-        style={{ gridTemplateColumns: "repeat(2,minmax(0,1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}
       >
         {items.map((d,i)=>{
           const isActive = level===1 && activeSub && d.name===activeSub;
@@ -170,7 +170,7 @@ export default function DimensionRadar({
               title="Back"
               style={{ cursor:"pointer" }}
             >
-              &lt;
+              ⮌
             </button>
           )}
 
