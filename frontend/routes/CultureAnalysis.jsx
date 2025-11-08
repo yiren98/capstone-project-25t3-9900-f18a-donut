@@ -13,9 +13,9 @@ export default function CultureAnalysis() {
         className="
           px-7 pt-7 grid gap-x-6 gap-y-6
           grid-cols-1
-          sm:grid-cols-[72px_minmax(0,1fr)]
-          lg:grid-cols-[72px_minmax(0,1fr)_minmax(300px,420px)]
-          xl:grid-cols-[72px_minmax(0,1fr)_420px]
+          sm:grid-cols-[0px_minmax(0,1fr)]
+          lg:grid-cols-[0px_minmax(0,1fr)_minmax(300px,420px)]
+          xl:grid-cols-[0px_minmax(0,1fr)_420px]
         "
       >
         {/* Left Logo */}
@@ -41,12 +41,12 @@ export default function CultureAnalysis() {
 
         {/* Left big suggestion card */}
         <section className="row-start-3 sm:col-start-2 lg:row-span-2">
-          <SuggestionSummary className="h-[740px]" />
+          <SuggestionSummary className="h-[700px]" />
         </section>
 
         {/* Right big filter panel */}
         <aside className="row-start-3 sm:col-start-2 lg:col-start-3 lg:row-span-2">
-          <DimensionFilterPanel className="h-[740px]" />
+          <DimensionFilterPanel className="h-[700px]" />
         </aside>
       </div>
     </div>

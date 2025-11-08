@@ -12,7 +12,7 @@ export default function SentimentVenn({
   month,
   dimension = "",
   subtheme = "",
-  height = 270,
+  height = 300,
 }) {
   const [pos, setPos] = useState(0);
   const [neg, setNeg] = useState(0);
@@ -59,6 +59,7 @@ export default function SentimentVenn({
       className="rounded-2xl border border-[#d6d0c5] shadow-sm px-4 py-3"
       style={{
         width: "100%",
+        maxWidth: 700,
         height,
         background: "rgba(255,255,255,0.7)",
         backdropFilter: "blur(6px)",
@@ -145,7 +146,7 @@ export default function SentimentVenn({
       </div>
 
  
-      <div className="mt-1 flex items-center justify-center gap-47 text-[13px]">
+      <div className="mt-1 flex items-center justify-center gap-7 text-[13px]">
         {pos > 0 && (
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200">
             <span className="h-2.5 w-2.5 rounded-full inline-block" style={{ background: "#F6C543" }} />

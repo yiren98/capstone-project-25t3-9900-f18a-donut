@@ -71,7 +71,7 @@ export default function IncomeStatistics({
       className="rounded-2xl border border-[#d6d0c5] shadow-sm px-4 py-3"
       style={{
         background: "rgb(246,243,239)",
-        height: 270,
+        height: 300,
         width: "100%",
       }}
     >
