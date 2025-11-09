@@ -1,0 +1,49 @@
+{
+  "dimension": "Agility",
+  "overview": "The Agility dimension reflects the organization’s ability to anticipate change, reallocate resources and adjust strategy, portfolio and operations at speed. In the analyzed corpus, Agility is most often discussed through strategic expansion or withdrawal decisions, responsiveness to market dynamics, and the capacity to align production, partnerships and capital with emerging opportunities such as energy transition metals and new geographies.",
+  "key_patterns": [
+    "Overall sentiment on agility is predominantly positive, with many comments highlighting proactive strategic moves, geographic expansion and positioning around long-term themes such as the energy transition.",
+    "Strategic planning and future foresight are central to agility, with frequent references to entering or exiting markets, adjusting exploration focus and aligning with growth regions or partners.",
+    "Market dynamics and competitiveness are closely linked to agility, as stakeholders focus on how quickly the organization can respond to demand shifts, plateauing markets and changing economics.",
+    "Agility is often expressed through capital and portfolio actions, including mergers and acquisitions, joint ventures and targeted investments that support flexibility and resilience.",
+    "Operational and cost flexibility, such as leveraging year-round work, low dilution and location advantages, are seen as practical enablers of strategic agility.",
+    "Collaboration and technology innovation increasingly appear in agility-related conversations, indicating that partnerships and new processes are key to moving quickly in complex, evolving value chains."
+  ],
+  "sentiment_snapshot": {
+    "positive": 114,
+    "negative": 66,
+    "average_confidence": 0.869
+  },
+  "top_subthemes": [
+    { "subtheme": "Strategic Planning & Direction", "count": 20 },
+    { "subtheme": "Future Strategy & Foresight", "count": 14 },
+    { "subtheme": "Market Dynamics & Financial Indicators", "count": 9 },
+    { "subtheme": "Mergers & Acquisitions (M&A)", "count": 7 },
+    { "subtheme": "Market Performance & Competitiveness", "count": 7 },
+    { "subtheme": "Strategic Defense & Resilience", "count": 6 },
+    { "subtheme": "Strategic Adaptation & Flexibility", "count": 6 },
+    { "subtheme": "Investment & Portfolio Performance", "count": 6 },
+    { "subtheme": "Operational Efficiency & Performance", "count": 5 },
+    { "subtheme": "Cost Management & Resource Efficiency", "count": 5 }
+  ],
+  "risks_and_blindspots": [
+    "Agility may be narrowly interpreted as rapid portfolio or geographic moves without fully considering long-term commitments to local communities, employees and environmental responsibilities.",
+    "A strong focus on reacting to market signals can lead to overemphasis on short-term opportunities and underinvestment in slower-building but strategically important capabilities.",
+    "Frequent strategic shifts, including market entries and exits, risk creating uncertainty for internal teams and partners if not supported by clear communication and change management.",
+    "Agility that is driven primarily by financial or market indicators, without robust risk and regulatory assessment, can expose the organization to legal, reputational or execution risks.",
+    "Limited integration between strategic foresight, operational planning and technology investment may constrain the ability to turn agile intentions into scalable, repeatable practice.",
+    "If agility is not anchored in a clear strategic narrative, stakeholders may perceive actions as opportunistic or fragmented rather than as part of a coherent long-term direction."
+  ],
+  "recommendations": [
+    "Define a clear agility vision that links strategic flexibility to long-term purpose, risk appetite and value creation.",
+    "Strengthen strategic foresight capabilities by systematically scanning for technological, regulatory and market shifts and integrating those insights into planning cycles.",
+    "Establish decision frameworks that enable timely portfolio and market moves while maintaining rigorous risk, regulatory and stakeholder considerations.",
+    "Align operational models, including supply chains, locations and production configurations, to support rapid scaling up or down in response to changing conditions.",
+    "Integrate agility-related indicators, such as time-to-decision, speed of resource reallocation and responsiveness to market signals, into performance management.",
+    "Promote cross-functional collaboration so that strategy, finance, operations, technology and external affairs can coordinate quickly around emerging opportunities and risks.",
+    "Invest in digital and data capabilities that provide real-time visibility into performance, demand and risk, enabling faster and better-informed decisions.",
+    "Design change management and communication practices that help employees and partners understand the rationale for strategic shifts and adapt effectively.",
+    "Ensure that agility decisions explicitly consider impacts on communities, employees and the environment, not only financial and market outcomes.",
+    "Regularly review past strategic moves and adjustments to capture lessons learned and refine the organization’s approach to agility over time."
+  ]
+}

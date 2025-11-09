@@ -1,0 +1,36 @@
+{
+  "subtheme": "Ethics & Compliance",
+  "parent_dimensions": [
+    "Integrity",
+    "Customer Orientation",
+    "Ethical Responsibility",
+    "Accountability"
+  ],
+  "overview": "This subtheme captures concerns about the company's ethical conduct and adherence to legal and social norms. It highlights instances where the company's actions are perceived as dishonest, misleading, or harmful, often in relation to environmental, social, or governance (ESG) matters. It matters because it directly impacts stakeholder trust and the company's social license to operate.",
+  "key_patterns": [
+    "Criticism of misleading or deceptive communication, especially regarding ESG claims",
+    "Allegations of hiding or mishandling serious issues like sexual harassment through NDAs",
+    "Destruction of cultural or natural heritage sites for operational gain",
+    "Perceived prioritization of profit over ethical considerations, even in sensitive contexts"
+  ],
+  "sentiment_snapshot": {
+    "positive": 5,
+    "negative": 40,
+    "average_confidence": 0.849
+  },
+  "typical_contexts": [
+    "Discussions often occur in public forums and media outlets when scandals or controversies emerge, particularly those related to environmental damage, community impact, or internal misconduct",
+    "The discourse is frequently reactive, triggered by specific events like legal actions, investigative reports, or activist campaigns that expose a gap between the company's claims and its actions",
+    "It intersects strongly with dimensions like Accountability and Integrity, as criticisms often focus on a lack of transparency or failure to honor commitments"
+  ],
+  "risks_and_blindspots": [
+    "Systemic risk to reputation and legal standing, as repeated ethical failures attract regulatory scrutiny and public backlash",
+    "Operational blindness where local or cultural impacts of projects are underestimated or ignored by head office, leading to severe reputational damage",
+    "A failure to recognize that ethical compliance is a holistic issue, not just a legal one, leading to inadequate investment in ethical training and robust internal reporting systems"
+  ],
+  "recommendations": [
+    "Institute a transparent and accessible ethical whistleblowing system that is trusted and actively promoted",
+    "Integrate ethical impact assessments into all project lifecycles, with the same rigor as financial assessments",
+    "Leadership must publicly and consistently champion an ethical culture, moving beyond compliance to genuine corporate citizenship"
+  ]
+}

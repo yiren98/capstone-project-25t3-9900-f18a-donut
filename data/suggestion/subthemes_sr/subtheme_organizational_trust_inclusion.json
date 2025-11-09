@@ -1,0 +1,34 @@
+{
+  "subtheme": "Organizational Trust & Inclusion",
+  "parent_dimensions": [
+    "Respect",
+    "Ethical Responsibility"
+  ],
+  "overview": "This subtheme captures instances where an organization's actions or policies are perceived as violating ethical standards or failing to uphold commitments, directly damaging stakeholder trust and inclusion. It matters because it highlights the tangible consequences of organizational actions on public perception and social license to operate.",
+  "key_patterns": [
+    "Failure to uphold environmental or social commitments, especially after public promises",
+    "Lack of transparency in operations or decision-making, leading to suspicion",
+    "Inadequate community or stakeholder consultation on impactful projects",
+    "Disproportionate negative impact on specific groups, often minorities or local communities"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 4,
+    "average_confidence": 0.875
+  },
+  "typical_contexts": [
+    "Comments arise in the context of corporate scandals, environmental or social governance failures, and public relations crises",
+    "Often triggered by specific, highly-visible incidents where corporate actions contradict stated values or promises",
+    "Strongly linked to discussions on corporate accountability, environmental justice, and indigenous rights, indicating a systemic rather than isolated issue"
+  ],
+  "risks_and_blindspots": [
+    "Failure to manage these incidents transparently and accountably can lead to a complete breakdown in community and stakeholder trust, which is difficult to rebuild",
+    "Organizations may systematically underestimate the reputational and financial impact of trust violations, focusing on short-term gains over long-term sustainability",
+    "Lack of robust, independent oversight mechanisms allows issues to escalate from local grievances to major scandals"
+  ],
+  "recommendations": [
+    "Establish and mandate independent, third-party audits for environmental and social governance (ESG) performance, with public reporting to rebuild trust",
+    "Implement and enforce a 'zero-tolerance' policy for ethical violations within the supply chain and partnership networks, with clear, public consequences",
+    "Develop and invest in transparent community engagement frameworks, especially for projects impacting local communities or indigenous groups, ensuring free, prior, and informed consent (FPIC) principles are met"
+  ]
+}

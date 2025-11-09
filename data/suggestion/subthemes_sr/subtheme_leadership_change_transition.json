@@ -1,0 +1,33 @@
+{
+  "subtheme": "Leadership & Change Transition",
+  "parent_dimensions": [
+    "Collaboration"
+  ],
+  "overview": "This subtheme concerns how organizations handle significant leadership changes, particularly in response to crises or failures. It matters because it reflects the company's accountability mechanisms and the real versus stated importance of collaborative governance. In this case, a major governance failure (destruction of a sacred site) led to a CEO change, indicating that leadership change is used as a primary accountability mechanism.",
+  "key_patterns": [
+    "Leadership change as a direct response to a significant failure",
+    "Change framed as a solution to a problem of governance or ethics",
+    "Shareholder returns highlighted immediately following leadership change",
+    "External event (e.g., market boom) occurring concurrently with internal change"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 1,
+    "average_confidence": 1.0
+  },
+  "typical_contexts": [
+    "This subtheme appears in discourse when a company's actions, particularly a failure in ethics or governance, lead to significant internal change like a CEO replacement.",
+    "It is often triggered by public scandals, regulatory scrutiny, or major financial events that expose a gap between stated values and actual practices.",
+    "It interacts with dimensions like 'Accountability' and 'Trust', as leadership changes are often a performative signal to external stakeholders that the company is addressing a problem, even if underlying issues remain."
+  ],
+  "risks_and_blindspots": [
+    "Leadership change can be a superficial fix; the underlying governance or cultural issues that led to the failure may remain unaddressed.",
+    "Excessive focus on the leader as a single point of failure obscures systemic or collective responsibility.",
+    "External factors (like a market windfall) can quickly overshadow the internal change, reducing the perceived need for deep cultural reform."
+  ],
+  "recommendations": [
+    "Institute robust, independent governance committees to provide oversight on issues of ethics and culture, beyond just financial performance.",
+    "Establish clear and transparent succession planning processes that are communicated to the entire organization, not just the board.",
+    "Conduct 'culture health checks' following major leadership changes to ensure new leadership is translating words into action and systemic change."
+  ]
+}

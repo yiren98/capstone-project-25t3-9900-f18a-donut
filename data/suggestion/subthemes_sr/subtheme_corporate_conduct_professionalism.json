@@ -1,0 +1,35 @@
+{
+  "subtheme": "Corporate Conduct & Professionalism",
+  "parent_dimensions": [
+    "Integrity",
+    "Accountability",
+    "Respect"
+  ],
+  "overview": "This subtheme captures instances where a company's actions or internal behaviors are perceived as falling short of ethical, honest, or professional standards. It matters because it directly impacts stakeholder trust, brand reputation, and can lead to legal or regulatory repercussions.",
+  "key_patterns": [
+    "Involvement in misleading or deceptive practices (e.g., false advertising, misleading financial advice)",
+    "Failure to uphold ethical standards in sensitive areas (e.g., response to harassment allegations, Indigenous rights)",
+    "Discrepancy between public promises and private actions (e.g., saying one thing, doing another)",
+    "Concealment or downplaying of misconduct, shifting blame, or failing to take responsibility"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 7,
+    "average_confidence": 0.821
+  },
+  "typical_contexts": [
+    "These issues surface in public discourse when specific incidents are exposed, often through whistleblowers, regulatory investigations, or media reports.",
+    "They are frequently linked to core business operations (e.g., a mining company's extraction methods) or to internal HR practices (e.g., handling of employee complaints).",
+    "The discourse often compares the company's actions to its stated values (e.g., 'integrity') or to societal expectations, highlighting a gap."
+  ],
+  "risks_and_blindspots": [
+    "Severe reputational damage and loss of public trust, making recovery long and difficult.",
+    "Legal and regulatory scrutiny, including fines, sanctions, or costly litigation.",
+    "Erosion of internal culture: Employees and stakeholders lose faith in leadership, leading to disengagement."
+  ],
+  "recommendations": [
+    "Establish a transparent, whistleblower-friendly reporting system that ensures confidentiality and protects reporters from retaliation.",
+    "Implement and enforce a clear, public-facing ethical code of conduct that is integrated into all business operations, from marketing to HR.",
+    "Leadership must model and champion ethical behavior, with clear accountability for ethical breaches at all levels, not just symbolic commitments."
+  ]
+}

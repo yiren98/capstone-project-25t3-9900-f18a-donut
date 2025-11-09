@@ -1,0 +1,33 @@
+{
+  "subtheme": "Employment Opportunities & Job Roles",
+  "parent_dimensions": [
+    "Respect"
+  ],
+  "overview": "This subtheme captures how the company's approach to hiring, job opportunities, and role management is perceived, particularly focusing on issues like recruitment process transparency, job security, and alignment of role expectations. It matters because it directly impacts employee trust, perceived fairness, and overall employer reputation.",
+  "key_patterns": [
+    "Concerns about recruitment process lack of transparency and communication",
+    "Frustration with mismatch between job role expectations and actual requirements, especially for entry-level positions",
+    "Anxiety about job security and potential redundancies",
+    "Positive recognition of opportunities when processes are clear and meaningful"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 4,
+    "average_confidence": 0.788
+  },
+  "typical_contexts": [
+    "Comments often arise when candidates experience delays or lack of feedback after applying, leading to perceptions of disorganization or disrespect",
+    "Issues surface when advertised roles (especially graduate level) require unexpected experience, causing frustration over misleading job postings",
+    "Discussions emerge during rumored restructuring, with concerns about job security overshadowing opportunity discussions"
+  ],
+  "risks_and_blindspots": [
+    "Perception that the company does not value applicants' time or career aspirations, especially for early-career roles, damaging employer brand",
+    "Lack of transparent communication in recruitment processes erodes trust and could indicate deeper HR process inefficiencies",
+    "Focus on short-term role filling over long-term career development and trust building, missing strategic engagement"
+  ],
+  "recommendations": [
+    "Review and streamline the recruitment process with clear timelines and regular updates to applicants to reduce negative perceptions",
+    "Ensure job descriptions and requirements are accurate, especially for graduate roles, to avoid mismatched expectations and frustration",
+    "Proactively communicate about company stability and job security, especially during restructuring, to prevent rumors and anxiety"
+  ]
+}

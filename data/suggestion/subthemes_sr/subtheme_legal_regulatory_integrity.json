@@ -1,0 +1,36 @@
+{
+  "subtheme": "Legal & Regulatory Integrity",
+  "parent_dimensions": [
+    "Integrity",
+    "Respect",
+    "Performance",
+    "Accountability"
+  ],
+  "overview": "This subtheme focuses on how the company is perceived in terms of legal compliance, ethical conduct, and handling of regulatory matters. It is a critical aspect of corporate governance and stakeholder trust.",
+  "key_patterns": [
+    "Legal disputes and settlements are publicly highlighted, drawing scrutiny.",
+    "Allegations of fraud, misrepresentation, or ethical misconduct are recurring themes.",
+    "Significant legal cases, especially class actions, attract widespread media and public attention.",
+    "Legal outcomes and processes are used as a proxy to assess overall corporate integrity."
+  ],
+  "sentiment_snapshot": {
+    "positive": 5,
+    "negative": 23,
+    "average_confidence": 0.857
+  },
+  "typical_contexts": [
+    "Discourse focuses on high-stakes legal battles, such as class action lawsuits alleging serious misconduct.",
+    "Scrutiny arises from cases where the company is a defendant in cases with significant financial or reputational implications.",
+    "Discussions often link these legal challenges to broader issues of corporate culture, like ethical standards and accountability mechanisms."
+  ],
+  "risks_and_blindspots": [
+    "Significant reputation damage from repeated legal challenges, especially those involving ethical breaches like fraud or harassment.",
+    "Perception that the company prioritizes financial settlements (e.g., settlements) over genuine cultural or systemic reform.",
+    "Insufficient communication or transparency around legal issues leads to distrust among external stakeholders."
+  ],
+  "recommendations": [
+    "Establish and enforce a zero-tolerance policy for any form of harassment or fraud, with clear, transparent reporting mechanisms.",
+    "Implement rigorous, independent oversight of compliance and ethics programs, not just legal compliance but cultural adherence.",
+    "Proactively communicate the steps taken to address issues (e.g., governance changes, training) to rebuild trust, rather than letting legal cases speak for themselves."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "dimension": "Customer Orientation",
+  "overview": "The Customer Orientation dimension reflects how external audiences – customers, communities, investors, and the broader public – experience and perceive the organization’s behaviour, brand and responsiveness. In the analyzed corpus, this dimension is driven less by classic product-service issues and more by ethical, environmental and cultural controversies that profoundly shape reputation and trust. Customer orientation here is essentially about whether people feel the company respects their values, communities and environments as much as it pursues profit.",
+  "key_patterns": [
+    "Sentiment is heavily negative, with critical narratives around reputation, past environmental damage and cultural heritage destruction outweighing positive stories of service, local engagement or brand familiarity.",
+    "Brand perception and reputation are the dominant lens through which stakeholders discuss the company, frequently linked to Juukan Gorge, coal and power projects, and broader environmental and social impacts.",
+    "Community engagement and social responsibility are treated by stakeholders as core to customer orientation – communities expect meaningful dialogue, not just transactional relationships or one-off consultations.",
+    "Environmental protection and cultural heritage emerge as critical expectations for a responsible ‘supplier’ to society; ethical failures in these areas are perceived as direct betrayals of public trust and community interests.",
+    "Transparency and disclosure are repeatedly referenced as tests of customer respect, with criticism when information about decisions, impacts or compensation is seen as incomplete, delayed or overly defensive.",
+    "Marketing, sponsorships and public relations efforts are often met with scepticism when they appear disconnected from on-the-ground impacts, reinforcing perceptions of reputation management rather than genuine customer-centric change."
+  ],
+  "sentiment_snapshot": {
+    "positive": 43,
+    "negative": 144,
+    "average_confidence": 0.813
+  },
+  "top_subthemes": [
+    { "subtheme": "Brand Perception & Reputation", "count": 31 },
+    { "subtheme": "Community Engagement & Social Responsibility", "count": 17 },
+    { "subtheme": "Transparency & Disclosure", "count": 10 },
+    { "subtheme": "Corporate & Historical Responsibility", "count": 9 },
+    { "subtheme": "Ethics & Compliance", "count": 7 },
+    { "subtheme": "Environmental Protection & Resource Management", "count": 7 },
+    { "subtheme": "Public Relations & Media Image", "count": 6 },
+    { "subtheme": "Customer Experience & Satisfaction", "count": 6 },
+    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 6 },
+    { "subtheme": "Corporate Governance & Oversight", "count": 6 }
+  ],
+  "risks_and_blindspots": [
+    "Customer orientation is at risk of being perceived as superficial branding rather than a genuine commitment to listening, accountability and shared value.",
+    "Historic environmental and cultural incidents continue to define public perception, overshadowing current initiatives and creating a reputational drag that standard marketing cannot offset.",
+    "Limited or technical disclosure around controversial projects can be read as evasiveness, reinforcing distrust and amplifying negative narratives online and in the media.",
+    "Customer and community expectations have shifted from ‘do no harm’ to ‘actively contribute to solutions’, but internal framing still often centres on compliance and risk containment.",
+    "Public-facing communication sometimes underestimates the emotional and cultural significance of sites and communities, creating a gap between corporate language and lived experience.",
+    "Positive local experiences (e.g. jobs, local services, sponsorships) are fragmented and not consistently elevated as part of a coherent, values-based customer and community strategy.",
+    "There is a risk that investors and communities see compensation and remediation as attempts to buy back reputation rather than evidence of deeply integrated customer-centric ethics."
+  ],
+  "recommendations": [
+    "Redefine customer orientation to explicitly include communities, Indigenous groups, civil society and future generations as core ‘customers’ whose needs must be understood and respected.",
+    "Anchor brand and reputation strategy in ethical substance: make environmental stewardship, cultural respect and human rights central proof points of the value proposition.",
+    "Build a clear framework for community engagement that prioritises early consultation, shared decision-making and long-term partnership over one-way information and transactional agreements.",
+    "Elevate transparency standards by proactively publishing accessible explanations of major decisions, trade-offs, impacts and remediation plans, not just regulatory disclosures.",
+    "Integrate customer and community feedback systematically into governance and risk processes so that emerging concerns influence project design, approvals and ongoing operations.",
+    "Align marketing and sponsorship activities with real commitments on the ground, ensuring campaigns highlight verified progress rather than aspirational promises.",
+    "Develop a consistent apology-and-repair playbook for ethical and environmental harms that includes acknowledgement, listening to affected communities, co-designed remedies and follow-up reporting.",
+    "Strengthen frontline and leadership capabilities in cultural awareness, stakeholder dialogue and conflict resolution to improve everyday experiences of those interacting with the company.",
+    "Create shared metrics for customer and community trust, tracking sentiment across channels (media, social, surveys, local forums) and tying improvements directly to leadership objectives and incentives.",
+    "Showcase positive local stories – jobs created, community projects, environmental improvements – alongside honest discussion of challenges, building a more balanced and credible narrative over time."
+  ]
+}

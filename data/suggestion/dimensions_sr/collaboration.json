@@ -1,0 +1,49 @@
+{
+  "dimension": "Collaboration",
+  "overview": "The Collaboration dimension captures how effectively the organization works with internal teams, partners, communities and other stakeholders to achieve shared outcomes. In the analyzed corpus, collaboration spans joint ventures, technology partnerships, government relations and engagement with Indigenous and local communities. It is tightly interwoven with transparency, ethics and heritage, meaning that collaboration quality is judged not only by financial outcomes but also by how fairly and respectfully stakeholders are involved.",
+  "key_patterns": [
+    "Collaboration sentiment is mixed with a negative tilt, indicating that while there are visible successes in partnerships and joint ventures, many stakeholders question how relationships are initiated, managed and governed.",
+    "Stakeholder engagement and alignment, transparency and team communication are the most frequently referenced collaboration themes, suggesting that information flow and expectation management are central to how collaboration is perceived.",
+    "Partnerships with other companies and technology providers are often framed positively, especially where they support innovation, environmental objectives or long-term production stability.",
+    "Collaboration with Indigenous communities and around cultural heritage is a recurring point of tension, with concerns that legal permissions and corporate decisions override meaningful co-design and shared decision-making.",
+    "Internal and external collaboration are closely linked; breakdowns in transparency or governance in one area tend to spill over into broader reputational and trust issues.",
+    "There is a strong connection between collaboration and ESG topics, where stakeholders expect multi-party cooperation on environmental protection, social responsibility and ethical conduct, not just transactional arrangements."
+  ],
+  "sentiment_snapshot": {
+    "positive": 126,
+    "negative": 184,
+    "average_confidence": 0.846
+  },
+  "top_subthemes": [
+    { "subtheme": "Stakeholder Engagement & Alignment", "count": 27 },
+    { "subtheme": "Transparency & Disclosure", "count": 25 },
+    { "subtheme": "Team Collaboration & Communication", "count": 25 },
+    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 12 },
+    { "subtheme": "Ethics & Compliance", "count": 11 },
+    { "subtheme": "Corporate Governance & Oversight", "count": 11 },
+    { "subtheme": "Environmental Protection & Resource Management", "count": 10 },
+    { "subtheme": "Corporate & Historical Responsibility", "count": 10 },
+    { "subtheme": "Community Engagement & Social Responsibility", "count": 9 },
+    { "subtheme": "Environmental Sustainability & Climate Action", "count": 9 }
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on formal agreements and legal permissions can mask gaps in genuine stakeholder engagement and shared decision-making.",
+    "Collaboration is sometimes treated as a communication or public relations exercise rather than a true partnership built on joint problem-solving and mutual accountability.",
+    "Inconsistent transparency about roles, benefits and risks across different stakeholder groups can create perceptions of preferential treatment and erode trust.",
+    "Insufficient integration of cultural heritage and Indigenous rights into collaboration frameworks increases the risk of conflict, project delays and long-term reputational damage.",
+    "Fragmented ownership of collaboration across functions and geographies leads to misaligned expectations and uneven relationship quality.",
+    "Limited feedback loops from communities, employees and partners mean that early signals of collaboration breakdown may be overlooked until they escalate into public controversies."
+  ],
+  "recommendations": [
+    "Define a clear collaboration strategy that links partnerships and stakeholder engagement to long-term business, sustainability and community outcomes.",
+    "Establish consistent principles and standards for collaboration that apply across markets, partners and community relationships, including expectations on transparency and shared decision-making.",
+    "Clarify ownership for key relationships by assigning accountable leaders for major partners, communities and joint ventures, supported by cross-functional teams.",
+    "Strengthen stakeholder engagement processes so that affected groups are involved early, understand trade-offs and have structured opportunities to influence decisions.",
+    "Integrate cultural heritage and Indigenous rights into collaboration frameworks, making co-design and consent core elements rather than afterthoughts.",
+    "Improve transparency by sharing clear, accessible summaries of partnership objectives, timelines, governance arrangements and expected impacts with relevant stakeholders.",
+    "Develop internal collaboration capabilities, including skills in facilitation, negotiation, conflict resolution and cross-cultural communication.",
+    "Create formal feedback loops with partners, communities and employees to regularly assess the health of key relationships and identify emerging issues.",
+    "Align collaboration incentives so that leaders and teams are rewarded not only for financial performance but also for the quality and resilience of stakeholder relationships.",
+    "Use joint governance structures, such as shared steering groups or advisory panels, to oversee complex collaborations and ensure that risks, benefits and responsibilities are collectively managed."
+  ]
+}

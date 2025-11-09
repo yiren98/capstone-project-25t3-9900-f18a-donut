@@ -1,0 +1,44 @@
+{
+  "dimension": "Accountability",
+  "overview": "The Accountability dimension represents the extent to which an organization takes ownership of its actions, communicates transparently, and follows through on commitments. It is central to maintaining trust, ensuring governance integrity, and sustaining a credible corporate reputation. Based on the analyzed corpus, Accountability frequently involves issues of corporate governance, transparency, regulatory compliance, and the reconciliation of past environmental or ethical controversies.",
+  "key_patterns": [
+    "Public discourse around accountability is predominantly negative, reflecting persistent concerns about opaque communication and limited responsibility for corporate impacts.",
+    "Transparency and disclosure dominate the conversation, indicating that stakeholders value not only compliance but also clarity and consistency in reporting and communication.",
+    "Governance and regulatory responsibility are closely linked, as accountability is often framed through the lens of legal settlements, corporate oversight, and board-level decision-making.",
+    "Environmental and cultural heritage incidents significantly amplify accountability discussions, emphasizing that corporate responsibility extends beyond financial obligations to social and moral commitments.",
+    "There is a growing recognition that accountability involves measurable change and long-term governance improvement, not just one-time settlements or apologies."
+  ],
+  "sentiment_snapshot": {
+    "positive": 121,
+    "negative": 406,
+    "average_confidence": 0.848
+  },
+  "top_subthemes": [
+    {"subtheme": "Transparency & Disclosure", "count": 60},
+    {"subtheme": "Corporate Governance & Oversight", "count": 35},
+    {"subtheme": "Environmental Protection & Resource Management", "count": 27},
+    {"subtheme": "Ethics & Compliance", "count": 26},
+    {"subtheme": "Corporate & Historical Responsibility", "count": 24},
+    {"subtheme": "Community Engagement & Social Responsibility", "count": 24},
+    {"subtheme": "Policy & Government Relations", "count": 21},
+    {"subtheme": "Stakeholder Engagement & Alignment", "count": 20},
+    {"subtheme": "Risk & Regulatory Management", "count": 18},
+    {"subtheme": "Cultural Heritage & Indigenous Rights", "count": 18}
+  ],
+  "risks_and_blindspots": [
+    "Conflating compliance with genuine accountability may lead to superficial responses that do not address structural or cultural causes of failure.",
+    "Complex governance and partnership structures obscure responsibility boundaries, creating confusion among external stakeholders about who is accountable for outcomes.",
+    "Reputational repair efforts, such as rebuilding or settlements, risk being perceived as transactional if not accompanied by systemic reforms.",
+    "Lack of transparent communication channels reduces trust and hinders early issue detection, reinforcing the perception of reactive rather than proactive governance.",
+    "Short-term financial and legal resolutions often overshadow the need for long-term cultural transformation and stakeholder engagement."
+  ],
+  "recommendations": [
+    "Embed accountability as a shared organizational value reinforced through leadership behavior, communication, and performance expectations.",
+    "Develop unified and transparent reporting standards that make governance and ethical data consistently accessible to all stakeholders.",
+    "Clarify ownership of decisions and responsibilities within governance structures to eliminate ambiguity in oversight and execution.",
+    "Integrate accountability metrics such as issue resolution rate, recurrence reduction, and stakeholder confidence into performance and reward systems.",
+    "Establish formal learning mechanisms that turn accountability incidents into continuous improvement opportunities.",
+    "Create regular, structured engagement channels for employees, communities, and regulators to provide feedback and raise concerns proactively.",
+    "Ensure that accountability extends beyond compliance to include ethical reflection, transparency in communication, and sustained behavioral change."
+  ]
+}
