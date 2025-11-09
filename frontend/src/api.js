@@ -200,3 +200,20 @@ export async function getSubthemeCounts({ year, month, dimension }) {
   if (!res.ok) throw new Error("subtheme_counts failed");
   return res.json(); // [{ name, count, color? }]
 }
+
+const BASE = "/api";
+const jget = async (url) => {
+  const r = await fetch(url, { credentials: "include" });
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+};
+
+// Culture Analysis
+export const getCAOverall = () => jget(`${BASE}/ca/overall`);
+export const getCADimension = (name) =>
+  jget(`${BASE}/ca/dimension/${encodeURIComponent(name)}`);
+export const getCASubthemes = (dimension) =>
+  jget(`${BASE}/ca/subthemes?dimension=${encodeURIComponent(dimension)}`);
+export const getCASubthemeByFile = (file) =>
+  jget(`${BASE}/ca/subtheme/by-file/${encodeURIComponent(file)}`);
+export const getCAIndex = () => jget(`${BASE}/ca/index`);

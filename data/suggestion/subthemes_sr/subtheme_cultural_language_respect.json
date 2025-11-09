@@ -1,0 +1,33 @@
+{
+  "subtheme": "Cultural & Language Respect",
+  "parent_dimensions": [
+    "Respect"
+  ],
+  "overview": "This subtheme captures issues related to the recognition, preservation, and respect for cultural and linguistic diversity within and around the company. It primarily manifests in discourse through reports of disrespect, negligence, or active harm towards cultural heritage, language norms, and community values. It matters because it directly impacts stakeholder trust, social license to operate, and corporate reputation, especially in multicultural or indigenous contexts.",
+  "key_patterns": [
+    "Reports of physical or symbolic damage to culturally significant sites and artifacts",
+    "Community or stakeholder accusations of cultural disrespect and negligence",
+    "Corporate actions (or inactions) that erase or marginalize linguistic and cultural practices",
+    "Contrast between stated values (e.g., respect) and actual outcomes, highlighting hypocrisy"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 6,
+    "average_confidence": 0.869
+  },
+  "typical_contexts": [
+    "This theme arises in contexts of community engagement, project development in culturally sensitive areas, and corporate communication where cultural or language differences are a factor.",
+    "It is often triggered by incidents of cultural loss, heritage destruction, or failed consultation, leading to public outcry, investor concern, and internal reviews.",
+    "It interacts closely with dimensions of corporate accountability, ethical governance, and community relations, often revealing gaps in due diligence and stakeholder engagement processes."
+  ],
+  "risks_and_blindspots": [
+    "Systemic undervaluing of non-dominant cultures and languages, leading to repeated, preventable conflicts",
+    "Inadequate due diligence and impact assessment processes for cultural heritage, especially in extractive or development sectors",
+    "Failure to translate corporate policies (e.g., respect) into actionable, accountable practices at all levels of the organization"
+  ],
+  "recommendations": [
+    "Integrate comprehensive cultural and linguistic impact assessments as a mandatory component of all project planning and risk management frameworks, not just as a compliance exercise.",
+    "Establish transparent, co-designed monitoring and reporting mechanisms with affected communities to ensure cultural concerns are addressed proactively, not just reactively.",
+    "Shift from reactive communication to proactive cultural education and capacity building at all organizational levels, particularly for leadership and front-line staff."
+  ]
+}

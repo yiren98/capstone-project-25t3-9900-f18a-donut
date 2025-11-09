@@ -1,0 +1,35 @@
+{
+  "subtheme": "Strategic Adaptation & Flexibility",
+  "parent_dimensions": [
+    "Agility"
+  ],
+  "overview": "This subtheme captures the company's ability to adapt its strategies and operations in response to external pressures, market shifts, and unexpected events. It is crucial for maintaining competitiveness and ensuring long-term sustainability, as it demonstrates how the company navigates challenges like economic downturns, operational disruptions, or public relations crises.",
+  "key_patterns": [
+    "Focus on navigating external economic or market pressures (e.g., 'get through these tough times')",
+    "Announcement of strategic investments or expansions (e.g., 'given approval for $2.5b Pilbara expansion')",
+    "Expressing uncertainty or concern over internal changes (e.g., 'potential redundancies or retrenchments')",
+    "Response to operational incidents or external events (e.g., 'launches investigation into missing radioactive capsule')",
+    "Communication of major strategic shifts or recovery plans (e.g., 'unveiled its post-pandemic recovery strategy')",
+    "Leadership communication on accountability and change (e.g., 'Stausholm said the new executive team feel very accountable')"
+  ],
+  "sentiment_snapshot": {
+    "positive": 4,
+    "negative": 2,
+    "average_confidence": 0.917
+  },
+  "typical_contexts": [
+    "Comments often appear in the context of public announcements of new strategic initiatives, responses to external economic pressures, or in discussions following operational incidents.",
+    "The discourse is frequently tied to tangible company actions like project approvals, restructuring announcements, or public statements from leadership about strategic direction.",
+    "It interacts with dimensions like accountability and operational resilience, as strategic adaptation is often discussed alongside efforts to improve governance, transparency, or efficiency."
+  ],
+  "risks_and_blindspots": [
+    "The positive discourse around strategic moves (e.g., expansion projects, recovery strategies) can mask underlying employee concerns about job security, as seen in the negative comments about redundancies.",
+    "External stakeholders (e.g., the public on social media) may perceive strategic actions, like an expansion, as positive, while internal stakeholders (e.g., employees) may simultaneously experience uncertainty and anxiety about changes.",
+    "A focus on agility and adaptation might lead to reactive, short-term decisions that lack long-term strategic vision, especially if not all stakeholders are considered."
+  ],
+  "recommendations": [
+    "Establish more transparent and frequent communication channels for strategic changes to address employee concerns directly and reduce uncertainty.",
+    "Implement a structured feedback mechanism, like regular pulse surveys, to gauge employee sentiment on strategic directions and identify concerns early.",
+    "Ensure that strategic agility initiatives are paired with clear change management and communication plans that address impacts on all stakeholders, not just shareholders."
+  ]
+}

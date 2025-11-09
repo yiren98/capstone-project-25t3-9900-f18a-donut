@@ -1,0 +1,34 @@
+{
+  "subtheme": "Anti-Corruption & Misconduct Allegations",
+  "parent_dimensions": [
+    "Integrity",
+    "Accountability"
+  ],
+  "overview": "This subtheme captures public allegations and evidence of unethical or illegal corporate behavior, including corruption, fraud, and regulatory violations. It matters because these incidents directly undermine stakeholder trust and signal systemic governance failures.",
+  "key_patterns": [
+    "Public allegations of specific misconduct incidents (e.g., corruption, fraud, environmental violations)",
+    "Criticism of lack of accountability or transparency in handling misconduct",
+    "Comparisons to past scandals or industry-wide patterns of unethical behavior",
+    "Calls for external investigation or regulatory intervention"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 5,
+    "average_confidence": 0.772
+  },
+  "typical_contexts": [
+    "Discussions emerge in response to specific scandals or investigative reports, often in media or social media platforms",
+    "They are triggered by new allegations of corruption, regulatory breaches, or ethical failures, especially when these involve senior leadership or repeat offenses",
+    "They intersect with governance and compliance discussions, where stakeholders question internal controls and oversight mechanisms"
+  ],
+  "risks_and_blindspots": [
+    "Reputational damage escalates rapidly as misconduct allegations spread, especially when corroborated by multiple sources",
+    "Legal and regulatory repercussions can include fines, sanctions, or forced restructuring, but these are often reactive and slow",
+    "Persistent allegations suggest deeper cultural issues where unethical behavior is normalized or insufficiently challenged internally"
+  ],
+  "recommendations": [
+    "Establish and transparently report on independent, third-party audits for high-risk operations (e.g., environmental compliance, anti-corruption) to rebuild trust",
+    "Implement and enforce a clear, confidential whistleblowing program that protects reporters and ensures prompt investigation",
+    "Leadership must visibly champion ethical conduct and accountability, including transparent communication about past issues and corrective actions taken"
+  ]
+}

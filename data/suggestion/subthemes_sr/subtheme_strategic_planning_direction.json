@@ -1,0 +1,34 @@
+{
+  "subtheme": "Strategic Planning & Direction",
+  "parent_dimensions": [
+    "Agility",
+    "Execution"
+  ],
+  "overview": "This subtheme captures how organizations articulate and execute their long-term strategic goals, particularly in terms of expansion, resource allocation, and market positioning. It matters because it reflects the company's ability to plan ahead, adapt to new opportunities, and communicate its strategy effectively to stakeholders, which directly impacts investor confidence and operational stability.",
+  "key_patterns": [
+    "Focus on expansion rationale and geographic diversification",
+    "Emphasis on operational efficiencies and resource access (e.g., year-round work, low dilution)",
+    "Highlighting strategic partnerships and proximity to industry leaders",
+    "Justification of strategic shifts with concrete evidence (e.g., production stats, project details)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 16,
+    "negative": 4,
+    "average_confidence": 0.847
+  },
+  "typical_contexts": [
+    "Discussions occur when companies announce expansion plans, acquisitions, or new project deployments, often in financial forums or news comments",
+    "Triggered by announcements of strategic shifts, especially those involving new markets, partnerships, or scalability arguments",
+    "Often tied to discussions of project viability, long-term strategy, and comparisons with industry peers, influencing perceptions of execution reliability"
+  ],
+  "risks_and_blindspots": [
+    "Overemphasis on strategic positioning without transparent communication of underlying risks or execution timelines",
+    "Potential disconnect between strategic ambition and on-ground operational capacity, leading to skepticism",
+    "Strategic narratives may be co-opted by short-term market sentiments, distracting from core goals"
+  ],
+  "recommendations": [
+    "Enhance transparency in strategic communication, clearly linking strategic decisions (e.g., expansion) to concrete operational milestones and benefits",
+    "Establish a framework for regular updates on strategic goal progress, emphasizing both achievements and challenges",
+    "Integrate strategic narrative into broader corporate narrative, ensuring it is consistently echoed across all communication levels to maintain trust"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "subtheme": "Ethical Investment & Responsible Business",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Collaboration",
+    "Respect",
+    "Integrity",
+    "Execution",
+    "Agility",
+    "Accountability"
+  ],
+  "overview": "This subtheme relates to how a company's investment and business practices are perceived in terms of ethics and social responsibility. It matters because stakeholders increasingly scrutinize companies for ethical consistency, and perceived hypocrisy can damage reputation and trust.",
+  "key_patterns": [
+    "Criticism of specific ethical failures in sourcing or partnerships",
+    "Concerns over environmental impact and resource extraction ethics",
+    "Skepticism of corporate social responsibility (CSR) initiatives as performative",
+    "Comparisons to negative international examples or controversial partners"
+  ],
+  "sentiment_snapshot": {
+    "positive": 5,
+    "negative": 12,
+    "average_confidence": 0.856
+  },
+  "typical_contexts": [
+    "Appears in discussions about supply chain ethics, particularly around sourcing of minerals and energy resources",
+    "Emerges in critiques of partnerships with regimes or industries with poor human rights or environmental records",
+    "Often surfaces in comparisons to other companies or industries facing similar scrutiny"
+  ],
+  "risks_and_blindspots": [
+    "High susceptibility to perceptions of hypocrisy or ethical inconsistency, especially when operating in multiple jurisdictions with different standards",
+    "Underestimating the reputational damage from association with controversial partners or projects, even if the association is indirect or historical",
+    "Insufficient communication of ethical due diligence and compliance processes, leading to assumptions of negligence"
+  ],
+  "recommendations": [
+    "Implement and transparently communicate a robust, multi-tiered ethical sourcing and partnership policy that is consistently applied across all operations",
+    "Establish a transparent, third-party-audited reporting system for ethical performance, including supply chain ethics and partnership impacts, to rebuild trust",
+    "Proactively engage with critical stakeholders, including local communities and international watchdogs, to demonstrate commitment beyond compliance and address concerns before they escalate"
+  ]
+}

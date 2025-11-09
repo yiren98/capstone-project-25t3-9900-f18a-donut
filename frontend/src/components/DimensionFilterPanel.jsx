@@ -1,73 +1,93 @@
-// src/components/DimensionFilterPanel.jsx
-import React, { useMemo, useState } from "react";
+
+import React, { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
+import { getCAIndex, getCASubthemes } from "../api";
 
-const DIM_ORDER = [
-  "Collaboration","Performance","Execution","Agility","Ethical Responsibility",
-  "Accountability","Customer Orientation","Respect","Integrity","Learning",
-  "Innovation","Well-being",
-];
-
-const DEFAULT_COUNTS = {
-  Collaboration:27, Performance:27, Execution:23, Agility:21,
-  "Ethical Responsibility":21, Accountability:19, "Customer Orientation":12,
-  Respect:12, Integrity:10, Learning:6, Innovation:3, "Well-being":3,
-};
 
 const DOT = {
-  Collaboration:"#f4bf2a",
-  Performance:"#63b6a5",
-  Execution:"#6a7be6",
-  Agility:"#b78de3",
-  "Ethical Responsibility":"#f1a57b",
-  Accountability:"#6db0ff",
-  "Customer Orientation":"#68c06f",
-  Respect:"#e5a08a",
-  Integrity:"#f1c74a",
-  Learning:"#79c7b6",
-  Innovation:"#6f73d8",
-  "Well-being":"#c99bdd",
+  Collaboration:"#f4bf2a", Performance:"#63b6a5", Execution:"#6a7be6", Agility:"#b78de3",
+  "Ethical Responsibility":"#f1a57b", Accountability:"#6db0ff", "Customer Orientation":"#68c06f",
+  Respect:"#e5a08a", Integrity:"#f1c74a", Learning:"#79c7b6", Innovation:"#6f73d8", "Well-being":"#c99bdd",
 };
 
-const SUBTHEMES = {
-  Collaboration:["Cross-Team Sync","Knowledge Sharing","Decision Velocity"],
-  Performance:["OKR Quality","Outcome Metrics","Efficiency"],
-  Execution:["Goal Tracking","Roadmap Hygiene","Incident Response"],
-  Agility:["Change Readiness","Delivery Flow","Time-to-Value"],
-  "Ethical Responsibility":["ESG Reporting","Community Impact","Sourcing & Compliance"],
-  Accountability:["Ownership Clarity","Escalation Path","Retros Outcome"],
-  "Customer Orientation":["Feedback Loop","Service Quality","NPS Drivers"],
-  Respect:["Inclusion","Workplace Civility","Policy Adherence"],
-  Integrity:["Transparency","Data Privacy","Audit Readiness"],
-  Learning:["L&D Hours","Mentorship","Postmortem Quality"],
-  Innovation:["R&D Funding","Pilot Programs","Experimentation Rate"],
-  "Well-being":["Workload Balance","Recognition","Flexibility"],
-};
 
-const Pill = ({ dot, text, number, onClick }) => (
+function hashToHsl(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+  const hue = h % 360;
+  const sat = 58; 
+  const light = 52; 
+  return `hsl(${hue} ${sat}% ${light}%)`;
+}
+
+const Pill = ({ dot, text, number, onClick, titleText }) => (
   <button
     onClick={onClick}
-    className="w-full flex items-center justify-between px-4 py-2 rounded-full bg-white border border-[#e8e2d8] hover:bg-black/[0.05] cursor-pointer transition"
+    title={titleText || text} 
+    className={clsx(
+      "w-full px-4 py-2 rounded-full bg-white border border-[#e8e2d8]",
+      "hover:bg-black/5 cursor-pointer transition",
+      "flex items-center justify-between"
+    )}
   >
-    <div className="flex items-center gap-2">
-      <span className="h-2.5 w-2.5 rounded-full" style={{ background: dot }} />
-      <span className="text-[15px] text-neutral-800">{text}</span>
+    <div className="flex items-center gap-2 min-w-0 flex-1">
+      <span className="h-2.5 w-2.5 rounded-full shrink-0" style={{ background: dot || "#bbb" }} />
+
+      <span className="text-[15px] text-neutral-800 overflow-hidden text-ellipsis whitespace-nowrap">
+        {text}
+      </span>
     </div>
     {number !== undefined && (
-      <span className="text-[15px] font-medium text-neutral-700">{number}</span>
+      <span className="text-[15px] font-medium text-neutral-700 pl-2 shrink-0">{number}</span>
     )}
   </button>
 );
 
 export default function DimensionFilterPanel({
   className = "",
-  counts = DEFAULT_COUNTS,
-  onSelect,                // (dimension, subtheme) => void
+  onSelect, // (dimension, subtheme, file) => void
 }) {
   const [step, setStep] = useState(0); 
-  const [dimension, setDimension] = useState("");
+  const [dims, setDims] = useState([]);
+  const [cntMap, setCntMap] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  const subthemes = useMemo(() => (step === 1 ? SUBTHEMES[dimension] || [] : []), [step, dimension]);
+  const [dimension, setDimension] = useState("");
+  const [subs, setSubs] = useState([]);
+
+
+  useEffect(() => {
+    let alive = true;
+    setLoading(true);
+    getCAIndex()
+      .then((idx) => {
+        if (!alive) return;
+        setDims(idx?.dimensions || []);
+        setCntMap(idx?.subtheme_count_by_dim || {});
+      })
+      .finally(() => alive && setLoading(false));
+    return () => { alive = false; };
+  }, []);
+
+
+  useEffect(() => {
+    if (step !== 1 || !dimension) return;
+    let alive = true;
+    setLoading(true);
+    getCASubthemes(dimension)
+      .then((res) => {
+        if (!alive) return;
+        const list = (res?.subthemes || []).map(x => ({
+          name: x.name,
+          file: x.file || "",
+        }));
+        setSubs(list);
+      })
+      .finally(() => alive && setLoading(false));
+    return () => { alive = false; };
+  }, [step, dimension]);
+
+  const subthemes = useMemo(() => (step === 1 ? subs : []), [step, subs]);
 
   return (
     <div
@@ -82,37 +102,59 @@ export default function DimensionFilterPanel({
         {step === 1 && (
           <button
             className="text-sm underline text-neutral-600 hover:text-neutral-900"
-            onClick={() => { setStep(0); setDimension(""); }}
+            onClick={() => {
+              setStep(0);
+              setDimension("");
+              setSubs([]);
+              onSelect?.("", "", ""); 
+            }}
           >
             Back
           </button>
         )}
       </div>
 
-      <p className="text-neutral-600 text-sm mb-4">
-        {step === 0 ? "Choose a cultural dimension to drill into its subthemes."
-                    : `Select a subtheme under “${dimension}”.`}
+      <p className="text-neutral-600 text-sm mb-3">
+        {step === 0
+          ? "Choose a cultural dimension to drill into its subthemes."
+          : `Select a subtheme under “${dimension}”.`}
       </p>
 
-      <div className="grid grid-cols-1 gap-2">
-        {(step === 0 ? DIM_ORDER : subthemes).map((item) => (
-          <Pill
-            key={item}
-            dot={DOT[item] || "#bbb"}
-            text={item}
-            number={step === 0 ? counts[item] : undefined}
-            onClick={() => {
-              if (step === 0) { setDimension(item); setStep(1); }
-              else onSelect?.(dimension, item);
-            }}
-          />
-        ))}
+
+      <div className="grid grid-cols-1 gap-2 overflow-y-auto pr-1" style={{ maxHeight: "calc(100% - 84px)" }}>
+        {(step === 0 ? dims : subthemes).map((item) => {
+          const text = step === 0 ? item : item.name;
+          const num  = step === 0 ? cntMap[item] : undefined;
+
+          const dot  = step === 0 ? (DOT[text] || "#bbb") : hashToHsl(text);
+
+          return (
+            <Pill
+              key={text}
+              dot={dot}
+              text={text}
+              number={num}
+              titleText={text} 
+              onClick={() => {
+                if (step === 0) {
+
+                  setDimension(text);
+                  setStep(1);
+                  onSelect?.(text, "", "");
+                } else {
+
+                  onSelect?.(dimension, item.name, item.file || "");
+                }
+              }}
+            />
+          );
+        })}
       </div>
 
-      {step === 0 && (
-        <div className="pt-3 text-xs text-neutral-500">
-          {DIM_ORDER.length} dimensions available
-        </div>
+      {loading && <div className="pt-3 text-xs text-neutral-500">Loading…</div>}
+
+      {step === 0 && !loading && (
+        <div className="pt-3 text-xs text-neutral-500">{dims.length} dimensions available</div>
       )}
     </div>
   );

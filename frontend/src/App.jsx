@@ -6,7 +6,7 @@ import Dashboard from "../routes/Dashboard.jsx";
 import CultureAnalysis from "../routes/CultureAnalysis.jsx";
 import { withTransition, SoftSlide /*, CardFlip*/ } from "../src/components/PageTransition.jsx";
 
-// 选择一个过渡方案：SoftSlide 或 CardFlip
+
 const TDashboard = withTransition(Dashboard, SoftSlide);
 // const TDashboard = withTransition(Dashboard, CardFlip);
 const TCulture = withTransition(CultureAnalysis, SoftSlide);
@@ -16,7 +16,7 @@ function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      {/* 关键：把 location & key 传入，确保离场动画生效 */}
+
       <Routes location={location} key={location.pathname}>
         {/* Dashboard */}
         <Route path="/" element={<Navigate to="/Dashboard" replace />} />
