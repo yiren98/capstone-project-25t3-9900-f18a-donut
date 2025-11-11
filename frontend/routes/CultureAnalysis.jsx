@@ -46,7 +46,7 @@ export default function CultureAnalysis() {
 
         <section className="row-start-3 sm:col-start-2 lg:row-span-2">
           <SuggestionSummary
-            className="h-[810px]"
+            className="h-[720px]"
             dimension={dimension}
             subthemeFile={subthemeFile}
             onBack={(level) => {
@@ -66,7 +66,7 @@ export default function CultureAnalysis() {
 
         <aside className="row-start-3 sm:col-start-2 lg:col-start-3 lg:row-span-2">
           <DimensionFilterPanel
-            className="h-[810px]"
+            className="h-[720px]"
             onSelect={(dim, sub, file) => {
               setDimension(dim || "");
               setSubtheme(sub || "");

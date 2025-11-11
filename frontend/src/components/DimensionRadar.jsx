@@ -1,4 +1,3 @@
-// src/components/DimensionRadar.jsx
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { getDimensionCounts, getSubthemeCounts } from "../api";
 
@@ -154,7 +153,7 @@ export default function DimensionRadar({
           {title}{level===1 ? ` · ${focusDim}` : ""}
         </h3>
         <div className="text-[12px] text-neutral-500">
-          {year ? `year: ${year}` : "all years"}{month ? `, month: ${month}` : ""}
+          {year ? `Year: ${year}` : "all years"}{month ? `, month: ${month}` : ""}
         </div>
       </div>
 

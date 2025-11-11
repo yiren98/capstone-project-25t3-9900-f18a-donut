@@ -1,4 +1,3 @@
-// src/transition/PageTransition.jsx
 import { motion } from "framer-motion";
 
 export const SoftSlide = ({ children }) => (
