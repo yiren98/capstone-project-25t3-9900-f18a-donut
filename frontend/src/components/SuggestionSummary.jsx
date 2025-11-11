@@ -1,4 +1,4 @@
-
+// src/components/SuggestionSummary.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import {
@@ -7,7 +7,9 @@ import {
   getCASubthemeByFile,
 } from "../api";
 
-
+// ---------------------------------------------------------
+// Detect type of payload
+// ---------------------------------------------------------
 function detectKind(p) {
   if (!p || typeof p !== "object") return "unknown";
   if (p.subtheme) return "subtheme";
@@ -20,13 +22,15 @@ function detectKind(p) {
   return "unknown";
 }
 
-
+// ---------------------------------------------------------
+// Normalize payload
+// ---------------------------------------------------------
 function normalizePayload(payload) {
   if (!payload || typeof payload !== "object") return { title: "", sections: [] };
 
   const kind = detectKind(payload);
 
-  // ============== overall ==============
+  // overall
   if (kind === "overall") {
     const sec = payload.section || {};
     const eb = sec.executive_briefing || sec.executiveBriefing || sec.overview || {};
@@ -74,7 +78,7 @@ function normalizePayload(payload) {
     };
   }
 
-  // ============== dimension ==============
+  // dimension
   if (kind === "dimension") {
     const OVER = payload.overview || payload.summary || "";
     const KP = payload.key_patterns || payload.keyPatterns || [];
@@ -118,7 +122,11 @@ function normalizePayload(payload) {
         title: "Top Subthemes",
         type: "list",
         content: TOPS.map((x) =>
-          typeof x === "string" ? x : x.subtheme ? `${x.subtheme} — ${x.count ?? 0}` : JSON.stringify(x)
+          typeof x === "string"
+            ? x
+            : x.subtheme
+            ? `${x.subtheme} — ${x.count ?? 0}`
+            : JSON.stringify(x)
         ),
       });
     }
@@ -142,7 +150,7 @@ function normalizePayload(payload) {
     return { title: payload.dimension || payload.title || "Dimension", sections };
   }
 
-  // ============== subtheme ==============
+  // subtheme
   if (kind === "subtheme") {
     const OVER = payload.overview || payload.summary || "";
     const KP = payload.key_patterns || payload.keyPatterns || [];
@@ -213,7 +221,7 @@ function normalizePayload(payload) {
     };
   }
 
-
+  // fallback
   const OVER = payload.overview || payload.summary || "";
   const KP = payload.key_patterns || payload.keyPatterns || [];
   const RECS = payload.recommendations || [];
@@ -226,18 +234,24 @@ function normalizePayload(payload) {
     });
   }
   if (Array.isArray(RECS) && RECS.length) {
-    sections.push({ title: "Actionable Recommendations", type: "actions", content: RECS });
+    sections.push({
+      title: "Actionable Recommendations",
+      type: "actions",
+      content: RECS,
+    });
   }
   return { title: payload.title || "Insights", sections };
 }
 
-
+// ---------------------------------------------------------
+// Section rendering
+// ---------------------------------------------------------
 function SectionView({ sec }) {
   if (sec.type === "bullets") {
     return (
       <ul className="space-y-2 text-sm text-neutral-800">
         {sec.content.map((t, i) => (
-          <li key={i} className="pl-4 relative">
+          <li key={i} className="pl-4 relative ys-fade-item" style={{ animationDelay: `${i * 30}ms` }}>
             <span className="absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full bg-neutral-400" />
             {t}
           </li>
@@ -249,11 +263,11 @@ function SectionView({ sec }) {
     const { overview, key_patterns = [] } = sec.content || {};
     return (
       <div className="space-y-3 text-sm text-neutral-800">
-        {overview ? <p>{overview}</p> : null}
+        {overview ? <p className="ys-fade-item">{overview}</p> : null}
         {key_patterns.length ? (
           <ul className="space-y-1">
             {key_patterns.map((t, i) => (
-              <li key={i} className="pl-4 relative">
+              <li key={i} className="pl-4 relative ys-fade-item" style={{ animationDelay: `${i * 30}ms` }}>
                 <span className="absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full bg-neutral-400" />
                 {t}
               </li>
@@ -274,7 +288,11 @@ function SectionView({ sec }) {
     return (
       <div className="flex flex-wrap gap-2 text-xs">
         {chips.map((x, i) => (
-          <span key={i} className="px-2 py-1 rounded-full bg-white border border-[#eee7db]">
+          <span
+            key={i}
+            className="px-2 py-1 rounded-full bg-white border border-[#eee7db] ys-fade-item"
+            style={{ animationDelay: `${i * 40}ms` }}
+          >
             {x}
           </span>
         ))}
@@ -286,24 +304,40 @@ function SectionView({ sec }) {
     const opps = sec.content?.opportunities || [];
     return (
       <div className="grid md:grid-cols-2 gap-3">
-        <div className="rounded-xl border border-[#eee7db] bg-white/60 p-3">
+        <div className="rounded-xl border border-[#eee7db] bg-white/60 p-3 ys-fade-item">
           <div className="text-sm font-medium mb-2">Risks</div>
           <ul className="space-y-2 text-sm text-neutral-800">
             {risks.map((x, i) => (
-              <li key={i} className="pl-4 relative">
+              <li key={i} className="pl-4 relative ys-fade-item" style={{ animationDelay: `${i * 30}ms` }}>
                 <span className="absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full bg-neutral-400" />
-                {typeof x === "string" ? x : x.name ? (<><b>{x.name}:</b> {x.description}</>) : JSON.stringify(x)}
+                {typeof x === "string"
+                  ? x
+                  : x.name
+                  ? (
+                    <>
+                      <b>{x.name}:</b> {x.description}
+                    </>
+                  )
+                  : JSON.stringify(x)}
               </li>
             ))}
           </ul>
         </div>
-        <div className="rounded-xl border border-[#eee7db] bg-white/60 p-3">
+        <div className="rounded-xl border border-[#eee7db] bg-white/60 p-3 ys-fade-item" style={{ animationDelay: "60ms" }}>
           <div className="text-sm font-medium mb-2">Opportunities</div>
           <ul className="space-y-2 text-sm text-neutral-800">
             {opps.map((x, i) => (
-              <li key={i} className="pl-4 relative">
+              <li key={i} className="pl-4 relative ys-fade-item" style={{ animationDelay: `${i * 30}ms` }}>
                 <span className="absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full bg-neutral-400" />
-                {typeof x === "string" ? x : x.name ? (<><b>{x.name}:</b> {x.description}</>) : JSON.stringify(x)}
+                {typeof x === "string"
+                  ? x
+                  : x.name
+                  ? (
+                    <>
+                      <b>{x.name}:</b> {x.description}
+                    </>
+                  )
+                  : JSON.stringify(x)}
               </li>
             ))}
           </ul>
@@ -317,7 +351,11 @@ function SectionView({ sec }) {
         {sec.content.map((a, i) => {
           const text = typeof a === "string" ? a : a.recommendation || a.text || JSON.stringify(a);
           return (
-            <div key={i} className="p-3 rounded-xl bg-white shadow-sm border border-[#eee7db]">
+            <div
+              key={i}
+              className="p-3 rounded-xl bg-white shadow-sm border border-[#eee7db] ys-fade-item"
+              style={{ animationDelay: `${i * 40}ms` }}
+            >
               <div className="text-[15px] font-medium mb-1">{text}</div>
               {typeof a === "object" ? (
                 <div className="text-xs text-neutral-500">
@@ -336,7 +374,7 @@ function SectionView({ sec }) {
     return (
       <ul className="space-y-2 text-sm text-neutral-800">
         {arr.map((t, i) => (
-          <li key={i} className="pl-4 relative">
+          <li key={i} className="pl-4 relative ys-fade-item" style={{ animationDelay: `${i * 30}ms` }}>
             <span className="absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full bg-neutral-400" />
             {typeof t === "string" ? t : JSON.stringify(t)}
           </li>
@@ -347,18 +385,21 @@ function SectionView({ sec }) {
   return null;
 }
 
-
+// ---------------------------------------------------------
+// Main Component
+// ---------------------------------------------------------
 export default function SuggestionSummary({
   className = "",
   dimension = "",
   subthemeFile = "",
-  onBack, // ("dimension" | "overall")
+  onBack, 
 }) {
   const [loading, setLoading] = useState(false);
   const [payload, setPayload] = useState(null);
 
-  const model = useMemo(() => normalizePayload(payload), [payload]);
+  const [viewKey, setViewKey] = useState(0);
 
+  const model = useMemo(() => normalizePayload(payload), [payload]);
 
   useEffect(() => {
     let alive = true;
@@ -377,43 +418,74 @@ export default function SuggestionSummary({
         if (alive) setLoading(false);
       }
     })();
-    return () => { alive = false; };
+    setViewKey(k => k + 1);
+    return () => {
+      alive = false;
+    };
   }, [dimension, subthemeFile]);
 
   const isOverall = !dimension && !subthemeFile;
-  const canBack = !isOverall;
 
   return (
-    <div className={clsx("rounded-2xl border border-[#d6d0c5] shadow-sm px-6 py-5 flex flex-col", className)}>
+    <div
+      className={clsx(
+        "rounded-2xl border border-[#d6d0c5] shadow-sm px-6 py-5 flex flex-col",
+        className
+      )}
+      style={{ backgroundColor: "#eae4d0ff" }}
+    >
+      <style>{`
+        .edge-scroll {
+          overflow-y: scroll;
+          scrollbar-width: none; /* firefox hide */
+        }
+        .edge-scroll::-webkit-scrollbar { width: 0; } /* chrome hide */
+
+        .ys-fade {
+          animation: ysFade 260ms cubic-bezier(0.22,1,0.36,1);
+          will-change: opacity, transform;
+        }
+        .ys-fade-item {
+          animation: ysFadeItem 220ms cubic-bezier(0.22,1,0.36,1) both;
+          will-change: opacity, transform;
+        }
+        @keyframes ysFade {
+          from { opacity: 0; transform: translateY(8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes ysFadeItem {
+          from { opacity: 0; transform: translateY(6px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .ys-fade, .ys-fade-item { animation: none !important; }
+        }
+      `}</style>
 
       <div className="flex items-center justify-between mb-1">
         <div className="min-w-0">
-          <h2 className="text-lg font-semibold truncate">{model.title || "Insights"}</h2>
+          <h2 key={`title-${viewKey}`} className="text-lg font-semibold truncate ys-fade">
+            {model.title || "Insights"}
+          </h2>
+
           {Array.isArray(model.metaBadges) && model.metaBadges.length > 0 && (
-            <div className="mt-1 flex flex-wrap gap-1.5">
+            <div key={`badges-${viewKey}`} className="mt-1 flex flex-wrap gap-1.5 ys-fade">
               {model.metaBadges.map((t, i) => (
-                <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-white border border-[#eee7db]">
+                <span
+                  key={i}
+                  className="text-xs px-2 py-0.5 rounded-full bg-white border border-[#eee7db] ys-fade-item"
+                  style={{ animationDelay: `${i * 40}ms` }}
+                >
                   {t}
                 </span>
               ))}
             </div>
           )}
         </div>
-        {canBack && (
-          <button
-            className="text-sm underline text-neutral-600 hover:text-neutral-900 shrink-0"
-            onClick={() => {
-              if (subthemeFile) onBack?.("dimension");
-              else onBack?.("overall");
-            }}
-          >
-            Back
-          </button>
-        )}
+
       </div>
 
-
-      <p className="text-neutral-600 text-sm mb-4">
+      <p key={`lead-${viewKey}`} className="text-neutral-600 text-sm mb-4 ys-fade">
         {isOverall
           ? "High-level culture insights generated by the system."
           : subthemeFile
@@ -421,21 +493,25 @@ export default function SuggestionSummary({
           : `Insights for “${dimension}”.`}
       </p>
 
-
-      <div className="flex-1 overflow-y-auto pr-1">
+      <div
+        key={`content-${viewKey}`}
+        className="flex-1 pr-6 mr-[-24px] edge-scroll ys-fade"
+        onMouseEnter={(e) => e.currentTarget.classList.add("show-scroll")}
+        onMouseLeave={(e) => e.currentTarget.classList.remove("show-scroll")}
+      >
         {loading ? (
-          <div className="text-sm text-neutral-500">Loading…</div>
+          <div className="text-sm text-neutral-500 ys-fade-item">Loading…</div>
         ) : model.sections && model.sections.length ? (
           <div className="space-y-6">
             {model.sections.map((sec, idx) => (
-              <div key={idx}>
+              <div key={idx} className="ys-fade-item" style={{ animationDelay: `${idx * 40}ms` }}>
                 <div className="text-[15px] font-semibold mb-2">{sec.title}</div>
                 <SectionView sec={sec} />
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-sm text-neutral-500">No content.</div>
+          <div className="text-sm text-neutral-500 ys-fade-item">No content.</div>
         )}
       </div>
     </div>

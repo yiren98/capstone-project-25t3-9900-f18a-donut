@@ -11,8 +11,7 @@ import IncomeStatistics from "../src/components/Statistics";
 import { getSBI } from "../src/api";
 
 export default function Dashboard() {
-  const now = new Date();
-  const [year, setYear] = useState(now.getFullYear());
+  const [year, setYear] = useState("all");         
   const [month, setMonth] = useState(null);
   const [monthsWithData, setMonthsWithData] = useState([]);
   const [sbi, setSbi] = useState(0);
