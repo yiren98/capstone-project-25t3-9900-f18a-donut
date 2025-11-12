@@ -70,7 +70,9 @@ export default function IncomeStatistics({
       }
     })();
 
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [year]);
 
   const isAll = String(year).toLowerCase() === "all";

@@ -1,0 +1,34 @@
+{
+  "subtheme": "Accommodation & Well-being at Work",
+  "parent_dimensions": [
+    "Respect",
+    "Ethical Responsibility"
+  ],
+  "overview": "This subtheme captures how the company's actions and policies impact the physical and psychological well-being of employees and stakeholders. It includes the handling of accommodations for work-life balance, responses to workplace incidents, and the ethical implications of corporate decisions. It matters because it directly affects employee trust, public trust, and the company's social license to operate.",
+  "key_patterns": [
+    "Employees and stakeholders publicly sharing and seeking validation for their personal experiences with company processes (e.g., hiring, onboarding)",
+    "External stakeholders or former employees calling attention to serious breaches of trust and safety (e.g., harassment allegations)",
+    "Cultural or linguistic barriers leading to misunderstandings or miscommunications in international contexts",
+    "External observers questioning the integrity of corporate processes and perceived coersion (e.g., generating support for a project)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 2,
+    "average_confidence": 0.797
+  },
+  "typical_contexts": [
+    "Comments arise in public forums, social media, and news media when individuals experience significant positive or negative events tied to the company's operations",
+    "Narratives often emerge from critical incidents: a positive experience like a smooth hiring process triggers positive sharing, while a negative incident like a harassment allegation triggers warnings and criticism",
+    "The discourse often ties to deeper organizational issues: the 'Respect' dimension is challenged by perceptions of poor treatment (e.g., harassment, poor communication), while the 'Ethical Responsibility' dimension is challenged when the company's actions appear to conflict with its stated values (e.g., coersion in generating support)"
+  ],
+  "risks_and_blindspots": [
+    "Insufficient communication and support in core people processes (e.g., onboarding) can create negative experiences even for those who are successful, eroding trust",
+    "Failure to adequately address and prevent serious issues like sexual harassment leads to public exposure, reputational damage, and loss of trust",
+    "Cross-cultural operations without proper sensitivity and local integration (e.g., language barriers) can lead to misunderstandings and negative perceptions"
+  ],
+  "recommendations": [
+    "Establish robust, transparent, and responsive communication channels for all key people processes (e.g., hiring, onboarding) to build trust and manage expectations",
+    "Implement and enforce a zero-tolerance policy for harassment and other ethical breaches, with clear reporting and accountability structures that are visible to all stakeholders",
+    "Invest in cross-cultural competence and local community engagement to ensure operations are conducted with respect and avoid perceptions of exploitation"
+  ]
+}

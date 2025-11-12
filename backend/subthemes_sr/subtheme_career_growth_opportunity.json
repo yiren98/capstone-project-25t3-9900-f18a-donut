@@ -1,0 +1,33 @@
+{
+  "subtheme": "Career Growth & Opportunity",
+  "parent_dimensions": [
+    "Learning"
+  ],
+  "overview": "This subtheme captures employee discourse around internal mobility and skill development opportunities. It represents how employees perceive and discuss their chances for professional advancement within the company. This is a critical component of a healthy corporate culture as it directly impacts retention, engagement, and employer branding.",
+  "key_patterns": [
+    "Probing interview processes and preparation for internal roles",
+    "Seeking advice and shared experiences on internal opportunities",
+    "Information-seeking about specific roles or career paths",
+    "Focus on preparation for career advancement steps"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 0,
+    "average_confidence": 0.8
+  },
+  "typical_contexts": [
+    "Appears in contexts where employees are actively seeking information to advance their careers within the company, often in semi-formal or peer-supported channels.",
+    "Emerges when employees feel the need to gather intelligence on internal processes (like interviews) that are not fully transparent.",
+    "Often tied to a desire for personal development and a positive view of the company's internal opportunities."
+  ],
+  "risks_and_blindspots": [
+    "Potential for inequitable access to information: Employees who are not proactively seeking information or lack strong networks may miss out on opportunities, leading to inequitable career growth.",
+    "Perception of opacity: If internal processes like interviews are not transparent, it can breed anxiety and mistrust, even if the opportunities themselves are available.",
+    "Resource drain vs. development: While the desire to advance is positive, if over-emphasized it might indicate a lack of developmental support in current roles, pushing employees to seek growth elsewhere."
+  ],
+  "recommendations": [
+    "Establish transparent and equitable internal recruitment processes: Clearly communicate the steps, criteria, and expectations for internal moves to all employees.",
+    "Proactively develop talent: Use data analytics to identify high-potential employees and provide them with clear development paths and opportunities within the company, reducing the need for them to seek information reactively.",
+    "Foster a culture of internal mobility: Actively promote and celebrate internal moves to reinforce that growth within the company is possible and encouraged."
+  ]
+}

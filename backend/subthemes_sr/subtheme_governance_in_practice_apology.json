@@ -1,0 +1,34 @@
+{
+  "subtheme": "Governance in Practice & Apology",
+  "parent_dimensions": [
+    "Accountability",
+    "Collaboration"
+  ],
+  "overview": "This subtheme captures how the company handles accountability for its actions, particularly through its communication and response to criticism or crises. It includes instances where the company addresses its mistakes, makes apologies, or attempts to explain its governance decisions. This matters because it directly impacts stakeholder trust and the company's reputation for integrity and responsibility.",
+  "key_patterns": [
+    "Mistakes or controversies are acknowledged, but often in a way that is perceived as insufficient or defensive",
+    "Apologies or responses are tied to specific incidents, tying governance to operational or ethical failures",
+    "Stakeholders question the authenticity or substance behind governance actions and statements",
+    "Communication about governance and apologies is fragmented, with mixed signals from leadership and official channels"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 5,
+    "average_confidence": 0.847
+  },
+  "typical_contexts": [
+    "This subtheme emerges in public discourse when the company faces scrutiny over its actions, such as operational failures, ethical breaches, or regulatory compliance issues. It often appears in news articles, social media discussions, and internal communications where stakeholders are evaluating the company's responsibility and response mechanisms.",
+    "It is triggered by incidents where the company's governance or ethical standards are questioned, leading to public calls for accountability. This includes situations where the company's actions have direct negative impacts on communities, environments, or other stakeholders, and it needs to respond or explain.",
+    "The subtheme interacts closely with other cultural dimensions like transparency, stakeholder engagement, and ethical consistency. It often reveals the gap between stated values and actual practices, especially in how the company communicates and acts on its commitments."
+  ],
+  "risks_and_blindspots": [
+    "The company risks significant reputational damage when its responses to issues are perceived as insincere, defensive, or insufficient. This can deepen stakeholder distrust and lead to prolonged public criticism.",
+    "There is a blind spot in ensuring that governance and apology mechanisms are consistently applied across all operations, not just in high-profile cases. This inconsistency can undermine the credibility of the entire governance framework.",
+    "The company may overlook the importance of proactive, transparent communication about its governance and mistakes, leading to a reactive pattern that fails to prevent issues or build trust preemptively."
+  ],
+  "recommendations": [
+    "Establish a transparent and proactive communication strategy for governance issues, ensuring that explanations and apologies are timely, sincere, and backed by concrete actions. This includes clear timelines for addressing issues and regular updates to stakeholders.",
+    "Integrate governance and accountability mechanisms into core business processes, not just as a response tool. This includes regular ethical audits, stakeholder feedback loops, and training programs that emphasize ethical decision-making at all levels.",
+    "Strengthen the link between governance actions and corporate values by ensuring that leadership communications and public statements are consistently aligned with actual practices. This includes public reporting on progress made after incidents and measuring the impact of apology or corrective actions."
+  ]
+}

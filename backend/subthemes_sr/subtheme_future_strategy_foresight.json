@@ -1,0 +1,36 @@
+{
+  "subtheme": "Future Strategy & Foresight",
+  "parent_dimensions": [
+    "Agility",
+    "Customer Orientation",
+    "Execution",
+    "Learning"
+  ],
+  "overview": "This subtheme focuses on how organizations plan for and anticipate future scenarios, particularly through strategic expansions, partnerships, and market entry decisions. It matters because it reflects a company's ability to adapt, innovate, and position itself for long-term growth versus short-term pressures.",
+  "key_patterns": [
+    "Discussions center on rationale for geographic and market expansion (e.g., entering the US market)",
+    "Comparisons and partnerships with major industry players (e.g., Rio Tinto, Osisko) are highlighted as strategic enablers",
+    "Mentions of operational factors like 'year-round work access' and 'low dilution' signal a focus on sustainable execution",
+    "Critiques or concerns focus on perceived missteps in international strategy (e.g., 'lopettaa malminetsinn?t')"
+  ],
+  "sentiment_snapshot": {
+    "positive": 9,
+    "negative": 5,
+    "average_confidence": 0.82
+  },
+  "typical_contexts": [
+    "Appears in discussions of market entry, M&A activity, and international expansion strategies where companies justify their long-term vision",
+    "Often surfaces in industry-specific forums (e.g., mining, energy) where strategic moves are dissected by investors and experts",
+    "Frequently tied to announcements of new projects, partnerships, or market entries that signal a future direction"
+  ],
+  "risks_and_blindspots": [
+    "Overemphasis on geographic expansion without deep local market analysis can lead to failed entries (as hinted in negative examples)",
+    "Strategic moves can be misperceived by stakeholders if not communicated transparently, leading to negative sentiment",
+    "High-confidence negative comments often cite concrete failures (e.g., 'restreints par la Chine') indicating gaps in risk assessment"
+  ],
+  "recommendations": [
+    "Develop robust scenario-planning and risk-assessment frameworks for all major strategic moves, especially international expansions",
+    "Increase transparency and communication around strategic decisions to align stakeholder perceptions and avoid negative speculation",
+    "Balance agility with due diligence by learning from past industry examples (e.g., Rio Tinto's own challenges) to avoid repeating mistakes"
+  ]
+}

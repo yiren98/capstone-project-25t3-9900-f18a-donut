@@ -1,0 +1,33 @@
+{
+  "subtheme": "Infrastructure & Event Delivery",
+  "parent_dimensions": [
+    "Execution"
+  ],
+  "overview": "This subtheme focuses on the physical and organizational infrastructure supporting events and projects, particularly regarding their execution and delivery. It matters because it directly impacts operational efficiency, community relations, and the perceived competence of the company in delivering on its promises.",
+  "key_patterns": [
+    "Community and environmental concerns regarding project locations and their impact",
+    "Mentions of specific, often controversial, projects (e.g., Rio Tinto's Jadar project) and their perceived failures or successes",
+    "Scrutiny over the transparency and inclusivity of event organization and stakeholder engagement",
+    "Expressions of distrust or appreciation towards corporate entities and their execution methods"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 2,
+    "average_confidence": 0.9
+  },
+  "typical_contexts": [
+    "This subtheme appears in discussions where there is a perceived gap between corporate promises (e.g., on community engagement, environmental standards) and the actual execution, often in specific geographic or project contexts.",
+    "It is triggered by announcements of new projects, public events, or during crises where the company's operational decisions are under public scrutiny, especially concerning local communities and environmental activists.",
+    "It interacts closely with dimensions of Transparency, Accountability, and Corporate Social Responsibility (CSR), as criticism often focuses on a lack of these elements in execution."
+  ],
+  "risks_and_blindspots": [
+    "Reputational Damage from Perceived Hypocrisy: Negative discourse primarily focuses on the company failing to meet its own stated standards (e.g., environmental protection, community engagement), leading to a loss of trust.",
+    "Ineffective Stakeholder Engagement: The company may be systematically failing to identify and adequately engage with key local stakeholders (e.g., activist groups, local communities) during project planning and execution, leading to public conflict.",
+    "Over-reliance on Procedure over Principle: The focus is on executing plans ('Execution' dimension) correctly by the book, but without sufficient regard for the ethical or social outcomes, creating a blind spot where process is mistaken for progress."
+  ],
+  "recommendations": [
+    "Implement a 'Stakeholder Impact Assessment' as a mandatory step before project execution, ensuring all voices, especially from affected communities, are heard and considered.",
+    "Establish a transparent, public-facing portal for all major projects, detailing not just the project details but also the engagement process, impact assessments, and channels for ongoing feedback.",
+    "Re-evaluate the scope of 'Execution' to include 'Ethical Execution' KPIs, not just logistical ones, and tie executive compensation to these metrics to ensure accountability."
+  ]
+}

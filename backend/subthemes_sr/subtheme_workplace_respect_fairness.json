@@ -1,0 +1,33 @@
+{
+  "subtheme": "Workplace Respect & Fairness",
+  "parent_dimensions": [
+    "Respect"
+  ],
+  "overview": "This subtheme captures how employees and stakeholders perceive the company's commitment to ensuring a safe, equitable, and respectful work environment. It is a critical component of corporate culture as it directly impacts employee well-being, trust in leadership, and overall organizational integrity. The presence of negative incidents, especially those involving harassment and bullying, indicates systemic challenges in upholding these values.",
+  "key_patterns": [
+    "Reports of specific, severe misconduct incidents (e.g., sexual harassment, bullying)",
+    "Use of third-party evidence and reports (e.g., news articles, legal actions) to highlight issues",
+    "Mentions of statistical trends (e.g., increasing rates of incidents over time)",
+    "Contrast between negative incidents and positive affirmations (e.g., 'fully respects')"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 2,
+    "average_confidence": 0.883
+  },
+  "typical_contexts": [
+    "Emerges in public discourse following formal reports, legal actions, or investigative journalism exposing misconduct",
+    "Often appears in contexts comparing stated company values (e.g., respect) with actual incidents, highlighting a hypocrisy gap",
+    "Connected to discussions on corporate accountability, diversity and inclusion efforts, and trust in leadership"
+  ],
+  "risks_and_blindspots": [
+    "Systemic underreporting and normalization of harassment, as negative incidents outnumber positive affirmations, indicating a cultural problem rather than isolated incidents",
+    "Reputational damage extends beyond individual incidents to perceptions of systemic tolerance for disrespectful behavior, undermining overall trust",
+    "Potential for 'window-dressing' where positive statements (e.g., 'fully respects') are overshadowed by concrete negative actions, indicating a lack of genuine cultural integration"
+  ],
+  "recommendations": [
+    "Establish transparent, independent reporting and investigation channels for all forms of harassment and discrimination, ensuring psychological safety for victims.",
+    "Integrate respect and fairness metrics (e.g., incident rates, sentiment on internal surveys) into executive and management performance reviews to drive accountability.",
+    "Launch mandatory, continuous education programs focused on respect, consent, and bystander intervention, tailored for all levels including leadership."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "subtheme": "Gender Equality & Representation",
+  "parent_dimensions": [
+    "Diversity",
+    "Agility"
+  ],
+  "overview": "This subtheme focuses on the representation and treatment of different genders within the company, particularly women, and the company's efforts or failures in achieving gender equality. It matters because it is a core component of organizational ethics, employee well-being, and overall corporate reputation, directly impacting talent attraction and retention.",
+  "key_patterns": [
+    "Reports of severe gender-based harassment and assault, including sexual violence",
+    "External reporting and legal action as a response to internal failures",
+    "Public commitments to improving gender representation, particularly in leadership",
+    "Initiatives to improve culture and measurement over time"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 1,
+    "average_confidence": 0.95
+  },
+  "typical_contexts": [
+    "The subtheme emerges in response to public scandals or legal actions related to gender discrimination and harassment within the company.",
+    "It is also triggered by corporate announcements of diversity initiatives, such as board appointments or policy changes, intended to address these issues.",
+    "Discussions often link it to broader cultural or industry-wide problems, like the lack of diversity in male-dominated sectors."
+  ],
+  "risks_and_blindspots": [
+    "Severe incidents of harassment and assault indicate a toxic culture that has been allowed to persist, posing significant legal, financial, and reputational risks.",
+    "Public commitments to improvement may be perceived as reactive or insufficient if not backed by tangible, systemic changes in culture and accountability.",
+    "Focus on representation at the top (e.g., board diversity) can mask deeper, systemic issues affecting the majority of the workforce if not addressed holistically."
+  ],
+  "recommendations": [
+    "Implement and enforce a zero-tolerance policy for harassment and discrimination, supported by robust, independent reporting and investigation channels.",
+    "Integrate gender equality metrics into core business performance reviews and executive incentives to ensure accountability.",
+    "Cultivate a culture of safety and respect through continuous education, inclusive leadership development, and transparent communication about progress and challenges."
+  ]
+}

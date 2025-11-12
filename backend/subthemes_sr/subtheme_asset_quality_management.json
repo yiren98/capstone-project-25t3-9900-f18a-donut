@@ -1,0 +1,35 @@
+{
+  "subtheme": "Asset Quality & Management",
+  "parent_dimensions": [
+    "Performance",
+    "Well-being",
+    "Agility"
+  ],
+  "overview": "This subtheme focuses on how the company manages and accounts for the value of its key assets, including physical assets like properties and natural resources. It is a critical component of corporate governance and financial transparency, as mismanagement can lead to substantial financial losses, regulatory scrutiny, and reputational damage.",
+  "key_patterns": [
+    "Failure to accurately value assets leading to overstatements and subsequent write-downs",
+    "Regulatory scrutiny and legal action due to inadequate disclosure of asset impairments",
+    "Significant financial losses directly linked to poor asset management practices",
+    "Negative public and media perception due to asset-related controversies"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 3,
+    "average_confidence": 0.883
+  },
+  "typical_contexts": [
+    "Discussions often arise in the context of financial reporting and disclosure, particularly following poor financial performance or significant write-downs",
+    "Media and public scrutiny increases when asset management practices are linked to environmental, social, or governance (ESG) concerns, such as land rights or community displacement",
+    "The topic is frequently tied to major strategic decisions, like acquisitions or divestments, that later prove unsound"
+  ],
+  "risks_and_blindspots": [
+    "Persistent underestimation of asset-related risks (e.g., commodity price volatility, project complexity) leading to repeated financial losses",
+    "Insufficient internal controls and governance around asset valuation, allowing misstatements to persist and erode trust",
+    "Failure to consider the full scope of non-financial impacts (e.g., community displacement, environmental damage) leading to long-term reputational damage beyond the immediate financial loss"
+  ],
+  "recommendations": [
+    "Implement robust, independent asset valuation and impairment testing frameworks that are resistant to managerial bias and short-term pressures",
+    "Enhance disclosure transparency around asset-related risks and projections, particularly for long-term and complex projects",
+    "Integrate non-financial risk assessments (e.g., community impact, environmental cost) into asset management lifecycles to avoid blindsiding"
+  ]
+}

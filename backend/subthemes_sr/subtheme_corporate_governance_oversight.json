@@ -1,0 +1,36 @@
+{
+  "subtheme": "Corporate Governance & Oversight",
+  "parent_dimensions": [
+    "Accountability",
+    "Ethical Responsibility",
+    "Collaboration",
+    "Customer Orientation"
+  ],
+  "overview": "This subtheme captures how external stakeholders perceive and discuss the company's governance structures, decision-making transparency, and adherence to ethical standards. It matters because consistent negative sentiment indicates a crisis of confidence in the company's leadership and oversight mechanisms, which can directly impact investor trust, partner relations, and social license to operate.",
+  "key_patterns": [
+    "External critics and observers directly challenge the company's official narrative on specific decisions or governance failures",
+    "Scrutiny focuses on specific high-stakes operational decisions (e.g., partnerships, project approvals) that are perceived as misaligned with stated values",
+    "Allegations of insufficient oversight or due diligence in major corporate actions (e.g., M&A, partnerships)",
+    "Perceived hypocrisy between public commitments (e.g., sustainability) and actual operational decisions"
+  ],
+  "sentiment_snapshot": {
+    "positive": 6,
+    "negative": 29,
+    "average_confidence": 0.826
+  },
+  "typical_contexts": [
+    "Criticism emerges in reaction to specific, high-profile company announcements or investigative reports that reveal potential governance failures",
+    "Discourse is often tied to real-world negative outcomes (e.g., environmental incidents, financial losses, community impacts) that are attributed to governance failures",
+    "It interacts with dimensions like 'Accountability' and 'Ethical Responsibility' by questioning who is responsible for outcomes and whether structures exist to hold them accountable"
+  ],
+  "risks_and_blindspots": [
+    "A significant 'say-do' gap develops where external parties perceive company actions as contradicting its stated values, eroding trust",
+    "Governance failures are often only addressed reactively after public criticism or scandals, rather than proactively",
+    "External stakeholders (e.g., NGOs, local communities) have a more accurate read on governance risks than internal leadership does"
+  ],
+  "recommendations": [
+    "Institute transparent, third-party facilitated reviews of major strategic decisions (e.g., partnerships, projects) before and after execution to validate alignment with stated values",
+    "Formalize and publicize the terms of reference and membership of all board-level committees (e.g., risk, sustainability) to demonstrate rigorous oversight",
+    "Create and mandate a 'Governance & Transparency' annual public report that goes beyond financials to cover decision-making processes, stakeholder engagement, and ethical dilemmas faced"
+  ]
+}

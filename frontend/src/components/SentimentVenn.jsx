@@ -21,7 +21,7 @@ export default function SentimentVenn({
   month,
   dimension = "",
   subtheme = "",
-  height = 260, // 统一默认 260
+  height = 260,
 }) {
   const [pos, setPos] = useState(0);
   const [neg, setNeg] = useState(0);
@@ -32,18 +32,26 @@ export default function SentimentVenn({
     setPhase(0);
     (async () => {
       try {
-        const data = await getSentimentStats({ year, month, dimension, subtheme });
+        const data = await getSentimentStats({
+          year,
+          month,
+          dimension,
+          subtheme,
+        });
         if (!alive) return;
         setPos(Number(data.positive || 0));
         setNeg(Number(data.negative || 0));
       } catch {
         if (!alive) return;
-        setPos(0); setNeg(0);
+        setPos(0);
+        setNeg(0);
       } finally {
         requestAnimationFrame(() => setPhase(1));
       }
     })();
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [year, month, dimension, subtheme]);
 
   const sizes = useMemo(() => {
@@ -60,14 +68,6 @@ export default function SentimentVenn({
 
   const GAP_PUSH = 1;
   const SQUEEZE = 1;
-  const empty = pos <= 0 && neg <= 0;
-
-  const buildMsg = () => {
-    const ym = [year, month].filter(Boolean).join("-");
-    if (subtheme) return `No sentiment data for "${subtheme}"${ym ? ` · ${ym}` : ""}.`;
-    if (dimension) return `No sentiment data under "${dimension}"${ym ? ` · ${ym}` : ""}.`;
-    return `No sentiment data${ym ? ` · ${ym}` : ""}.`;
-  };
 
   return (
     <div
@@ -92,43 +92,42 @@ export default function SentimentVenn({
           opacity: phase,
         }}
       >
-        {empty ? (
-          <EmptyState style={{ width: "100%", height: "100%" }}>{buildMsg()}</EmptyState>
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative flex items-center">
-              {pos > 0 && neg > 0 && (
-                <div
-                  aria-hidden
-                  className="absolute left-1/2 -translate-x-1/2"
-                  style={{
-                    width: 28,
-                    height: Math.max(sizes.dPos, sizes.dNeg) * 0.9,
-                    borderRadius: 999,
-                    background:
-                      "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.28) 48%, rgba(255,255,255,0) 100%)",
-                    filter: "blur(6px)",
-                  }}
-                />
-              )}
-              {pos > 0 && (
-                <div
-                  className="relative rounded-full will-change-transform"
-                  style={{
-                    width: sizes.dPos,
-                    height: sizes.dPos,
-                    marginRight: -GAP_PUSH,
-                    background:
-                      "radial-gradient(closest-side, #F6C543 70%, rgba(246,197,67,0.75) 85%, rgba(246,197,67,0.06) 100%)",
-                    filter: "blur(0.25px)",
-                    boxShadow: "0 0 0px rgba(246,197,67,0.32), 0 0 60px rgba(246,197,67,0.18)",
-                    transform: `scaleX(${SQUEEZE})`,
-                  }}
-                >
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-900">
-                    <div className={VALUE_CLS}>{pos}</div>
-                    <div className={SUBLABEL_CLS}>positive</div>
-                  </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative flex items-center">
+            {pos > 0 && neg > 0 && (
+              <div
+                aria-hidden
+                className="absolute left-1/2 -translate-x-1/2"
+                style={{
+                  width: 28,
+                  height: Math.max(sizes.dPos, sizes.dNeg) * 0.9,
+                  borderRadius: 999,
+                  background:
+                    "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.28) 48%, rgba(255,255,255,0) 100%)",
+                  filter: "blur(6px)",
+                }}
+              />
+            )}
+
+            {/* Positive */}
+            {pos > 0 && (
+              <div
+                className="relative rounded-full will-change-transform"
+                style={{
+                  width: sizes.dPos,
+                  height: sizes.dPos,
+                  marginRight: -GAP_PUSH,
+                  background:
+                    "radial-gradient(closest-side, #F6C543 70%, rgba(246,197,67,0.75) 85%, rgba(246,197,67,0.06) 100%)",
+                  filter: "blur(0.25px)",
+                  boxShadow:
+                    "0 0 0px rgba(246,197,67,0.32), 0 0 60px rgba(246,197,67,0.18)",
+                  transform: `scaleX(${SQUEEZE})`,
+                }}
+              >
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-900">
+                  <div className={VALUE_CLS}>{pos}</div>
+                  <div className={SUBLABEL_CLS}>positive</div>
                 </div>
               )}
               {neg > 0 && (
@@ -159,14 +158,20 @@ export default function SentimentVenn({
       <div className="mt-1 flex items-center justify-center gap-7 text-[13px]">
         {!empty && pos > 0 && (
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200">
-            <span className="h-2.5 w-2.5 rounded-full inline-block" style={{ background: "#F6C543" }} />
+            <span
+              className="h-2.5 w-2.5 rounded-full inline-block"
+              style={{ background: "#F6C543" }}
+            />
             <span className="font-semibold tabular-nums">{pos}</span>
             <span className="text-neutral-600">Positive</span>
           </span>
         )}
         {!empty && neg > 0 && (
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200">
-            <span className="h-2.5 w-2.5 rounded-full inline-block" style={{ background: "#ef4444" }} />
+            <span
+              className="h-2.5 w-2.5 rounded-full inline-block"
+              style={{ background: "#ef4444" }}
+            />
             <span className="font-semibold tabular-nums">{neg}</span>
             <span className="text-neutral-600">Negative</span>
           </span>

@@ -1,0 +1,34 @@
+{
+  "subtheme": "Community Engagement & Social Responsibility",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Customer Orientation"
+  ],
+  "overview": "This subtheme represents how external stakeholders and the public perceive the company's efforts to engage with the community and uphold its social responsibilities. It is a critical component of corporate reputation, as negative sentiment here can indicate a failure to meet societal expectations, leading to reputational damage and loss of trust.",
+  "key_patterns": [
+    "External criticism of company's actions (e.g., environmental destruction, historical destruction)",
+    "Community members seeking information or support from the company",
+    "Positive mentions of company's local presence (e.g., job opportunities, local projects)",
+    "Customers expressing needs or dissatisfaction with company services"
+  ],
+  "sentiment_snapshot": {
+    "positive": 11,
+    "negative": 46,
+    "average_confidence": 0.851
+  },
+  "typical_contexts": [
+    "It appears most often in the context of negative news events or controversies that attract public scrutiny, such as the destruction of a culturally significant site.",
+    "It also appears when community members are directly engaging with the company for support, information, or employment opportunities, showing a more positive, day-to-day interaction.",
+    "The discourse is often polarized, with strong negative sentiment linked to corporate actions, while positive sentiment is linked to local, individual-level interactions."
+  ],
+  "risks_and_blindspots": [
+    "The company is perceived as acting unethically or irresponsibly in the community, leading to significant reputational damage.",
+    "A disconnect exists between the company's internal priorities and the expectations of the local community, leading to misunderstandings and conflict.",
+    "Positive community engagement is not effectively communicated or is overshadowed by negative events, missing an opportunity to build trust."
+  ],
+  "recommendations": [
+    "Proactively engage in transparent communication about community projects and environmental stewardship to rebuild trust.",
+    "Establish and publicize clear corporate social responsibility (CSR) initiatives that are visible and beneficial to the local community.",
+    "Create formal channels for community feedback and dialogue to address concerns before they escalate into public scandals."
+  ]
+}
