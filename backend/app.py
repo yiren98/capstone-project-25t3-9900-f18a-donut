@@ -287,6 +287,48 @@ def load_comments_by_tag(tag: str) -> pd.DataFrame:
     })
     return out
 
+def _read_mapping_exploded(primary_csv: Path, fallback_csv: Path | None = None) -> pd.DataFrame:
+    """
+    读取子主题-维度映射表，并把像 'Respect; Customer Orientation; Ethical Responsibility'
+    这样的多维度单元格拆成多行：
+      返回 DataFrame 两列：['subtheme', 'dimension']（均为去空白的原样字符串）
+    优先用 primary_csv（例如 SR_MAP_CSV），不存在则用 fallback_csv（MAP_CSV）。
+    """
+    path = None
+    if isinstance(primary_csv, Path) and primary_csv.exists():
+        path = primary_csv
+    elif fallback_csv and isinstance(fallback_csv, Path) and fallback_csv.exists():
+        path = fallback_csv
+    else:
+        abort(404, description=f"mapping csv not found: {primary_csv} / {fallback_csv}")
+
+    df_raw = _read_csv_safe(path)
+    cols = {c.lower(): c for c in df_raw.columns}
+
+    sub_col = cols.get("subthemes") or cols.get("subtheme") or cols.get("sub_topic") or cols.get("sub") \
+              or cols.get("子主题")
+    dim_col = cols.get("mapped_dimension") or cols.get("dimension") or cols.get("dimensions") or cols.get("dim")
+
+    if not sub_col or not dim_col:
+        abort(500, description="mapping csv missing required columns (subtheme/mapped_dimension)")
+
+    out_rows = []
+    for _, row in df_raw.iterrows():
+        sub = str(row.get(sub_col, "")).strip()
+        if not sub:
+            continue
+        dims_txt = str(row.get(dim_col, "")).strip()
+        if not dims_txt:
+            continue
+        dims = [d.strip() for d in re.split(r"[;|,]", dims_txt) if d and d.strip()]
+        for d in dims:
+            out_rows.append({"subtheme": sub, "dimension": d})
+
+    if not out_rows:
+        return pd.DataFrame(columns=["subtheme", "dimension"])
+    return pd.DataFrame(out_rows)
+
+
 def _read_csv_safe(path: Path) -> pd.DataFrame:
     if not path or not path.exists():
         abort(404, description=f"{path} not found")
@@ -539,20 +581,13 @@ def api_subtheme_counts():
     year  = request.args.get("year", type=int)
     month = request.args.get("month", type=int)
 
-
-    map_df = _read_csv_safe(MAP_CSV if isinstance(MAP_CSV, Path) else Path(MAP_CSV))
-    mcols  = {c.lower(): c for c in map_df.columns}
-    map_sub_col = mcols.get("subtheme") or mcols.get("subthemes") or mcols.get("sub_topic") or mcols.get("sub")
-    map_dim_col = mcols.get("mapped_dimension") or mcols.get("dimension") or mcols.get("dim")
-    if not map_sub_col or not map_dim_col:
-        abort(500, description="mapping csv missing required columns (subtheme/mapped_dimension)")
+    map_df = _read_mapping_exploded(SR_MAP_CSV, MAP_CSV)
+    map_df["subtheme"] = map_df["subtheme"].astype(str).str.strip()
+    map_df["dimension"] = map_df["dimension"].astype(str).str.strip()
 
     allowed_subs = None
     if dim:
-        allowed_subs = set(
-            map_df.loc[map_df[map_dim_col].astype(str) == dim, map_sub_col].astype(str).unique().tolist()
-        )
-
+        allowed_subs = set(map_df.loc[map_df["dimension"] == dim, "subtheme"].unique().tolist())
 
     posts = load_posts().copy()
     if year or month:
@@ -561,14 +596,14 @@ def api_subtheme_counts():
         if year:  posts = posts[posts["_y"] == year]
         if month: posts = posts[posts["_m"] == month]
 
-
     if dim:
         posts = posts[posts["dimensions"].apply(lambda arr: isinstance(arr, list) and dim in arr)]
 
-
     counter = {}
-    def bump(name):
-        if not name: return
+    def bump(name: str):
+        name = (name or "").strip()
+        if not name:
+            return
         if allowed_subs is not None and name not in allowed_subs:
             return
         counter[name] = counter.get(name, 0) + 1

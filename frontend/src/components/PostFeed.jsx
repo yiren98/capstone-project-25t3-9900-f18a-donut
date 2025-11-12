@@ -137,6 +137,16 @@ export default function PostFeed({
   const [cmtTree, setCmtTree] = useState([]);
   const [cmtOpen, setCmtOpen] = useState(true);
 
+  const [isTouch, setIsTouch] = useState(false);
+  useEffect(() => {
+    const val =
+      typeof window !== "undefined" &&
+      ("ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0);
+    setIsTouch(Boolean(val));
+  }, []);
+
   const sanitize = (txt) => {
     const s = String(txt ?? "").trim();
     if (!s || s.toLowerCase() === "nan") return "";
@@ -417,17 +427,22 @@ export default function PostFeed({
           )}
 
           <div className="relative h-full px-1 overflow-hidden">
-            <div
-              ref={scRef}
-              className="h-full no-native-scrollbar"
-              style={{
-                overflowY: hovering && !loadingList ? "auto" : "hidden",
-                position: "relative",
-              }}
-            >
+          <div
+            ref={scRef}
+            className="h-full no-native-scrollbar"
+            style={{
+              // 触屏：始终允许滚动；桌面：hover 时才滚动
+              overflowY: (isTouch || hovering) && !loadingList ? "auto" : "hidden",
+              position: "relative",
+              WebkitOverflowScrolling: "touch", // iOS 惯性
+              touchAction: "pan-y",             // 只允许纵向手势，避免冲突
+            }}
+            onTouchStart={() => setHovering(true)}
+            onTouchEnd={() => setHovering(false)}
+          >
 
               {!loadingList && items.length === 0 && (
-                <div className="flex h-full items-center justify-center text-sm text-neutral-500">
+                <div className="flex h-full items-center justify-center text-sm text-neutral-500 text-[17px]">
                   No results.
                 </div>
               )}
@@ -511,7 +526,7 @@ export default function PostFeed({
               )}
             </div>
 
-            {!loadingList && thumb.height > 0 && (
+            {!loadingList && thumb.height > 0 && !isTouch && (
               <div
                 className="pointer-events-none absolute top-0 right-0 h-full transition-opacity duration-150"
                 style={{ width: SCROLL_WIDTH, opacity: hovering || scrolling ? 1 : 0 }}

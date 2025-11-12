@@ -5,7 +5,7 @@ import clsx from "clsx";
 export default function TopRouteTabs({
   dashboardPath = "/dashboard",
   culturePath = "/culture-analysis",
-  highlightColor = "#e4d9cdff", 
+  highlightColor = "#e4d9cdff",
   className = "",
 }) {
   const location = useLocation();
@@ -22,23 +22,19 @@ export default function TopRouteTabs({
     <div className={clsx("w-full", className)}>
       <div
         className={clsx(
-          "relative w-full p-1 rounded-full bg-white",
-          "shadow-inner",
-          "shadow-[inset_3px_3px_10px_rgba(0,0,0,0.10),inset_-3px_-3px_12px_rgba(255,255,255,0.95)]",
-          "ring-0"
+          "relative w-full p-[4px] rounded-full bg-white overflow-hidden",
+          "shadow-inner shadow-[inset_2px_2px_8px_rgba(0,0,0,0.1),inset_-2px_-2px_10px_rgba(255,255,255,0.95)]"
         )}
       >
         <div
           aria-hidden
           className={clsx(
-            "absolute top-1 bottom-1 left-1 rounded-full",
-            "shadow-[0_6px_18px_rgba(0,0,0,0.12)]",
-            "transition-transform duration-300 ease-out",
-            "motion-reduce:transition-none"
+            "absolute top-[4px] bottom-[4px] rounded-full transition-transform duration-300 ease-out",
+            "shadow-[0_4px_10px_rgba(0,0,0,0.12)]"
           )}
           style={{
-            width: "calc(50% - 4px)",
-            transform: activeIndex ? "translateX(100%)" : "translateX(0)",
+            width: "calc(50% - 6px)",
+            transform: activeIndex ? "translateX(calc(100% + 2px))" : "translateX(0)",
             backgroundColor: highlightColor,
           }}
         />
@@ -55,9 +51,7 @@ export default function TopRouteTabs({
                   "flex items-center justify-center select-none",
                   "text-sm md:text-base font-semibold tracking-wide",
                   "transition-colors duration-200",
-                  active ? "text-[#6D6559]" : "text-[#4b463f] hover:text-black/70",
-
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e6e1d9] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full"
+                  active ? "text-[#6D6559]" : "text-[#4b463f] hover:text-black/70"
                 )}
                 aria-pressed={active}
                 aria-current={active ? "page" : undefined}

@@ -1,5 +1,3 @@
-import React from "react";
-
 const YEAR_MIN = 2013;
 const YEAR_MAX = 2025;
 const YEAR_OPTS = Array.from({ length: YEAR_MAX - YEAR_MIN + 1 }, (_, i) => YEAR_MIN + i).concat("all");
