@@ -1,0 +1,33 @@
+{
+  "subtheme": "Timeline & Scheduling Discipline",
+  "parent_dimensions": [
+    "Execution"
+  ],
+  "overview": "This subtheme captures employee frustration with slow, opaque, or unreliable internal processes related to hiring, onboarding, and other scheduling-dependent activities. It represents a breakdown in the company's ability to execute on its commitments in a timely and predictable manner, which directly impacts trust and operational efficiency.",
+  "key_patterns": [
+    "Delays and holdups in hiring and onboarding processes are the primary pain point",
+    "Lack of communication from HR/recruiters about expected timelines and next steps",
+    "Processes feel slow and unpredictable compared to expectations set",
+    "Concern that delays will impact the individual's current situation (e.g., not quitting a current job)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 2,
+    "average_confidence": 0.775
+  },
+  "typical_contexts": [
+    "This feedback emerges during critical transitions for employees, primarily when joining the company or moving between internal roles.",
+    "It is triggered by a mismatch between the company's promised efficiency and the actual experience of slow, poorly-communicated processes.",
+    "It connects deeply to the perceived competence (or lack thereof) of the HR/recruiting function and the wider 'Execution' capability of the company."
+  ],
+  "risks_and_blindspots": [
+    "Eroding trust in HR and the company's ability to onboard effectively, leading to negative early impressions.",
+    "Operational inefficiency: Delays in hiring can have downstream impacts on team performance and project timelines.",
+    "Perception of a 'siloed' or inefficient HR function that is disconnected from the core business."
+  ],
+  "recommendations": [
+    "Establish and communicate clear, realistic timelines for all hiring and onboarding processes, and then meet them consistently.",
+    "Implement proactive, transparent communication protocols (e.g., automated status updates) for all candidates and hiring managers.",
+    "Audit the end-to-end 'onboarding' and 'hiring' experience from a user (employee) perspective to identify and address friction points causing delays."
+  ]
+}

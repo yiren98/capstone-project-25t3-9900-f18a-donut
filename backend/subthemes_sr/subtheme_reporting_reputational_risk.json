@@ -1,0 +1,34 @@
+{
+  "subtheme": "Reporting & Reputational Risk",
+  "parent_dimensions": [
+    "Accountability",
+    "Agility"
+  ],
+  "overview": "This subtheme centers on public and stakeholder scrutiny of the company's financial and operational reporting, particularly how it handles tax obligations, shareholder transparency, and broader ethical governance. It matters because it directly influences public trust and the company's social license to operate, with failures leading to significant reputational damage and legal challenges.",
+  "key_patterns": [
+    "Public questioning of tax payment locations and amounts, highlighting potential profit shifting",
+    "Scrutiny over the nationality and concentration of major shareholders, questioning national interest alignment",
+    "Comparisons to other nations' models (e.g., Norway, Qatar) to critique local tax and ownership structures",
+    "Explicit linking of corporate structure and tax practice to broader concepts of fairness and national interest"
+  ],
+  "sentiment_snapshot": {
+    "positive": 3,
+    "negative": 5,
+    "average_confidence": 0.844
+  },
+  "typical_contexts": [
+    "This discussion arises in public forums and media reports when the company's financial practices, especially around tax and ownership, are contrasted with other companies or countries, often in a critical tone.",
+    "The discourse is often triggered by specific investigative reports, shareholder disclosures, or comparative economic studies that reveal gaps between the company's practices and perceived best practices or national interests.",
+    "It frequently intersects with discussions on corporate governance, corporate social responsibility (CSR), and national economic policy, indicating it's a multi-faceted issue."
+  ],
+  "risks_and_blindspots": [
+    "The company may be operating within legal boundaries but is perceived as exploiting loopholes, leading to a crisis of public trust even if not regulatory compliance.",
+    "A narrow focus on legal compliance over ethical consideration leaves the company vulnerable to reputation-driven crises, especially from civil society and media.",
+    "Failure to transparently communicate and justify financial structures (e.g., 'why we pay taxes where we do') creates a vacuum filled by critics, accelerating reputational decay."
+  ],
+  "recommendations": [
+    "Proactively disclose and explain the rationale behind financial structures, especially tax strategy, in transparent public communications, moving beyond mere legal compliance.",
+    "Conduct a 'what-if' ethical audit of financial practices, including tax and ownership, to identify and mitigate gaps between legal minimums and public expectation.",
+    "Engage in public policy and multi-stakeholder dialogues to advocate for and help design clearer, fairer systems that reduce the perception and reality of unfair advantage-taking."
+  ]
+}

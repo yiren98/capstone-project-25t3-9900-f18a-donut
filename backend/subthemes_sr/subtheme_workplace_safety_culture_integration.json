@@ -1,0 +1,33 @@
+{
+  "subtheme": "Workplace Safety & Culture Integration",
+  "parent_dimensions": [
+    "Well-being"
+  ],
+  "overview": "This subtheme focuses on the intersection of physical safety, psychological safety, and organizational culture, particularly regarding how companies handle harassment, assault, and abuse within their workforce. It matters because these issues directly impact employee well-being, organizational trust, and legal compliance, while also serving as a key indicator of cultural health and ethical leadership.",
+  "key_patterns": [
+    "Reports of severe physical and sexual abuse within the workforce",
+    "Allegations of systemic harassment and assault, often over long periods",
+    "Legal actions and public scandals as a primary means of exposure",
+    "Involvement of leadership or systemic oversight in incidents"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 2,
+    "average_confidence": 0.925
+  },
+  "typical_contexts": [
+    "These themes emerge in contexts of legal proceedings, whistleblowing, and investigative journalism where systemic abuse is uncovered.",
+    "They are often tied to discussions of workplace safety culture, ethics, and corporate accountability in industries with historical issues like mining.",
+    "They connect to broader conversations about workplace culture, duty of care, and the importance of oversight and reporting mechanisms."
+  ],
+  "risks_and_blindspots": [
+    "Extreme physical and psychological harm to employees, alongside severe legal and reputational damage.",
+    "Systemic tolerance or normalization of abusive behaviors due to inadequate reporting, investigation, or accountability mechanisms.",
+    "Erosion of trust in leadership and internal systems, pushing victims to seek external legal or media intervention."
+  ],
+  "recommendations": [
+    "Implement and rigorously enforce a zero-tolerance policy for all forms of harassment and abuse, with clear, accessible reporting channels.",
+    "Establish independent, external oversight for all harassment and safety complaints to ensure impartiality and rebuild trust.",
+    "Integrate comprehensive safety and respect training at all levels, emphasizing leadership accountability and bystander intervention."
+  ]
+}

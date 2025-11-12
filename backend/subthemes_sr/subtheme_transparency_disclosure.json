@@ -1,0 +1,33 @@
+{
+  "subtheme": "Transparency & Disclosure",
+  "parent_dimensions": [
+    "Accountability"
+  ],
+  "overview": "The 'Transparency & Disclosure' subtheme focuses on how openly and honestly a company communicates about its operations, decisions, and performance. It matters because stakeholders, including employees and the public, use this information to assess trustworthiness and ethical standing. In this context, it's a core component of corporate accountability.",
+  "key_patterns": [
+    "Discussions center on specific, concrete allegations of misinformation or concealment (e.g., 'bogus ESG claims', 'not heard anything since')",
+    "Stakeholders express frustration over a perceived lack of information or clarity on processes and decisions (e.g., 'Wasn't sure if this is across the board')",
+    "There are calls for proactive, open data sharing to preempt distrust (e.g., 'make the ... contract statistics open data')",
+    "Instances of adequate disclosure are noted but are significantly outnumbered by negative cases"
+  ],
+  "sentiment_snapshot": {
+    "positive": 13,
+    "negative": 47,
+    "average_confidence": 0.853
+  },
+  "typical_contexts": [
+    "This subtheme emerges when stakeholders (especially employees and watchdogs) feel they are not being given the full picture on issues affecting them, such as company performance, project details, or internal policies.",
+    "It is often triggered by specific, negative events like scandals, project delays, or sudden policy changes that are perceived as being poorly communicated after the fact.",
+    "It interacts directly with 'Accountability' as poor transparency is seen as a failure to be accountable. It also negatively impacts 'Trust' and 'Integrity' while being a prerequisite for genuine 'Collaboration'."
+  ],
+  "risks_and_blindspots": [
+    "A severe trust deficit. When stakeholders consistently report negative sentiment on transparency, it indicates a foundational lack of trust in the organisation's communications, which can cripple all other cultural initiatives.",
+    "Reactive vs. Proactive disclosure. The negative examples show stakeholders are often surprised by information, leading to anger. The organisation is seen as reactive (disclosing after issues arise) rather than proactive (sharing information upfront).",
+    "Perception of having 'something to hide'. The overwhelming negative sentiment, especially on platforms like Reddit, suggests a widespread perception that the organisation is intentionally opaque, fueling speculation and mistrust."
+  ],
+  "recommendations": [
+    "Institute a policy of proactive, plain-language disclosure on matters affecting stakeholders, especially for projects or changes with high visibility. Move from 'need to know' to 'responsibility to inform'.",
+    "Establish and promote clear, accessible channels (e.g., a dedicated portal, regular briefings) for the types of information stakeholders consistently request but currently find hard to get (e.g., project timelines, partnership terms, diversity data).",
+    "Leadership must model this behaviour by transparently communicating strategic decisions, their rationales, and admit mistakes. This top-down approach is critical for cultural change."
+  ]
+}

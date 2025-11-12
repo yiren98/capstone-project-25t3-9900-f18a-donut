@@ -1,0 +1,36 @@
+{
+  "subtheme": "Team Collaboration & Communication",
+  "parent_dimensions": [
+    "Collaboration",
+    "Accountability",
+    "Ethical Responsibility",
+    "Agility"
+  ],
+  "overview": "This subtheme captures how employees and stakeholders perceive and report on the company's internal and external collaborative efforts, including communication effectiveness, partnership outcomes, and procedural transparency. It matters because effective collaboration is a key indicator of organizational health and operational efficiency, directly impacting productivity and trust.",
+  "key_patterns": [
+    "Recurring questions and concerns about recruitment and HR process transparency (e.g., timeline for feedback, rejection notices)",
+    "Public-facing communication mishaps or misstatements (e.g., spokesperson errors, misleading statements)",
+    "Community or stakeholder engagement initiatives (e.g., partnerships, tech collaborations)",
+    "Mixed or unclear messaging about company priorities and resource allocation"
+  ],
+  "sentiment_snapshot": {
+    "positive": 11,
+    "negative": 14,
+    "average_confidence": 0.836
+  },
+  "typical_contexts": [
+    "Often emerges in discussions about hiring processes, partnership announcements, and public statements where stakeholders seek clarity or have unmet expectations",
+    "Frequently surfaces in contexts comparing company actions to competitor practices or public commitments, highlighting gaps between stated and actual practices",
+    "Also appears when celebrating successful collaborations, especially those with clear community or environmental benefits, though these are less frequently highlighted"
+  ],
+  "risks_and_blindspots": [
+    "Persistent negative sentiment suggests structural issues in communication channels, not just isolated incidents, risking trust erosion",
+    "Over-reliance on informal or non-standardized processes (e.g., hiring) creates perception of inefficiency or unfairness, damaging employer brand",
+    "Inadequate follow-through on collaborative initiatives leads to public criticism and distracts from positive efforts"
+  ],
+  "recommendations": [
+    "Standardize and transparently communicate key processes, especially hiring and partnerships, to manage expectations and reduce speculation",
+    "Implement robust feedback loops for all collaborative projects, ensuring stakeholders see outcomes and corrections",
+    "Proactively showcase successful collaborations and their impacts to balance the narrative and provide concrete examples of effective teamwork"
+  ]
+}

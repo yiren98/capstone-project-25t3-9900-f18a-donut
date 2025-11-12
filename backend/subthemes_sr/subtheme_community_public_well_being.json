@@ -1,0 +1,33 @@
+{
+  "subtheme": "Community & Public Well-being",
+  "parent_dimensions": [
+    "Well-being"
+  ],
+  "overview": "This subtheme captures how corporate operations impact community health, safety, and overall quality of life. It is a crucial aspect of corporate responsibility as it directly ties corporate actions to societal outcomes, influencing public trust and long-term license to operate.",
+  "key_patterns": [
+    "Discussions focus on direct health impacts of operations, such as pollution and disease",
+    "Concerns center on environmental degradation and resource depletion affecting community well-being",
+    "Positive mentions highlight corporate efforts to maintain operations and safety, especially during crises",
+    "Criticism targets long-term neglect and failure to remediate environmental damage"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 3,
+    "average_confidence": 0.892
+  },
+  "typical_contexts": [
+    "Comments arise in response to environmental incidents, health crises, or corporate social responsibility (CSR) disclosures",
+    "They appear in media reports, community feedback channels, and regulatory discussions where corporate actions intersect public health",
+    "They are often linked to broader discussions about corporate accountability and ethical governance"
+  ],
+  "risks_and_blindspots": [
+    "Persistent negative sentiment indicates systemic failure to address community health impacts, risking reputational damage and regulatory scrutiny",
+    "Lack of proactive engagement on well-being issues suggests poor stakeholder management and weak community relations",
+    "Inadequate communication and transparency around mitigation efforts fuels distrust and amplifies criticism"
+  ],
+  "recommendations": [
+    "Establish transparent, ongoing community health monitoring and reporting systems to provide objective data and build trust",
+    "Integrate community health impact assessments into all major project lifecycles, ensuring they are reviewed at executive level",
+    "Proactively engage with affected communities to co-develop remediation plans and communicate progress transparently"
+  ]
+}
