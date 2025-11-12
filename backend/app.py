@@ -13,9 +13,6 @@ from flask_cors import CORS
 from werkzeug.exceptions import HTTPException
 from werkzeug.security import check_password_hash, generate_password_hash
 
-import csv, json, re
-from functools import lru_cache
-
 app = Flask(__name__)
 
 # --- Basic Config ---
@@ -52,115 +49,6 @@ USERS_CSV = USERS_DIR / "user.csv"
 DIM_CSV  = (ROOT_DIR / "data" / "dimension_sub" / "dimensions_sentiment_counts.csv")
 MAP_CSV  = (ROOT_DIR / "data" / "dimension_sub" / "subthemes_with_dim.csv")
 
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]  
-
-SUGG_DIR = Path(os.getenv("SUGG_DIR", str(PROJECT_ROOT / "data" / "suggestion"))).resolve()
-
-SR_OVERALL = SUGG_DIR / "overall_sr.json"
-SR_DIM_DIR = SUGG_DIR / "dimensions_sr"
-SR_SUB_DIR = SUGG_DIR / "subthemes_sr"
-SR_MAP_CSV = SUGG_DIR / "subthemes_with_dim_update.csv"
-
-
-
-def _slugify(name: str) -> str:
-    return re.sub(r"[\s\-]+", "_", name.strip().lower())
-
-@lru_cache(maxsize=1)
-def _load_mapping():
-    """
-    从 CSV 构建：
-      by_dim: { dimName: [{name, file}, ...] }
-      file_of_sub: { subthemeName: mapped_file }
-      dims_of_sub: { subthemeName: [dims...] }
-    """
-    by_dim, file_of_sub, dims_of_sub = {}, {}, {}
-
-
-    print(">> SUGG_DIR:", SUGG_DIR)
-    print(">> MAP CSV:", SR_MAP_CSV, SR_MAP_CSV.exists())
-
-    if not SR_MAP_CSV.exists():
-        return {"by_dim": by_dim, "file_of_sub": file_of_sub, "dims_of_sub": dims_of_sub}
-
-    with SR_MAP_CSV.open("r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
-        norm = lambda k: (k or "").strip().lower()
-        COL_SUB  = next((c for c in reader.fieldnames if norm(c) in {"subthemes","subtheme","子主题"}), None)
-        COL_DIM  = next((c for c in reader.fieldnames if norm(c) in {"mapped_dimension","dimension","dimensions"}), None)
-        COL_FILE = next((c for c in reader.fieldnames if norm(c) in {"mapped_file","file","filename"}), None)
-
-        for row in reader:
-            sub  = (row.get(COL_SUB)  or "").strip()
-            dims = (row.get(COL_DIM)  or "").strip()
-            fil  = (row.get(COL_FILE) or "").strip()
-            if not sub:
-                continue
-            file_of_sub[sub] = fil or file_of_sub.get(sub, "")
-            dim_list = [d.strip() for d in re.split(r"[;|,]", dims) if d.strip()]
-            dims_of_sub[sub] = dim_list or dims_of_sub.get(sub, [])
-            for d in dim_list:
-                by_dim.setdefault(d, []).append({"name": sub, "file": fil})
-    return {"by_dim": by_dim, "file_of_sub": file_of_sub, "dims_of_sub": dims_of_sub}
-
-@lru_cache(maxsize=256)
-def _read_json_file(p: Path):
-    if not p.exists():
-        print("!! JSON not found:", p) 
-        return None
-    with p.open("r", encoding="utf-8") as f:
-        return json.load(f)
-
-# ---- Culture Analysis APIs ----
-@app.get("/api/ca/overall")
-def ca_overall():
-    data = _read_json_file(SR_OVERALL)
-    if data is None:
-        abort(404, f"overall_sr.json not found at {SR_OVERALL}")
-    return jsonify(data)
-
-@app.get("/api/ca/dimension/<name>")
-def ca_dimension(name):
-    slug = _slugify(name)
-    cand = [SR_DIM_DIR / f"{slug}.json", SR_DIM_DIR / f"{name}.json"]
-    for p in cand:
-        data = _read_json_file(p)
-        if data is not None:
-            return jsonify(data)
-    abort(404, f"dimension '{name}' not found in {SR_DIM_DIR}")
-
-@app.get("/api/ca/subthemes")
-def ca_subthemes():
-    dim = request.args.get("dimension", "").strip()
-    m = _load_mapping()
-    subs = m["by_dim"].get(dim, [])
-
-    seen, out = set(), []
-    for s in subs:
-        if s["name"] in seen: continue
-        seen.add(s["name"]); out.append(s)
-    return jsonify({"dimension": dim, "subthemes": out})
-
-@app.get("/api/ca/subtheme/by-file/<path:filename>")
-def ca_subtheme_by_file(filename):
-    p = (SR_SUB_DIR / filename).resolve()
-    data = _read_json_file(p)
-    if data is None:
-        abort(404, f"subtheme file '{filename}' not found in {SR_SUB_DIR}")
-    return jsonify(data)
-
-@app.get("/api/ca/index")
-def ca_index():
-    m = _load_mapping()
-    dims = sorted(m["by_dim"].keys())
-    if not dims:
-
-        dims = [p.stem.replace("_"," ").title() for p in SR_DIM_DIR.glob("*.json")]
-    return jsonify({
-        "dimensions": dims,
-        "subtheme_count_by_dim": {k: len(v) for k, v in m["by_dim"].items()}
-    })
 
 # --- Utils ---
 def _read_sql(db_path: Path, sql: str, params: tuple | list = ()):
