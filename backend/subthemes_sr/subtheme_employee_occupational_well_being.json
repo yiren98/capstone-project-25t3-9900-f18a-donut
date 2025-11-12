@@ -1,0 +1,33 @@
+{
+  "subtheme": "Employee & Occupational Well-being",
+  "parent_dimensions": [
+    "Well-being"
+  ],
+  "overview": "This subtheme focuses on the emotional and psychological impact of work on employees. It includes expressions of joy, sadness, or stress that are tied to their occupational experiences. It matters because it is a direct, albeit indirect, indicator of employee morale and the emotional culture within the company.",
+  "key_patterns": [
+    "Expression of deep, complex emotions (like a tear of joy) in a work context",
+    "Use of symbolic or metaphorical language to describe feelings",
+    "Connection between physical workplace (or project) and emotional state",
+    "Mention of specific company projects or locations as emotional triggers"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 0,
+    "average_confidence": 0.95
+  },
+  "typical_contexts": [
+    "It appears in comments when employees are reflecting on a significant, often symbolic, event at work - like the completion of a project or a visit to a site.",
+    "It is triggered when employees are making a connection between their work environment (physical or cultural) and their personal emotional state, often in a way that is not directly about productivity but about human experience.",
+    "It interacts with other cultural dimensions like 'sense of belonging' and 'work-life balance' as employees use emotional language to describe their work experiences."
+  ],
+  "risks_and_blindspots": [
+    "Emotional experiences are being siloed or seen as individual, not organizational. A single positive comment might mask wider discontent.",
+    "The focus on symbolic or metaphorical expressions might mean serious well-being issues are being under-reported or expressed indirectly, not directly.",
+    "The company might be missing a structured way to capture and act on these emotional signals, especially as they are not always negative but can be complex."
+  ],
+  "recommendations": [
+    "Develop more channels for employees to safely and directly express their emotional well-being in relation to their work, not just in surveys but in ongoing dialogue.",
+    "Create frameworks or rituals that help teams articulate and reflect on the emotional impact of projects, not just the outputs.",
+    "Train leaders and managers to recognize and respond to these kinds of indirect, symbolic expressions of well-being or distress, not just direct feedback."
+  ]
+}

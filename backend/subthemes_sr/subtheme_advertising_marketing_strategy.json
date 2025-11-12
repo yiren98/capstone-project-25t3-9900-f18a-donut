@@ -1,0 +1,33 @@
+{
+  "subtheme": "Advertising & Marketing Strategy",
+  "parent_dimensions": [
+    "Customer Orientation"
+  ],
+  "overview": "This subtheme captures how external stakeholders perceive and discuss the company's advertising and marketing efforts. It matters because these perceptions directly impact brand reputation, customer trust, and can influence financial performance through consumer behavior.",
+  "key_patterns": [
+    "Criticism of specific marketing tactics or channels (e.g., perceived greenwashing, misleading claims)",
+    "Comparisons to competitors' marketing strategies (often unfavorably)",
+    "Scrutiny of marketing spend and its alignment with company values (e.g., ethics vs. profit)",
+    "Geographic or demographic specificity in marketing critique (e.g., 'in region X', 'for product Y')"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 3,
+    "average_confidence": 0.76
+  },
+  "typical_contexts": [
+    "Comments often appear in response to specific marketing campaigns, product launches, or corporate announcements that receive media coverage.",
+    "Discussions are frequently triggered by third-party analyses (e.g., news articles, NGO reports) that critique the company's marketing, leading to online discussions comparing strategies.",
+    "It intersects with other cultural dimensions like sustainability and ethics when critics accuse marketing of being misleading, or conversely, when supporters praise effective and responsible communication."
+  ],
+  "risks_and_blindspots": [
+    "A significant majority of discourse is negative, indicating a persistent problem where marketing efforts are perceived as inauthentic, misleading, or misaligned with stakeholder values.",
+    "The high average confidence (0.76) on these negative sentiments suggests these are strongly held convictions, not just casual criticism, posing a reputational risk.",
+    "The narrow focus on Customer Orientation as the parent dimension (100% of mentions) suggests other key aspects of marketing—like creativity, media strategy, or brand building—are being overlooked in public discourse, focusing only on the transactional aspect."
+  ],
+  "recommendations": [
+    "Institute a 'Marketing Communications Review Panel' with cross-functional members (including ethics, sustainability, and operations) to pre-emptively evaluate campaign risks, especially for green claims (greenwashing).",
+    "Re-balance the marketing mix and publicly articulate the strategy to highlight less-controversial aspects (e.g., product quality, heritage) while ensuring all advertising is substantiated.",
+    "Proactively engage with critics (e.g., in dedicated forums, social media) to explain marketing strategies and demonstrate commitment to responsible communication, moving beyond just customer orientation to building trust."
+  ]
+}

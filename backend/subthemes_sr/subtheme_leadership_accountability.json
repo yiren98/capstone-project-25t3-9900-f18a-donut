@@ -1,0 +1,35 @@
+{
+  "subtheme": "Leadership Accountability",
+  "parent_dimensions": [
+    "Accountability",
+    "Respect",
+    "Collaboration"
+  ],
+  "overview": "Leadership accountability refers to the extent to which corporate leaders are held responsible for their decisions, actions, and the outcomes they produce. It is a critical component of corporate governance and is crucial for maintaining trust with stakeholders. This subtheme matters because a lack of accountability can lead to significant reputational damage, financial loss, and erosion of stakeholder trust, as seen in the examples where leadership fails to take responsibility for major incidents.",
+  "key_patterns": [
+    "Leadership is criticized for failing to take responsibility for major incidents, shifting blame or providing insufficient explanations.",
+    "There is a strong disconnect between leadership's public statements and their actual actions, particularly in crisis management.",
+    "External entities (media, NGOs, shareholders) hold leadership accountable when internal mechanisms fail.",
+    "Calls for leadership accountability often come alongside demands for structural or governance change."
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 13,
+    "average_confidence": 0.869
+  },
+  "typical_contexts": [
+    "Leadership accountability issues arise prominently in the context of corporate scandals or crises, such as the handling of sexual assault cases or environmental disasters, where leaders are expected to take decisive and transparent action.",
+    "It is often triggered by external scrutiny from media, regulatory bodies, or activist groups, which then force internal discussions and force leadership to respond.",
+    "It interacts with other cultural dimensions like 'Transparency' and 'Integrity', where a lack of accountability undermines trust and collaboration across the organization."
+  ],
+  "risks_and_blindspots": [
+    "Failure to hold leadership accountable leads to repeated ethical and operational failures, creating a cycle of crisis and reputational damage.",
+    "Leadership may become insulated from frontline realities, leading to decisions that ignore stakeholder concerns until forced by external pressure.",
+    "Inadequate accountability mechanisms allow leaders to avoid responsibility, undermining overall corporate governance and ethical standards."
+  ],
+  "recommendations": [
+    "Establish and transparently communicate clear accountability frameworks that define leadership responsibilities and consequences for failures.",
+    "Implement robust, independent oversight mechanisms (e.g., ombudsman, ethics committee) to regularly review and report on leadership decisions and their outcomes.",
+    "Foster a culture of open dialogue where employees and stakeholders can safely report concerns, ensuring accountability is woven into the organizational culture, not just a reactive measure."
+  ]
+}

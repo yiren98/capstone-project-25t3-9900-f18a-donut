@@ -1,0 +1,49 @@
+{
+  "dimension": "Learning",
+  "overview": "The Learning dimension reflects the organization’s capacity to absorb experience, respond to feedback, and translate insights into improved policies, practices and behaviours. In the analyzed corpus, Learning is discussed both as formal development (training, career opportunities) and as the ability to learn from major ethical, cultural and operational failures, especially those affecting Indigenous communities and local stakeholders.",
+  "key_patterns": [
+    "Sentiment on learning skews negative, indicating external doubt that lessons from past incidents are being fully internalised or translated into lasting change.",
+    "Cultural heritage and Indigenous rights are central to the learning narrative, with repeated references to historical damage and ongoing efforts to review heritage processes and governance.",
+    "Stakeholders expect learning to be demonstrated through transparency and disclosure, including open reviews, clear communication and visible process improvements.",
+    "Learning and development appear as a mixed picture, with some positive signals around training centres and career support alongside uncertainty about roles, pay and future opportunities.",
+    "Employees, investors and communities use public channels to seek information and clarity, showing that knowledge acquisition and inquiry are active but not always well supported by formal communication.",
+    "There is a tension between remediation efforts and historical responsibility, where stakeholders question whether actions represent deep learning or only short-term reputation repair."
+  ],
+  "sentiment_snapshot": {
+    "positive": 20,
+    "negative": 39,
+    "average_confidence": 0.788
+  },
+  "top_subthemes": [
+    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 5 },
+    { "subtheme": "Knowledge Acquisition & Inquiry", "count": 5 },
+    { "subtheme": "Transparency & Disclosure", "count": 4 },
+    { "subtheme": "Learning & Development", "count": 4 },
+    { "subtheme": "Environmental Protection & Resource Management", "count": 3 },
+    { "subtheme": "Community Engagement & Social Responsibility", "count": 3 },
+    { "subtheme": "Corporate & Historical Responsibility", "count": 3 },
+    { "subtheme": "Historical Learning & Contextual Awareness", "count": 3 },
+    { "subtheme": "Employment Opportunities & Job Roles", "count": 2 },
+    { "subtheme": "Ethics & Compliance", "count": 2 }
+  ],
+  "risks_and_blindspots": [
+    "Learning may be perceived as reactive and incident-driven rather than embedded as a proactive, continuous capability.",
+    "Insufficient visible change after high-profile heritage and community failures undermines claims of having learned from the past.",
+    "Gaps in information sharing, such as unclear employment conditions or limited public detail on reviews, erode trust in the organization’s learning culture.",
+    "Learning is often treated as a compliance or communications exercise instead of being integrated into strategic decision-making and governance.",
+    "There is a risk that formal training and reviews focus on technical or legal aspects while neglecting deeper cultural understanding and historical context.",
+    "The experiences and knowledge of affected communities and frontline employees are not always systematically captured, limiting the depth and relevance of organizational learning."
+  ],
+  "recommendations": [
+    "Define a clear learning philosophy that links continuous learning to safety, ethics, performance and long-term stakeholder trust.",
+    "Embed structured learning loops after major decisions and incidents so that insights systematically inform policies, standards and future projects.",
+    "Integrate cultural heritage and historical awareness into learning programs to deepen understanding of local contexts and long-term impacts.",
+    "Strengthen mechanisms for employees, communities and partners to share feedback and knowledge, and ensure that contributions are acknowledged and acted upon.",
+    "Develop transparent information channels where people can reliably find answers about roles, conditions, decisions and organizational changes.",
+    "Align learning and development investments with future capability needs, including ethical decision-making, stakeholder engagement and sustainability.",
+    "Incorporate learning metrics into governance, tracking how often lessons are identified, implemented and reviewed for effectiveness.",
+    "Foster a psychologically safe environment where questions, challenges and dissent are encouraged as inputs to learning rather than treated as resistance.",
+    "Ensure that leadership at all levels model a learning mindset by openly acknowledging mistakes, explaining what has been learned and outlining concrete changes.",
+    "Connect local and global learning by sharing experiences, case studies and best practices across sites and functions to avoid repeating similar failures in different contexts."
+  ]
+}

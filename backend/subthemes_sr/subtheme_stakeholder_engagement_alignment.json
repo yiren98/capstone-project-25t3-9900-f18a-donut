@@ -1,0 +1,33 @@
+{
+  "subtheme": "Stakeholder Engagement & Alignment",
+  "parent_dimensions": [
+    "Collaboration"
+  ],
+  "overview": "This subtheme captures how organizations engage with and align the interests of diverse stakeholders, including communities, governments, and partners. It is critical because effective stakeholder alignment is essential for securing social license to operate and for the long-term viability of projects, especially in resource extraction or large-scale developments. Failures in this area lead to significant conflict, delays, and reputational damage.",
+  "key_patterns": [
+    "Stakeholder opposition to specific projects or company actions, often on environmental or social grounds",
+    "Accusations of corporate misconduct or lack of transparency in engagement",
+    "Expressions of distrust towards corporate or governmental narratives",
+    "Calls for collective action or community organizing in response to projects"
+  ],
+  "sentiment_snapshot": {
+    "positive": 8,
+    "negative": 19,
+    "average_confidence": 0.851
+  },
+  "typical_contexts": [
+    "Comments emerge in contexts of community resistance to corporate projects, especially in extractive industries or large infrastructure",
+    "Often triggered by announcements of new projects, environmental impact assessments, or public consultations that are perceived as inadequate",
+    "Closely linked to issues of transparency, trust in institutions, and the perceived legitimacy of corporate activities"
+  ],
+  "risks_and_blindspots": [
+    "Persistent negative sentiment indicates a systemic failure in stakeholder engagement, not just isolated incidents",
+    "Over-reliance on procedural compliance (e.g., public consultations) without addressing deeper issues of trust and power imbalances",
+    "Failure to recognize and integrate local community knowledge and concerns into project planning and execution"
+  ],
+  "recommendations": [
+    "Move beyond transactional engagement to building genuine, long-term partnerships with communities. This involves co-designing projects and sharing benefits transparently.",
+    "Invest in independent, third-party facilitation of stakeholder dialogues to address power imbalances and build trust.",
+    "Proactively disclose information, including project risks and uncertainties, to manage expectations and build credibility over the long term."
+  ]
+}

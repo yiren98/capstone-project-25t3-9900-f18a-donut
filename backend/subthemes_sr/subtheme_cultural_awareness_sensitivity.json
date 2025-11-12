@@ -1,0 +1,34 @@
+{
+  "subtheme": "Cultural Awareness & Sensitivity",
+  "parent_dimensions": [
+    "Diversity",
+    "Integrity"
+  ],
+  "overview": "This subtheme captures instances where an organization's actions or statements reflect on its cultural awareness and sensitivity, particularly in relation to diverse groups and their heritage. It matters because it directly impacts the organization's reputation, stakeholder trust, and adherence to ethical standards, especially in a global context.",
+  "key_patterns": [
+    "Criticism or praise for specific actions impacting cultural heritage",
+    "Questions about organizational integrity when handling culturally sensitive issues",
+    "Mentions of specific incidents that highlight a lack of due diligence",
+    "Calls for accountability from external stakeholders"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 2,
+    "average_confidence": 0.85
+  },
+  "typical_contexts": [
+    "Comments arise in the context of public incidents where the company's actions have a direct impact on cultural heritage, often revealed through media reports or external critiques.",
+    "The discourse is frequently tied to specific, high-impact events that spark public outcry and force the company into a defensive position.",
+    "It interacts heavily with dimensions of corporate ethics and governance, as stakeholders question whether the company's actions align with its stated values and commitments."
+  ],
+  "risks_and_blindspots": [
+    "Failure to conduct adequate due diligence on cultural and heritage issues, leading to irreversible damage.",
+    "A reactive rather than proactive approach to stakeholder engagement, particularly with Indigenous and minority groups.",
+    "Insufficient integration of cultural awareness into core business processes, making it an afterthought rather than a priority."
+  ],
+  "recommendations": [
+    "Establish and mandate comprehensive cultural heritage due diligence protocols for all operations, especially in culturally sensitive areas.",
+    "Create transparent and accountable channels for ongoing dialogue with Indigenous and local communities, integrating their input into project planning.",
+    "Publicly commit to and invest in cultural competence training at all leadership levels, ensuring decisions are informed by diverse perspectives."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "subtheme": "Cultural Heritage & Indigenous Rights",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Accountability"
+  ],
+  "overview": "This subtheme captures instances where corporate activities negatively impact cultural heritage and indigenous rights, often through destruction or disrespect of culturally significant sites. It matters because it represents a severe ethical and reputational risk, reflecting a failure in due diligence and stakeholder engagement.",
+  "key_patterns": [
+    "Destruction of culturally significant sites (e.g., Juukan Gorge) due to corporate operations",
+    "Lack of proper consultation with Indigenous communities before taking action",
+    "Inadequate due diligence in identifying and protecting cultural heritage",
+    "Attempts to remediate or rebuild after the fact, seen as insufficient"
+  ],
+  "sentiment_snapshot": {
+    "positive": 4,
+    "negative": 30,
+    "average_confidence": 0.876
+  },
+  "typical_contexts": [
+    "Incidents emerge after the fact through investigative journalism or activist reports, rather than being disclosed proactively by the company",
+    "Public outcry focuses on the irreversible loss of cultural heritage and the power imbalance between corporations and Indigenous communities",
+    "Discussions often tie these events to broader criticisms of corporate ethics, colonialism, and the prioritization of profit over people"
+  ],
+  "risks_and_blindspots": [
+    "Severe and lasting reputational damage, with loss of trust from multiple stakeholder groups",
+    "Legal and financial repercussions from litigation and reparations, especially as Indigenous rights gain stronger legal backing globally",
+    "Inability to recover or replace cultural heritage, making the damage permanent and the apology hollow"
+  ],
+  "recommendations": [
+    "Establish and enforce a strict 'no-go' policy for operations impacting Indigenous cultural heritage, with full Free, Prior, and Informed Consent (FPIC) as a minimum standard",
+    "Invest in pre-operational cultural heritage assessments by independent experts, and integrate these findings meaningfully into project planning",
+    "Shift from reactive PR management to proactive, transparent partnership with Indigenous communities, including shared decision-making and benefit-sharing agreements"
+  ]
+}

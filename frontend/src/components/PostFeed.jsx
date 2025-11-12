@@ -129,7 +129,7 @@ export default function PostFeed({
 
 
   const postsAbortRef   = useRef(null);
-  const detailsTokenRef = useRef(0);
+  // const detailsTokenRef = useRef(0);
 
 
   const [cmtLoading, setCmtLoading] = useState(false);
@@ -220,7 +220,7 @@ export default function PostFeed({
     setHasMore(true);
     setLoadingMore(false);
     setLoadingList(true);
-    setView("list");
+    // setView("list");
     setPost(null);
     setCmtTree([]);
     setCmtErr("");
@@ -363,7 +363,7 @@ export default function PostFeed({
       const key = it.tag || it.id;
       const d = await getPostDetail(key);
       setPost(d);
-      setView("detail");
+      // setView("detail");
       setCmtTree([]);
       setCmtErr("");
       setCmtLoading(false);
@@ -393,7 +393,7 @@ export default function PostFeed({
   };
 
   const backToList = () => {
-    setView("list");
+    // setView("list");
     setPost(null);
     setCmtTree([]);
     setCmtErr("");

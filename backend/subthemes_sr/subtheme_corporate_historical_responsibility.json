@@ -1,0 +1,35 @@
+{
+  "subtheme": "Corporate & Historical Responsibility",
+  "parent_dimensions": [
+    "Accountability",
+    "Collaboration",
+    "Ethical Responsibility"
+  ],
+  "overview": "This subtheme encompasses how corporations address their historical and ongoing impacts, particularly regarding indigenous rights, environmental damage, and cultural heritage. It involves acknowledging past harms, making amends where possible, and ensuring current operations do not repeat past mistakes. This is critical for maintaining trust and social license to operate.",
+  "key_patterns": [
+    "Focus on repairing past wrongs (e.g., rebuilding destroyed cultural sites)",
+    "Accusations of prioritizing profit over cultural and environmental protection",
+    "Criticism of transparency and honesty in reporting incidents",
+    "Involvement of external entities (e.g., activists, media) in scrutinizing company actions"
+  ],
+  "sentiment_snapshot": {
+    "positive": 4,
+    "negative": 20,
+    "average_confidence": 0.853
+  },
+  "typical_contexts": [
+    "This theme appears most prominently when a company's historical or ongoing actions negatively impact communities, particularly indigenous groups, and when the company's response is perceived as inadequate.",
+    "It is triggered by specific, high-impact events like the destruction of culturally significant sites, revelations of past misdeeds, or significant legal/ethical failures coming to light.",
+    "It interacts strongly with dimensions of accountability, transparency, and ethical responsibility, as stakeholders judge the company's handling of its legacy."
+  ],
+  "risks_and_blindspots": [
+    "Significant erosion of trust with key stakeholders (communities, regulators, public), making future collaboration and operations more difficult.",
+    "Reputational damage that outstrips any immediate financial cost of addressing the issue properly, leading to long-term brand damage.",
+    "A failure to fully learn from the past, leading to repeated patterns of harm and a perpetual cycle of criticism and repair."
+  ],
+  "recommendations": [
+    "Establish and empower independent oversight committees with community representation to review historical and ongoing projects for cultural and environmental risk.",
+    "Implement a transparent, public-facing portal for reporting on historical responsibility projects, including progress, setbacks, and financials.",
+    "Leadership must publicly and personally champion a policy of radical transparency on past issues and invest in long-term relationship building over short-term reputation management."
+  ]
+}

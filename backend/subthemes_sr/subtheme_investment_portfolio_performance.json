@@ -1,0 +1,34 @@
+{
+  "subtheme": "Investment & Portfolio Performance",
+  "parent_dimensions": [
+    "Performance",
+    "Integrity"
+  ],
+  "overview": "This subtheme focuses on how the company's investment decisions and portfolio performance are perceived externally. It matters because it directly impacts investor confidence and the company's market valuation, reflecting its strategic execution and financial health.",
+  "key_patterns": [
+    "Mentions of specific financial figures like investment amounts, price targets, and share price movements",
+    "Discussions about strategic investments in production capacity and new projects",
+    "References to third-party analysis and ratings (e.g., broker recommendations)",
+    "Highlights of portfolio adjustments (e.g., stake changes by investment firms)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 24,
+    "negative": 5,
+    "average_confidence": 0.844
+  },
+  "typical_contexts": [
+    "The discourse primarily appears in financial news and analysis platforms, often triggered by earnings announcements, new project funding, or significant portfolio changes.",
+    "It is frequently tied to discussions about the company's growth strategy, resource allocation, and market position compared to peers.",
+    "It interacts with other dimensions like 'Integrity' when financial disclosures or third-party analyses are involved, creating a feedback loop between perceived performance and ethical standing."
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on positive performance narratives may obscure underlying financial health issues or over-leverage in aggressive investments.",
+    "External perception can be volatile; negative sentiment, though a minority, can quickly escalate with a single adverse event (e.g., a major project delay or unexpected loss).",
+    "The high average confidence in sentiment classification (0.844) suggests clarity in communication, but this doesn't preclude misinterpretation of strategic intent or over-simplification of complex financial moves."
+  ],
+  "recommendations": [
+    "Enhance transparency in investment communications, ensuring that strategic investments are clearly linked to long-term value creation, not just short-term performance.",
+    "Establish a robust feedback loop where investor and market reactions to portfolio decisions are systematically captured and analysed to inform future strategy.",
+    "Proactively communicate the 'why' behind investment decisions, not just the 'what', to pre-empt and mitigate negative sentiment from external observers."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "subtheme": "Stakeholder & Shareholder Accountability",
+  "parent_dimensions": [
+    "Accountability",
+    "Performance",
+    "Respect",
+    "Integrity"
+  ],
+  "overview": "This subtheme captures how stakeholders and shareholders hold a company accountable for its actions, particularly when financial or ethical boundaries are crossed. It matters because it reflects the company's vulnerability to external scrutiny and its ability to manage reputational risk.",
+  "key_patterns": [
+    "External stakeholders (governments, NGOs, Indigenous groups) publicly challenge company decisions, especially on environmental or social issues",
+    "Shareholder dissent manifests through voting against executive pay or governance proposals, particularly after ethical failures",
+    "Media and civil society amplify local conflicts to national or international audiences, increasing scrutiny",
+    "Company defends its position by offering financial compensation or concessions, but faces accusations of insufficient action"
+  ],
+  "sentiment_snapshot": {
+    "positive": 3,
+    "negative": 8,
+    "average_confidence": 0.855
+  },
+  "typical_contexts": [
+    "The subtheme emerges when companies face public backlash over decisions perceived as financially irresponsible or ethically questionable, such as executive pay during a crisis or resource extraction on Indigenous lands",
+    "It is triggered by formal stakeholder actions like shareholder votes, government inquiries, or public campaigns by advocacy groups, rather than internal self-assessment",
+    "It interacts with dimensions like Integrity and Respect by questioning the ethical foundation of company actions, and with Performance by highlighting financial risks of poor stakeholder management"
+  ],
+  "risks_and_blindspots": [
+    "Insufficient response to stakeholder concerns can escalate to regulatory intervention, legal action, or sustained activist pressure, damaging long-term shareholder value",
+    "Over-reliance on financial compensation (e.g., rebates, buybacks) as a solution to ethical dilemmas ignores deeper cultural or relational repairs needed with communities",
+    "The company may systematically underestimate the importance of non-financial stakeholders (e.g., Indigenous communities, environmental groups) until the issue reaches a crisis point, due to a lack of integrated impact assessment"
+  ],
+  "recommendations": [
+    "Proactively and transparently engage with high-risk stakeholder groups (e.g., Indigenous communities, regulators) through regular consultation, not just during crises",
+    "Integrate ethical impact assessments (e.g., human rights, cultural heritage) into all major financial or operational decisions, with equal weight to financial metrics",
+    "Formalize and empower internal accountability channels (e.g., ethics committees, independent audits) to provide early warning of emerging stakeholder issues before they escalate publicly"
+  ]
+}

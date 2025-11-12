@@ -1,0 +1,33 @@
+{
+  "subtheme": "Workforce & Team Performance",
+  "parent_dimensions": [
+    "Performance"
+  ],
+  "overview": "This subtheme focuses on how workforce management, team stability, and employment practices directly impact the company's operational performance. It matters because decisions around hiring, layoffs, and job security are highly visible and directly impact employee morale, public perception, and operational consistency.",
+  "key_patterns": [
+    "Discussions of job security and layoffs as indicators of company performance",
+    "Concerns about increased competition for positions due to hiring practices",
+    "Scrutiny of cost-cutting measures and their impact on workforce stability",
+    "External validation (or lack thereof) of company workforce decisions"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 3,
+    "average_confidence": 0.9
+  },
+  "typical_contexts": [
+    "Comments often arise in response to specific corporate announcements about hiring, layoffs, or restructuring",
+    "They appear in public forums and news discussions where people critique or question company decisions affecting jobs",
+    "They connect to broader narratives about company stability, strategic direction, and ethical considerations in resource management"
+  ],
+  "risks_and_blindspots": [
+    "Negative discourse on workforce decisions can dominate public perception, masking operational rationales",
+    "Focus on headcount changes overshadows discussions on workforce development, upskilling, and long-term performance",
+    "External critiques may lack full context of internal performance metrics and strategic goals"
+  ],
+  "recommendations": [
+    "Proactively communicate workforce strategy, highlighting how decisions support long-term performance and stability",
+    "Frame workforce changes within narratives of adaptation and future-readiness, not just cost-cutting",
+    "Engage transparently with stakeholders on workforce planning to build trust in performance management"
+  ]
+}
