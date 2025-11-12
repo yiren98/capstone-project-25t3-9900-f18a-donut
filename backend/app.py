@@ -424,6 +424,50 @@ def _is_valid_email(email: str) -> bool:
 def health():
     return jsonify({"ok": True})
 
+# --- Root routes for deployment health checks ---
+@app.route("/")
+def index_root():
+    """
+    The root endpoint for verifying that the backend is running.
+    """
+    return jsonify({
+        "message": "Backend is running successfully 🎉",
+        "available": [
+            "/api",
+            "/api/health",
+            "/api/posts",
+            "/api/sbi",
+            "/api/dimension_counts",
+            "/api/subtheme_counts",
+            "/api/login",
+            "/api/register"
+        ]
+    }), 200
+
+
+@app.route("/api")
+def api_root():
+    """
+    The /api base endpoint to confirm the backend API root.
+    """
+    return jsonify({
+        "message": "Welcome to DONUT backend API",
+        "hint": "Try /api/health, /api/posts, /api/sbi etc.",
+        "status": "OK"
+    }), 200
+
+
+@app.route("/api/health")
+def api_health():
+    """
+    The /api/health endpoint for frontend & Render health check.
+    """
+    return jsonify({
+        "ok": True,
+        "message": "Backend API is healthy",
+        "version": "1.0.0"
+    }), 200
+
 # ===================== APIs =====================
 
 @app.get("/api/sbi")

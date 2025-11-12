@@ -201,7 +201,7 @@ export async function getSubthemeCounts({ year, month, dimension }) {
   return res.json(); // [{ name, count, color? }]
 }
 
-const BASE = "/api";
+const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com/api";
 const jget = async (url) => {
   const r = await fetch(url, { credentials: "include" });
   if (!r.ok) throw new Error(await r.text());
