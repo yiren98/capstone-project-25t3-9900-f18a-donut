@@ -1,5 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { getPosts, getPostDetail, getPostComments, buildCommentTree } from "../api";
+import {
+  getPosts,
+  getPostDetail,
+  getPostComments,
+  buildCommentTree,
+} from "../api";
 
 const BG_ARTICLE = "rgba(241,240,227,0.75)";
 const BG_FORUM   = "rgba(233,216,191,0.75)";
