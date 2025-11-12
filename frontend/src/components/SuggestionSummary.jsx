@@ -391,7 +391,6 @@ export default function SuggestionSummary({
   className = "",
   dimension = "",
   subthemeFile = "",
-  onBack, 
 }) {
   const [loading, setLoading] = useState(false);
   const [payload, setPayload] = useState(null);

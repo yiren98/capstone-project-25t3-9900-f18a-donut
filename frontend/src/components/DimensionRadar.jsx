@@ -50,10 +50,11 @@ export default function DimensionRadar({
     return () => ro.disconnect();
   }, [leftMax, rightMin, gapPx]);
 
-  const colors = [
+  const colors = useMemo(() => [
     "#F6C945", "#8BC5BF", "#7F86C6", "#C993C7", "#F39B7F", "#6DB1FF",
     "#9DD67A", "#E6B8A2", "#B9A1FF", "#FFC4A1", "#8FD3FF", "#F2B2CE",
-  ];
+  ], []);
+
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -72,8 +73,8 @@ export default function DimensionRadar({
     } finally {
       setLoading(false);
     }
-  }, [level, focusDim, year, month]);
-
+ }, [level, focusDim, year, month, colors]);
+ 
   useEffect(() => { fetchData(); }, [fetchData]);
 
   useEffect(() => {

@@ -7,7 +7,7 @@ async function fetchJSON(url, options = {}) {
     try {
       const data = await res.json();
       if (data && data.message) msg = data.message;
-    } catch (_) {}
+    } catch { /* noop */ }
     throw new Error(msg);
   }
   return res.json();
@@ -23,7 +23,8 @@ function toYMD(s) {
     const day = String(d.getDate()).padStart(2, "0");
     return `${y}-${m}-${day}`;
   }
-  const parts = String(s).split(/[ T]/)[0]?.split(/[\/.]/);
+  const parts = String(s).split(/[ T]/)[0]?.split(/[/.]/);
+
   if (parts && parts.length >= 3) {
     const [y, m, d2] =
       parts[0].length === 4 ? [parts[0], parts[1], parts[2]] : [parts[2], parts[0], parts[1]];
@@ -37,7 +38,6 @@ function stripRedditPrefix(pid = "") {
   const idx = pid.indexOf("_");
   return idx >= 0 ? pid.slice(idx + 1) : pid;
 }
-
 
 const toInt = (v) => {
   if (v === null || v === undefined || v === "") return undefined;
@@ -84,8 +84,6 @@ export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month, di
     return { ...data, items };
   });
 };
-
-
 
 export const getPostDetail = async (id) => {
   if (!id) throw new Error("post id is required");
@@ -175,7 +173,7 @@ export const getSentimentStats = async ({
     .then(async (r) => {
       if (!r.ok) {
         let msg = `${r.status} ${r.statusText}`;
-        try { const j = await r.json(); if (j.message) msg = j.message; } catch {}
+        try { const j = await r.json(); if (j.message) msg = j.message; } catch { /* noop */ }
         throw new Error(msg);
       }
       return r.json();

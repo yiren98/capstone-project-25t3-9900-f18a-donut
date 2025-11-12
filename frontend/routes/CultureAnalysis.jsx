@@ -6,7 +6,7 @@ import TopRouteTabs from "../src/components/TopRouteTabs";
 
 export default function CultureAnalysis() {
   const [dimension, setDimension] = useState("");
-  const [subtheme, setSubtheme] = useState("");
+  const [_subtheme, setSubtheme] = useState("");
   const [subthemeFile, setSubthemeFile] = useState("");
 
   return (

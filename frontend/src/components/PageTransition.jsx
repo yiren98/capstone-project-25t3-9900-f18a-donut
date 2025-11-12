@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+/* eslint-disable react-refresh/only-export-components */
+import { motion as Motion } from "framer-motion";
 
 export const SoftSlide = ({ children }) => (
-  <motion.div
+  <Motion.div
     initial={{ opacity: 0, y: 8, filter: "blur(2px)" }}
     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
     exit={{ opacity: 0, y: -8, filter: "blur(2px)" }}
@@ -9,11 +10,11 @@ export const SoftSlide = ({ children }) => (
     style={{ willChange: "transform, opacity, filter" }}
   >
     {children}
-  </motion.div>
+  </Motion.div>
 );
 
 export const CardFlip = ({ children }) => (
-  <motion.div
+  <Motion.div
     initial={{ opacity: 0, rotateX: -6, y: 6, transformPerspective: 800 }}
     animate={{ opacity: 1, rotateX: 0, y: 0 }}
     exit={{ opacity: 0, rotateX: 6, y: -6 }}
@@ -21,16 +22,20 @@ export const CardFlip = ({ children }) => (
     style={{ transformStyle: "preserve-3d", willChange: "transform, opacity" }}
   >
     {children}
-  </motion.div>
+  </Motion.div>
 );
 
-export const withTransition = (Comp, Variant = SoftSlide) =>
-  function Wrapped(props) {
+export function withTransition(Comp, Variant = SoftSlide) {
+  const VariantToUse = Variant; 
+  return function Wrapped(props) {
     return (
       <div className="min-h-screen" style={{ perspective: 1000 }}>
-        <Variant>
+        <VariantToUse>
           <Comp {...props} />
-        </Variant>
+        </VariantToUse>
       </div>
     );
   };
+}
+
+export default withTransition;
