@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   getPosts,
   getPostDetail,
@@ -109,7 +109,7 @@ export default function PostFeed({
   const [err, setErr]           = useState("");
 
   const [post, setPost]         = useState(null);
-  const [view, setView]         = useState("list");
+  // const [view, setView]         = useState("list");
 
 
   const [page, setPage]         = useState(1);
@@ -134,7 +134,7 @@ export default function PostFeed({
 
 
   const postsAbortRef   = useRef(null);
-  const detailsTokenRef = useRef(0);
+  // const detailsTokenRef = useRef(0);
 
 
   const [cmtLoading, setCmtLoading] = useState(false);
@@ -158,7 +158,7 @@ export default function PostFeed({
   const normalizeTree = (nodes = []) => nodes.map(normalizeCommentNode);
 
   const fetchAllSubsForKeys = async (keys, signal) => {
-    const token = ++detailsTokenRef.current;
+    // const token = ++detailsTokenRef.current;
     const local = new Map();
     let active = 0;
     let idx = 0;
@@ -215,7 +215,7 @@ export default function PostFeed({
     setHasMore(true);
     setLoadingMore(false);
     setLoadingList(true);
-    setView("list");
+    // setView("list");
     setPost(null);
     setCmtTree([]);
     setCmtErr("");
@@ -358,7 +358,7 @@ export default function PostFeed({
       const key = it.tag || it.id;
       const d = await getPostDetail(key);
       setPost(d);
-      setView("detail");
+      // setView("detail");
       setCmtTree([]);
       setCmtErr("");
       setCmtLoading(false);
@@ -388,7 +388,7 @@ export default function PostFeed({
   };
 
   const backToList = () => {
-    setView("list");
+    // setView("list");
     setPost(null);
     setCmtTree([]);
     setCmtErr("");

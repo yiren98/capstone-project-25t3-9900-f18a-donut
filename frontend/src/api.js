@@ -192,7 +192,7 @@ export const getSentimentStats = async ({
     .then(async (r) => {
       if (!r.ok) {
         let msg = `${r.status} ${r.statusText}`;
-        try { const j = await r.json(); if (j.message) msg = j.message; } catch {}
+        try { const j = await r.json(); if (j.message) msg = j.message; } catch(err) {console.error('JSON analysis failed:', err);}
         throw new Error(msg);
       }
       return r.json();
