@@ -1,0 +1,33 @@
+{
+  "subtheme": "Data & Structural Integrity",
+  "parent_dimensions": [
+    "Collaboration"
+  ],
+  "overview": "This subtheme concerns the perceived trustworthiness and reliability of the organization's systems, data, and processes. It becomes salient when stakeholders suspect that information is being concealed, mishandled, or inaccurately represented, leading to a breakdown in trust. It matters because it strikes at the core of organizational integrity and the trust required for collaboration.",
+  "key_patterns": [
+    "Reports of missing, incomplete, or destroyed data",
+    "Allegations of systematic information suppression or obfuscation",
+    "External revelations contradicting official narratives",
+    "Explicit references to a lack of transparency or accountability"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 1,
+    "average_confidence": 0.95
+  },
+  "typical_contexts": [
+    "This theme emerges in contexts where there is a significant information asymmetry, such as after a major incident or during an external audit, and stakeholders suspect a cover-up or misrepresentation.",
+    "It is often triggered by whistleblower reports, investigative journalism, or external audits that reveal a discrepancy between official statements and the available evidence.",
+    "It interacts strongly with 'Ethics & Compliance' and 'Leadership & Governance', as failures in data integrity are frequently seen as symptoms of deeper cultural or leadership failures."
+  ],
+  "risks_and_blindspots": [
+    "Erosion of stakeholder trust, both internally and externally, which can be irreversible",
+    "Legal and regulatory repercussions, including sanctions and litigation, stemming from a lack of transparency",
+    "Normalization of information suppression, leading to a culture where unethical practices become entrenched"
+  ],
+  "recommendations": [
+    "Establish and enforce clear, transparent protocols for data management and information sharing across all levels of the organization.",
+    "Implement and regularly audit robust whistleblower protection and anonymous reporting channels that are genuinely trusted by employees.",
+    "Leadership must model and demand absolute transparency, especially in high-stakes situations, to rebuild and maintain trust."
+  ]
+}

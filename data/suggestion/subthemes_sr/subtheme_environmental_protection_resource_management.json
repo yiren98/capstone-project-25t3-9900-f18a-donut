@@ -1,0 +1,38 @@
+{
+  "subtheme": "Environmental Protection & Resource Management",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Accountability",
+    "Integrity",
+    "Collaboration",
+    "Learning",
+    "Performance"
+  ],
+  "overview": "This subtheme focuses on corporate actions and policies regarding environmental stewardship, including resource extraction, pollution, and conservation efforts. It is a critical component of corporate social responsibility and is highly scrutinized by the public.",
+  "key_patterns": [
+    "Public criticism of past environmental destruction (e.g., Juukan Gorge)",
+    "Announcements of new environmental policies (e.g., early closure of coal plants)",
+    "Scrutiny of the gap between public commitments and actual practices",
+    "Calls for greater transparency and accountability in resource management"
+  ],
+  "sentiment_snapshot": {
+    "positive": 9,
+    "negative": 50,
+    "average_confidence": 0.838
+  },
+  "typical_contexts": [
+    "Discussions erupt following news reports of environmental incidents or new policy announcements from the company",
+    "Often appears in the context of critique, where the company's public commitments are contrasted with its historical actions",
+    "Strongly tied to the company's ethical reputation, influencing perceptions of other dimensions like Integrity and Accountability"
+  ],
+  "risks_and_blindspots": [
+    "High reputational damage from past incidents, even if policies change",
+    "Perception of hypocrisy if new commitments are not backed by transparent action",
+    "Lack of stakeholder (especially Indigenous communities) consultation erodes trust and legitimacy"
+  ],
+  "recommendations": [
+    "Institute transparent, third-party auditing of environmental commitments and impacts",
+    "Establish and publicize clear, accountable channels for community feedback and grievance on environmental matters",
+    "Proactively engage with critics and communities to co-develop resource management plans, rather than acting unilaterally"
+  ]
+}

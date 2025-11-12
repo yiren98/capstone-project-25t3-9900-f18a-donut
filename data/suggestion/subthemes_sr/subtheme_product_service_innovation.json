@@ -1,0 +1,33 @@
+{
+  "subtheme": "Product & Service Innovation",
+  "parent_dimensions": [
+    "Innovation"
+  ],
+  "overview": "This subtheme captures how stakeholders perceive the company's ability to innovate in its products and services. It is a direct indicator of market confidence and the perceived future-readiness of the company. In this case, the discourse is currently negative, suggesting stakeholders feel the company is failing to innovate effectively.",
+  "key_patterns": [
+    "Comparisons to unflattering or suboptimal benchmarks (e.g., 'PsBattle: The Rio Tinto River')",
+    "Focus on past failures or shortcomings rather than future potential",
+    "Association of the company's offerings with something of poor quality or inauthenticity",
+    "Lack of concrete examples of positive innovation"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 1,
+    "average_confidence": 0.7
+  },
+  "typical_contexts": [
+    "Discourse appears in informal, public forums like social media and Reddit, where users feel free to offer blunt critiques.",
+    "Criticism is often triggered by a specific, recent event or communication from the company that fails to meet expectations, such as a product launch or an earnings report.",
+    "Negative sentiment on innovation is often linked to broader criticisms of company strategy, leadership, or resource allocation, indicating a systemic rather than isolated issue."
+  ],
+  "risks_and_blindspots": [
+    "Risk of innovation efforts being perceived as inauthentic or incompetent, leading to a loss of stakeholder trust.",
+    "Blindspot in failing to communicate innovation successes, allowing negative perceptions to dominate the narrative.",
+    "Potential disconnect between R&D initiatives and public-facing communication, leading to misaligned expectations."
+  ],
+  "recommendations": [
+    "Institute transparent communication channels (e.g., innovation blogs, behind-the-scenes features) to showcase the process and progress of innovation, not just the end result.",
+    "Establish formal feedback loops with key stakeholder groups to understand and address specific concerns about product and service innovation.",
+    "Leadership to publicly champion and celebrate incremental innovation and learning-from-failure, to reset internal and external expectations."
+  ]
+}

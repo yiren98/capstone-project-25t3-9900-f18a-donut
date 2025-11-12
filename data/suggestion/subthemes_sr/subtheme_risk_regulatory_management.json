@@ -1,0 +1,39 @@
+{
+  "subtheme": "Risk & Regulatory Management",
+  "parent_dimensions": [
+    "Accountability",
+    "Integrity",
+    "Respect",
+    "Customer Orientation",
+    "Collaboration",
+    "Agility",
+    "Performance"
+  ],
+  "overview": "This subtheme captures how organizations handle external and internal risks, including regulatory compliance, market risks, and governance failures. It matters because poor risk management can lead to financial loss, reputational damage, and legal penalties, directly impacting stakeholder trust and operational continuity.",
+  "key_patterns": [
+    "Focus on financial and market risks (e.g., AI bubble, investment risks)",
+    "Concerns over regulatory compliance and legal actions (e.g., SEC, Supreme Court)",
+    "Questions about due diligence and governance processes (e.g., investment decisions, regulatory adherence)",
+    "Scrutiny of internal controls and risk assessment methodologies"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 16,
+    "average_confidence": 0.913
+  },
+  "typical_contexts": [
+    "Risk & Regulatory Management issues typically arise in discussions about investment decisions, regulatory scrutiny, and public disclosures of compliance failures.",
+    "It is often triggered by external events like regulatory actions, market volatility, or internal control failures that become public.",
+    "This subtheme interacts strongly with Accountability and Integrity, as stakeholders question governance structures and demand transparency in risk reporting."
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on reactive measures rather than proactive risk forecasting and mitigation",
+    "Insufficient transparency in risk communication, leading to stakeholder distrust and speculative criticism",
+    "Inadequate integration of risk management with core operational processes, allowing failures to cascade"
+  ],
+  "recommendations": [
+    "Establish a proactive, enterprise-wide risk assessment framework that integrates with strategic decision-making at all levels.",
+    "Enhance transparency mechanisms for risk reporting and compliance, ensuring stakeholders are informed about risk postures and mitigation efforts.",
+    "Cultivate a culture of accountability where risk ownership is clearly defined, and employees are empowered to report and address risks without fear of reprisal."
+  ]
+}

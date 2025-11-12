@@ -1,0 +1,33 @@
+{
+  "subtheme": "External Cooperation & Global Involvement",
+  "parent_dimensions": [
+    "Collaboration"
+  ],
+  "overview": "This subtheme captures how the company engages with external partners and global systems, reflecting its approach to international collaboration and supply chain integrity. It matters because it reveals how the company positions itself in global markets and handles cross-border dependencies, which directly impacts its reputation and operational stability.",
+  "key_patterns": [
+    "Discussions often center on specific international partnerships or joint ventures, with details on resource sharing and operational roles",
+    "Mentions of geopolitical tensions affecting supply chains, especially when key resources are sourced from regions with unstable international relations",
+    "Scrutiny of the company's role in large-scale, multinational projects, particularly in extractive industries",
+    "Questions from the public or smaller investors about the company's associations and the implications for their investments"
+  ],
+  "sentiment_snapshot": {
+    "positive": 3,
+    "negative": 2,
+    "average_confidence": 0.786
+  },
+  "typical_contexts": [
+    "Comments often appear in discussions on social media or financial forums, where users scrutinize the company's partnerships, especially with entities in different countries or under different regulatory regimes",
+    "The topic is triggered by news of new international deals, mergers, or joint ventures, particularly when they involve countries that are currently in the news for other reasons (e.g., trade disputes, sanctions)",
+    "It interacts with dimensions of Corporate Responsibility and Operational Transparency, as stakeholders try to assess if these external partnerships are beneficial or risky"
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on specific international partners can create vulnerability if those partners face their own crises (e.g., regulatory changes, political instability, sanctions), directly impacting operations",
+    "The positive discourse focuses on the economic benefits and global reach of these partnerships, while the negative discourse is concerned with ethical implications, dependency, and indirect support for regimes with poor human rights or environmental records",
+    "A significant portion of the public and investor base may lack the context to critically evaluate these international partnerships, making them susceptible to PR spin rather than substantive risk assessment"
+  ],
+  "recommendations": [
+    "Increase transparency on the due diligence process for selecting and managing international partners, making the criteria public to build trust",
+    "Develop a clear, public-facing policy on international engagement that explains the 'why' and includes commitments to ethical sourcing and partnership",
+    "Create more accessible educational content (e.g., short videos, infographics) that break down what these partnerships mean for the average investor or community member, focusing on the specific risks and benefits"
+  ]
+}

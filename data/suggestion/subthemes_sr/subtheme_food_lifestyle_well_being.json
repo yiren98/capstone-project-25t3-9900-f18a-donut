@@ -1,0 +1,33 @@
+{
+  "subtheme": "Food & Lifestyle Well-being",
+  "parent_dimensions": [
+    "Well-being"
+  ],
+  "overview": "This subtheme captures how workplace policies and social environments directly impact employees' daily living conditions, dietary habits, and overall lifestyle well-being. It matters because it highlights the direct, often unintended, consequences of corporate decisions on personal life, from work-life balance to physical health.",
+  "key_patterns": [
+    "Companies implementing cost-cutting measures that directly reduce employees' quality of life (e.g., reducing sick leave)",
+    "Social events or workplace culture encouraging unhealthy habits (e.g., excessive alcohol consumption)",
+    "Corporate decisions creating negative environmental conditions (e.g., noise, pollution) that impede healthy living",
+    "Positive exchanges around shared food or recipes as a form of social bonding and support"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 3,
+    "average_confidence": 0.72
+  },
+  "typical_contexts": [
+    "Comments arise when companies implement policy changes that negatively impact employees' work-life balance or health, such as reducing sick leave entitlements.",
+    "Also appears in discussions of social events gone wrong, where company culture enables unhealthy behaviors like excessive drinking, leading to serious incidents.",
+    "Positive mentions occur in more personal, community-based contexts, like colleagues sharing recipes and food tips as a form of low-stakes social support."
+  ],
+  "risks_and_blindspots": [
+    "Ignoring the impact of 'lifestyle' policies (e.g., leave, benefits) can lead to significant employee discontent and turnover, as it directly affects well-being.",
+    "Overlooking the role of social events and daily workplace culture in normalizing unhealthy behaviors (e.g., excessive drinking) creates long-term health and safety risks.",
+    "Failing to recognize the value of positive, low-stakes social interactions (e.g., sharing food, recipes) as a means of building community and resilience, missing opportunities to improve culture."
+  ],
+  "recommendations": [
+    "Conduct a full audit of all people policies (e.g., leave, benefits, remote work) with a focus on their impact on daily lifestyle and health, not just cost.",
+    "Establish clear, publicized guidelines on alcohol and social events to prevent health and safety incidents, and actively promote healthy alternatives.",
+    "Create and support platforms (physical and digital) for employees to share positive, lifestyle-oriented content (e.g., recipes, wellness tips) to build community and offset negative policy changes."
+  ]
+}

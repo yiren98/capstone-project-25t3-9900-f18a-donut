@@ -1,0 +1,36 @@
+{
+  "subtheme": "Remediation & Restoration Efforts",
+  "parent_dimensions": [
+    "Ethical Responsibility",
+    "Learning",
+    "Accountability",
+    "Integrity"
+  ],
+  "overview": "This subtheme captures instances where a company undertakes active efforts to repair, restore, or remediate damage it has caused, whether environmental, cultural, or social. It represents a tangible, action-oriented response to past mistakes, moving beyond mere acknowledgment.",
+  "key_patterns": [
+    "Public commitment to funding and conducting independent environmental impact assessments",
+    "Funding or physically rebuilding destroyed cultural or historical sites as replicas",
+    "Publicly releasing findings and documentation of past incidents",
+    "Explicitly linking remediation actions to core ethical principles like integrity"
+  ],
+  "sentiment_snapshot": {
+    "positive": 5,
+    "negative": 0,
+    "average_confidence": 0.856
+  },
+  "typical_contexts": [
+    "This behavior is most visible following a significant public scandal, legal action, or investigative journalism that exposes the extent of the damage caused by the company.",
+    "It often appears as a response to external pressure, where the company is compelled to 'do something' tangible to address the harm.",
+    "It interacts with dimensions of Accountability and Ethical Responsibility by demonstrating that the company is willing to invest resources to make amends, but it is often a reactive, not proactive, strategy."
+  ],
+  "risks_and_blindspots": [
+    "Remediation can be misinterpreted as a full resolution of the problem, potentially diverting attention from systemic change and deeper accountability.",
+    "Restoration efforts, like building replicas, risk being seen as symbolic gestures that do not address the root causes or prevent future incidents.",
+    "If not paired with transparent communication and independent oversight, remediation efforts can be seen as a PR tactic, further eroding trust."
+  ],
+  "recommendations": [
+    "Integrate remediation and restoration as a core component of the ethical framework, not just a reactive measure. Make it a standard part of the project lifecycle.",
+    "Ensure all restoration efforts are developed and validated in partnership with affected communities and experts, not unilaterally.",
+    "Communicate the 'why' behind remediation efforts transparently. Highlight it as a step in a longer process of accountability, not as the final solution."
+  ]
+}

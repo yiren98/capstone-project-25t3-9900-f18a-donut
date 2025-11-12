@@ -1,0 +1,34 @@
+{
+  "subtheme": "Special Group Safety & Care",
+  "parent_dimensions": [
+    "Well-being",
+    "Respect"
+  ],
+  "overview": "This subtheme captures incidents where the company is perceived as failing to ensure the safety of specific groups, such as activists or vulnerable individuals, and where its actions are interpreted as a lack of care or respect. It matters because it directly challenges the company's public commitment to ethics and social responsibility.",
+  "key_patterns": [
+    "Company actions perceived as threatening the safety of specific groups or individuals",
+    "Security or authority figures acting in ways interpreted as intimidating or abusive",
+    "Threats or intimidation linked back to the company's operations or interests",
+    "Incidents involving children or vulnerable groups, escalating the perceived severity"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 2,
+    "average_confidence": 0.84
+  },
+  "typical_contexts": [
+    "These incidents often arise in the context of public conflict over company operations, such as protests or community disputes.",
+    "They are frequently reported by external observers, journalists, or affected community members, rather than being self-reported by the company.",
+    "They tie the company's name and operations directly to acts of intimidation, threats, or a failure of duty of care, often in a public or semi-public setting."
+  ],
+  "risks_and_blindspots": [
+    "Reputational damage from association with threats and intimidation, even if not directly orchestrated by the company.",
+    "Erosion of trust in the company's ability or willingness to protect vulnerable groups and individuals.",
+    "Potential escalation to real-world harm, legal action, or deeper community conflict if left unaddressed."
+  ],
+  "recommendations": [
+    "Establish and communicate clear, transparent protocols for handling conflicts with community members and activists, emphasizing de-escalation and non-violence.",
+    "Implement third-party audits of community engagement and security practices, particularly where operations are contentious.",
+    "Publicly disassociate from and condemn threatening behavior done in the company's name, and actively support affected groups."
+  ]
+}

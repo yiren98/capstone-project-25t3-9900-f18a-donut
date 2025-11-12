@@ -1,4 +1,3 @@
-// src/components/DimensionRadar.jsx
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { getDimensionCounts, getSubthemeCounts } from "../api";
 
@@ -86,14 +85,13 @@ export default function DimensionRadar({
     setActiveSub(selectedSubtheme || "");
   }, [selectedDimension, selectedSubtheme]);
 
-  const W = widthPx,
-    H = heightPx;
-  const cx = Math.round(W * 0.4);
-  const cy = Math.round(H * 0.7);
-  const rMin = Math.max(12, Math.min(W, H) * 0.1);
-  const rMax = Math.min(cx, Math.round(H * 2));
-  const gapRatio = 0.14;
-  const maxVal = Math.max(1, ...items.map((d) => d.value));
+  const W = widthPx, H = heightPx;
+  const cx = Math.round(W * 0.36);       
+  const cy = Math.round(H * 0.5);      
+  const rMin = Math.max(12, Math.min(W,H) * 0.1);
+  const rMax = Math.min(cx, Math.round(H*2)); 
+  const gapRatio = 0.14;               
+  const maxVal = Math.max(1, ...items.map(d=>d.value));
 
   const sectors = useMemo(() => {
     const n = Math.max(1, items.length);
@@ -157,7 +155,7 @@ export default function DimensionRadar({
     <div className="w-full">
       <div
         className="grid gap-x-1.5 gap-y-1.5"
-        style={{ gridTemplateColumns: "repeat(2,minmax(0,1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}
       >
         {items.map((d, i) => {
           const isActive = level === 1 && activeSub && d.name === activeSub;
@@ -206,8 +204,7 @@ export default function DimensionRadar({
           {level === 1 ? ` · ${focusDim}` : ""}
         </h3>
         <div className="text-[12px] text-neutral-500">
-          {year ? `year: ${year}` : "all years"}
-          {month ? `, month: ${month}` : ""}
+          {year ? `Year: ${year}` : "all years"}{month ? `, month: ${month}` : ""}
         </div>
       </div>
 
@@ -227,7 +224,7 @@ export default function DimensionRadar({
               title="Back"
               style={{ cursor: "pointer" }}
             >
-              &lt;
+              ⮌
             </button>
           )}
 

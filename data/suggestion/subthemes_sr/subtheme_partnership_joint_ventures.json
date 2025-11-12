@@ -1,0 +1,33 @@
+{
+  "subtheme": "Partnership & Joint Ventures",
+  "parent_dimensions": [
+    "Collaboration"
+  ],
+  "overview": "This subtheme captures how the company approaches external partnerships and joint ventures, which are critical for resource sharing, risk mitigation, and market expansion. It matters because these strategic alliances directly impact operational capabilities, market perception, and long-term sustainability.",
+  "key_patterns": [
+    "Mentions of specific, high-profile partners (e.g., Rio Tinto, Hitachi, Mitsui) to signal credibility and scale",
+    "Focus on logistical or operational benefits (e.g., 'year-round work', 'access to infrastructure')",
+    "Emphasis on financial or strategic advantages (e.g., 'low dilution', 'funding for cleanup')",
+    "Contrast between positive outcomes (funding, expansion) and negative outcomes (partnerships ending, public backlash)"
+  ],
+  "sentiment_snapshot": {
+    "positive": 7,
+    "negative": 2,
+    "average_confidence": 0.906
+  },
+  "typical_contexts": [
+    "Discussions appear in contexts of strategic announcements, project updates, and public disclosures, often from financial news or industry-specific forums",
+    "It is triggered by new partnership announcements, updates on joint venture performance, or controversies related to existing partnerships",
+    "It interacts with dimensions like Collaboration (positively) and Corporate Responsibility (when partnerships fail or face scrutiny, as in the negative examples)"
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on high-profile partnerships for legitimacy, without sufficient due diligence on partner alignment or long-term goals",
+    "Failure to manage external perceptions when partnerships end poorly, leading to reputation damage",
+    "Incomplete disclosure of partnership terms or benefits, leading to speculation and mistrust in some stakeholder groups"
+  ],
+  "recommendations": [
+    "Establish a transparent and multi-stakeholder review process for selecting and managing joint venture partners, ensuring alignment with core values and long-term strategy",
+    "Develop a communication strategy that proactively highlights partnership benefits and learnings, not just outcomes, to build trust",
+    "Create a partnership 'exit strategy' or review mechanism to proactively address underperforming or high-risk collaborations, minimizing negative fallout"
+  ]
+}

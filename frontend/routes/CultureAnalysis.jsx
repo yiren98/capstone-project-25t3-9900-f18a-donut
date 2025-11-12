@@ -1,5 +1,4 @@
-// routes/CultureAnalysis.jsx
-import React from "react";
+import React, { useState } from "react";
 import rioSmall from "../assets/icons/unsw_logo.png";
 import rioBig from "../assets/icons/unsw_logo_text.png";
 import SuggestionSummary from "../src/components/SuggestionSummary";
@@ -7,6 +6,11 @@ import DimensionFilterPanel from "../src/components/DimensionFilterPanel";
 import TopRouteTabs from "../src/components/TopRouteTabs";
 
 export default function CultureAnalysis() {
+
+  const [dimension, setDimension]     = useState("");
+  const [subtheme, setSubtheme]       = useState(""); 
+  const [subthemeFile, setSubthemeFile] = useState("");
+
   return (
     <div
       className="min-h-screen font-display"
@@ -16,12 +20,12 @@ export default function CultureAnalysis() {
         className="
           px-7 pt-7 grid gap-x-6 gap-y-6
           grid-cols-1
-          sm:grid-cols-[72px_minmax(0,1fr)]
-          lg:grid-cols-[72px_minmax(0,1fr)_minmax(300px,420px)]
-          xl:grid-cols-[72px_minmax(0,1fr)_420px]
+          sm:grid-cols-[0px_minmax(0,1fr)]
+          lg:grid-cols-[0px_minmax(0,1fr)_minmax(300px,420px)]
+          xl:grid-cols-[0px_minmax(0,1fr)_420px]
         "
       >
-        {/* Left Logo */}
+
         <div className="hidden sm:flex row-start-1 col-start-1 flex-col items-center self-start">
           <img src={rioSmall} alt="RIO" className="h-10 w-auto mt-[5px]" />
           <img
@@ -31,7 +35,7 @@ export default function CultureAnalysis() {
           />
         </div>
 
-        {/* title */}
+
         <div className="row-start-1 col-start-1 sm:col-start-2 flex items-center self-start">
           <div className="translate-y-[2px]">
             <h1 className="text-xl md:text-4xl font-semibold text-neutral-900">
@@ -43,19 +47,41 @@ export default function CultureAnalysis() {
           </div>
         </div>
 
-        {/* TOP TABS (right like dashboard) */}
+
         <div className="row-start-2 sm:row-start-1 col-start-1 sm:col-start-2 lg:col-start-3 w-full self-start mt-1.5">
           <TopRouteTabs />
         </div>
 
-        {/* Left big suggestion card */}
+
         <section className="row-start-3 sm:col-start-2 lg:row-span-2">
-          <SuggestionSummary className="h-[740px]" />
+          <SuggestionSummary
+            className="h-[720px]"
+            dimension={dimension}
+            subthemeFile={subthemeFile}
+            onBack={(level) => {
+
+              if (level === "dimension") {
+                setSubtheme("");
+                setSubthemeFile("");
+              } else if (level === "overall") {
+                setDimension("");
+                setSubtheme("");
+                setSubthemeFile("");
+              }
+            }}
+          />
         </section>
 
-        {/* Right big filter panel */}
+
         <aside className="row-start-3 sm:col-start-2 lg:col-start-3 lg:row-span-2">
-          <DimensionFilterPanel className="h-[740px]" />
+          <DimensionFilterPanel
+            className="h-[720px]"
+            onSelect={(dim, sub, file) => {
+              setDimension(dim || "");
+              setSubtheme(sub || "");
+              setSubthemeFile(file || "");
+            }}
+          />
         </aside>
       </div>
     </div>
