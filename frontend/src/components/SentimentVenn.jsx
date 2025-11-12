@@ -5,13 +5,23 @@ const TITLE_CLS = "text-[15px] font-semibold text-neutral-800";
 const VALUE_CLS = "text-[18px] font-semibold tabular-nums";
 const SUBLABEL_CLS = "text-[12px] -mt-0.5";
 
+const EmptyState = ({ children, style }) => (
+  <div
+    className="flex items-center justify-center text-neutral-500 text-[16px] rounded-xl border"
+    style={{ border: "1px solid #fefefeff", ...style }}
+  >
+    {children || "No results."}
+  </div>
+);
+
 export default function SentimentVenn({
+  className = "",
   title = "Sentiment Analysis Statistics",
   year,
   month,
   dimension = "",
   subtheme = "",
-  height = 300,
+  height = 260,
 }) {
   const [pos, setPos] = useState(0);
   const [neg, setNeg] = useState(0);
@@ -61,10 +71,9 @@ export default function SentimentVenn({
 
   return (
     <div
-      className="rounded-2xl border border-[#d6d0c5] shadow-sm px-4 py-3"
+      className={`rounded-2xl border border-[#d6d0c5] shadow-sm px-4 py-3 ${className}`}
       style={{
         width: "100%",
-        maxWidth: 700,
         height,
         background: "rgba(255,255,255,0.7)",
         backdropFilter: "blur(6px)",
@@ -120,38 +129,34 @@ export default function SentimentVenn({
                   <div className={VALUE_CLS}>{pos}</div>
                   <div className={SUBLABEL_CLS}>positive</div>
                 </div>
-              </div>
-            )}
-
-            {/* Negative */}
-            {neg > 0 && (
-              <div
-                className="relative rounded-full will-change-transform"
-                style={{
-                  width: sizes.dNeg,
-                  height: sizes.dNeg,
-                  marginLeft: -GAP_PUSH,
-                  background:
-                    "radial-gradient(closest-side, #ef4444 68%, rgba(234, 91, 91, 0.72) 85%, rgba(239,68,68,0.06) 100%)",
-                  filter: "blur(0.25px)",
-                  boxShadow:
-                    "0 0 0px rgba(239,68,68,0.32), 0 0 60px rgba(239,68,68,0.18)",
-                  transform: `scaleX(${SQUEEZE})`,
-                }}
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-900">
-                  <div className={VALUE_CLS}>{neg}</div>
-                  <div className={SUBLABEL_CLS}>negative</div>
+              )}
+              {neg > 0 && (
+                <div
+                  className="relative rounded-full will-change-transform"
+                  style={{
+                    width: sizes.dNeg,
+                    height: sizes.dNeg,
+                    marginLeft: -GAP_PUSH,
+                    background:
+                      "radial-gradient(closest-side, #ef4444 68%, rgba(234, 91, 91, 0.72) 85%, rgba(239,68,68,0.06) 100%)",
+                    filter: "blur(0.25px)",
+                    boxShadow: "0 0 0px rgba(239,68,68,0.32), 0 0 60px rgba(239,68,68,0.18)",
+                    transform: `scaleX(${SQUEEZE})`,
+                  }}
+                >
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-900">
+                    <div className={VALUE_CLS}>{neg}</div>
+                    <div className={SUBLABEL_CLS}>negative</div>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
- 
       <div className="mt-1 flex items-center justify-center gap-7 text-[13px]">
-        {pos > 0 && (
+        {!empty && pos > 0 && (
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200">
             <span
               className="h-2.5 w-2.5 rounded-full inline-block"
@@ -161,7 +166,7 @@ export default function SentimentVenn({
             <span className="text-neutral-600">Positive</span>
           </span>
         )}
-        {neg > 0 && (
+        {!empty && neg > 0 && (
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200">
             <span
               className="h-2.5 w-2.5 rounded-full inline-block"

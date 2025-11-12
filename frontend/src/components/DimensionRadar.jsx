@@ -1,17 +1,18 @@
-import React, { useEffect, useMemo, useState, useCallback } from "react";
+import React, { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import { getDimensionCounts, getSubthemeCounts } from "../api";
 
 export default function DimensionRadar({
+  className = "",
   title = "Cultural Dimensions",
   year,
   month,
-
   selectedDimension = "",
   selectedSubtheme = "",
-
   onFilterChange,
-  widthPx = 640,
-  heightPx = 247,
+  leftMax = 300,
+  rightMin = 220,
+  gapPx = 12,
+  heightPx = 260,
 }) {
   const [level, setLevel] = useState(0);
   const [focusDim, setFocusDim] = useState("");
@@ -85,13 +86,15 @@ export default function DimensionRadar({
     setActiveSub(selectedSubtheme || "");
   }, [selectedDimension, selectedSubtheme]);
 
-  const W = widthPx, H = heightPx;
-  const cx = Math.round(W * 0.36);       
-  const cy = Math.round(H * 0.5);      
-  const rMin = Math.max(12, Math.min(W,H) * 0.1);
-  const rMax = Math.min(cx, Math.round(H*2)); 
-  const gapRatio = 0.14;               
-  const maxVal = Math.max(1, ...items.map(d=>d.value));
+  const PAD = 12;
+  const W = leftSize, H = heightPxInner(heightPx);
+  const boxShort = Math.min(W, H);
+  const cx = Math.round(W * 0.48);
+  const cy = Math.round(H * 0.52);
+  const rMax = Math.max(0, Math.floor(boxShort / 2 - PAD));
+  const rMin = Math.max(8, Math.floor(rMax * 0.25));
+  const gapRatio = 0.14;
+  const maxVal = Math.max(1, ...items.map((d) => d.value));
 
   const sectors = useMemo(() => {
     const n = Math.max(1, items.length);
@@ -137,13 +140,11 @@ export default function DimensionRadar({
       }
     }
   };
-
   const clickSubtheme = (subName) => {
     const next = activeSub === subName ? "" : subName;
     setActiveSub(next);
     onFilterChange?.({ dimension: focusDim, subtheme: next });
   };
-
   const backToTop = () => {
     setLevel(0);
     setFocusDim("");
@@ -155,7 +156,7 @@ export default function DimensionRadar({
     <div className="w-full">
       <div
         className="grid gap-x-1.5 gap-y-1.5"
-        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px,1fr))" }}
       >
         {items.map((d, i) => {
           const isActive = level === 1 && activeSub && d.name === activeSub;
@@ -198,6 +199,11 @@ export default function DimensionRadar({
         background: "rgba(255,255,255,0.7)",
       }}
     >
+      <style>{`
+        .no-native-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+        .no-native-scrollbar::-webkit-scrollbar { width: 0; height: 0; }
+      `}</style>
+
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-[15px] font-semibold text-neutral-800">
           {title}
@@ -303,4 +309,9 @@ export default function DimensionRadar({
       </div>
     </div>
   );
+}
+
+function heightPxInner(total) {
+  const headerAndPadding = 72;
+  return Math.max(120, total - headerAndPadding);
 }

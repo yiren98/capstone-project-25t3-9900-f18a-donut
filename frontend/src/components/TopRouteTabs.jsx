@@ -37,8 +37,8 @@ export default function TopRouteTabs({
             "motion-reduce:transition-none",
           )}
           style={{
-            width: "calc(50% - 4px)",
-            transform: activeIndex ? "translateX(100%)" : "translateX(0)",
+            width: "calc(50% - 6px)",
+            transform: activeIndex ? "translateX(calc(100% + 2px))" : "translateX(0)",
             backgroundColor: highlightColor,
           }}
         />

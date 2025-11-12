@@ -48,11 +48,16 @@ body {
   font-family: "Arima", "Noto Sans SC", sans-serif;
 }
 
-/* 隐藏原生滚动条，但仍可滚动 */
 .no-native-scrollbar {
-  -ms-overflow-style: none;     /* IE/Edge 旧版 */
-  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;    
+  scrollbar-width: none; 
 }
 .no-native-scrollbar::-webkit-scrollbar {
-  width: 0; height: 0;          /* Chrome/Safari */
+  width: 0; height: 0;
+}
+
+button,
+[role="button"],
+a[href] {
+  cursor: pointer;
 }

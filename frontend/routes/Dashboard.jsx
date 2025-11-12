@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import rioSmall from "../assets/icons/unsw_logo.png";
 import rioBig from "../assets/icons/unsw_logo_text.png";
+
 import TopRouteTabs from "../src/components/TopRouteTabs";
 import PostFeed from "../src/components/PostFeed";
 import CalendarPanel from "../src/components/CalendarPanel";
@@ -11,7 +12,7 @@ import IncomeStatistics from "../src/components/Statistics";
 import { getSBI } from "../src/api";
 
 export default function Dashboard() {
-  const [year, setYear] = useState("all");         
+  const [year, setYear] = useState("all");
   const [month, setMonth] = useState(null);
   const [monthsWithData, setMonthsWithData] = useState([]);
   const [sbi, setSbi] = useState(0);
@@ -20,8 +21,11 @@ export default function Dashboard() {
 
   const [dimension, setDimension] = useState("");
   const [subtheme, setSubtheme] = useState("");
-  const [sentiment, setSentiment] = useState(""); // "positive" | "negative" | ""
+  const [sentiment, setSentiment] = useState("");
 
+  const CARD_H = 300;
+
+  // ---------- data effects ----------
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -35,9 +39,7 @@ export default function Dashboard() {
         setMonthsWithData([]);
       }
     })();
-    return () => {
-      mounted = false;
-    };
+    return () => { mounted = false; };
   }, [year]);
 
   useEffect(() => {
@@ -59,15 +61,12 @@ export default function Dashboard() {
         setDelta(0);
       }
     })();
-    return () => {
-      mounted = false;
-    };
+    return () => { mounted = false; };
   }, [year, month]);
 
-  useEffect(() => {
-    setFlipToken((t) => t + 1);
-  }, [year, month]);
+  useEffect(() => { setFlipToken((t) => t + 1); }, [year, month]);
 
+  // ---------- handlers ----------
   const handleYearChange = (y) => {
     setYear(y);
     setMonth(null);
@@ -78,8 +77,6 @@ export default function Dashboard() {
     setMonth(m);
     setFlipToken((t) => t + 1);
   };
-
-  // DimensionRadar
   const handleDimRadarFilter = ({ dimension: d = "", subtheme: s = "" }) => {
     setDimension(d);
     setSubtheme(s);
@@ -87,10 +84,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div
-      className="min-h-screen font-display"
-      style={{ background: "rgb(242,241,237)" }}
-    >
+    <div className="min-h-screen font-display" style={{ background: "rgb(242,241,237)" }}>
       <div
         className="
           px-6 pt-7 grid gap-x-6 gap-y-6
@@ -101,16 +95,8 @@ export default function Dashboard() {
         "
       >
         <div className="hidden sm:flex row-start-1 col-start-1 flex-col items-center self-start">
-          <img
-            src={rioSmall}
-            alt="RIO icon"
-            className="h-10 w-auto filter mt-[5px] contrast-125"
-          />
-          <img
-            src={rioBig}
-            alt="Rio Tinto"
-            className="h-3 w-auto mt-[3.5px] filter grayscale contrast-125"
-          />
+          <img src={rioSmall} alt="RIO icon" className="h-10 w-auto filter mt-[5px] contrast-125" />
+          <img src={rioBig} alt="Rio Tinto" className="h-3 w-auto mt-[3.5px] filter grayscale contrast-125" />
         </div>
 
         <div className="row-start-1 col-start-1 sm:col-start-2 flex items-center self-start">
@@ -124,15 +110,15 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="row-start-2 sm:row-start-1 col-start-1 sm:col-start-2 lg:col-start-3 w-full self-start mt-1.5">
-          <TopRouteTabs />
-        </div>
+      <div className="row-start-2 sm:row-start-2 lg:row-start-1 col-start-1 sm:col-start-2 lg:col-start-3 w-full self-start mt-2 lg:mt-1.5 mb-2">
+        <TopRouteTabs className="ml-auto max-w-[480px]" />
+      </div>
 
         <aside className="hidden sm:flex row-start-2 col-start-1 justify-center self-start">
           <div className="w-[52px] sm:w-[50px] lg:w-[60px]" />
         </aside>
 
-        <main className="row-start-3 sm:row-start-2 col-start-1 sm:col-start-2">
+        <main className="row-start-3 sm:row-start-3 lg:row-start-2 col-start-1 sm:col-start-2">
           <PostFeed
             className="flex-1 h-[395px]"
             year={year}
@@ -144,7 +130,7 @@ export default function Dashboard() {
           />
         </main>
 
-        <section className="row-start-4 sm:row-start-3 lg:row-start-2 col-start-1 sm:col-start-2 lg:col-start-3 z-[20]">
+        <section className="row-start-4 sm:row-start-4 lg:row-start-2 col-start-1 sm:col-start-2 lg:col-start-3 z-[20]">
           <CalendarPanel
             className="h-full"
             year={year}
@@ -159,45 +145,54 @@ export default function Dashboard() {
 
         <div
           className="
-            row-start-5 sm:row-start-4 lg:row-start-3 col-span-full pb-4 grid gap-6
+            row-start-5 sm:row-start-5 lg:row-start-3 col-span-full
+            grid gap-6
             grid-cols-1
             sm:grid-cols-[0px_minmax(0,1fr)]
             lg:grid-cols-[0px_minmax(0,1fr)_minmax(300px,420px)]
             xl:grid-cols-[0px_minmax(0,1fr)_420px]
           "
         >
-          <div className="hidden sm:flex col-start-1 mt-auto justify-center self-start">
-            <div className="w-[52px] sm:w-[56px] lg:w-[60px]" />
+          <div className="hidden sm:flex col-start-1 justify-center">
+            <div className="w-[52px] sm:w-[50px] lg:w-[60px]" />
           </div>
 
           <section
             className="
-              col-start-1 sm:col-start-2 grid gap-6
-              grid-cols-1
-              md:grid-cols-[minmax(200px,0.65fr)_minmax(400px,1.35fr)]
+              col-start-1 sm:col-start-2
             "
           >
-            <SentimentVenn
-              title="Sentiment Analysis Statistics"
-              year={year}
-              month={month}
-              dimension={dimension}
-              subtheme={subtheme}
-            />
-            <DimensionRadar
-              title="Cultural Dimensions"
-              year={year}
-              month={month}
-              widthPx={770}
-              heightPx={300}
-              selectedDimension={dimension}
-              selectedSubtheme={subtheme}
-              onFilterChange={handleDimRadarFilter}
-            />
+              <div
+                className="
+                  grid gap-6
+                  md:grid-cols-[4fr_7fr]
+                  items-stretch
+                "
+              >
+              <SentimentVenn
+                className="h-full"
+                height={CARD_H}
+                title="Sentiment Analysis Statistics"
+                year={year}
+                month={month}
+                dimension={dimension}
+                subtheme={subtheme}
+              />
+              <DimensionRadar
+                className="h-full"
+                title="Cultural Dimensions"
+                year={year}
+                month={month}
+                heightPx={CARD_H}
+                selectedDimension={dimension}
+                selectedSubtheme={subtheme}
+                onFilterChange={handleDimRadarFilter}
+              />
+            </div>
           </section>
 
           <section className="col-start-1 sm:col-start-2 lg:col-start-3">
-            <IncomeStatistics year={year} />
+            <IncomeStatistics className="h-full" year={year} height={CARD_H} />
           </section>
         </div>
       </div>

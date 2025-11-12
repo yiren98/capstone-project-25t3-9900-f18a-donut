@@ -1,4 +1,3 @@
-// src/components/SuggestionSummary.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import {
@@ -432,7 +431,7 @@ export default function SuggestionSummary({
         "rounded-2xl border border-[#d6d0c5] shadow-sm px-6 py-5 flex flex-col",
         className
       )}
-      style={{ backgroundColor: "#eae4d0ff" }}
+      style={{ backgroundColor: "#e0d5cadb" }}
     >
       <style>{`
         .edge-scroll {

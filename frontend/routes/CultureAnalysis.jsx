@@ -1,14 +1,12 @@
+// routes/CultureAnalysis.jsx
 import React, { useState } from "react";
-import rioSmall from "../assets/icons/unsw_logo.png";
-import rioBig from "../assets/icons/unsw_logo_text.png";
 import SuggestionSummary from "../src/components/SuggestionSummary";
 import DimensionFilterPanel from "../src/components/DimensionFilterPanel";
 import TopRouteTabs from "../src/components/TopRouteTabs";
 
 export default function CultureAnalysis() {
-
-  const [dimension, setDimension]     = useState("");
-  const [subtheme, setSubtheme]       = useState(""); 
+  const [dimension, setDimension] = useState("");
+  const [subtheme, setSubtheme] = useState("");
   const [subthemeFile, setSubthemeFile] = useState("");
 
   return (
@@ -20,9 +18,8 @@ export default function CultureAnalysis() {
         className="
           px-7 pt-7 grid gap-x-6 gap-y-6
           grid-cols-1
-          sm:grid-cols-[0px_minmax(0,1fr)]
-          lg:grid-cols-[0px_minmax(0,1fr)_minmax(300px,420px)]
-          xl:grid-cols-[0px_minmax(0,1fr)_420px]
+          lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)]
+          xl:grid-cols-[minmax(0,1fr)_420px]
         "
       >
 
@@ -47,19 +44,40 @@ export default function CultureAnalysis() {
           </div>
         </div>
 
-
-        <div className="row-start-2 sm:row-start-1 col-start-1 sm:col-start-2 lg:col-start-3 w-full self-start mt-1.5">
+        <div className="row-start-2 lg:row-start-1 col-start-1 lg:col-start-2 w-full self-start mt-1.5">
           <TopRouteTabs />
         </div>
 
+        <aside
+          className="
+            order-1 lg:order-2
+            row-start-3 lg:row-start-2
+            col-start-1 lg:col-start-2
+            lg:row-span-2
+          "
+        >
+          <DimensionFilterPanel
+            className="h-[720px]"
+            onSelect={(dim, sub, file) => {
+              setDimension(dim || "");
+              setSubtheme(sub || "");
+              setSubthemeFile(file || "");
+            }}
+          />
+        </aside>
 
-        <section className="row-start-3 sm:col-start-2 lg:row-span-2">
+        <section
+          className="
+            order-2 lg:order-1
+            row-start-4 lg:row-start-2
+            col-start-1 lg:col-start-1
+          "
+        >
           <SuggestionSummary
             className="h-[720px]"
             dimension={dimension}
             subthemeFile={subthemeFile}
             onBack={(level) => {
-
               if (level === "dimension") {
                 setSubtheme("");
                 setSubthemeFile("");
@@ -71,18 +89,6 @@ export default function CultureAnalysis() {
             }}
           />
         </section>
-
-
-        <aside className="row-start-3 sm:col-start-2 lg:col-start-3 lg:row-span-2">
-          <DimensionFilterPanel
-            className="h-[720px]"
-            onSelect={(dim, sub, file) => {
-              setDimension(dim || "");
-              setSubtheme(sub || "");
-              setSubthemeFile(file || "");
-            }}
-          />
-        </aside>
       </div>
     </div>
   );

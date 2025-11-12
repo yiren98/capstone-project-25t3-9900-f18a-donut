@@ -31,7 +31,7 @@ const Pill = ({ dot, text, number, onClick, titleText, selected = false }) => {
       onClick={onClick}
       title={titleText || text}
       className={clsx(
-        "w-full px-3 py-1.5 rounded-full",
+        "w-full px-5 py-2 rounded-full",
         "border transition-all duration-150",
         selected ? "border-[var(--ring)] shadow-sm" : "border-[#e3d5wa]",
         "hover:brightness-[.98] active:brightness-95",
@@ -152,14 +152,19 @@ export default function DimensionFilterPanel({
 
 
         <div
-          key={viewKey}
-          className={clsx(
-            "flex-1 grid grid-cols-1 gap-2 overflow-y-auto pr-1 ys-fade-swap",
-            "ys-hide-scrollbar",
-            "[-webkit-overflow-scrolling:touch]"
-          )}
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
+              key={viewKey}
+              className={clsx(
+                "flex-1 grid grid-cols-1 gap-1.5 overflow-y-auto pr-1 ys-fade-swap ys-hide-scrollbar",
+                "content-start items-start auto-rows-max"   
+              )}
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                gridAutoRows: "max-content",   
+                alignContent: "start",        
+                alignItems: "start",
+              }}
+            >
           {(step === 0 ? dims : subthemes).map((item) => {
             const text = step === 0 ? item : item.name;
             const num  = step === 0 ? cntMap[item] : undefined;
