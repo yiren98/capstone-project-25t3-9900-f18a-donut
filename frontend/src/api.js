@@ -45,6 +45,9 @@ const toInt = (v) => {
   return Number.isFinite(n) ? Math.trunc(n) : undefined;
 };
 
+/* ==== Base URL ==== */
+const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com/api";
+
 /* ==== SBI ==== */
 export const getSBI = async ({ year, month } = {}) => {
   const y = toInt(year);
@@ -52,7 +55,7 @@ export const getSBI = async ({ year, month } = {}) => {
   const params = new URLSearchParams({ year: String(y) });
   const m = toInt(month);
   if (Number.isInteger(m)) params.set("month", String(m));
-  return fetchJSON(`/api/sbi?${params.toString()}`);
+  return fetchJSON(`${BASE}/sbi?${params.toString()}`);
 };
 
 /* ==== Posts ==== */
@@ -71,7 +74,7 @@ export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month, di
   if (subtheme)  params.set("subtheme", String(subtheme));
   if (sentiment) params.set("sentiment", String(sentiment).toLowerCase());
 
-  return fetchJSON(`/api/posts?${params.toString()}`).then((data) => {
+  return fetchJSON(`${BASE}/posts?${params.toString()}`).then((data) => {
     const items = (data.items || []).map((it) => ({
       ...it,
       time: toYMD(it.time),
@@ -89,7 +92,7 @@ export const getPosts = ({ page = 1, size = 6, q = "", tag = "", year, month, di
 
 export const getPostDetail = async (id) => {
   if (!id) throw new Error("post id is required");
-  const detail = await fetchJSON(`/api/posts/${encodeURIComponent(id)}`);
+  const detail = await fetchJSON(`${BASE}/posts/${encodeURIComponent(id)}`);
   return {
     ...detail,
     time: toYMD(detail.time),
@@ -106,7 +109,7 @@ export const getPostDetail = async (id) => {
 export const getPostComments = ({ id, page = 1, size = 100 } = {}) => {
   if (!id) throw new Error("post id is required");
   const params = new URLSearchParams({ page: String(page), size: String(size) });
-  return fetchJSON(`/api/posts/${encodeURIComponent(id)}/comments?${params.toString()}`).then(
+  return fetchJSON(`${BASE}/posts/${encodeURIComponent(id)}/comments?${params.toString()}`).then(
     (data) => {
       const items = (data.items || []).map((c) => ({
         ...c,
@@ -171,7 +174,7 @@ export const getSentimentStats = async ({
   if (Number.isInteger(m)) params.set("month", String(m));
   if (dimension) params.set("dimension", String(dimension));
   if (subtheme) params.set("subtheme", String(subtheme));
-  return fetch(`/api/sentiment_stats?${params.toString()}`, { credentials: "include" })
+  return fetch(`${BASE}/sentiment_stats?${params.toString()}`, { credentials: "include" })
     .then(async (r) => {
       if (!r.ok) {
         let msg = `${r.status} ${r.statusText}`;
@@ -186,7 +189,7 @@ export async function getDimensionCounts({ year, month } = {}) {
   const qs = new URLSearchParams();
   if (year) qs.set("year", year);
   if (month) qs.set("month", month);
-  const res = await fetch(`/api/dimension_counts?${qs.toString()}`);
+  const res = await fetch(`${BASE}/dimension_counts?${qs.toString()}`);
   if (!res.ok) throw new Error("dimension_counts failed");
   return res.json(); // [{ name, count, color? }]
 }
@@ -196,12 +199,11 @@ export async function getSubthemeCounts({ year, month, dimension }) {
   if (dimension) qs.set("dimension", dimension);
   if (year) qs.set("year", year);
   if (month) qs.set("month", month);
-  const res = await fetch(`/api/subtheme_counts?${qs.toString()}`);
+  const res = await fetch(`${BASE}/subtheme_counts?${qs.toString()}`);
   if (!res.ok) throw new Error("subtheme_counts failed");
   return res.json(); // [{ name, count, color? }]
 }
 
-const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com/api";
 const jget = async (url) => {
   const r = await fetch(url, { credentials: "include" });
   if (!r.ok) throw new Error(await r.text());
