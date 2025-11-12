@@ -1,27 +1,43 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arima:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-.underline-tab { position: relative; }
-.underline-tab::after{
-  content:""; position:absolute; left:0; bottom:-6px; height:1px; width:0;
-  background:#111827; transition:width .25s ease;
+.underline-tab {
+  position: relative;
 }
-.underline-tab.active::after, .underline-tab:hover::after{ width:100%; }
+.underline-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 1px;
+  width: 0;
+  background: #111827;
+  transition: width 0.25s ease;
+}
+.underline-tab.active::after,
+.underline-tab:hover::after {
+  width: 100%;
+}
 
-.strip-pos  { box-shadow: inset 3px 0 0 0 rgba(22,163,74,.75); }
-.strip-neg  { box-shadow: inset 3px 0 0 0 rgba(220,38,38,.75); }
-.strip-neu  { box-shadow: inset 3px 0 0 0 rgba(107,114,128,.6); }
+.strip-pos {
+  box-shadow: inset 3px 0 0 0 rgba(22, 163, 74, 0.75);
+}
+.strip-neg {
+  box-shadow: inset 3px 0 0 0 rgba(220, 38, 38, 0.75);
+}
+.strip-neu {
+  box-shadow: inset 3px 0 0 0 rgba(107, 114, 128, 0.6);
+}
 
 @theme {
-  --font-display: "Playfair Display", serif;                  
-  --font-body: Inter, ui-sans-serif, system-ui, sans-serif; 
+  --font-display: "Playfair Display", serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
 body {

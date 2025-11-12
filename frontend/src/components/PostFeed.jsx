@@ -1,20 +1,36 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { getPosts, getPostDetail, getPostComments, buildCommentTree } from "../api";
+import {
+  getPosts,
+  getPostDetail,
+  getPostComments,
+  buildCommentTree,
+} from "../api";
 
 import IconLeft from "../../assets/icons/MingcuteLeftFill.png";
 import IconRight from "../../assets/icons/MingcuteRightFill.png";
 
 const BG_ARTICLE = "rgba(241, 240, 227, 0.75)";
-const BG_FORUM   = "rgba(233, 216, 191, 0.75)";
+const BG_FORUM = "rgba(233, 216, 191, 0.75)";
 
-export default function PostFeed({ className = "", year, month, filterFlipKey, sentiment = null, subtheme = "", dimension = "" }) {
+export default function PostFeed({
+  className = "",
+  year,
+  month,
+  filterFlipKey,
+  sentiment = null,
+  subtheme = "",
+  dimension = "",
+}) {
   const pageSize = 4;
   const commentSize = 10000;
 
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(1);
   const [items, setItems] = useState([]);
-  const totalPages = useMemo(() => Math.max(1, Math.ceil(total / pageSize)), [total]);
+  const totalPages = useMemo(
+    () => Math.max(1, Math.ceil(total / pageSize)),
+    [total],
+  );
 
   const [view, setView] = useState("list"); // 'list' | 'detail'
   const [post, setPost] = useState(null);
@@ -35,10 +51,17 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
   const reqId = useRef(0);
 
   const Heart = ({ className = "w-3.5 h-3.5" }) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      className={className}
+    >
       <path
         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-        strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -58,12 +81,10 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
     );
   };
 
-
   useEffect(() => {
     setPage(1);
     setListSlide(0);
   }, [year, month, filterFlipKey, sentiment, subtheme, dimension]);
-
 
   useEffect(() => {
     let alive = true;
@@ -71,7 +92,15 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
 
     setLoading(true);
     setErr("");
-    getPosts({ page, size: pageSize, year, month, sentiment, subtheme, dimension })
+    getPosts({
+      page,
+      size: pageSize,
+      year,
+      month,
+      sentiment,
+      subtheme,
+      dimension,
+    })
       .then((res) => {
         if (!alive || myId !== reqId.current) return;
         setItems(res.items || []);
@@ -87,7 +116,9 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
         setLoading(false);
       });
 
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [page, year, month, sentiment, subtheme, dimension, filterFlipKey]);
 
   const gotoPageWithSlide = (next, dir) => {
@@ -110,7 +141,11 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
       setCPage(1);
 
       if (d.type === "forum") {
-        const c = await getPostComments({ id: d.tag || d.id, page: 1, size: commentSize });
+        const c = await getPostComments({
+          id: d.tag || d.id,
+          page: 1,
+          size: commentSize,
+        });
         setCommentsTree(buildCommentTree(c.items || []));
         setCTotal(c.total || 0);
       } else {
@@ -129,7 +164,7 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
 
   const cTotalPages = useMemo(
     () => Math.max(1, Math.ceil((cTotal || 0) / commentSize)),
-    [cTotal, commentSize]
+    [cTotal, commentSize],
   );
 
   const gotoCommentPage = async (next, dir) => {
@@ -142,7 +177,11 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
     setLoading(true);
     setErr("");
     try {
-      const c = await getPostComments({ id: post.tag || post.id, page: p, size: commentSize });
+      const c = await getPostComments({
+        id: post.tag || post.id,
+        page: p,
+        size: commentSize,
+      });
       setCommentsTree(buildCommentTree(c.items || []));
       setCPage(p);
       setCTotal(c.total || 0);
@@ -163,7 +202,8 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
 
   const flipTo = (target) => {
     if (!flipRef.current) return;
-    flipRef.current.style.transform = target === "detail" ? "rotateY(180deg)" : "rotateY(0deg)";
+    flipRef.current.style.transform =
+      target === "detail" ? "rotateY(180deg)" : "rotateY(0deg)";
   };
 
   const backToList = () => {
@@ -180,9 +220,13 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
       <div className="mb-3 flex flex-wrap gap-2">
         {entries.map(([k, v]) => {
           const vv = String(v).toLowerCase();
-          const emo = vv === "positive" ? "🟡" : vv === "negative" ? "🔴" : "😐";
+          const emo =
+            vv === "positive" ? "🟡" : vv === "negative" ? "🔴" : "😐";
           return (
-            <span key={k} className="text-[12px] px-2 py-1 rounded-lg border border-white/60 bg-white/60 flex items-center gap-1">
+            <span
+              key={k}
+              className="text-[12px] px-2 py-1 rounded-lg border border-white/60 bg-white/60 flex items-center gap-1"
+            >
               <span>{emo}</span>
               <span className="text-neutral-800">{k}</span>
             </span>
@@ -207,8 +251,10 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
         className="h-full w-full relative transition-transform duration-500 z-10"
         style={{ transformStyle: "preserve-3d", willChange: "transform" }}
       >
-
-        <div className="absolute inset-0 overflow-hidden" style={{ backfaceVisibility: "hidden" }}>
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ backfaceVisibility: "hidden" }}
+        >
           {err && (
             <div className="mb-2 mx-1 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
               {err}
@@ -243,23 +289,24 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
                       {it.title}
                     </div>
 
-                    {Array.isArray(it.dimensions) && it.dimensions.length > 0 && (
-                      <div className="mb-2 flex flex-wrap gap-1.5">
-                        {it.dimensions.slice(0, 4).map((d) => (
-                          <span
-                            key={d}
-                            className="text-[11px] px-2 py-0.5 rounded-full border border-white/60 bg-white/60"
-                          >
-                            {d}
-                          </span>
-                        ))}
-                        {it.dimensions.length > 4 && (
-                          <span className="text-[11px] text-neutral-600">
-                            +{it.dimensions.length - 4}
-                          </span>
-                        )}
-                      </div>
-                    )}
+                    {Array.isArray(it.dimensions) &&
+                      it.dimensions.length > 0 && (
+                        <div className="mb-2 flex flex-wrap gap-1.5">
+                          {it.dimensions.slice(0, 4).map((d) => (
+                            <span
+                              key={d}
+                              className="text-[11px] px-2 py-0.5 rounded-full border border-white/60 bg-white/60"
+                            >
+                              {d}
+                            </span>
+                          ))}
+                          {it.dimensions.length > 4 && (
+                            <span className="text-[11px] text-neutral-600">
+                              +{it.dimensions.length - 4}
+                            </span>
+                          )}
+                        </div>
+                      )}
 
                     <div className="flex justify-between text-sm text-neutral-600">
                       <span className="truncate">{it.author}</span>
@@ -267,7 +314,9 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
                         <span className="tabular-nums">{it.time}</span>
                         <span className="flex items-center gap-1">
                           <Heart className="w-3.5 h-3.5" />
-                          <span className="tabular-nums">{it.likes ?? it.score ?? 0}</span>
+                          <span className="tabular-nums">
+                            {it.likes ?? it.score ?? 0}
+                          </span>
                         </span>
                       </span>
                     </div>
@@ -278,9 +327,14 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
           </div>
         </div>
 
-
-        <div className="absolute inset-0 overflow-hidden" style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}>
-          <div className="h-full border border-[rgb(200,190,170)] rounded-2xl shadow-sm overflow-hidden" style={{ background: "#f6f3ef" }}>
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}
+        >
+          <div
+            className="h-full border border-[rgb(200,190,170)] rounded-2xl shadow-sm overflow-hidden"
+            style={{ background: "#f6f3ef" }}
+          >
             <div className="px-5 py-3 flex justify-between items-center">
               <div className="flex items-center gap-2 pr-4">
                 <Badge type={post?.type} />
@@ -297,40 +351,67 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
             </div>
 
             <div className="px-5 pb-2 text-sm text-neutral-600 flex gap-4 flex-wrap">
-              <span>Author: <b className="text-neutral-800">{post?.author}</b></span>
+              <span>
+                Author: <b className="text-neutral-800">{post?.author}</b>
+              </span>
               <span className="tabular-nums">Date: {post?.time}</span>
               <span className="flex items-center gap-1">
                 <Heart className="w-3.5 h-3.5" />
-                <span className="tabular-nums">{post?.likes ?? post?.score ?? 0}</span>
+                <span className="tabular-nums">
+                  {post?.likes ?? post?.score ?? 0}
+                </span>
               </span>
-              {post?.source && <span className="truncate">Source: <b className="text-neutral-800">{post.source}</b></span>}
+              {post?.source && (
+                <span className="truncate">
+                  Source: <b className="text-neutral-800">{post.source}</b>
+                </span>
+              )}
             </div>
 
             <div className="h-[calc(100%-94px)] overflow-y-auto px-5 pb-4">
-              <div className="rounded-xl border border-white/70 bg-white/70 px-4 py-3 mb-3 text-[15px]" style={{ maxHeight: 160, overflowY: "auto" }}>
+              <div
+                className="rounded-xl border border-white/70 bg-white/70 px-4 py-3 mb-3 text-[15px]"
+                style={{ maxHeight: 160, overflowY: "auto" }}
+              >
                 {sanitize(post?.content) || "(No content)"}
               </div>
 
               {post?.dimensions?.length > 0 && (
                 <div className="mb-3 flex flex-wrap gap-1.5">
                   {post.dimensions.map((d) => (
-                    <span key={d} className="text-[11px] px-2 py-0.5 rounded-full border border-white/60 bg-white/80">{d}</span>
+                    <span
+                      key={d}
+                      className="text-[11px] px-2 py-0.5 rounded-full border border-white/60 bg-white/80"
+                    >
+                      {d}
+                    </span>
                   ))}
                 </div>
               )}
 
-
-              {post?.subs_sentiment && <SubthemeBadges dict={post.subs_sentiment} />}
+              {post?.subs_sentiment && (
+                <SubthemeBadges dict={post.subs_sentiment} />
+              )}
 
               {post?.type === "forum" ? (
-                <div className="space-y-2 transition-transform duration-500" style={{ transform: `translateX(${cSlide * 22}%)` }}>
-                  {commentsTree.length === 0 && <div className="text-sm text-neutral-600">No comments.</div>}
+                <div
+                  className="space-y-2 transition-transform duration-500"
+                  style={{ transform: `translateX(${cSlide * 22}%)` }}
+                >
+                  {commentsTree.length === 0 && (
+                    <div className="text-sm text-neutral-600">No comments.</div>
+                  )}
 
                   {commentsTree.map((c) => (
-                    <div key={`c-${c.comment_id}`} className="rounded-xl border border-white/60 bg-white/70 px-4 py-3">
+                    <div
+                      key={`c-${c.comment_id}`}
+                      className="rounded-xl border border-white/60 bg-white/70 px-4 py-3"
+                    >
                       <div className="text-[13px] text-neutral-700 mb-1">
                         <b className="text-neutral-900">{c.author}</b>{" "}
-                        <span className="tabular-nums text-neutral-500">{c.time}</span>
+                        <span className="tabular-nums text-neutral-500">
+                          {c.time}
+                        </span>
                         <span className="inline-flex items-center gap-1 ml-3 text-neutral-700">
                           <Heart className="w-3 h-3" />
                           <span className="tabular-nums">{c.score}</span>
@@ -343,15 +424,24 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
                       {Array.isArray(c.replies) && c.replies.length > 0 && (
                         <div className="mt-2 pl-3 border-l border-neutral-200 space-y-2">
                           {c.replies.map((r) => (
-                            <div key={`r-${r.comment_id}`} className="rounded-lg border border-white/60 bg-white/60 px-3 py-2">
+                            <div
+                              key={`r-${r.comment_id}`}
+                              className="rounded-lg border border-white/60 bg-white/60 px-3 py-2"
+                            >
                               <div className="text-[12px] text-neutral-700 mb-1">
                                 <b className="text-neutral-900">{r.author}</b>{" "}
-                                <span className="tabular-nums text-neutral-500">{r.time}</span>
+                                <span className="tabular-nums text-neutral-500">
+                                  {r.time}
+                                </span>
                                 <span className="inline-flex items-center gap-1 ml-2 text-neutral-700">
                                   <Heart className="w-3 h-3" />
-                                  <span className="tabular-nums">{r.score}</span>
+                                  <span className="tabular-nums">
+                                    {r.score}
+                                  </span>
                                 </span>
-                                <span className="ml-2 text-[12px] text-neutral-500">(reply)</span>
+                                <span className="ml-2 text-[12px] text-neutral-500">
+                                  (reply)
+                                </span>
                               </div>
                               <div className="text-[13px] text-neutral-900 whitespace-pre-wrap">
                                 {sanitize(r.content)}
@@ -364,31 +454,56 @@ export default function PostFeed({ className = "", year, month, filterFlipKey, s
                   ))}
                 </div>
               ) : (
-                <div className="text-[12px] text-neutral-500">This is an article (no comments).</div>
+                <div className="text-[12px] text-neutral-500">
+                  This is an article (no comments).
+                </div>
               )}
             </div>
           </div>
         </div>
       </div>
 
-
       <div className="absolute inset-y-0 left-0 w-16 z-[999] pointer-events-none">
         <button
-          onClick={() => (view === "list" ? gotoPageWithSlide(page - 1, +1) : gotoCommentPage(cPage - 1, +1))}
-          disabled={view === "list" ? page <= 1 : post?.type !== "forum" || cPage <= 1}
+          onClick={() =>
+            view === "list"
+              ? gotoPageWithSlide(page - 1, +1)
+              : gotoCommentPage(cPage - 1, +1)
+          }
+          disabled={
+            view === "list" ? page <= 1 : post?.type !== "forum" || cPage <= 1
+          }
           className="cursor-pointer pointer-events-auto absolute left-2 top-1/2 -translate-y-1/2 opacity-0 hover:opacity-100 transition-opacity duration-150 rounded-full p-2 bg-transparent disabled:opacity-0"
         >
-          <img src={IconLeft} alt="prev" className="w-36 h-17 select-none drop-shadow" style={{ opacity: 0.6 }} />
+          <img
+            src={IconLeft}
+            alt="prev"
+            className="w-36 h-17 select-none drop-shadow"
+            style={{ opacity: 0.6 }}
+          />
         </button>
       </div>
 
       <div className="absolute inset-y-0 right-0 w-16 z-[999] pointer-events-none">
         <button
-          onClick={() => (view === "list" ? gotoPageWithSlide(page + 1, -1) : gotoCommentPage(cPage + 1, -1))}
-          disabled={view === "list" ? page >= totalPages : post?.type !== "forum" || cPage >= cTotalPages}
+          onClick={() =>
+            view === "list"
+              ? gotoPageWithSlide(page + 1, -1)
+              : gotoCommentPage(cPage + 1, -1)
+          }
+          disabled={
+            view === "list"
+              ? page >= totalPages
+              : post?.type !== "forum" || cPage >= cTotalPages
+          }
           className="cursor-pointer pointer-events-auto absolute right-2 top-1/2 -translate-y-1/2 opacity-0 hover:opacity-100 transition-opacity duration-150 rounded-full p-2 bg-transparent disabled:opacity-0"
         >
-          <img src={IconRight} alt="next" className="w-36 h-17 select-none drop-shadow" style={{ opacity: 0.6 }} />
+          <img
+            src={IconRight}
+            alt="next"
+            className="w-36 h-17 select-none drop-shadow"
+            style={{ opacity: 0.6 }}
+          />
         </button>
       </div>
     </section>

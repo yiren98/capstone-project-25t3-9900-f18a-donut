@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { getSentimentStats } from "../api";
 
-
 const TITLE_CLS = "text-[15px] font-semibold text-neutral-800";
 const VALUE_CLS = "text-[18px] font-semibold tabular-nums";
 const SUBLABEL_CLS = "text-[12px] -mt-0.5";
@@ -23,20 +22,27 @@ export default function SentimentVenn({
     setPhase(0);
     (async () => {
       try {
-        const data = await getSentimentStats({ year, month, dimension, subtheme });
+        const data = await getSentimentStats({
+          year,
+          month,
+          dimension,
+          subtheme,
+        });
         if (!alive) return;
         setPos(Number(data.positive || 0));
         setNeg(Number(data.negative || 0));
       } catch {
         if (!alive) return;
-        setPos(0); setNeg(0);
+        setPos(0);
+        setNeg(0);
       } finally {
         requestAnimationFrame(() => setPhase(1));
       }
     })();
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [year, month, dimension, subtheme]);
-
 
   const sizes = useMemo(() => {
     const p = Math.max(0, pos);
@@ -44,15 +50,14 @@ export default function SentimentVenn({
     const total = Math.max(1, p + n);
     const pr = p / total;
     const nr = n / total;
-    const minD = 70;   
-    const maxD = 200;   
+    const minD = 70;
+    const maxD = 200;
     const easing = (r) => minD + (maxD - minD) * Math.pow(r, 0.65);
     return { dPos: easing(pr), dNeg: easing(nr) };
   }, [pos, neg]);
 
-
-  const GAP_PUSH = 1; 
-  const SQUEEZE = 1; 
+  const GAP_PUSH = 1;
+  const SQUEEZE = 1;
 
   return (
     <div
@@ -72,15 +77,14 @@ export default function SentimentVenn({
       <div
         className="relative w-full"
         style={{
-          height: height - 92, 
+          height: height - 92,
           transition: "opacity 260ms ease",
           opacity: phase,
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative flex items-center">
-
-            {(pos > 0 && neg > 0) && (
+            {pos > 0 && neg > 0 && (
               <div
                 aria-hidden
                 className="absolute left-1/2 -translate-x-1/2"
@@ -144,18 +148,23 @@ export default function SentimentVenn({
         </div>
       </div>
 
- 
       <div className="mt-1 flex items-center justify-center gap-47 text-[13px]">
         {pos > 0 && (
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200">
-            <span className="h-2.5 w-2.5 rounded-full inline-block" style={{ background: "#F6C543" }} />
+            <span
+              className="h-2.5 w-2.5 rounded-full inline-block"
+              style={{ background: "#F6C543" }}
+            />
             <span className="font-semibold tabular-nums">{pos}</span>
             <span className="text-neutral-600">Positive</span>
           </span>
         )}
         {neg > 0 && (
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-neutral-200">
-            <span className="h-2.5 w-2.5 rounded-full inline-block" style={{ background: "#ef4444" }} />
+            <span
+              className="h-2.5 w-2.5 rounded-full inline-block"
+              style={{ background: "#ef4444" }}
+            />
             <span className="font-semibold tabular-nums">{neg}</span>
             <span className="text-neutral-600">Negative</span>
           </span>

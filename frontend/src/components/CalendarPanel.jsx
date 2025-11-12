@@ -8,10 +8,23 @@ export default function CalendarPanel({
   monthsWithData = [],
   onMonthSelect,
   onYearChange,
-  sbi = 0,   // -100 ~ 100
+  sbi = 0, // -100 ~ 100
   delta = 0,
 }) {
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const canClick = (n) => monthsWithData.includes(n);
 
   const goPrevYear = () => onYearChange?.(year - 1);
@@ -31,9 +44,19 @@ export default function CalendarPanel({
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl font-semibold">View Data by Month</h3>
         <div className="flex items-center gap-4 text-sm text-white/85">
-          <button className="px-2 py-1 rounded hover:bg-white/10" onClick={goPrevYear}>{"<"}</button>
+          <button
+            className="px-2 py-1 rounded hover:bg-white/10"
+            onClick={goPrevYear}
+          >
+            {"<"}
+          </button>
           <span className="tabular-nums">{year}</span>
-          <button className="px-2 py-1 rounded hover:bg-white/10" onClick={goNextYear}>{">"}</button>
+          <button
+            className="px-2 py-1 rounded hover:bg-white/10"
+            onClick={goNextYear}
+          >
+            {">"}
+          </button>
         </div>
       </div>
 
@@ -56,7 +79,8 @@ export default function CalendarPanel({
             );
           }
 
-          const base = "h-12 rounded-full flex items-center justify-center select-none transition-all";
+          const base =
+            "h-12 rounded-full flex items-center justify-center select-none transition-all";
           const tone = active
             ? "bg-yellow-500/90 text-black font-semibold shadow-[0_10px_34px_rgba(255,190,0,.35)]"
             : "bg-white/12 text-white/90 hover:bg-white/18";
@@ -74,10 +98,8 @@ export default function CalendarPanel({
         })}
       </div>
 
-
       <div className="mb-2 text-[15px]">Sentiment Balance Index</div>
       <div className="w-full h-3 rounded-full bg-white/15 relative overflow-hidden">
-
         <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/35" />
 
         <div
@@ -93,11 +115,13 @@ export default function CalendarPanel({
       </div>
       <div className="mt-3 flex items-center justify-between text-sm">
         <span className="text-white/85">
-          Current: <b className="text-white tabular-nums">{Math.round(sbiVal)}</b>
+          Current:{" "}
+          <b className="text-white tabular-nums">{Math.round(sbiVal)}</b>
         </span>
-        <span className={isPos ? "text-yellow-300" : "text-red-400"}>{deltaStr}</span>
+        <span className={isPos ? "text-yellow-300" : "text-red-400"}>
+          {deltaStr}
+        </span>
       </div>
-
 
       <div className="mt-8 flex items-center justify-center gap-10 text-[12px] text-white/75">
         <span className="inline-flex items-center gap-2">

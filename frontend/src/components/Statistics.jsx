@@ -10,13 +10,28 @@ import {
 } from "recharts";
 import { getSBI } from "../api";
 
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 export default function IncomeStatistics({
   title = "Monthly Statistics",
   year = new Date().getFullYear(),
 }) {
-  const [series, setSeries] = useState(MONTHS.map(m => ({ month: m, sbi: null })));
+  const [series, setSeries] = useState(
+    MONTHS.map((m) => ({ month: m, sbi: null })),
+  );
   const [err, setErr] = useState("");
   const [phase, setPhase] = useState(1);
 
@@ -28,20 +43,25 @@ export default function IncomeStatistics({
     (async () => {
       setErr("");
       try {
-
         const base = await getSBI({ year });
-        const monthsWithData = Array.isArray(base.months_with_data) ? base.months_with_data : [];
-
+        const monthsWithData = Array.isArray(base.months_with_data)
+          ? base.months_with_data
+          : [];
 
         const tasks = monthsWithData.map((m) =>
-          getSBI({ year, month: m }).then((r) => ({ m, sbi: Number(r.sbi ?? 0) }))
+          getSBI({ year, month: m }).then((r) => ({
+            m,
+            sbi: Number(r.sbi ?? 0),
+          })),
         );
         const list = await Promise.all(tasks);
 
         const map = new Map(list.map(({ m, sbi }) => [m, sbi]));
         const s = MONTHS.map((name, idx) => {
           const mon = idx + 1;
-          return map.has(mon) ? { month: name, sbi: map.get(mon) } : { month: name, sbi: null };
+          return map.has(mon)
+            ? { month: name, sbi: map.get(mon) }
+            : { month: name, sbi: null };
         });
 
         if (!alive) return;
@@ -51,19 +71,21 @@ export default function IncomeStatistics({
       } catch (e) {
         if (!alive) return;
         setErr(e.message || String(e));
-        setSeries(MONTHS.map(m => ({ month: m, sbi: null })));
+        setSeries(MONTHS.map((m) => ({ month: m, sbi: null })));
         requestAnimationFrame(() => setPhase(1));
       }
     })();
 
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [year]);
 
   const subtitle = useMemo(() => `year: ${year}`, [year]);
 
   const dataFiltered = useMemo(
-    () => series.filter(d => d.sbi !== null),
-    [series]
+    () => series.filter((d) => d.sbi !== null),
+    [series],
   );
 
   return (

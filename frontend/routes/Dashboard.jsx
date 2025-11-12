@@ -135,7 +135,6 @@ export default function Dashboard() {
           <TopRouteTabs />
         </div>
 
-
         <aside className="hidden sm:flex row-start-2 col-start-1 justify-center self-start">
           <div className="w-[52px] sm:w-[56px] lg:w-[60px]" />
         </aside>
