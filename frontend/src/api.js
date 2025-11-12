@@ -199,39 +199,20 @@ export async function getSubthemeCounts({ year, month, dimension }) {
   return res.json(); // [{ name, count, color? }]
 }
 
-const BASE =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
-console.log("🔗 Backend API Base URL:", BASE);
-
-// 通用 GET 请求函数
 const jget = async (url) => {
-  try {
-    const r = await fetch(url, { credentials: "include" });
-    if (!r.ok) {
-      const text = await r.text();
-      throw new Error(`Request failed (${r.status}): ${text}`);
-    }
-    return r.json();
-  } catch (err) {
-    console.error("❌ API fetch error:", err);
-    throw err;
-  }
+  const r = await fetch(`${BASE}${url}`, { credentials: "include" });
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
 };
 
-// ===============================
 // Culture Analysis APIs
-// ===============================
-
-export const getCAOverall = () => jget(`${BASE}/ca/overall`);
-
+export const getCAOverall = () => jget("/api/ca/overall");
 export const getCADimension = (name) =>
-  jget(`${BASE}/ca/dimension/${encodeURIComponent(name)}`);
-
+  jget(`/api/ca/dimension/${encodeURIComponent(name)}`);
 export const getCASubthemes = (dimension) =>
-  jget(`${BASE}/ca/subthemes?dimension=${encodeURIComponent(dimension)}`);
-
+  jget(`/api/ca/subthemes?dimension=${encodeURIComponent(dimension)}`);
 export const getCASubthemeByFile = (file) =>
-  jget(`${BASE}/ca/subtheme/by-file/${encodeURIComponent(file)}`);
-
-export const getCAIndex = () => jget(`${BASE}/ca/index`);
+  jget(`/api/ca/subtheme/by-file/${encodeURIComponent(file)}`);
+export const getCAIndex = () => jget("/api/ca/index");
