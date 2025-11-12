@@ -106,7 +106,6 @@ python -m venv .venv
 # or
 source .venv/bin/activate     # (Mac)
 pip install -r requirements.txt
-cd server
 python app.py
 ```
 
