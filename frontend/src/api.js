@@ -7,7 +7,7 @@ async function fetchJSON(url, options = {}) {
     try {
       const data = await res.json();
       if (data && data.message) msg = data.message;
-    } catch (err) {console.warn("Failed to parse error response JSON:", err);}
+    } catch { /* noop */ }
     throw new Error(msg);
   }
   return res.json();
@@ -23,7 +23,8 @@ function toYMD(s) {
     const day = String(d.getDate()).padStart(2, "0");
     return `${y}-${m}-${day}`;
   }
-const parts = String(s).split(/[ T]/)[0]?.split(/[./]/);
+  const parts = String(s).split(/[ T]/)[0]?.split(/[/.]/);
+
   if (parts && parts.length >= 3) {
     const [y, m, d2] =
       parts[0].length === 4
@@ -192,7 +193,7 @@ export const getSentimentStats = async ({
     .then(async (r) => {
       if (!r.ok) {
         let msg = `${r.status} ${r.statusText}`;
-        try { const j = await r.json(); if (j.message) msg = j.message; } catch(err) {console.error('JSON analysis failed:', err);}
+        try { const j = await r.json(); if (j.message) msg = j.message; } catch { /* noop */ }
         throw new Error(msg);
       }
       return r.json();

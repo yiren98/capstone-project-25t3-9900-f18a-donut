@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { motion as Motion } from "framer-motion";
 
 export const SoftSlide = ({ children }) => (
@@ -24,4 +25,17 @@ export const CardFlip = ({ children }) => (
   </Motion.div>
 );
 
-// remove withTransition 
+export function withTransition(Comp, Variant = SoftSlide) {
+  const VariantToUse = Variant; 
+  return function Wrapped(props) {
+    return (
+      <div className="min-h-screen" style={{ perspective: 1000 }}>
+        <VariantToUse>
+          <Comp {...props} />
+        </VariantToUse>
+      </div>
+    );
+  };
+}
+
+export default withTransition;

@@ -21,11 +21,12 @@ export default function Dashboard() {
 
   const [dimension, setDimension] = useState("");
   const [subtheme, setSubtheme] = useState("");
-  const [sentiment, setSentiment] = useState("");
+  const [sentiment] = useState("");
 
   const CARD_H = 300;
 
   // ---------- data effects ----------
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -34,13 +35,20 @@ export default function Dashboard() {
         if (!mounted) return;
         const mlist = info.months_with_data || [];
         setMonthsWithData(mlist);
-        if (month && !mlist.includes(month)) setMonth(null);
       } catch {
         setMonthsWithData([]);
       }
     })();
     return () => { mounted = false; };
   }, [year]);
+
+
+  useEffect(() => {
+    if (month && !monthsWithData.includes(month)) {
+      setMonth(null);
+    }
+  }, [month, monthsWithData]);
+
 
   useEffect(() => {
     let mounted = true;

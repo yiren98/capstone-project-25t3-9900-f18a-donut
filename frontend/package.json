@@ -5,17 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-<<<<<<< HEAD
     "build": "vite build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-=======
-    "build": "vite build && mkdir -p dist && cp public/_redirects dist/_redirects"
-,
-    "lint": "eslint .",
->>>>>>> b4ef048 (fix: include _redirect)
+    "preview": "vite preview",
+    "lint:fix": "eslint . --fix"
+  },
     "preview": "vite preview"
   }
   ,

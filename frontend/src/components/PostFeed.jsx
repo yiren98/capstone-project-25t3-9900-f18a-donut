@@ -1,10 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  getPosts,
-  getPostDetail,
-  getPostComments,
-  buildCommentTree,
-} from "../api";
+import { getPosts, getPostDetail, getPostComments, buildCommentTree } from "../api";
 
 const BG_ARTICLE = "rgba(241,240,227,0.75)";
 const BG_FORUM   = "rgba(233,216,191,0.75)";
@@ -109,7 +104,7 @@ export default function PostFeed({
   const [err, setErr]           = useState("");
 
   const [post, setPost]         = useState(null);
-  // const [view, setView]         = useState("list");
+  const [_view, setView]         = useState("list");
 
 
   const [page, setPage]         = useState(1);
@@ -168,7 +163,7 @@ export default function PostFeed({
   const normalizeTree = (nodes = []) => nodes.map(normalizeCommentNode);
 
   const fetchAllSubsForKeys = async (keys, signal) => {
-    // const token = ++detailsTokenRef.current;
+    const _token = ++detailsTokenRef.current;
     const local = new Map();
     let active = 0;
     let idx = 0;
@@ -265,49 +260,6 @@ export default function PostFeed({
     return () => ctrl.abort();
   }, [year, month, sentiment, subtheme, dimension, filterFlipKey]);
 
-  const loadNextPage = async () => {
-    if (!hasMore || loadingMore || loadingList) return;
-
-    const ctrl = new AbortController();
-    postsAbortRef.current = ctrl;
-    setLoadingMore(true);
-
-    try {
-      const res = await getPosts({
-        page: page + 1,
-        size: FETCH_PAGE_SIZE,
-        year,
-        month,
-        sentiment,
-        subtheme,
-        dimension,
-        signal: ctrl.signal,
-      });
-
-      const arr = Array.isArray(res?.items) ? res.items : [];
-      const keys = arr.map((it) => it.tag || it.id).filter(Boolean);
-
-
-      const subsMap = await fetchAllSubsForKeys(keys, ctrl.signal);
-
-      if (ctrl.signal.aborted) return;
-
-      setItems((prev) => mergeUnique(prev, arr));
-      setSubsCache((prev) => {
-        const next = new Map(prev);
-        for (const [k, v] of subsMap.entries()) next.set(k, v);
-        return next;
-      });
-
-      setHasMore(Boolean(res?.hasMore ?? (arr.length === FETCH_PAGE_SIZE)));
-      setPage((p) => p + 1);
-    } catch (e) {
-      if (e.name !== "AbortError") setErr(e?.message || String(e));
-    } finally {
-      if (!ctrl.signal.aborted) setLoadingMore(false);
-    }
-  };
-
   useEffect(() => {
     const el = scRef.current;
     if (!el) return;
@@ -345,11 +297,52 @@ export default function PostFeed({
     };
   }, [items.length, loadingList]);
 
-
+     
   useEffect(() => {
     const root = scRef.current;
     const sentinel = sentinelRef.current;
     if (!root || !sentinel) return;
+
+    const loadNextPage = async () => {
+      if (!hasMore || loadingMore || loadingList) return;
+
+      const ctrl = new AbortController();
+      postsAbortRef.current = ctrl;
+      setLoadingMore(true);
+
+      try {
+        const res = await getPosts({
+          page: page + 1,
+          size: FETCH_PAGE_SIZE,
+          year,
+          month,
+          sentiment,
+          subtheme,
+          dimension,
+          signal: ctrl.signal,
+        });
+
+        const arr = Array.isArray(res?.items) ? res.items : [];
+        const keys = arr.map((it) => it.tag || it.id).filter(Boolean);
+
+        const subsMap = await fetchAllSubsForKeys(keys, ctrl.signal);
+        if (ctrl.signal.aborted) return;
+
+        setItems((prev) => mergeUnique(prev, arr));
+        setSubsCache((prev) => {
+          const next = new Map(prev);
+          for (const [k, v] of subsMap.entries()) next.set(k, v);
+          return next;
+        });
+
+        setHasMore(Boolean(res?.hasMore ?? (arr.length === FETCH_PAGE_SIZE)));
+        setPage((p) => p + 1);
+      } catch (e) {
+        if (e.name !== "AbortError") setErr(e?.message || String(e));
+      } finally {
+        if (!ctrl.signal.aborted) setLoadingMore(false);
+      }
+    };
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -361,7 +354,9 @@ export default function PostFeed({
 
     io.observe(sentinel);
     return () => io.disconnect();
-  }, [scRef.current, sentinelRef.current, hasMore, loadingMore, loadingList]); // eslint-disable-line
+  }, [hasMore, loadingMore, loadingList, page, year, month, sentiment, subtheme, dimension]);
+
+
 
   const openDetail = async (it) => {
     try {
