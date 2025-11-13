@@ -7,7 +7,7 @@ COPY backend/ ./backend/
 COPY data/ ./data/     # ✅ 一定要加上这行！
 COPY crawler/ ./crawler/
 COPY deployment/ ./deployment/
-COPY README.md ./
+
 
 # 安装依赖
 RUN pip install --no-cache-dir -r backend/requirements.txt
