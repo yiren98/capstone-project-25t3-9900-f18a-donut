@@ -7,6 +7,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# ✅ 复制环境变量文件（非常关键）
+COPY .env.production ./
+
 # 复制前端代码并构建
 COPY . .
 RUN npm run build

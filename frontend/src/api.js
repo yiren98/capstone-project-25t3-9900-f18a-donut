@@ -199,20 +199,36 @@ export async function getSubthemeCounts({ year, month, dimension }) {
   return res.json(); // [{ name, count, color? }]
 }
 
-const BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+// ==== Keep all your existing code above unchanged ====
 
+// 
+const BASE =
+  import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/$/, "") ||
+  (window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://capstone-project-25t3-9900-f18a-donut.onrender.com");
+
+// 
 const jget = async (url) => {
-  const r = await fetch(`${BASE}${url}`, { credentials: "include" });
+  const fullUrl = `${BASE}${url}`;
+  console.log("🌍 Fetching:", fullUrl); 
+  const r = await fetch(fullUrl, { credentials: "include" });
   if (!r.ok) throw new Error(await r.text());
   return r.json();
 };
 
-// Culture Analysis APIs
+// ================================
+// ===== Culture Analysis APIs ====
+// ================================
 export const getCAOverall = () => jget("/api/ca/overall");
+
 export const getCADimension = (name) =>
   jget(`/api/ca/dimension/${encodeURIComponent(name)}`);
+
 export const getCASubthemes = (dimension) =>
   jget(`/api/ca/subthemes?dimension=${encodeURIComponent(dimension)}`);
+
 export const getCASubthemeByFile = (file) =>
   jget(`/api/ca/subtheme/by-file/${encodeURIComponent(file)}`);
+
 export const getCAIndex = () => jget("/api/ca/index");
