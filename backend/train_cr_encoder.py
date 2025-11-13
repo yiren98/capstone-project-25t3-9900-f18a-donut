@@ -20,11 +20,8 @@ from sentence_transformers import SentenceTransformer, util as st_util, CrossEnc
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print("DEVICE:", DEVICE)
 
-if len(sys.argv) < 3:
-    raise SystemExit("Usage: python train_ce_only.py SUBTHEMES_CSV GOLD_CSV")
-
-CSV_SUBTHEMES = Path(sys.argv[1]).resolve()
-CSV_GOLD      = Path(sys.argv[2]).resolve()
+CSV_SUBTHEMES: Path | None = None
+CSV_GOLD: Path | None = None
 
 # Project root = folder of this file
 ROOT_DIR   = Path(__file__).resolve().parents[0]
@@ -411,6 +408,9 @@ def evaluate_multilabel(gold_sets, pred_sets):
 
 # ==================== Main ====================
 def main():
+    if CSV_SUBTHEMES is None or CSV_GOLD is None:
+        raise RuntimeError("CSV_SUBTHEMES and CSV_GOLD must be set before calling main().")
+    
     # 1) Load GOLD; build train/val splits by subtheme; fine-tune CE.
     df_train, df_val = build_train_val_from_gold(CSV_GOLD)
     print(f"[Split] train: {len(df_train)}  val: {len(df_val)}")
@@ -471,4 +471,18 @@ def main():
     print(f"[Model]   saved → {CE_FT_DIR}")
 
 if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python train_cr_encoder.py SUBTHEMES_CSV GOLD_CSV")
+        raise SystemExit(1)
+
+    CSV_SUBTHEMES = Path(sys.argv[1]).resolve()
+    CSV_GOLD      = Path(sys.argv[2]).resolve()
+
+    if not CSV_SUBTHEMES.exists():
+        print(f"Error: SUBTHEMES_CSV not found: {CSV_SUBTHEMES}")
+        raise SystemExit(1)
+    if not CSV_GOLD.exists():
+        print(f"Error: GOLD_CSV not found: {CSV_GOLD}")
+        raise SystemExit(1)
+
     main()
