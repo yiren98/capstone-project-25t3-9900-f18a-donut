@@ -3,24 +3,26 @@ FROM node:20 AS build
 
 WORKDIR /app
 
-# 复制依赖文件并安装
 COPY package*.json ./
 RUN npm install
 
-# ✅ 复制环境变量文件（非常关键）
-COPY .env.production ./
+# ✅ 允许 Render 注入变量
+ARG VITE_API_BASE_URL
+ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
 
-# 复制前端代码并构建
+# ✅ 打印出来方便你在 build logs 里验证
+RUN echo ">>> Building with VITE_API_BASE_URL=$VITE_API_BASE_URL"
+
 COPY . .
-RUN npm run build
+
+# ✅ 用 production 模式构建
+RUN npm run build --mode production
 
 # === Stage 2: Serve static files with Nginx ===
 FROM nginx:alpine
 
-# 复制构建产物到 Nginx 静态目录
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# 替换默认 Nginx 配置（支持 SPA 前端）
 RUN printf "server {\n\
   listen 80;\n\
   server_name localhost;\n\
