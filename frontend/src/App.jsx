@@ -4,8 +4,8 @@ import { AnimatePresence } from "framer-motion";
 
 import Dashboard from "../routes/Dashboard.jsx";
 import CultureAnalysis from "../routes/CultureAnalysis.jsx";
-import { SoftSlide /*, CardFlip*/ } from "../src/components/PageTransition.jsx";
-import { withTransition } from "../src/utils/transitions.jsx";
+import { withTransition, SoftSlide /*, CardFlip*/ } from "../src/components/PageTransition.jsx";
+
 
 const TDashboard = withTransition(Dashboard, SoftSlide);
 // const TDashboard = withTransition(Dashboard, CardFlip);
