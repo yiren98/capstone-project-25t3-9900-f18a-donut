@@ -10,10 +10,7 @@ export default function CultureAnalysis() {
   const [subthemeFile, setSubthemeFile] = useState("");
 
   return (
-    <div
-      className="min-h-screen font-display"
-      style={{ background: "rgb(242,241,237)" }}
-    >
+    <div className="min-h-screen font-display" style={{ background: "rgb(242,241,237)" }}>
       <div
         className="
           px-7 pt-7 grid gap-x-6 gap-y-6
@@ -22,20 +19,9 @@ export default function CultureAnalysis() {
           xl:grid-cols-[minmax(0,1fr)_420px]
         "
       >
-
-        <div className="hidden sm:flex row-start-1 col-start-1 flex-col items-center self-start">
-          <img src={rioSmall} alt="RIO" className="h-10 w-auto mt-[5px]" />
-          <img
-            src={rioBig}
-            alt="Rio Tinto"
-            className="h-3 w-auto mt-[3.5px] grayscale"
-          />
-        </div>
-
-
-        <div className="row-start-1 col-start-1 sm:col-start-2 flex items-center self-start">
-          <div className="translate-y-[2px]">
-            <h1 className="text-xl md:text-4xl font-semibold text-neutral-900">
+        <div className="row-start-1 col-start-1 flex items-center self-start min-w-0">
+          <div className="translate-y-[2px] min-w-0">
+            <h1 className="text-xl md:text-4xl font-semibold text-neutral-900 truncate">
               Culture Analysis
             </h1>
             <p className="text-sm md:text-base text-neutral-500 hidden xl:block">
