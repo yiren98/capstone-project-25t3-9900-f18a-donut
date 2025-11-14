@@ -7,13 +7,13 @@ import os
 import pathlib
 
 
+# ===== Debug Logs (保留，但 Render 只会输出一次) =====
 print("=== DEBUG: Current working directory ===")
 print(os.getcwd())
 
 print("=== DEBUG: Full /app directory tree ===")
 for root, dirs, files in os.walk("/", topdown=True):
     print(root, dirs, files)
-    # 防止输出过多
     if root.count("/") > 2:
         break
 
@@ -23,14 +23,23 @@ for root, dirs, files in os.walk("/app"):
     break
 
 
-
 def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "dev-secret-change-me"
     app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=14)
-    CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}}, supports_credentials=True)
+
+    # ========= 🚀 最关键的部分：CORS 修复 =========
+    FRONTEND_URL = "https://capstone-project-25t3-9900-f18a-donut-fn.onrender.com"
+
+    CORS(
+        app,
+        resources={r"/api/*": {"origins": [FRONTEND_URL]}},
+        supports_credentials=True
+    )
+    # =============================================
 
     register_routes(app)
+
     @app.errorhandler(HTTPException)
     def handle_http_error(e):
         return jsonify({"code": e.code, "message": e.description}), e.code
@@ -41,6 +50,7 @@ def create_app():
         return jsonify({"code": 500, "message": str(e)}), 500
 
     return app
+
 
 app = create_app()
 

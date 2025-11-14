@@ -12,9 +12,10 @@ COPY data/ /app/data/
 COPY backend/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# 设置工作目录为 backend
+# 切换到 backend 目录（这里有 app.py）
 WORKDIR /app/backend
 
 EXPOSE 5000
 
+# 启动 Flask 后端
 CMD ["python", "app.py"]
