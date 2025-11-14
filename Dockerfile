@@ -2,14 +2,18 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copy backend code
-COPY backend/ /app/
+# 复制 backend
+COPY backend/ /app/backend/
 
-# Copy data directory
+# 复制 data
 COPY data/ /app/data/
 
-# Install backend dependencies
+# 安装依赖
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# 设置工作目录为 backend
+WORKDIR /app/backend
 
 EXPOSE 5000
 

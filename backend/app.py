@@ -17,6 +17,10 @@ for root, dirs, files in os.walk("/", topdown=True):
     if root.count("/") > 2:
         break
 
+print("=== DEBUG: /app ===")
+for root, dirs, files in os.walk("/app"):
+    print(root, dirs, files)
+    break
 
 
 
@@ -40,7 +44,6 @@ def create_app():
 
 app = create_app()
 
-if __name__ == "__main__":
-    import os
+if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)
