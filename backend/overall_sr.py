@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Generate an overall corporate culture summary JSON from comments.csv,
 using the same data model as test.py (subthemes/dimensions, positive/negative only).

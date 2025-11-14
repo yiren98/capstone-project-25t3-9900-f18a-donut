@@ -17,14 +17,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 # ------------------------- CLI & Paths -------------------------
-if len(sys.argv) < 2:
-    print("Usage: python sentiment_neutral_fix.py <comments.csv>")
-    sys.exit(1)
-
-CSV_IN = Path(sys.argv[1]).resolve()
-if not CSV_IN.exists():
-    print(f"Error: CSV file not found: {CSV_IN}")
-    sys.exit(1)
+CSV_IN: Path | None = None
 
 ROOT_DIR   = Path(__file__).resolve().parents[1]
 MODELS_DIR = ROOT_DIR / "backend" / "models"
@@ -156,6 +149,9 @@ def infer_binary_sentiment(texts):
 
 # ------------------------- Main -------------------------
 def main():
+    if CSV_IN is None:
+        raise RuntimeError("CSV_IN is not set. This should only be called via __main__.")
+    
     # 1) Read CSV (no extra columns; we will overwrite in-place)
     df = pd.read_csv(CSV_IN, encoding="utf-8")
     check_columns(df)
@@ -212,10 +208,18 @@ def main():
     df.to_csv(CSV_IN, index=False, encoding="utf-8")
     print(f"[Done] Updated {CSV_IN}")
     print(f"  Re-evaluated neutral subthemes: {len(eval_items)}")
-    pos_ct = sum(1 for _, _, _ in eval_items if labs.pop(0) if False)  # (just to show structure; not used)
     return
 
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python sentiment_neutral_fix.py <comments.csv>")
+        sys.exit(1)
+
+    CSV_IN = Path(sys.argv[1]).resolve()
+    if not CSV_IN.exists():
+        print(f"Error: CSV file not found: {CSV_IN}")
+        sys.exit(1)
+
     try:
         main()
     except Exception as e:
