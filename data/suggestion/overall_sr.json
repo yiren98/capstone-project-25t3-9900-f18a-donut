@@ -12,8 +12,8 @@
         "overall_sentiment": "negative",
         "summary": "Sentiment is predominantly negative, with 660 negative mentions vs. 346 positive, and a high confidence score (0.85) indicating this is a consistent finding, not an outlier.",
         "counts": {
-          "positive": 346,
-          "negative": 660
+          "positive": 305,
+          "negative": 655
         },
         "average_confidence": 0.85
       },
