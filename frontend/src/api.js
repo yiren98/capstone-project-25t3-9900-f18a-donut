@@ -2,11 +2,8 @@
 // =========== 统一 API Base URL ===========
 // =========================================
 
-const BASE =
-  import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/$/, "") ||
-  (window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "https://capstone-project-25t3-9900-f18a-donut.onrender.com");
+const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com";
+
 
 // =========================================
 // =========== 包装 fetchJSON 自动加 BASE ==
