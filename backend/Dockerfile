@@ -1,20 +1,15 @@
-FROM python:3.11-slim AS backend
+FROM python:3.11-slim
 
 WORKDIR /app
 
-# 复制后端代码
-COPY backend/ ./backend/
-COPY data/ ./data/     # ✅ 一定要加上这行！
-COPY crawler/ ./crawler/
-COPY deployment/ ./deployment/
+# 只复制 backend 内的代码
+COPY . /app
 
+# 复制整个 data 目录（从项目根目录）
+COPY ../data /app/data
 
-# 安装依赖
-RUN pip install --no-cache-dir -r backend/requirements.txt
-
-ENV PYTHONUNBUFFERED=1
-ENV PORT=5000
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python", "backend/app.py"]
+CMD ["python", "app.py"]
