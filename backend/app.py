@@ -3,6 +3,22 @@ from flask_cors import CORS
 from werkzeug.exceptions import HTTPException
 from datetime import timedelta
 from routes import register_routes
+import os
+import pathlib
+
+
+print("=== DEBUG: Current working directory ===")
+print(os.getcwd())
+
+print("=== DEBUG: Full /app directory tree ===")
+for root, dirs, files in os.walk("/", topdown=True):
+    print(root, dirs, files)
+    # 防止输出过多
+    if root.count("/") > 2:
+        break
+
+
+
 
 def create_app():
     app = Flask(__name__)
