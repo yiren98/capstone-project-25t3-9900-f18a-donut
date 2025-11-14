@@ -9,7 +9,7 @@ COPY backend/ /app/backend/
 COPY data/ /app/data/
 
 # 安装依赖
-COPY requirements.txt /app/
+COPY backend/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # 设置工作目录为 backend
@@ -18,4 +18,3 @@ WORKDIR /app/backend
 EXPOSE 5000
 
 CMD ["python", "app.py"]
-
