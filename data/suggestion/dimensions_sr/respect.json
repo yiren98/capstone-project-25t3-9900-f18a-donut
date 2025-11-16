@@ -12,26 +12,26 @@
     "Trust and relationship-building with workers, Indigenous groups, communities and investors is fragile and easily eroded by perceived hypocrisy, tone-deaf communication or misaligned incentives at senior leadership level."
   ],
   "sentiment_snapshot": {
-    "positive": 43,
+    "positive": 40,
     "negative": 143,
     "average_confidence": 0.851
   },
   "top_subthemes": [
-    { "subtheme": "Recognition & Appreciation", "count": 16 },
-    { "subtheme": "Transparency & Disclosure", "count": 12 },
-    { "subtheme": "Legal & Regulatory Integrity", "count": 10 },
-    { "subtheme": "Corporate Governance & Oversight", "count": 10 },
-    { "subtheme": "Employee Treatment & Support", "count": 8 },
-    { "subtheme": "Ethics & Compliance", "count": 8 },
-    { "subtheme": "Cultural & Language Respect", "count": 7 },
-    { "subtheme": "Corporate & Historical Responsibility", "count": 7 },
-    { "subtheme": "Community Engagement & Social Responsibility", "count": 6 },
-    { "subtheme": "Employment Opportunities & Job Roles", "count": 6 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 5 },
-    { "subtheme": "Stakeholder & Shareholder Accountability", "count": 5 },
-    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 5 },
-    { "subtheme": "Trust & Relationship Building", "count": 5 },
-    { "subtheme": "Accommodation & Well-being at Work", "count": 4 }
+    { "subtheme": "Recognition & Appreciation"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Legal & Regulatory Integrity"},
+    { "subtheme": "Corporate Governance & Oversight"},
+    { "subtheme": "Employee Treatment & Support"},
+    { "subtheme": "Ethics & Compliance"},
+    { "subtheme": "Cultural & Language Respect"},
+    { "subtheme": "Corporate & Historical Responsibility"},
+    { "subtheme": "Community Engagement & Social Responsibility"},
+    { "subtheme": "Employment Opportunities & Job Roles"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Stakeholder & Shareholder Accountability"},
+    { "subtheme": "Cultural Heritage & Indigenous Rights"},
+    { "subtheme": "Trust & Relationship Building"},
+    { "subtheme": "Accommodation & Well-being at Work"}
   ],
   "risks_and_blindspots": [
     "Persistent reports of harassment, bullying and disrespectful behaviour create a material risk to employee wellbeing, legal compliance, talent attraction and retention.",

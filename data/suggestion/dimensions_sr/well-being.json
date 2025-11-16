@@ -10,21 +10,21 @@
     "Governance failures and insufficient leadership accountability repeatedly undermine otherwise good intentions, reinforcing perceptions that safety culture and human care are inconsistently prioritized."
   ],
   "sentiment_snapshot": {
-    "positive": 16,
+    "positive": 14,
     "negative": 71,
     "average_confidence": 0.852
   },
   "top_subthemes": [
-    { "subtheme": "Health & Safety", "count": 11 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 7 },
-    { "subtheme": "Community Engagement & Social Responsibility", "count": 6 },
-    { "subtheme": "Community & Public Well-being", "count": 5 },
-    { "subtheme": "Transparency & Disclosure", "count": 4 },
-    { "subtheme": "Legal & Regulatory Integrity", "count": 4 },
-    { "subtheme": "Food & Lifestyle Well-being", "count": 4 },
-    { "subtheme": "Employee Treatment & Support", "count": 3 },
-    { "subtheme": "Infrastructure & Maintenance", "count": 3 },
-    { "subtheme": "Leadership Accountability", "count": 2 }
+    { "subtheme": "Health & Safety"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Community Engagement & Social Responsibility"},
+    { "subtheme": "Community & Public Well-being"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Legal & Regulatory Integrity"},
+    { "subtheme": "Food & Lifestyle Well-being"},
+    { "subtheme": "Employee Treatment & Support"},
+    { "subtheme": "Infrastructure & Maintenance"},
+    { "subtheme": "Leadership Accountability"}
   ],
   "risks_and_blindspots": [
     "Frequent safety incidents and operational failures risk reinforcing a perception that worker safety is not structurally embedded into management accountability.",

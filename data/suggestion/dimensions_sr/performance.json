@@ -10,21 +10,21 @@
     "There is growing interplay between traditional financial performance and non-financial factors such as environmental management and governance, as stakeholders increasingly assess performance in a broader, integrated sense."
   ],
   "sentiment_snapshot": {
-    "positive": 151,
-    "negative": 135,
+    "positive": 120,
+    "negative": 131,
     "average_confidence": 0.859
   },
   "top_subthemes": [
-    { "subtheme": "Investment & Portfolio Performance", "count": 29 },
-    { "subtheme": "Market Dynamics & Financial Indicators", "count": 19 },
-    { "subtheme": "Financial Performance & Profitability", "count": 18 },
-    { "subtheme": "Market Performance & Competitiveness", "count": 17 },
-    { "subtheme": "Growth & Strategic Performance", "count": 12 },
-    { "subtheme": "Shareholder & Investor Returns", "count": 11 },
-    { "subtheme": "Strategic Planning & Direction", "count": 9 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 9 },
-    { "subtheme": "Business Impact & Operational Outcomes", "count": 9 },
-    { "subtheme": "Cost Management & Resource Efficiency", "count": 7 }
+    { "subtheme": "Investment & Portfolio Performance"},
+    { "subtheme": "Market Dynamics & Financial Indicators"},
+    { "subtheme": "Financial Performance & Profitability"},
+    { "subtheme": "Market Performance & Competitiveness"},
+    { "subtheme": "Growth & Strategic Performance"},
+    { "subtheme": "Shareholder & Investor Returns"},
+    { "subtheme": "Strategic Planning & Direction"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Business Impact & Operational Outcomes"},
+    { "subtheme": "Cost Management & Resource Efficiency"}
   ],
   "risks_and_blindspots": [
     "A strong focus on short-term price targets and market reactions can overshadow long-term strategic and operational performance drivers.",

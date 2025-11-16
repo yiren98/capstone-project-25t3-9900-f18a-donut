@@ -1,11 +1,14 @@
 const YEAR_MIN = 2013;
 const YEAR_MAX = 2025;
-const YEAR_OPTS = Array.from({ length: YEAR_MAX - YEAR_MIN + 1 }, (_, i) => YEAR_MIN + i).concat("all");
+const YEAR_OPTS = Array.from(
+  { length: YEAR_MAX - YEAR_MIN + 1 },
+  (_, i) => YEAR_MIN + i
+).concat("all");
 // YEAR_OPTS = [2013, 2014, ... , 2025, "all"]
 
 export default function CalendarPanel({
   className = "",
-  year = "all",             
+  year = "all",
   selectedMonth = null,
   monthsWithData = [],
   onMonthSelect,
@@ -13,13 +16,26 @@ export default function CalendarPanel({
   sbi = 0,
   delta = 0,
 }) {
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   const isAll = String(year).toLowerCase() === "all";
   const idx = YEAR_OPTS.findIndex((v) => String(v) === String(year));
 
-  const atFirst = idx <= 0;          
-  const atLast = idx >= YEAR_OPTS.length - 1;  // All
+  const atFirst = idx <= 0;
+  const atLast = idx >= YEAR_OPTS.length - 1; // All
 
   const goPrevYear = () => {
     if (atFirst) return;
@@ -30,16 +46,18 @@ export default function CalendarPanel({
     onYearChange?.(YEAR_OPTS[idx + 1]);
   };
 
-
-  const canClick = (n) => (isAll ? true : monthsWithData.includes(n));
+  const canClick = (n) => (!isAll && monthsWithData.includes(n));
 
   const handleMonthClick = (n) => {
-    if (!canClick(n)) return;
+    if (!canClick(n)) return; 
     const next = selectedMonth === n ? null : n;
     onMonthSelect?.(next, isAll ? "all" : year);
   };
 
-  const sbiVal = Math.max(-100, Math.min(100, Number.isFinite(sbi) ? sbi : 0));
+  const sbiVal = Math.max(
+    -100,
+    Math.min(100, Number.isFinite(sbi) ? sbi : 0)
+  );
   const pct = (Math.abs(sbiVal) / 100) * 50;
   const isPos = sbiVal >= 0;
   const deltaStr = `${delta > 0 ? "↑" : delta < 0 ? "↓" : "±"} ${Math.abs(
@@ -66,7 +84,6 @@ export default function CalendarPanel({
             {"<"}
           </button>
 
-     
           <span className="tabular-nums px-2 py-1">
             {isAll ? "All" : year}
           </span>
@@ -90,17 +107,21 @@ export default function CalendarPanel({
           const active = selectedMonth === n;
           const clickable = canClick(n);
 
+  
           if (!clickable) {
             return (
               <div
                 key={n}
                 className="h-12 rounded-full flex items-center justify-center bg-transparent text-white/35 border border-white/10"
-                title={`${m} (no data)`}
+                title={
+                  isAll ? `${m} (disabled in All mode)` : `${m} (no data)`
+                }
               >
                 {m}
               </div>
             );
           }
+
 
           const base =
             "h-12 rounded-full flex items-center justify-center transition-all ring-1 ring-white/15";

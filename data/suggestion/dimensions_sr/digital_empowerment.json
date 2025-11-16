@@ -10,17 +10,17 @@
     "Positive narratives emphasise operational efficiency, technological investment and modernization, with minimal controversy compared to other cultural or ethical dimensions."
   ],
   "sentiment_snapshot": {
-    "positive": 6,
+    "positive": 3,
     "negative": 1,
     "average_confidence": 0.933
   },
   "top_subthemes": [
-    { "subtheme": "Automation & Process Optimization", "count": 2 },
-    { "subtheme": "Strategic Adaptation & Flexibility", "count": 1 },
-    { "subtheme": "Digital Transformation", "count": 1 },
-    { "subtheme": "Investment in Technology", "count": 1 },
-    { "subtheme": "Operational Efficiency & Performance", "count": 1 },
-    { "subtheme": "Recognition & Appreciation", "count": 1 }
+    { "subtheme": "Automation & Process Optimization"},
+    { "subtheme": "Strategic Adaptation & Flexibility"},
+    { "subtheme": "Digital Transformation"},
+    { "subtheme": "Investment in Technology"},
+    { "subtheme": "Operational Efficiency & Performance"},
+    { "subtheme": "Recognition & Appreciation"}
   ],
   "risks_and_blindspots": [
     "Automation could be perceived as reducing human value and job security if workforce transition plans are not clearly communicated.",

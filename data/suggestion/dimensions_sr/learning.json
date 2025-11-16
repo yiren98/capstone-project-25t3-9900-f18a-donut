@@ -15,16 +15,16 @@
     "average_confidence": 0.788
   },
   "top_subthemes": [
-    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 5 },
-    { "subtheme": "Knowledge Acquisition & Inquiry", "count": 5 },
-    { "subtheme": "Transparency & Disclosure", "count": 4 },
-    { "subtheme": "Learning & Development", "count": 4 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 3 },
-    { "subtheme": "Community Engagement & Social Responsibility", "count": 3 },
-    { "subtheme": "Corporate & Historical Responsibility", "count": 3 },
-    { "subtheme": "Historical Learning & Contextual Awareness", "count": 3 },
-    { "subtheme": "Employment Opportunities & Job Roles", "count": 2 },
-    { "subtheme": "Ethics & Compliance", "count": 2 }
+    { "subtheme": "Cultural Heritage & Indigenous Rights"},
+    { "subtheme": "Knowledge Acquisition & Inquiry"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Learning & Development"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Community Engagement & Social Responsibility"},
+    { "subtheme": "Corporate & Historical Responsibility"},
+    { "subtheme": "Historical Learning & Contextual Awareness"},
+    { "subtheme": "Employment Opportunities & Job Roles"},
+    { "subtheme": "Ethics & Compliance"}
   ],
   "risks_and_blindspots": [
     "Learning may be perceived as reactive and incident-driven rather than embedded as a proactive, continuous capability.",

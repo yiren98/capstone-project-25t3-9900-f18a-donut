@@ -33,8 +33,6 @@ function normalizePayload(payload) {
   if (kind === "overall") {
     const sec = payload.section || {};
     const eb = sec.executive_briefing || sec.executiveBriefing || sec.overview || {};
-    const counts = eb.sentiment_and_confidence?.counts || eb.counts || {};
-    const avg = eb.sentiment_and_confidence?.average_confidence ?? eb.average_confidence;
 
     return {
       title: payload.report_title || payload.title || "Insights",
@@ -46,19 +44,6 @@ function normalizePayload(payload) {
             ...(Array.isArray(eb.key_insights) ? eb.key_insights : []),
             ...(eb.title ? [String(eb.title)] : []),
           ],
-        },
-        {
-          title: "Sentiment & Confidence",
-          type: "sentiment",
-          content: {
-            summary: eb.sentiment_and_confidence?.summary || eb.summary || "",
-            counts: {
-              positive: counts.positive ?? 0,
-              negative: counts.negative ?? 0,
-              average_confidence: typeof avg === "number" ? avg : undefined,
-            },
-            overall: eb.sentiment_and_confidence?.overall_sentiment || eb.overall_sentiment || "",
-          },
         },
         {
           title: "Risks & Opportunities",
@@ -81,8 +66,6 @@ function normalizePayload(payload) {
   if (kind === "dimension") {
     const OVER = payload.overview || payload.summary || "";
     const KP = payload.key_patterns || payload.keyPatterns || [];
-    const SNAP = payload.sentiment_snapshot || payload.sentiment || {};
-    const TOPS = payload.top_subthemes || [];
     const RISKONLY = payload.risks_and_blindspots || payload.risks || [];
     const RECS = payload.recommendations || [];
 
@@ -93,42 +76,6 @@ function normalizePayload(payload) {
         content: { overview: OVER, key_patterns: Array.isArray(KP) ? KP : [] },
       },
     ];
-
-    if (
-      SNAP &&
-      (SNAP.positive !== undefined ||
-        SNAP.negative !== undefined ||
-        SNAP.average_confidence !== undefined ||
-        SNAP.overall_sentiment)
-    ) {
-      sections.push({
-        title: "Sentiment Snapshot",
-        type: "sentiment",
-        content: {
-          summary: "",
-          counts: {
-            positive: SNAP.positive ?? 0,
-            negative: SNAP.negative ?? 0,
-            average_confidence: SNAP.average_confidence,
-          },
-          overall: SNAP.overall_sentiment,
-        },
-      });
-    }
-
-    if (Array.isArray(TOPS) && TOPS.length) {
-      sections.push({
-        title: "Top Subthemes",
-        type: "list",
-        content: TOPS.map((x) =>
-          typeof x === "string"
-            ? x
-            : x.subtheme
-            ? `${x.subtheme} — ${x.count ?? 0}`
-            : JSON.stringify(x)
-        ),
-      });
-    }
 
     if (Array.isArray(RISKONLY) && RISKONLY.length) {
       sections.push({
@@ -153,11 +100,9 @@ function normalizePayload(payload) {
   if (kind === "subtheme") {
     const OVER = payload.overview || payload.summary || "";
     const KP = payload.key_patterns || payload.keyPatterns || [];
-    const SNAP = payload.sentiment_snapshot || payload.sentiment || {};
     const CTX = payload.typical_contexts || [];
     const RISKONLY = payload.risks_and_blindspots || payload.risks || [];
     const RECS = payload.recommendations || [];
-    const parents = payload.parent_dimensions || payload.parentDimensions || [];
 
     const sections = [
       {
@@ -166,28 +111,6 @@ function normalizePayload(payload) {
         content: { overview: OVER, key_patterns: Array.isArray(KP) ? KP : [] },
       },
     ];
-
-    if (
-      SNAP &&
-      (SNAP.positive !== undefined ||
-        SNAP.negative !== undefined ||
-        SNAP.average_confidence !== undefined ||
-        SNAP.overall_sentiment)
-    ) {
-      sections.push({
-        title: "Sentiment Snapshot",
-        type: "sentiment",
-        content: {
-          summary: "",
-          counts: {
-            positive: SNAP.positive ?? 0,
-            negative: SNAP.negative ?? 0,
-            average_confidence: SNAP.average_confidence,
-          },
-          overall: SNAP.overall_sentiment,
-        },
-      });
-    }
 
     if (Array.isArray(CTX) && CTX.length) {
       sections.push({
@@ -215,7 +138,6 @@ function normalizePayload(payload) {
 
     return {
       title: payload.subtheme || payload.title || "Subtheme",
-      metaBadges: Array.isArray(parents) ? parents.map(String) : [],
       sections,
     };
   }
@@ -273,28 +195,6 @@ function SectionView({ sec }) {
             ))}
           </ul>
         ) : null}
-      </div>
-    );
-  }
-  if (sec.type === "sentiment") {
-    const c = sec.content?.counts || {};
-    const chips = [
-      `Positive ${c.positive ?? 0}`,
-      `Negative ${c.negative ?? 0}`,
-      ...(c.average_confidence !== undefined ? [`Avg. confidence ${c.average_confidence}`] : []),
-      ...(sec.content?.overall ? [`Overall ${sec.content.overall}`] : []),
-    ];
-    return (
-      <div className="flex flex-wrap gap-2 text-xs">
-        {chips.map((x, i) => (
-          <span
-            key={i}
-            className="px-2 py-1 rounded-full bg-white border border-[#eee7db] ys-fade-item"
-            style={{ animationDelay: `${i * 40}ms` }}
-          >
-            {x}
-          </span>
-        ))}
       </div>
     );
   }
@@ -416,7 +316,7 @@ export default function SuggestionSummary({
         if (alive) setLoading(false);
       }
     })();
-    setViewKey(k => k + 1);
+    setViewKey((k) => k + 1);
     return () => {
       alive = false;
     };
@@ -462,28 +362,19 @@ export default function SuggestionSummary({
 
       <div className="flex items-center justify-between mb-1">
         <div className="min-w-0">
-          <h2 key={`title-${viewKey}`} className="text-lg font-semibold truncate ys-fade">
+          <h2
+            key={`title-${viewKey}`}
+            className="text-lg font-semibold truncate ys-fade"
+          >
             {model.title || "Insights"}
           </h2>
-
-          {Array.isArray(model.metaBadges) && model.metaBadges.length > 0 && (
-            <div key={`badges-${viewKey}`} className="mt-1 flex flex-wrap gap-1.5 ys-fade">
-              {model.metaBadges.map((t, i) => (
-                <span
-                  key={i}
-                  className="text-xs px-2 py-0.5 rounded-full bg-white border border-[#eee7db] ys-fade-item"
-                  style={{ animationDelay: `${i * 40}ms` }}
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
-
       </div>
 
-      <p key={`lead-${viewKey}`} className="text-neutral-600 text-sm mb-4 ys-fade">
+      <p
+        key={`lead-${viewKey}`}
+        className="text-neutral-600 text-sm mb-4 ys-fade"
+      >
         {isOverall
           ? "High-level culture insights generated by the system."
           : subthemeFile
@@ -502,14 +393,22 @@ export default function SuggestionSummary({
         ) : model.sections && model.sections.length ? (
           <div className="space-y-6">
             {model.sections.map((sec, idx) => (
-              <div key={idx} className="ys-fade-item" style={{ animationDelay: `${idx * 40}ms` }}>
-                <div className="text-[15px] font-semibold mb-2">{sec.title}</div>
+              <div
+                key={idx}
+                className="ys-fade-item"
+                style={{ animationDelay: `${idx * 40}ms` }}
+              >
+                <div className="text-[15px] font-semibold mb-2">
+                  {sec.title}
+                </div>
                 <SectionView sec={sec} />
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-sm text-neutral-500 ys-fade-item">No content.</div>
+          <div className="text-sm text-neutral-500 ys-fade-item">
+            No content.
+          </div>
         )}
       </div>
     </div>

@@ -5,7 +5,7 @@ const BG_ARTICLE = "rgba(241,240,227,0.75)";
 const BG_FORUM   = "rgba(233,216,191,0.75)";
 
 
-const FETCH_PAGE_SIZE = 60;
+const FETCH_PAGE_SIZE = 6;
 
 const DETAIL_CONCURRENCY = 6;
 
@@ -431,11 +431,11 @@ export default function PostFeed({
             ref={scRef}
             className="h-full no-native-scrollbar"
             style={{
-              // 触屏：始终允许滚动；桌面：hover 时才滚动
+        
               overflowY: (isTouch || hovering) && !loadingList ? "auto" : "hidden",
               position: "relative",
-              WebkitOverflowScrolling: "touch", // iOS 惯性
-              touchAction: "pan-y",             // 只允许纵向手势，避免冲突
+              WebkitOverflowScrolling: "touch", 
+              touchAction: "pan-y",        
             }}
             onTouchStart={() => setHovering(true)}
             onTouchEnd={() => setHovering(false)}
