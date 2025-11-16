@@ -13,7 +13,7 @@
     "Mentions of operational failures or partial successes (e.g., 'partially derailed')"
   ],
   "sentiment_snapshot": {
-    "positive": 6,
+    "positive": 5,
     "negative": 7,
     "average_confidence": 0.877
   },

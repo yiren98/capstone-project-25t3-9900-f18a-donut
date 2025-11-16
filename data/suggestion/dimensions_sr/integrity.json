@@ -11,20 +11,20 @@
   ],
   "sentiment_snapshot": {
     "positive": 41,
-    "negative": 262,
+    "negative": 261,
     "average_confidence": 0.843
   },
   "top_subthemes": [
-    { "subtheme": "Ethics & Compliance", "count": 45 },
-    { "subtheme": "Legal & Regulatory Integrity", "count": 28 },
-    { "subtheme": "Transparency & Disclosure", "count": 26 },
-    { "subtheme": "Community Engagement & Social Responsibility", "count": 24 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 16 },
-    { "subtheme": "Stakeholder Engagement & Alignment", "count": 14 },
-    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 13 },
-    { "subtheme": "Brand Perception & Reputation", "count": 11 },
-    { "subtheme": "Corporate & Historical Responsibility", "count": 11 },
-    { "subtheme": "Risk & Regulatory Management", "count": 8 }
+    { "subtheme": "Ethics & Compliance"},
+    { "subtheme": "Legal & Regulatory Integrity"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Community Engagement & Social Responsibility"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Stakeholder Engagement & Alignment"},
+    { "subtheme": "Cultural Heritage & Indigenous Rights"},
+    { "subtheme": "Brand Perception & Reputation"},
+    { "subtheme": "Corporate & Historical Responsibility"},
+    { "subtheme": "Risk & Regulatory Management"}
   ],
   "risks_and_blindspots": [
     "Integrity may be viewed externally as reactive or performative when responses focus on compliance rather than ethical transformation.",

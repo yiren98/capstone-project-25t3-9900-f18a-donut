@@ -10,21 +10,21 @@
     "Discussions link ethics with governance and performance, showing that integrity is now seen not as a separate CSR topic but as the foundation of long-term corporate legitimacy."
   ],
   "sentiment_snapshot": {
-    "positive": 120,
+    "positive": 117,
     "negative": 375,
     "average_confidence": 0.848
   },
   "top_subthemes": [
-    { "subtheme": "Environmental Protection & Resource Management", "count": 59 },
-    { "subtheme": "Community Engagement & Social Responsibility", "count": 57 },
-    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 34 },
-    { "subtheme": "Transparency & Disclosure", "count": 32 },
-    { "subtheme": "Ethics & Compliance", "count": 25 },
-    { "subtheme": "Corporate Governance & Oversight", "count": 18 },
-    { "subtheme": "Stakeholder Engagement & Alignment", "count": 17 },
-    { "subtheme": "Brand Perception & Reputation", "count": 17 },
-    { "subtheme": "Environmental Sustainability & Climate Action", "count": 17 },
-    { "subtheme": "Ethical Investment & Responsible Business", "count": 17 }
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Community Engagement & Social Responsibility"},
+    { "subtheme": "Cultural Heritage & Indigenous Rights"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Ethics & Compliance"},
+    { "subtheme": "Corporate Governance & Oversight"},
+    { "subtheme": "Stakeholder Engagement & Alignment"},
+    { "subtheme": "Brand Perception & Reputation"},
+    { "subtheme": "Environmental Sustainability & Climate Action"},
+    { "subtheme": "Ethical Investment & Responsible Business"}
   ],
   "risks_and_blindspots": [
     "Ethical actions are frequently perceived as reactive crisis management rather than proactive ethical leadership.",

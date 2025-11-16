@@ -10,21 +10,21 @@
     "Collaboration and technology innovation increasingly appear in agility-related conversations, indicating that partnerships and new processes are key to moving quickly in complex, evolving value chains."
   ],
   "sentiment_snapshot": {
-    "positive": 114,
-    "negative": 66,
+    "positive": 103,
+    "negative": 64,
     "average_confidence": 0.869
   },
   "top_subthemes": [
-    { "subtheme": "Strategic Planning & Direction", "count": 20 },
-    { "subtheme": "Future Strategy & Foresight", "count": 14 },
-    { "subtheme": "Market Dynamics & Financial Indicators", "count": 9 },
-    { "subtheme": "Mergers & Acquisitions (M&A)", "count": 7 },
-    { "subtheme": "Market Performance & Competitiveness", "count": 7 },
-    { "subtheme": "Strategic Defense & Resilience", "count": 6 },
-    { "subtheme": "Strategic Adaptation & Flexibility", "count": 6 },
-    { "subtheme": "Investment & Portfolio Performance", "count": 6 },
-    { "subtheme": "Operational Efficiency & Performance", "count": 5 },
-    { "subtheme": "Cost Management & Resource Efficiency", "count": 5 }
+    { "subtheme": "Strategic Planning & Direction"},
+    { "subtheme": "Future Strategy & Foresight"},
+    { "subtheme": "Market Dynamics & Financial Indicators"},
+    { "subtheme": "Mergers & Acquisitions (M&A)"},
+    { "subtheme": "Market Performance & Competitiveness"},
+    { "subtheme": "Strategic Defense & Resilience"},
+    { "subtheme": "Strategic Adaptation & Flexibility"},
+    { "subtheme": "Investment & Portfolio Performance"},
+    { "subtheme": "Operational Efficiency & Performance"},
+    { "subtheme": "Cost Management & Resource Efficiency"}
   ],
   "risks_and_blindspots": [
     "Agility may be narrowly interpreted as rapid portfolio or geographic moves without fully considering long-term commitments to local communities, employees and environmental responsibilities.",

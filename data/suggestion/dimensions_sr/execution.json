@@ -10,21 +10,21 @@
     "Stakeholder and community engagement are increasingly viewed as integral to successful execution, where social license and operational continuity depend on local trust and transparency."
   ],
   "sentiment_snapshot": {
-    "positive": 106,
+    "positive": 89,
     "negative": 110,
     "average_confidence": 0.846
   },
   "top_subthemes": [
-    { "subtheme": "Cost Management & Resource Efficiency", "count": 14 },
-    { "subtheme": "Operational Efficiency & Performance", "count": 13 },
-    { "subtheme": "Strategic Planning & Direction", "count": 9 },
-    { "subtheme": "Project Execution & Delivery", "count": 8 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 8 },
-    { "subtheme": "Production & Output Management", "count": 8 },
-    { "subtheme": "Investment & Portfolio Performance", "count": 8 },
-    { "subtheme": "Future Strategy & Foresight", "count": 7 },
-    { "subtheme": "Market Dynamics & Financial Indicators", "count": 7 },
-    { "subtheme": "Infrastructure & Maintenance", "count": 7 }
+    { "subtheme": "Cost Management & Resource Efficiency"},
+    { "subtheme": "Operational Efficiency & Performance"},
+    { "subtheme": "Strategic Planning & Direction"},
+    { "subtheme": "Project Execution & Delivery"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Production & Output Management"},
+    { "subtheme": "Investment & Portfolio Performance"},
+    { "subtheme": "Future Strategy & Foresight"},
+    { "subtheme": "Market Dynamics & Financial Indicators"},
+    { "subtheme": "Infrastructure & Maintenance"}
   ],
   "risks_and_blindspots": [
     "Execution may focus too narrowly on output and cost control, overlooking long-term environmental and cultural obligations.",
