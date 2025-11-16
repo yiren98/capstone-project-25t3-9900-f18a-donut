@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import { getCAIndex, getCASubthemes } from "../api";
 
-const TAG_BG = "#e8e8e842";  
-const TAG_TEXT = "#b6b4b1ff"; 
-const SELECT_BG = "#F6C945"; 
+const TAG_BG = "#e8e8e842";
+const TAG_TEXT = "#b6b4b1ff";
+const SELECT_BG = "#F6C945";
 const SELECT_TEXT = "#111111";
 const SELECT_RING = "#D6B300";
 
@@ -35,9 +35,8 @@ export default function DimensionFilterPanel({
   className = "",
   onSelect, // (dimension, subtheme, file) => void
 }) {
-  const [step, setStep] = useState(0); 
+  const [step, setStep] = useState(0); // 0: 维度列表；1: 子主题列表
   const [dims, setDims] = useState([]);
-  const [cntMap, setCntMap] = useState({});
   const [loading, setLoading] = useState(false);
 
   const [dimension, setDimension] = useState("");
@@ -53,7 +52,6 @@ export default function DimensionFilterPanel({
       .then((idx) => {
         if (!alive) return;
         setDims(idx?.dimensions || []);
-        setCntMap(idx?.subtheme_count_by_dim || {});
       })
       .finally(() => alive && setLoading(false));
     return () => {
@@ -153,20 +151,20 @@ export default function DimensionFilterPanel({
                 titleText={text}
                 onClick={() => {
                   if (step === 0) {
-            
+                    // 选择维度 → 进入子主题列表
                     setDimension(text);
                     setSelectedSubtheme("");
                     setStep(1);
                     setViewKey((k) => k + 1);
-                    onSelect?.(text, "", ""); 
+                    onSelect?.(text, "", "");
                   } else {
-         
+                    // 在子主题层点击
                     if (selected) {
-           
+                      // 再次点击：取消子主题，回到维度总结
                       setSelectedSubtheme("");
                       onSelect?.(dimension, "", "");
                     } else {
-      
+                      // 选中某个子主题
                       setSelectedSubtheme(text);
                       onSelect?.(dimension, text, item.file || "");
                     }
