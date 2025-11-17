@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { motion as Motion } from "framer-motion";
 
+// Gentle slide / fade-in wrapper used for page-level transitions
 export const SoftSlide = ({ children }) => (
   <Motion.div
     initial={{ opacity: 0, y: 8, filter: "blur(2px)" }}
@@ -13,6 +14,7 @@ export const SoftSlide = ({ children }) => (
   </Motion.div>
 );
 
+// Slight 3D flip for cards / views when they appear or disappear
 export const CardFlip = ({ children }) => (
   <Motion.div
     initial={{ opacity: 0, rotateX: -6, y: 6, transformPerspective: 800 }}
@@ -25,10 +27,13 @@ export const CardFlip = ({ children }) => (
   </Motion.div>
 );
 
+// HOC to wrap a component with a chosen animation variant
 export function withTransition(Comp, Variant = SoftSlide) {
-  const VariantToUse = Variant; 
+  // Allow passing a different animation wrapper if needed
+  const VariantToUse = Variant;
   return function Wrapped(props) {
     return (
+      // Add perspective so 3D transforms (e.g. CardFlip) look more natural
       <div className="min-h-screen" style={{ perspective: 1000 }}>
         <VariantToUse>
           <Comp {...props} />
@@ -38,4 +43,5 @@ export function withTransition(Comp, Variant = SoftSlide) {
   };
 }
 
+// Default export: convenient shortcut when you just want SoftSlide
 export default withTransition;
