@@ -2,12 +2,14 @@ import React, { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import { getCAIndex, getCASubthemes } from "../api";
 
+// Tag colors for normal vs selected state
 const TAG_BG = "#e8e8e842";
 const TAG_TEXT = "#b6b4b1ff";
 const SELECT_BG = "#F6C945";
 const SELECT_TEXT = "#111111";
 const SELECT_RING = "#D6B300";
 
+// Small reusable pill component for both dimensions and subthemes
 const Pill = ({ text, onClick, titleText, selected = false }) => {
   const bg = selected ? SELECT_BG : TAG_BG;
   const fg = selected ? SELECT_TEXT : TAG_TEXT;
@@ -35,16 +37,23 @@ export default function DimensionFilterPanel({
   className = "",
   onSelect, // (dimension, subtheme, file) => void
 }) {
-  const [step, setStep] = useState(0); // 0: 维度列表；1: 子主题列表
+  // step 0: choose dimension; step 1: choose subtheme
+  const [step, setStep] = useState(0);
+  // List of dimensions fetched from the backend
   const [dims, setDims] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Current selected dimension name
   const [dimension, setDimension] = useState("");
+  // Subthemes available under the selected dimension
   const [subs, setSubs] = useState([]);
+  // Currently selected subtheme name (for highlight and back behavior)
   const [selectedSubtheme, setSelectedSubtheme] = useState("");
 
+  // Used to force a re-mount of the scrollable list for a quick fade transition
   const [viewKey, setViewKey] = useState(0);
 
+  // Initial load: fetch all dimensions once
   useEffect(() => {
     let alive = true;
     setLoading(true);
@@ -59,6 +68,7 @@ export default function DimensionFilterPanel({
     };
   }, []);
 
+  // When entering step 1 and a dimension is selected, fetch its subthemes
   useEffect(() => {
     if (step !== 1 || !dimension) return;
     let alive = true;
@@ -78,10 +88,12 @@ export default function DimensionFilterPanel({
     };
   }, [step, dimension]);
 
+  // Only expose subthemes when we are in step 1
   const subthemes = useMemo(() => (step === 1 ? subs : []), [step, subs]);
 
   return (
     <>
+      {/* Local styles for scroll hiding + fade-in animation */}
       <style>{`
         .ys-hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .ys-hide-scrollbar::-webkit-scrollbar { display: none; width: 0; height: 0; }
@@ -97,6 +109,7 @@ export default function DimensionFilterPanel({
           className
         )}
       >
+        {/* Header row: title + back button when in subtheme view */}
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-base font-semibold">
             Dimension and Subtheme Filter
@@ -106,11 +119,13 @@ export default function DimensionFilterPanel({
             <button
               className="text-xs underline text-neutral-300 hover:text-white"
               onClick={() => {
+                // Reset back to dimension list
                 setStep(0);
                 setDimension("");
                 setSubs([]);
                 setSelectedSubtheme("");
                 setViewKey((k) => k + 1);
+                // Notify parent that filters are cleared
                 onSelect?.("", "", "");
               }}
             >
@@ -119,12 +134,14 @@ export default function DimensionFilterPanel({
           )}
         </div>
 
+        {/* Helper text under the title */}
         <p className="text-neutral-300 text-[13px] mb-2 leading-snug">
           {step === 0
             ? "Choose a cultural dimension to drill into its subthemes."
             : `Select a subtheme under “${dimension}”. (click again to show the dimension summary)`}
         </p>
 
+        {/* Scrollable list of pills (dimensions or subthemes depending on step) */}
         <div
           key={viewKey}
           className={clsx(
@@ -151,20 +168,21 @@ export default function DimensionFilterPanel({
                 titleText={text}
                 onClick={() => {
                   if (step === 0) {
-                    // 选择维度 → 进入子主题列表
+                    // Dimension selected: move to subtheme view
                     setDimension(text);
                     setSelectedSubtheme("");
                     setStep(1);
                     setViewKey((k) => k + 1);
+                    // Inform parent that a dimension was chosen, but no subtheme yet
                     onSelect?.(text, "", "");
                   } else {
-                    // 在子主题层点击
+                    // In subtheme view: toggle selection
                     if (selected) {
-                      // 再次点击：取消子主题，回到维度总结
+                      // Clicking again clears subtheme filter, keeps dimension
                       setSelectedSubtheme("");
                       onSelect?.(dimension, "", "");
                     } else {
-                      // 选中某个子主题
+                      // New subtheme selected
                       setSelectedSubtheme(text);
                       onSelect?.(dimension, text, item.file || "");
                     }
@@ -175,10 +193,12 @@ export default function DimensionFilterPanel({
           })}
         </div>
 
+        {/* Loading indicator at the bottom */}
         {loading && (
           <div className="pt-2 text=[11px] text-neutral-400">Loading…</div>
         )}
 
+        {/* Simple footer summary when showing dimensions and not loading */}
         {step === 0 && !loading && (
           <div className="pt-2 text-[11px] text-neutral-400">
             {dims.length} dimensions available
