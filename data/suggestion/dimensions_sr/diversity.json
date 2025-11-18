@@ -15,16 +15,16 @@
     "average_confidence": 0.875
   },
   "top_subthemes": [
-    { "subtheme": "Gender Equality & Representation", "count": 3 },
-    { "subtheme": "Cultural Awareness & Sensitivity", "count": 3 },
-    { "subtheme": "Transparency & Disclosure", "count": 2 },
-    { "subtheme": "Inclusion & Belonging", "count": 2 },
-    { "subtheme": "Legal & Regulatory Integrity", "count": 2 },
-    { "subtheme": "Reporting & Reputational Risk", "count": 2 },
-    { "subtheme": "Brand Perception & Reputation", "count": 2 },
-    { "subtheme": "Workplace Safety & Culture Integration", "count": 1 },
-    { "subtheme": "Contracting & Procurement", "count": 1 },
-    { "subtheme": "Leadership Accountability", "count": 1 }
+    { "subtheme": "Gender Equality & Representation"},
+    { "subtheme": "Cultural Awareness & Sensitivity"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Inclusion & Belonging" },
+    { "subtheme": "Legal & Regulatory Integrity"},
+    { "subtheme": "Reporting & Reputational Risk"},
+    { "subtheme": "Brand Perception & Reputation" },
+    { "subtheme": "Workplace Safety & Culture Integration"},
+    { "subtheme": "Contracting & Procurement"},
+    { "subtheme": "Leadership Accountability"}
   ],
   "risks_and_blindspots": [
     "Persistently high levels of bullying, sexual harassment and racism – especially at FIFO sites and towards women, Indigenous and LGBTIQ+ employees – risk normalising harm and undercutting any public diversity commitments.",

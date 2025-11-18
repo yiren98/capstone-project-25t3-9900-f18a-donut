@@ -1,0 +1,36 @@
+{
+  "subtheme": "Ethical Compliance & Internal Control",
+  "parent_dimensions": [
+    "Accountability",
+    "Collaboration",
+    "Ethical Responsibility",
+    "Performance"
+  ],
+  "overview": "This subtheme centers on how the company manages and communicates its adherence to ethical standards, legal requirements, and internal control mechanisms. It is a critical component of corporate governance as it directly impacts stakeholder trust and regulatory standing. The discourse is predominantly negative, indicating widespread concern or criticism regarding the company's ethical compliance and control measures.",
+  "key_patterns": [
+    "Legal and regulatory challenges, including lawsuits and settlements",
+    "Public disputes over ethical standards, such as allegations of misleading stakeholders",
+    "Operational incidents with ethical implications, like equipment failures causing environmental issues",
+    "Scrutiny over governance and decision-making processes, especially in high-stakes projects"
+  ],
+  "sentiment_snapshot": {
+    "positive": 2,
+    "negative": 8,
+    "average_confidence": 0.881
+  },
+  "typical_contexts": [
+    "This subtheme emerges in contexts of public and legal scrutiny, such as during lawsuits, regulatory reviews, and public debates over corporate conduct. It is often triggered by incidents that test the company's adherence to its stated ethical guidelines, like environmental incidents or governance failures. It interacts closely with dimensions like Accountability and Ethical Responsibility, as these are the primary lenses through which the company's compliance is judged.",
+    "The discourse is heavily influenced by external events, such as legal rulings or activist campaigns, that force the company to defend or explain its compliance and control mechanisms. This often occurs in tandem with discussions on corporate social responsibility (Ethical Responsibility) and operational performance (Performance).",
+    "It also appears in contexts of partnership and collaboration, where the company's ethical standing affects its ability to partner with others, as seen in the case of the alumina refinery and sanctions."
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on legalistic compliance: The negative sentiment is driven by perceptions that the company focuses more on legal defensibility than on genuine ethical conduct, leading to reputational damage.",
+    "Inconsistent application of ethics across operations: The company may struggle to apply a uniform standard of ethical compliance across different projects and regions, especially when local practices or partnerships complicate matters, as seen with the Russian oligarch ties.",
+    "Reactive rather than proactive governance: The pattern suggests that ethical compliance is often addressed only after public or legal pressure, not as an integrated part of project planning and execution."
+  ],
+  "recommendations": [
+    "Strengthen proactive ethical auditing: Implement more rigorous, preemptive ethical audits across all operations, especially for high-risk projects, to identify and mitigate risks before they escalate into public issues.",
+    "Enhance transparency in governance: Improve transparency around compliance processes and decision-making, particularly for projects with environmental or social impacts, to rebuild trust and demonstrate commitment beyond legal requirements.",
+    "Integrate ethical considerations into partnership criteria: Ensure that all partnerships and collaborations are vetted not just for legal compliance but for alignment with the company's core ethical standards, even when this requires difficult decisions, such as exiting partnerships that pose ethical risks."
+  ]
+}

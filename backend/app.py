@@ -44,6 +44,7 @@ def create_app():
     def handle_http_error(e):
         return jsonify({"code": e.code, "message": e.description}), e.code
 
+    # Handle unexpected internal server errors
     @app.errorhandler(Exception)
     def handle_any_error(e):
         app.logger.exception(e)

@@ -2,28 +2,15 @@ import React, { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import { getCAIndex, getCASubthemes } from "../api";
 
-const DOT = {
-  Collaboration:"#f4bf2a", Performance:"#63b6a5", Execution:"#6a7be6", Agility:"#b78de3",
-  "Ethical Responsibility":"#f1a57b", Accountability:"#6db0ff", "Customer Orientation":"#68c06f",
-  Respect:"#e5a08a", Integrity:"#f1c74a", Learning:"#79c7b6", Innovation:"#6f73d8", "Well-being":"#c99bdd",
-};
+// Tag colors for normal vs selected state
+const TAG_BG = "#e8e8e842";
+const TAG_TEXT = "#b6b4b1ff";
+const SELECT_BG = "#F6C945";
+const SELECT_TEXT = "#111111";
+const SELECT_RING = "#D6B300";
 
-const TAG_BG = "#e8e8e842";   
-const TAG_TEXT = "#b6b4b1ff";  
-const SELECT_BG = "#F6C945";    
-const SELECT_TEXT = "#111111";  
-const SELECT_RING = "#D6B300"; 
-
-function hashToHsl(str) {
-  let h = 0;
-  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
-  const hue = h % 360;
-  const sat = 58;
-  const light = 52;
-  return `hsl(${hue} ${sat}% ${light}%)`;
-}
-
-const Pill = ({ dot, text, number, onClick, titleText, selected = false }) => {
+// Small reusable pill component for both dimensions and subthemes
+const Pill = ({ text, onClick, titleText, selected = false }) => {
   const bg = selected ? SELECT_BG : TAG_BG;
   const fg = selected ? SELECT_TEXT : TAG_TEXT;
   return (
@@ -35,24 +22,13 @@ const Pill = ({ dot, text, number, onClick, titleText, selected = false }) => {
         "border transition-all duration-150",
         selected ? "border-[var(--ring)] shadow-sm" : "border-[#e3d5wa]",
         "hover:brightness-[.98] active:brightness-95",
-        "cursor-pointer flex items-center justify-between"
+        "cursor-pointer flex items-center"
       )}
       style={{ "--ring": SELECT_RING, background: bg, color: fg }}
     >
-      <div className="flex items-center gap-2 min-w-0 flex-1">
-        <span
-          className="h-2 w-2 rounded-full shrink-0"
-          style={{ background: selected ? "#111" : (dot || "#222") }}
-        />
-        <span className="text-[13px] font-medium overflow-hidden text-ellipsis whitespace-nowrap">
-          {text}
-        </span>
-      </div>
-      {number !== undefined && (
-        <span className="text-[13px] font-semibold pl-2 shrink-0" style={{ color: fg }}>
-          {number}
-        </span>
-      )}
+      <span className="text-[13px] font-medium overflow-hidden text-ellipsis whitespace-nowrap">
+        {text}
+      </span>
     </button>
   );
 };
@@ -61,18 +37,23 @@ export default function DimensionFilterPanel({
   className = "",
   onSelect, // (dimension, subtheme, file) => void
 }) {
-  const [step, setStep] = useState(0); 
+  // step 0: choose dimension; step 1: choose subtheme
+  const [step, setStep] = useState(0);
+  // List of dimensions fetched from the backend
   const [dims, setDims] = useState([]);
-  const [cntMap, setCntMap] = useState({});
   const [loading, setLoading] = useState(false);
 
+  // Current selected dimension name
   const [dimension, setDimension] = useState("");
+  // Subthemes available under the selected dimension
   const [subs, setSubs] = useState([]);
-  const [selectedSubtheme, setSelectedSubtheme] = useState(""); 
+  // Currently selected subtheme name (for highlight and back behavior)
+  const [selectedSubtheme, setSelectedSubtheme] = useState("");
 
-
+  // Used to force a re-mount of the scrollable list for a quick fade transition
   const [viewKey, setViewKey] = useState(0);
 
+  // Initial load: fetch all dimensions once
   useEffect(() => {
     let alive = true;
     setLoading(true);
@@ -80,12 +61,14 @@ export default function DimensionFilterPanel({
       .then((idx) => {
         if (!alive) return;
         setDims(idx?.dimensions || []);
-        setCntMap(idx?.subtheme_count_by_dim || {});
       })
       .finally(() => alive && setLoading(false));
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, []);
 
+  // When entering step 1 and a dimension is selected, fetch its subthemes
   useEffect(() => {
     if (step !== 1 || !dimension) return;
     let alive = true;
@@ -93,21 +76,24 @@ export default function DimensionFilterPanel({
     getCASubthemes(dimension)
       .then((res) => {
         if (!alive) return;
-        const list = (res?.subthemes || []).map(x => ({
+        const list = (res?.subthemes || []).map((x) => ({
           name: x.name,
           file: x.file || "",
         }));
         setSubs(list);
       })
       .finally(() => alive && setLoading(false));
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [step, dimension]);
 
+  // Only expose subthemes when we are in step 1
   const subthemes = useMemo(() => (step === 1 ? subs : []), [step, subs]);
 
   return (
     <>
-
+      {/* Local styles for scroll hiding + fade-in animation */}
       <style>{`
         .ys-hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .ys-hide-scrollbar::-webkit-scrollbar { display: none; width: 0; height: 0; }
@@ -123,19 +109,23 @@ export default function DimensionFilterPanel({
           className
         )}
       >
+        {/* Header row: title + back button when in subtheme view */}
         <div className="flex justify-between items-center mb-2">
-          <h2 className="text-base font-semibold">Dimension and Subtheme Filter</h2>
+          <h2 className="text-base font-semibold">
+            Dimension and Subtheme Filter
+          </h2>
 
-   
           {step === 1 && (
             <button
               className="text-xs underline text-neutral-300 hover:text-white"
               onClick={() => {
+                // Reset back to dimension list
                 setStep(0);
                 setDimension("");
                 setSubs([]);
                 setSelectedSubtheme("");
-                setViewKey(k => k + 1);
+                setViewKey((k) => k + 1);
+                // Notify parent that filters are cleared
                 onSelect?.("", "", "");
               }}
             >
@@ -144,59 +134,57 @@ export default function DimensionFilterPanel({
           )}
         </div>
 
+        {/* Helper text under the title */}
         <p className="text-neutral-300 text-[13px] mb-2 leading-snug">
           {step === 0
             ? "Choose a cultural dimension to drill into its subthemes."
             : `Select a subtheme under “${dimension}”. (click again to show the dimension summary)`}
         </p>
 
-
+        {/* Scrollable list of pills (dimensions or subthemes depending on step) */}
         <div
-              key={viewKey}
-              className={clsx(
-                "flex-1 grid grid-cols-1 gap-1.5 overflow-y-auto pr-1 ys-fade-swap ys-hide-scrollbar",
-                "content-start items-start auto-rows-max"   
-              )}
-              style={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-                gridAutoRows: "max-content",   
-                alignContent: "start",        
-                alignItems: "start",
-              }}
-            >
+          key={viewKey}
+          className={clsx(
+            "flex-1 grid grid-cols-1 gap-1.5 overflow-y-auto pr-1 ys-fade-swap ys-hide-scrollbar",
+            "content-start items-start auto-rows-max"
+          )}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            gridAutoRows: "max-content",
+            alignContent: "start",
+            alignItems: "start",
+          }}
+        >
           {(step === 0 ? dims : subthemes).map((item) => {
             const text = step === 0 ? item : item.name;
-            const num  = step === 0 ? cntMap[item] : undefined;
-            const dot  = step === 0 ? (DOT[text] || "#bbb") : hashToHsl(text);
             const selected = step === 1 && selectedSubtheme === text;
 
             return (
               <Pill
                 key={text}
-                dot={dot}
                 text={text}
-                number={num}
                 selected={selected}
                 titleText={text}
                 onClick={() => {
                   if (step === 0) {
-           
+                    // Dimension selected: move to subtheme view
                     setDimension(text);
-                    setSelectedSubtheme("");  
+                    setSelectedSubtheme("");
                     setStep(1);
-                    setViewKey(k => k + 1);
-                    onSelect?.(text, "", "");  
+                    setViewKey((k) => k + 1);
+                    // Inform parent that a dimension was chosen, but no subtheme yet
+                    onSelect?.(text, "", "");
                   } else {
-           
+                    // In subtheme view: toggle selection
                     if (selected) {
-           
+                      // Clicking again clears subtheme filter, keeps dimension
                       setSelectedSubtheme("");
-                      onSelect?.(dimension, "", ""); 
+                      onSelect?.(dimension, "", "");
                     } else {
-                  
+                      // New subtheme selected
                       setSelectedSubtheme(text);
-                      onSelect?.(dimension, text, (item.file || ""));
+                      onSelect?.(dimension, text, item.file || "");
                     }
                   }
                 }}
@@ -205,10 +193,16 @@ export default function DimensionFilterPanel({
           })}
         </div>
 
-        {loading && <div className="pt-2 text=[11px] text-neutral-400">Loading…</div>}
+        {/* Loading indicator at the bottom */}
+        {loading && (
+          <div className="pt-2 text=[11px] text-neutral-400">Loading…</div>
+        )}
 
+        {/* Simple footer summary when showing dimensions and not loading */}
         {step === 0 && !loading && (
-          <div className="pt-2 text-[11px] text-neutral-400">{dims.length} dimensions available</div>
+          <div className="pt-2 text-[11px] text-neutral-400">
+            {dims.length} dimensions available
+          </div>
         )}
       </div>
     </>

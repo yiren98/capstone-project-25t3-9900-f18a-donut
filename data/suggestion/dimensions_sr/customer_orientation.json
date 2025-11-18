@@ -15,16 +15,16 @@
     "average_confidence": 0.813
   },
   "top_subthemes": [
-    { "subtheme": "Brand Perception & Reputation", "count": 31 },
-    { "subtheme": "Community Engagement & Social Responsibility", "count": 17 },
-    { "subtheme": "Transparency & Disclosure", "count": 10 },
-    { "subtheme": "Corporate & Historical Responsibility", "count": 9 },
-    { "subtheme": "Ethics & Compliance", "count": 7 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 7 },
-    { "subtheme": "Public Relations & Media Image", "count": 6 },
-    { "subtheme": "Customer Experience & Satisfaction", "count": 6 },
-    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 6 },
-    { "subtheme": "Corporate Governance & Oversight", "count": 6 }
+    { "subtheme": "Brand Perception & Reputation"},
+    { "subtheme": "Community Engagement & Social Responsibility"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Corporate & Historical Responsibility"},
+    { "subtheme": "Ethics & Compliance"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Public Relations & Media Image"},
+    { "subtheme": "Customer Experience & Satisfaction"},
+    { "subtheme": "Cultural Heritage & Indigenous Rights"},
+    { "subtheme": "Corporate Governance & Oversight"}
   ],
   "risks_and_blindspots": [
     "Customer orientation is at risk of being perceived as superficial branding rather than a genuine commitment to listening, accountability and shared value.",

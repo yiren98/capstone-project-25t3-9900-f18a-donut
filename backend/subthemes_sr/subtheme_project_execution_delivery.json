@@ -1,0 +1,33 @@
+{
+  "subtheme": "Project Execution & Delivery",
+  "parent_dimensions": [
+    "Execution"
+  ],
+  "overview": "This subtheme captures how the company delivers on its projects and commitments, reflecting its operational reliability and follow-through. It matters because consistent execution directly impacts stakeholder trust, resource efficiency, and long-term project viability, while failures can lead to financial losses, reputational damage, and legal challenges.",
+  "key_patterns": [
+    "Projects are evaluated based on their alignment with strategic goals and resource availability",
+    "Stakeholders highlight both successful project deliveries and significant delays or cancellations",
+    "Mention of specific, named projects (e.g., 'Jadar', 'West Angelas hub') as examples of work done or not done",
+    "External certifications or permits (e.g., 'licences') are cited as factors influencing execution"
+  ],
+  "sentiment_snapshot": {
+    "positive": 4,
+    "negative": 4,
+    "average_confidence": 0.786
+  },
+  "typical_contexts": [
+    "Comments often arise in response to official company announcements about project milestones, delays, or terminations.",
+    "They are also triggered by external events that impact the company's operations, such as government decisions or activist campaigns.",
+    "They frequently connect to broader discussions about corporate responsibility, governance, and strategic direction, not just the project itself."
+  ],
+  "risks_and_blindspots": [
+    "Polarized stakeholder perception: The equal split in sentiment indicates deep divisions, where the company may be seen as both a responsible operator and an unreliable partner, depending on the stakeholder group. This erodes universal trust.",
+    "Over-reliance on external validation: The positive mentions often cite external certifications (e.g., 'access to year-round work') or partnerships (e.g., 'Rio Tinto said...'), suggesting an over-dependence on external actors for validation of successful execution.",
+    "Failure to communicate the 'why': The negative comments focus on outcomes (e.g., 'revokes licences') but lack context on the causes. This indicates a blind spot in transparently communicating project setbacks, leading to speculation and mistrust."
+  ],
+  "recommendations": [
+    "Institute a 'Transparency & Accountability' framework for major projects: This should include clear, public timelines, regular updates on milestones (even for delays), and a transparent ledger of lessons learned from both successes and failures.",
+    "Develop a 'Stakeholder Impact' communication protocol: For every significant project, proactively and clearly communicate the 'why' behind decisions (e.g., why a project is paused, why a site was chosen) to all affected stakeholders, not just shareholders.",
+    "Integrate 'Social License' metrics into project delivery KPIs: Beyond financial and technical metrics, formally track and report on the social acceptance and community impact of projects as a core part of execution success."
+  ]
+}

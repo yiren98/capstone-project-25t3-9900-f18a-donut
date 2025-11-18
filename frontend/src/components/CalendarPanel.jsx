@@ -1,11 +1,14 @@
 const YEAR_MIN = 2013;
 const YEAR_MAX = 2025;
-const YEAR_OPTS = Array.from({ length: YEAR_MAX - YEAR_MIN + 1 }, (_, i) => YEAR_MIN + i).concat("all");
-// YEAR_OPTS = [2013, 2014, ... , 2025, "all"]
+// Pre-compute all year options plus the "all" catch-all
+const YEAR_OPTS = Array.from(
+  { length: YEAR_MAX - YEAR_MIN + 1 },
+  (_, i) => YEAR_MIN + i
+).concat("all");
 
 export default function CalendarPanel({
   className = "",
-  year = "all",             
+  year = "all",
   selectedMonth = null,
   monthsWithData = [],
   onMonthSelect,
@@ -13,35 +16,63 @@ export default function CalendarPanel({
   sbi = 0,
   delta = 0,
 }) {
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  // Month labels for the grid (1-based index mapped to 0-based array)
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   const isAll = String(year).toLowerCase() === "all";
   const idx = YEAR_OPTS.findIndex((v) => String(v) === String(year));
 
-  const atFirst = idx <= 0;          
-  const atLast = idx >= YEAR_OPTS.length - 1;  // All
+  const atFirst = idx <= 0;
+  const atLast = idx >= YEAR_OPTS.length - 1; // Last entry is "all"
 
+  // Navigate to previous year option
   const goPrevYear = () => {
     if (atFirst) return;
     onYearChange?.(YEAR_OPTS[idx - 1]);
   };
+
+  // Navigate to next year option
   const goNextYear = () => {
     if (atLast) return;
     onYearChange?.(YEAR_OPTS[idx + 1]);
   };
 
+  // Month is clickable only when:
+  //  - we are not in "all" mode
+  //  - the month exists in monthsWithData
+  const canClick = (n) => (!isAll && monthsWithData.includes(n));
 
-  const canClick = (n) => (isAll ? true : monthsWithData.includes(n));
-
+  // Handle click on a month chip
   const handleMonthClick = (n) => {
     if (!canClick(n)) return;
+    // Clicking the same month again will clear the selection
     const next = selectedMonth === n ? null : n;
     onMonthSelect?.(next, isAll ? "all" : year);
   };
 
-  const sbiVal = Math.max(-100, Math.min(100, Number.isFinite(sbi) ? sbi : 0));
+  // Normalize SBI value to [-100, 100] to keep the bar stable
+  const sbiVal = Math.max(
+    -100,
+    Math.min(100, Number.isFinite(sbi) ? sbi : 0)
+  );
+  // SBI bar covers up to 50% of the width from the center
   const pct = (Math.abs(sbiVal) / 100) * 50;
   const isPos = sbiVal >= 0;
+
+  // Human-readable delta string with arrow + points diff
   const deltaStr = `${delta > 0 ? "↑" : delta < 0 ? "↓" : "±"} ${Math.abs(
     Math.round(delta)
   )} pts vs last month`;
@@ -51,7 +82,7 @@ export default function CalendarPanel({
       className={`rounded-2xl border border-[#d6d0c5] shadow-sm px-5 py-5 text-white ${className}`}
       style={{ background: "#141416", minHeight: 395 }}
     >
-      {/* Header */}
+      {/* Header: title + year navigation */}
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl font-semibold">View Data by Month</h3>
 
@@ -66,7 +97,6 @@ export default function CalendarPanel({
             {"<"}
           </button>
 
-     
           <span className="tabular-nums px-2 py-1">
             {isAll ? "All" : year}
           </span>
@@ -83,25 +113,29 @@ export default function CalendarPanel({
         </div>
       </div>
 
-      {/* Months */}
+      {/* Month grid */}
       <div className="grid grid-cols-6 gap-x-5 gap-y-6 mb-10">
         {months.map((m, idx) => {
           const n = idx + 1;
           const active = selectedMonth === n;
           const clickable = canClick(n);
 
+          // Non-clickable month: either in "all" mode or no data
           if (!clickable) {
             return (
               <div
                 key={n}
                 className="h-12 rounded-full flex items-center justify-center bg-transparent text-white/35 border border-white/10"
-                title={`${m} (no data)`}
+                title={
+                  isAll ? `${m} (disabled in All mode)` : `${m} (no data)`
+                }
               >
                 {m}
               </div>
             );
           }
 
+          // Clickable month chip
           const base =
             "h-12 rounded-full flex items-center justify-center transition-all ring-1 ring-white/15";
           const tone = active
@@ -120,10 +154,12 @@ export default function CalendarPanel({
         })}
       </div>
 
-      {/* SBI */}
+      {/* SBI gauge */}
       <div className="mb-2 text-[15px]">Sentiment Balance Index</div>
       <div className="w-full h-3 rounded-full bg-white/15 relative overflow-hidden">
+        {/* Center zero line */}
         <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/35" />
+        {/* Filled bar extending left/right from center based on SBI */}
         <div
           className="absolute top-0 bottom-0"
           style={{
@@ -144,7 +180,7 @@ export default function CalendarPanel({
         </span>
       </div>
 
-      {/* Legend */}
+      {/* Legend for month chips */}
       <div className="mt-8 flex items-center justify-center gap-10 text-[12px] text-white/75">
         <span className="inline-flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-white/40" />

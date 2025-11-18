@@ -1,0 +1,33 @@
+{
+  "subtheme": "Confidentiality & Intellectual Property",
+  "parent_dimensions": [
+    "Integrity"
+  ],
+  "overview": "This subtheme captures how a company handles sensitive information and respects intellectual property rights, particularly in relation to external stakeholders. It matters because failures in this area, such as imposing confidentiality to suppress criticism, can lead to significant reputational damage and loss of stakeholder trust.",
+  "key_patterns": [
+    "Use of gag orders or confidentiality clauses to prevent stakeholders from speaking out",
+    "Concerns raised about the ethical implications of silencing affected groups",
+    "External stakeholders (like investors) calling for transparency and accountability",
+    "Public exposure of the issue leading to external pressure"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 1,
+    "average_confidence": 0.9
+  },
+  "typical_contexts": [
+    "This issue arises when companies face criticism or scrutiny over their practices, particularly regarding cultural or ethical matters, and respond by attempting to enforce confidentiality rather than addressing the root issue.",
+    "It is often highlighted by external observers, such as journalists or watchdog organizations, who identify the use of confidentiality agreements to suppress legitimate concerns.",
+    "The pattern interacts strongly with dimensions like 'Transparency' and 'Accountability', as the lack of the former and avoidance of the latter are what make the use of confidentiality agreements problematic."
+  ],
+  "risks_and_blindspots": [
+    "Erosion of trust: When companies are seen using confidentiality to suppress rather than protect, it erodes trust among investors, customers, and the public.",
+    "Reputational contagion: The act of silencing critics, especially regarding cultural or indigenous matters, can cause far greater reputational damage than the original issue itself.",
+    "Legal and ethical misalignment: While confidentiality agreements are legal, using them to prevent discussion of ethical concerns (like cultural heritage protection) is seen as unethical and can lead to regulatory or legal challenges."
+  ],
+  "recommendations": [
+    "Conduct an ethical review of all current confidentiality and intellectual property agreements, especially those involving community or indigenous groups, and revise any that silence legitimate concerns.",
+    "Establish and publicly communicate a clear policy that intellectual property and confidentiality will never be used to prevent stakeholders from raising ethical, cultural, or environmental concerns.",
+    "Leadership must actively communicate and demonstrate that transparency and accountability are prioritised over controlling information, especially in sensitive contexts."
+  ]
+}

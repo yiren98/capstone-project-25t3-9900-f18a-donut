@@ -1,0 +1,33 @@
+{
+  "subtheme": "Fairness & Anti-Discrimination",
+  "parent_dimensions": [
+    "Diversity"
+  ],
+  "overview": "This subtheme focuses on the experiences and perceptions of unfair treatment, discrimination, and harassment within the workplace. It is a critical component of corporate culture as it directly impacts employee safety, well-being, and sense of belonging, which in turn affects retention, productivity, and overall company reputation.",
+  "key_patterns": [
+    "Reports of systemic or widespread harassment and discrimination",
+    "Mentions of specific types of discrimination (e.g., sexual harassment, racism)",
+    "Experiences shared by employees (or former employees) as victims",
+    "External validation or investigation confirming internal reports"
+  ],
+  "sentiment_snapshot": {
+    "positive": 0,
+    "negative": 1,
+    "average_confidence": 1.0
+  },
+  "typical_contexts": [
+    "Emerges in contexts where employees are sharing their experiences, often in internal surveys, external reviews, or whistleblower reports.",
+    "Appears in discourse when the company's public image is being contrasted with internal realities, often during crises or scandals.",
+    "Interacts strongly with dimensions of 'Transparency' and 'Accountability', as the presence of these reports indicates a failure in systems to prevent or address such issues."
+  ],
+  "risks_and_blindspots": [
+    "Ignoring or underinvesting in these reports leads to a toxic culture, high attrition, and public scandals.",
+    "Over-reliance on reactive, external investigations (like the one in the example) rather than proactive, internal prevention and support systems.",
+    "Lack of visible, tangible action from leadership to address the root causes, leading to erosion of trust."
+  ],
+  "recommendations": [
+    "Implement and continuously review robust, transparent reporting and accountability systems for harassment and discrimination. Ensure there are multiple, safe channels for reporting.",
+    "Integrate 'Fairness & Anti-Drimination' as a core, measured value in performance reviews and leadership competencies. Move from reactive to proactive.",
+    "Leadership must communicate and act on these issues with visible urgency and consistency, not just when forced by external pressure."
+  ]
+}

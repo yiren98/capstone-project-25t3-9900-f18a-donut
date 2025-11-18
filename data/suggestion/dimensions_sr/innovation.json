@@ -15,16 +15,16 @@
     "average_confidence": 0.856
   },
   "top_subthemes": [
-    { "subtheme": "Technology & Process Innovation", "count": 7 },
-    { "subtheme": "Environmental Sustainability & Climate Action", "count": 4 },
-    { "subtheme": "Team Collaboration & Communication", "count": 3 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 3 },
-    { "subtheme": "Strategic Planning & Direction", "count": 2 },
-    { "subtheme": "Ethical Investment & Responsible Business", "count": 2 },
-    { "subtheme": "Cost Management & Resource Efficiency", "count": 1 },
-    { "subtheme": "Strategic & Cross-Sector Collaboration", "count": 1 },
-    { "subtheme": "Product & Service Innovation", "count": 1 },
-    { "subtheme": "Contracting & Procurement", "count": 1 }
+    { "subtheme": "Technology & Process Innovation"},
+    { "subtheme": "Environmental Sustainability & Climate Action"},
+    { "subtheme": "Team Collaboration & Communication"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Strategic Planning & Direction"},
+    { "subtheme": "Ethical Investment & Responsible Business"},
+    { "subtheme": "Cost Management & Resource Efficiency"},
+    { "subtheme": "Strategic & Cross-Sector Collaboration"},
+    { "subtheme": "Product & Service Innovation"},
+    { "subtheme": "Contracting & Procurement"}
   ],
   "risks_and_blindspots": [
     "Innovation is at risk of being perceived as selective showcase projects rather than a consistently applied operating model across the business.",

@@ -1,0 +1,35 @@
+{
+  "subtheme": "Customer Experience & Satisfaction",
+  "parent_dimensions": [
+    "Customer Orientation",
+    "Execution"
+  ],
+  "overview": "This subtheme captures how customers perceive and evaluate their interactions with the company's products or services. It includes direct feedback, online reviews, and social media discussions about the customer journey, from initial contact to post-purchase support. It matters because it directly impacts brand reputation, customer loyalty, and long-term financial performance.",
+  "key_patterns": [
+    "Customers share positive experiences with service quality and value for money",
+    "Customers express frustration over service failures and unmet expectations",
+    "Customers compare experiences across different locations or service tiers",
+    "Customers highlight gaps between expected and actual service delivery"
+  ],
+  "sentiment_snapshot": {
+    "positive": 4,
+    "negative": 2,
+    "average_confidence": 0.842
+  },
+  "typical_contexts": [
+    "Discussions often arise in public forums and review platforms where customers share unfiltered feedback",
+    "Negative sentiment is frequently triggered by specific incidents of service failure, such as delivery delays, product defects, or poor support interactions",
+    "Positive sentiment is commonly linked to positive comparisons with competitors, unexpected service excellence, or successful resolution of prior issues",
+    "The discourse connects strongly to corporate reputation and public perception, influencing broader brand image"
+  ],
+  "risks_and_blindspots": [
+    "Over-reliance on digital or remote channels may obscure the human element of service recovery and proactive support",
+    "Inconsistency in service delivery across locations or channels can fragment the customer experience and dilute brand promise",
+    "Failure to systematically capture and act on negative feedback may allow minor issues to escalate into systemic problems"
+  ],
+  "recommendations": [
+    "Implement a centralized, real-time feedback aggregation system that prioritizes high-risk negative feedback for immediate action",
+    "Establish clear, cross-functional service recovery protocols that empower front-line employees to resolve issues without escalation",
+    "Invest in predictive analytics to identify and preempt emerging customer pain points, especially in underperforming locations or service lines"
+  ]
+}

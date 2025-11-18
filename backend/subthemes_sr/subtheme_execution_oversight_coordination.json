@@ -1,0 +1,33 @@
+{
+  "subtheme": "Execution Oversight & Coordination",
+  "parent_dimensions": [
+    "Execution"
+  ],
+  "overview": "This subtheme captures how teams and individuals discuss and evaluate the practical execution of projects, plans, or group activities. It is a core component of operational effectiveness and is highly visible in day-to-day interactions. The discourse typically centers on the quality of the execution itself, the level of coordination achieved, and the overall satisfaction with the outcome.",
+  "key_patterns": [
+    "Explicit assessment of execution quality ('well divided', 'absolute worst')",
+    "Comparison against expectations or standards",
+    "Questions and clarifications about execution logistics",
+    "Sharing of resources or information to enable execution"
+  ],
+  "sentiment_snapshot": {
+    "positive": 1,
+    "negative": 1,
+    "average_confidence": 0.8
+  },
+  "typical_contexts": [
+    "This subtheme surfaces in discussions where a specific task or group activity has been completed, and contributors are providing a post-mortem or review of how it was executed.",
+    "It also appears when planning or coordination for a future event is happening in a public or semi-public forum, and members are trying to organize themselves.",
+    "It interacts heavily with dimensions like 'Accountability' and 'Planning', as the discussion often involves assigning credit or blame, and assessing whether the right people were involved in the right way."
+  ],
+  "risks_and_blindspots": [
+    "Lack of formal process or recognized vocabulary for discussing execution quality can lead to miscommunication and repeated failures.",
+    "Negative sentiment can fester and spread if not addressed, as poor execution is often seen as a personal or group failure rather than a process issue.",
+    "Over-reliance on a single coordinator or 'hero' can mask systemic coordination weaknesses until that person is unavailable."
+  ],
+  "recommendations": [
+    "Develop and promote clear, shared rubrics or frameworks for evaluating project and task execution, making the criteria explicit.",
+    "Create and maintain visible forums or channels specifically for post-mortem analysis of completed work, separate from general discussion.",
+    "Publicly recognize and reward good coordination and execution when it occurs, to reinforce its importance and share best practices."
+  ]
+}

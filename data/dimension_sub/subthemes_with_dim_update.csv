@@ -1,0 +1,97 @@
+subthemes,count,pos_count,neg_count,mapped_dimension,mapped_file
+Health & Safety,10,0,10,Well-being; Accountability,subtheme_health_safety.json
+Community & Public Well-being,4,1,3,Well-being,subtheme_community_public_well_being.json
+Food & Lifestyle Well-being,4,1,3,Well-being,subtheme_food_lifestyle_well_being.json
+Special Group Safety & Care,2,0,2,Well-being; Respect,subtheme_special_group_safety_care.json
+Workplace Safety & Culture Integration,2,0,2,Well-being,subtheme_workplace_safety_culture_integration.json
+Physical & Environmental Safety,1,0,1,Well-being,subtheme_physical_environmental_safety.json
+Employee & Occupational Well-being,1,1,0,Well-being,subtheme_employee_occupational_well_being.json
+Recognition & Appreciation,16,5,11,Respect; Customer Orientation; Ethical Responsibility,subtheme_recognition_appreciation.json
+Employee Treatment & Support,7,0,7,Respect; Well-being,subtheme_employee_treatment_support.json
+Cultural & Language Respect,7,1,6,Respect,subtheme_cultural_language_respect.json
+Employment Opportunities & Job Roles,6,2,4,Respect,subtheme_employment_opportunities_job_roles.json
+Trust & Relationship Building,5,2,3,Respect,subtheme_trust_relationship_building.json
+Accommodation & Well-being at Work,4,2,2,Respect; Ethical Responsibility,subtheme_accommodation_well_being_at_work.json
+Organizational Trust & Inclusion,4,0,4,Respect; Ethical Responsibility,subtheme_organizational_trust_inclusion.json
+Workplace Respect & Fairness,3,1,2,Respect,subtheme_workplace_respect_fairness.json
+Investment & Portfolio Performance,19,16,3,Performance; Integrity,subtheme_investment_portfolio_performance.json
+Market Dynamics & Financial Indicators,18,9,9,Performance; Execution; Accountability,subtheme_market_dynamics_financial_indicators.json
+Market Performance & Competitiveness,15,10,5,Performance; Agility; Execution; Collaboration,subtheme_market_performance_competitiveness.json
+Financial Performance & Profitability,13,5,8,Performance,subtheme_financial_performance_profitability.json
+Growth & Strategic Performance,11,6,5,Performance; Agility; Customer Orientation; Ethical Responsibility; Execution,subtheme_growth_strategic_performance.json
+Shareholder & Investor Returns,9,5,4,Performance; Agility; Execution; Customer Orientation,subtheme_shareholder_investor_returns.json
+Business Impact & Operational Outcomes,9,4,5,Integrity; Performance; Accountability; Execution; Agility,subtheme_business_impact_operational_outcomes.json
+Market Valuation & Economic Outlook,6,2,4,Performance; Agility; Learning; Collaboration; Customer Orientation,subtheme_market_valuation_economic_outlook.json
+Asset Quality & Management,4,1,3,Performance; Well-being; Agility,subtheme_asset_quality_management.json
+Workforce & Team Performance,4,1,3,Performance,subtheme_workforce_team_performance.json
+Production & Output Management,3,3,0,Execution,subtheme_production_output_management.json
+Leadership & Change Transition,1,0,1,Collaboration,subtheme_leadership_change_transition.json
+Knowledge Acquisition & Inquiry,5,1,4,Learning; Respect,subtheme_knowledge_acquisition_inquiry.json
+Career Growth & Opportunity,1,1,0,Learning,subtheme_career_growth_opportunity.json
+Ethics & Compliance,45,5,40,Integrity; Customer Orientation; Ethical Responsibility; Accountability,subtheme_ethics_compliance.json
+Legal & Regulatory Integrity,28,5,23,Integrity; Respect; Performance; Accountability,subtheme_legal_regulatory_integrity.json
+Corporate Conduct & Professionalism,7,0,7,Integrity; Accountability; Respect,subtheme_corporate_conduct_professionalism.json
+Anti-Corruption & Misconduct Allegations,4,0,4,Integrity; Accountability,subtheme_anti_corruption_misconduct_allegations.json
+Transparency & Trust,3,1,2,Integrity,subtheme_transparency_trust.json
+Technology & Process Innovation,7,7,0,Innovation,subtheme_technology_process_innovation.json
+Product & Service Innovation,1,0,1,Innovation,subtheme_product_service_innovation.json
+Operational Efficiency & Performance,12,5,7,Execution; Collaboration; Performance,subtheme_operational_efficiency_performance.json
+Cost Management & Resource Efficiency,12,9,3,Execution; Ethical Responsibility,subtheme_cost_management_resource_efficiency.json
+Project Execution & Delivery,7,3,4,Execution,subtheme_project_execution_delivery.json
+Infrastructure & Maintenance,7,0,7,Execution; Learning,subtheme_infrastructure_maintenance.json
+Contracting & Procurement,6,1,5,Execution; Collaboration,subtheme_contracting_procurement.json
+Infrastructure & Event Delivery,3,1,2,Execution,subtheme_infrastructure_event_delivery.json
+Energy & Utilities Operations,2,0,2,Execution,subtheme_energy_utilities_operations.json
+Execution Oversight & Coordination,2,1,1,Execution,subtheme_execution_oversight_coordination.json
+Timeline & Scheduling Discipline,2,0,2,Execution,subtheme_timeline_scheduling_discipline.json
+Environmental Protection & Resource Management,59,9,50,Ethical Responsibility; Accountability; Integrity; Collaboration; Learning; Performance,subtheme_environmental_protection_resource_management.json
+Community Engagement & Social Responsibility,57,11,46,Ethical Responsibility; Customer Orientation,subtheme_community_engagement_social_responsibility.json
+Cultural Heritage & Indigenous Rights,34,4,30,Ethical Responsibility; Accountability,subtheme_cultural_heritage_indigenous_rights.json
+Ethical Investment & Responsible Business,17,5,12,Ethical Responsibility; Collaboration; Respect; Integrity; Execution; Agility; Accountability,subtheme_ethical_investment_responsible_business.json
+Environmental Sustainability & Climate Action,16,7,9,Ethical Responsibility; Collaboration; Innovation,subtheme_environmental_sustainability_climate_action.json
+Environmental Governance & Accountability,6,2,4,Ethical Responsibility; Agility; Accountability,subtheme_environmental_governance_accountability.json
+Remediation & Restoration Efforts,5,5,0,Ethical Responsibility; Learning; Accountability; Integrity,subtheme_remediation_restoration_efforts.json
+Human Rights & Ethics,5,1,4,Ethical Responsibility; Well-being,subtheme_human_rights_ethics.json
+Learning & Development,4,4,0,Learning,subtheme_learning_development.json
+Governance & Regulatory Integrity,4,0,4,Integrity; Well-being,subtheme_governance_regulatory_integrity.json
+Historical Learning & Contextual Awareness,3,1,2,Learning,subtheme_historical_learning_contextual_awareness.json
+Investor & Shareholder Communication,1,0,1,Customer Orientation,subtheme_investor_shareholder_communication.json
+Data & Structural Integrity,1,0,1,Collaboration,subtheme_data_structural_integrity.json
+Cultural Awareness & Sensitivity,3,1,2,Diversity; Integrity,subtheme_cultural_awareness_sensitivity.json
+Gender Equality & Representation,3,2,1,Diversity; Agility,subtheme_gender_equality_representation.json
+Inclusion & Belonging,2,1,1,Diversity,subtheme_inclusion_belonging.json
+Fairness & Anti-Discrimination,1,0,1,Diversity,subtheme_fairness_anti_discrimination.json
+Automation & Process Optimization,2,1,1,Digital Empowerment,subtheme_automation_process_optimization.json
+Brand Perception & Reputation,31,3,28,Customer Orientation; Accountability; Collaboration; Execution; Diversity,subtheme_brand_perception_reputation.json
+Customer Experience & Satisfaction,6,4,2,Customer Orientation; Execution,subtheme_customer_experience_satisfaction.json
+Public Relations & Media Image,6,1,5,Customer Orientation,subtheme_public_relations_media_image.json
+Advertising & Marketing Strategy,5,2,3,Customer Orientation,subtheme_advertising_marketing_strategy.json
+Product Quality & Offering,3,1,2,Customer Orientation,subtheme_product_quality_offering.json
+Localization & Market Adaptation,3,2,1,Customer Orientation,subtheme_localization_market_adaptation.json
+User Engagement & Content Creation,1,1,0,Customer Orientation,subtheme_user_engagement_content_creation.json
+Stakeholder Engagement & Alignment,27,8,19,Collaboration,subtheme_stakeholder_engagement_alignment.json
+Team Collaboration & Communication,24,10,14,Collaboration; Accountability; Ethical Responsibility; Agility,subtheme_team_collaboration_communication.json
+Partnership & Joint Ventures,8,6,2,Collaboration,subtheme_partnership_joint_ventures.json
+Strategic & Cross-Sector Collaboration,6,5,1,Collaboration,subtheme_strategic_cross_sector_collaboration.json
+External Cooperation & Global Involvement,5,3,2,Collaboration,subtheme_external_cooperation_global_involvement.json
+Community & Organizational Cooperation,5,5,0,Collaboration; Accountability,subtheme_community_organizational_cooperation.json
+Business & Industry Relations,3,2,1,Collaboration; Accountability,subtheme_business_industry_relations.json
+Restructuring & Divestment,1,1,0,Agility,subtheme_restructuring_divestment.json
+Strategic Planning & Direction,18,14,4,Agility; Execution,subtheme_strategic_planning_direction.json
+Future Strategy & Foresight,14,9,5,Agility; Customer Orientation; Execution; Learning,subtheme_future_strategy_foresight.json
+Mergers & Acquisitions (M&A),6,4,2,Agility,subtheme_mergers_acquisitions_m_a.json
+Strategic Defense & Resilience,5,4,1,Agility; Performance,subtheme_strategic_defense_resilience.json
+Strategic Adaptation & Flexibility,5,3,2,Agility,subtheme_strategic_adaptation_flexibility.json
+Adaptive Operations & Location Flexibility,4,2,2,Agility,subtheme_adaptive_operations_location_flexibility.json
+Transparency & Disclosure,60,13,47,Accountability,subtheme_transparency_disclosure.json
+Corporate Governance & Oversight,34,5,29,Accountability; Ethical Responsibility; Collaboration; Customer Orientation,subtheme_corporate_governance_oversight.json
+Corporate & Historical Responsibility,24,4,20,Accountability; Collaboration; Ethical Responsibility,subtheme_corporate_historical_responsibility.json
+Policy & Government Relations,21,7,14,Accountability; Agility; Collaboration,subtheme_policy_government_relations.json
+Risk & Regulatory Management,17,2,15,Accountability; Integrity; Respect; Customer Orientation; Collaboration; Agility; Performance,subtheme_risk_regulatory_management.json
+Leadership Accountability,14,1,13,Accountability; Respect; Collaboration,subtheme_leadership_accountability.json
+Stakeholder & Shareholder Accountability,11,3,8,Accountability; Performance; Respect; Integrity,subtheme_stakeholder_shareholder_accountability.json
+Ethical Compliance & Internal Control,10,2,8,Accountability; Collaboration; Ethical Responsibility; Performance,subtheme_ethical_compliance_internal_control.json
+Reporting & Reputational Risk,8,3,5,Accountability; Agility,subtheme_reporting_reputational_risk.json
+Governance in Practice & Apology,7,2,5,Accountability; Collaboration,subtheme_governance_in_practice_apology.json
+Relationship Management & Trust Building,2,1,1,Collaboration,subtheme_relationship_management_trust_building.json
+Confidentiality & Intellectual Property,1,0,1,Integrity,subtheme_confidentiality_intellectual_property.json

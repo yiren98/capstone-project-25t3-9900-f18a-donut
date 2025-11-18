@@ -9,21 +9,21 @@
     "There is a growing recognition that accountability involves measurable change and long-term governance improvement, not just one-time settlements or apologies."
   ],
   "sentiment_snapshot": {
-    "positive": 121,
-    "negative": 406,
+    "positive": 119,
+    "negative": 404,
     "average_confidence": 0.848
   },
   "top_subthemes": [
-    {"subtheme": "Transparency & Disclosure", "count": 60},
-    {"subtheme": "Corporate Governance & Oversight", "count": 35},
-    {"subtheme": "Environmental Protection & Resource Management", "count": 27},
-    {"subtheme": "Ethics & Compliance", "count": 26},
-    {"subtheme": "Corporate & Historical Responsibility", "count": 24},
-    {"subtheme": "Community Engagement & Social Responsibility", "count": 24},
-    {"subtheme": "Policy & Government Relations", "count": 21},
-    {"subtheme": "Stakeholder Engagement & Alignment", "count": 20},
-    {"subtheme": "Risk & Regulatory Management", "count": 18},
-    {"subtheme": "Cultural Heritage & Indigenous Rights", "count": 18}
+    {"subtheme": "Transparency & Disclosure"},
+    {"subtheme": "Corporate Governance & Oversight"},
+    {"subtheme": "Environmental Protection & Resource Management"},
+    {"subtheme": "Ethics & Compliance"},
+    {"subtheme": "Corporate & Historical Responsibility"},
+    {"subtheme": "Community Engagement & Social Responsibility"},
+    {"subtheme": "Policy & Government Relations"},
+    {"subtheme": "Stakeholder Engagement & Alignment"},
+    {"subtheme": "Risk & Regulatory Management"},
+    {"subtheme": "Cultural Heritage & Indigenous Rights"}
   ],
   "risks_and_blindspots": [
     "Conflating compliance with genuine accountability may lead to superficial responses that do not address structural or cultural causes of failure.",

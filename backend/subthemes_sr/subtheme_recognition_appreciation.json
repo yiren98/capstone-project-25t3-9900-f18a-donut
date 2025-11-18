@@ -1,0 +1,35 @@
+{
+  "subtheme": "Recognition & Appreciation",
+  "parent_dimensions": [
+    "Respect",
+    "Customer Orientation",
+    "Ethical Responsibility"
+  ],
+  "overview": "This subtheme captures how employees perceive and discuss the company's efforts to acknowledge and reward their contributions. It matters because inadequate recognition is a significant driver of negative sentiment, indicating a potential failure to make employees feel valued.",
+  "key_patterns": [
+    "Employees frequently inquire about compensation and benefits (e.g., salary bands, superannuation) in the absence of clear, direct recognition.",
+    "Criticism focuses on the reduction or inadequacy of tangible benefits (e.g., sick leave, bonuses) as a primary indicator of being undervalued.",
+    "Positive mentions are rare and often tied to specific, niche benefits (e.g., Qantas points) rather than core recognition.",
+    "The discourse is heavily dominated by concerns about compensation and benefits, overshadowing other forms of recognition."
+  ],
+  "sentiment_snapshot": {
+    "positive": 5,
+    "negative": 11,
+    "average_confidence": 0.858
+  },
+  "typical_contexts": [
+    "Comments emerge in online forums where employees feel safe to voice concerns about compensation and benefits, often in response to specific company announcements (e.g., benefit cuts).",
+    "The subtheme is triggered by company announcements about compensation changes, or during periods when employees are comparing job offers and benefits.",
+    "It interacts strongly with the broader 'Respect' dimension, as lack of recognition is interpreted as a sign of disrespect, but is also linked to 'Ethical Responsibility' when cuts are seen as breaking promises."
+  ],
+  "risks_and_blindspots": [
+    "A significant blind spot in measuring culture: Relying on compensation and benefits as the primary, or only, form of recognition. This leads to a transactional relationship and high negativity.",
+    "Failure to recognise and promote non-monetary forms of appreciation (e.g., public praise, development opportunities) which could mitigate negativity.",
+    "Ignoring the 'why': Employees are not just complaining about pay; they are highlighting a deeper issue of not feeling valued. The focus on pay is a symptom, not the root cause."
+  ],
+  "recommendations": [
+    "Conduct a transparent review of the total rewards package (pay, benefits, perks) against industry benchmarks, and communicate this clearly to employees.",
+    "Develop and promote a formal, visible recognition program that celebrates achievements beyond sales targets, including safety, innovation, and collaboration.",
+    "Train managers on the importance of non-monetary recognition and empower them to use it frequently and authentically."
+  ]
+}

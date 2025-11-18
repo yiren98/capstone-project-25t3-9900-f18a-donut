@@ -10,21 +10,21 @@
     "There is a strong connection between collaboration and ESG topics, where stakeholders expect multi-party cooperation on environmental protection, social responsibility and ethical conduct, not just transactional arrangements."
   ],
   "sentiment_snapshot": {
-    "positive": 126,
+    "positive": 122,
     "negative": 184,
     "average_confidence": 0.846
   },
   "top_subthemes": [
-    { "subtheme": "Stakeholder Engagement & Alignment", "count": 27 },
-    { "subtheme": "Transparency & Disclosure", "count": 25 },
-    { "subtheme": "Team Collaboration & Communication", "count": 25 },
-    { "subtheme": "Cultural Heritage & Indigenous Rights", "count": 12 },
-    { "subtheme": "Ethics & Compliance", "count": 11 },
-    { "subtheme": "Corporate Governance & Oversight", "count": 11 },
-    { "subtheme": "Environmental Protection & Resource Management", "count": 10 },
-    { "subtheme": "Corporate & Historical Responsibility", "count": 10 },
-    { "subtheme": "Community Engagement & Social Responsibility", "count": 9 },
-    { "subtheme": "Environmental Sustainability & Climate Action", "count": 9 }
+    { "subtheme": "Stakeholder Engagement & Alignment"},
+    { "subtheme": "Transparency & Disclosure"},
+    { "subtheme": "Team Collaboration & Communication"},
+    { "subtheme": "Cultural Heritage & Indigenous Rights"},
+    { "subtheme": "Ethics & Compliance"},
+    { "subtheme": "Corporate Governance & Oversight"},
+    { "subtheme": "Environmental Protection & Resource Management"},
+    { "subtheme": "Corporate & Historical Responsibility"},
+    { "subtheme": "Community Engagement & Social Responsibility"},
+    { "subtheme": "Environmental Sustainability & Climate Action"}
   ],
   "risks_and_blindspots": [
     "Over-reliance on formal agreements and legal permissions can mask gaps in genuine stakeholder engagement and shared decision-making.",

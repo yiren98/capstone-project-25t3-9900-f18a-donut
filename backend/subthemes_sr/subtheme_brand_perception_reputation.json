@@ -1,0 +1,37 @@
+{
+  "subtheme": "Brand Perception & Reputation",
+  "parent_dimensions": [
+    "Customer Orientation",
+    "Accountability",
+    "Collaboration",
+    "Execution",
+    "Diversity"
+  ],
+  "overview": "This subtheme captures how external stakeholders perceive the company based on its actions and communications. It reflects the company's reputation in public discourse and is heavily influenced by how well it balances commercial goals with social and environmental responsibility. Negative sentiment dominates, indicating a significant reputational challenge.",
+  "key_patterns": [
+    "Negative perceptions linked to environmental destruction and lack of accountability",
+    "Criticism over cultural and historical preservation failures",
+    "Skepticism about corporate social responsibility efforts",
+    "Isolated positive mentions related to general awareness, not core issues"
+  ],
+  "sentiment_snapshot": {
+    "positive": 3,
+    "negative": 28,
+    "average_confidence": 0.821
+  },
+  "typical_contexts": [
+    "Criticism emerges in response to specific incidents, like environmental damage or destruction of cultural sites, which are then discussed on public forums like Reddit and news comment sections.",
+    "Negative perception is often tied to comparisons with other entities (e.g., competitors, other mines) or in discussions of corporate ethics and transparency.",
+    "Positive mentions are rare and usually occur when the brand is mentioned in a neutral or unrelated context, not when its core controversies are the topic."
+  ],
+  "risks_and_blindspots": [
+    "Significant reputational damage is occurring due to a perceived pattern of irresponsible behavior, especially regarding environmental and cultural impacts.",
+    "The company is seen as unaccountable; its actions are perceived as hypocritical when it promotes values like diversity while being criticized for environmental destruction.",
+    "A passive or inactive response to criticism is inferred, potentially exacerbating the negative perception."
+  ],
+  "recommendations": [
+    "Proactively communicate the company's ethical standards and environmental due diligence processes to pre-empt criticism and build trust.",
+    "Establish and publicize independent oversight committees for environmental and cultural impact assessments to demonstrate accountability.",
+    "Engage directly with communities and critics through transparent reporting and outreach programs to show commitment beyond profit motives."
+  ]
+}

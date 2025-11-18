@@ -29,13 +29,39 @@ capstone-project-25t3-9900-f18a-donut/
 │     ├─ dimensions.txt                           # Preliminary list of cultural dimensions
 │     └─ suggestions.csv                          # Dimension-based improvement suggestions
 │
-├─ backend/                                       # Backend service layer (Flask API & model pipeline)
-│  ├─ app.py                                      # Flask API entrypoint (KPI endpoints, Tag validation & expansion)
-│  ├─ pipeline.py                                 # Sentiment & dimension classification pipeline
-│  ├─ download_models.py                          # Script for downloading or initializing NLP models
-│  ├─ suggestions.py                              # Automatic generation of dimension-level improvement suggestions
-│  ├─ Dockerfile/                                 # Backend Docker image definition
-│  └─ tests.py                                    # Backend unit/integration tests
+backend/
+│
+├── dimensions_sr/                  # Dimension-level summary & recommendation JSONs
+├── subthemes_sr/                   # Subtheme-level summary & recommendation JSONs
+├── tests/                          # Pytest suite for backend pipeline
+│   ├── __init__.py                 # Mark tests/ as a Python package
+│   ├── test_data_process.py        # Tests for data_process.py
+│   ├── test_sentiment_dbcheck.py   # Tests for neutral re-check logic
+│   ├── test_mapping_sub2dim.py     # Tests for mapping_sub2dim.py
+│   ├── test_subtheme_classify_cluster.py  # Tests for subtheme clustering & dimension mapping
+│   ├── test_overall_sr.py          # Tests for overall_sr summary generator
+│   ├── test_subthe_dimen_sr.py     # Tests for subtheme/dimension summaries
+│   ├── test_pipeline_structure.py  # Sanity checks on pipeline wiring
+│   ├── test_suggestions.py         # Tests for suggestions utilities
+│   ├── test_imports.py             # Import coverage for backend modules
+│   └── test_train_cr_encoder.py    # Tests for Cross-Encoder training helper
+│
+├── data_process.py                 # [Step 1] Generate comments.csv & subthemes.csv from raw data
+├── download_models.py              # [Step 1.5] Download required models, wrapped with a main entry
+├── sentiment_dbcheck.py            # [Step 2] Re-check neutral subthemes and refine sentiment
+├── train_cr_encoder.py             # [Step 3, optional] Train Cross-Encoder for subtheme → dimension mapping
+├── subtheme_classify_cluster.py    # [Step 4] Predict dimensions & cluster subthemes, output dimension_clusters.json
+├── mapping_sub2dim.py              # [Step 5] Write representative subthemes & mapped dimensions back into comments.csv
+├── pipeline.py                     # One-command 5-step NLP workflow orchestrator
+│
+├── overall_sr.py                   # Generate an overall corporate culture summary JSON from comments.csv
+├── subthe_dimen_sr.py              # Generate JSON summaries for each subtheme & dimension (DeepSeek-based)
+├── suggestions.py                  # Utilities for suggestions & recommendation text generation
+│
+├── app.py                          # REST API server entrypoint
+|
+├── overall_sr.json                 # Generated overall summary JSON (artefact)
+├── requirements.txt                # Python dependencies for backend
 │
 ├─ frontend/                                      # React + Tailwind responsive web interface
 │  ├─ index.html                                  # Main HTML entry file (root mounting point for React)
@@ -80,11 +106,23 @@ capstone-project-25t3-9900-f18a-donut/
 [crawler/aggregator.py] → Aggregates all sources 
     → outputs `data/processed/unified.csv`
     ↓
-[backend/pipeline.py] → Performs sentiment & dimension analysis 
-    → outputs annotated results to `data/processed/annotated.csv`
+[backend/pipeline.py]
+    → Runs the full 5-step NLP workflow:
+      1. data_process.py
+      2. sentiment_dbcheck.py
+      3. train_cr_encoder.py (optional)
+      4. subtheme_classify_cluster.py
+      5. mapping_sub2dim.py
+    → Produces enriched `comments.csv` + `dimension_clusters.json`
     ↓
-[backend/suggestions.py] → Generates improvement suggestions by dimension 
-    → saves to `data/taxonomy/suggestions.csv`
+[backend/suggestions.py]
+    → Orchestrates all summary-generation modules:
+        - Runs overall_sr.py to generate the overall summary JSON
+        - Runs subthe_dimen_sr.py to generate per-subtheme & per-dimension summaries
+    → Stores JSON outputs into:
+        - backend/overall_sr.json
+        - backend/dimensions_sr/
+        - backend/subthemes_sr/
     ↓
 [backend/app.py] → Serves RESTful APIs
     ↓
