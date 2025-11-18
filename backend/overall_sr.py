@@ -1,14 +1,16 @@
-"""
-Generate an overall corporate culture summary JSON from comments.csv,
-using the same data model as test.py (subthemes/dimensions, positive/negative only).
-
-This script:
-- Reuses aggregation functions from test.py
-- Computes overall sentiment counts and average confidence
-- Derives dataset metadata: time coverage, sources, counts
-- Asks DeepSeek to produce a single overall report JSON
-- Then injects dataset_metadata into the final JSON
-"""
+# overall_sr.py
+# Generate an overall corporate culture summary JSON from comments.csv,
+#
+# This script:
+#   - Reuses aggregation functions from test.py
+#   - Computes overall sentiment counts and average confidence
+#   - Derives dataset metadata: time coverage, sources, counts
+#   - Sends a single prompt to DeepSeek to produce an overall executive-level JSON report
+#   - Injects dataset_metadata into the final JSON
+#
+# Usage:
+#   python overall_sr.py --csv comments.csv --out overall_summary.json
+#   python overall_sr.py --csv comments.csv --out overall_summary.json --model deepseek/deepseek-chat-v3.1:free --title "Corporate Culture — Overall Summary"
 
 import json
 import argparse
@@ -30,27 +32,7 @@ def build_overall_prompt(report_title: str,
                          global_stats: dict,
                          top_dimensions: list,
                          top_subthemes: list) -> str:
-    """
-    Build the DeepSeek prompt for a single overall report.
-
-    global_stats = {
-        "total_rows": int,
-        "total_mentions": int,
-        "sentiment_counts": {"positive": int, "negative": int},
-        "average_confidence": float,
-    }
-
-    top_dimensions = [
-        {"dimension": "...", "mentions": int, "positive": int, "negative": int},
-        ...
-    ]
-
-    top_subthemes = [
-        {"subtheme": "...", "dimension": "...", "mentions": int,
-         "positive": int, "negative": int},
-        ...
-    ]
-    """
+    # Build the DeepSeek prompt for a single overall report.
     pos = global_stats["sentiment_counts"].get("positive", 0)
     neg = global_stats["sentiment_counts"].get("negative", 0)
     avg_conf = global_stats["average_confidence"]
@@ -74,131 +56,114 @@ def build_overall_prompt(report_title: str,
     sub_block = "\n".join(sub_lines) if sub_lines else "(no subtheme stats)"
 
     prompt = f"""
-        You are a senior corporate culture and ESG advisor.
-        You will receive high-level statistics about an organisation's culture-related discourse
-        (based on news, social media, analyst commentary, etc.) and must write a single
-        executive-level summary and recommendation pack.
+You are a senior corporate culture and ESG advisor.
+You will receive high-level statistics about an organisation's culture-related discourse
+and must write a single executive-level summary and recommendation pack.
 
-        CONTEXT
-        =======
+CONTEXT
+=======
 
-        Overall dataset:
-        - Total raw rows (comments/news/posts): {global_stats["total_rows"]}
-        - Total labelled mentions (subtheme-level): {global_stats["total_mentions"]}
-        - Overall sentiment counts (subtheme-level, neutral removed):
-        - positive: {pos}
-        - negative: {neg}
-        - Average confidence (weighted by mentions): {avg_conf:.3f}
+Overall dataset:
+- Total raw rows (comments/news/posts): {global_stats["total_rows"]}
+- Total labelled mentions (subtheme-level): {global_stats["total_mentions"]}
+- Overall sentiment counts (subtheme-level, neutral removed):
+- positive: {pos}
+- negative: {neg}
+- Average confidence (weighted by mentions): {avg_conf:.3f}
 
-        Top dimensions (by mentions):
-        {dim_block if dim_block else "(none)"}
+Top dimensions (by mentions):
+{dim_block}
 
-        Top subthemes (by mentions):
-        {sub_block if sub_block else "(none)"}
+Top subthemes (by mentions):
+{sub_block}
 
-        TASK
-        ====
+TASK
+====
 
-        Write a concise overall report in JSON form, targeting a senior executive audience
-        (e.g., Group CEO, Board, Chief People Officer). The report should:
+Write a concise overall report in JSON form, targeting a senior executive audience
+(e.g., Group CEO, Board, Chief People Officer). The report should:
 
-        1. Summarise the overall sentiment and main storylines.
-        2. Highlight 3–5 key insights that matter most for leadership.
-        3. Clearly state whether overall sentiment is predominantly "positive" or "negative"
-        (you must infer this from the counts and patterns, but the label must be either
-        "positive" or "negative").
-        4. Identify 3–5 key risks and 3–5 key opportunities.
-        5. Provide 3–5 actionable recommendations with explicit ownership and expected impact.
-        6. Include a brief note on limitations / next steps (e.g., need for continued monitoring).
+1. Summarise the overall sentiment and main storylines.
+2. Highlight 3–5 key insights that matter most for leadership.
+3. Clearly state whether overall sentiment is predominantly "positive" or "negative".
+4. Identify 3–5 key risks and 3–5 key opportunities.
+5. Provide 3–5 actionable recommendations with explicit ownership and expected impact.
+6. Include a brief note on limitations / next steps.
 
-        OUTPUT FORMAT
-        =============
+OUTPUT FORMAT
+=============
 
-        Return STRICT JSON ONLY, with exactly this structure and field names:
+Return STRICT JSON ONLY:
 
-        {{
-        "report_title": "{report_title}",
-        "section": {{
-            "executive_briefing": {{
-            "title": "<short title for this briefing>",
-            "key_insights": [
-                "<key insight 1>",
-                "<key insight 2>",
-                "<key insight 3>",
-                "<key insight 4>"
-            ],
-            "sentiment_and_confidence": {{
-                "overall_sentiment": "<\"positive\" or \"negative\">",
-                "summary": "<2–3 sentence explanation of the overall sentiment pattern, including counts and confidence in plain language>",
-                "counts": {{
-                "positive": {pos},
-                "negative": {neg}
-                }},
-                "average_confidence": {avg_conf:.3f}
+{{
+"report_title": "{report_title}",
+"section": {{
+    "executive_briefing": {{
+    "title": "<short title>",
+    "key_insights": [
+        "<insight1>",
+        "<insight2>",
+        "<insight3>",
+        "<insight4>"
+    ],
+    "sentiment_and_confidence": {{
+        "overall_sentiment": "<positive|negative>",
+        "summary": "<2–3 sentence explanation>",
+        "counts": {{
+            "positive": {pos},
+            "negative": {neg}
+        }},
+        "average_confidence": {avg_conf:.3f}
+    }},
+    "risks_and_opportunities": {{
+        "risks": [
+            {{
+                "name": "<risk name>",
+                "description": "<1–2 sentences>"
             }},
-            "risks_and_opportunities": {{
-                "risks": [
-                {{
-                    "name": "<risk name>",
-                    "description": "<1–2 sentences describing this risk>"
-                }},
-                {{
-                    "name": "<risk name>",
-                    "description": "<1–2 sentences describing this risk>"
-                }}
-                ],
-                "opportunities": [
-                {{
-                    "name": "<opportunity name>",
-                    "description": "<1–2 sentences describing this opportunity>"
-                }},
-                {{
-                    "name": "<opportunity name>",
-                    "description": "<1–2 sentences describing this opportunity>"
-                }}
-                ]
-            }},
-            "actionable_recommendations": [
-                {{
-                "recommendation": "<clear action statement>",
-                "ownership": "<role or team that should own this>",
-                "impact": "<short description of expected impact>"
-                }},
-                {{
-                "recommendation": "<clear action statement>",
-                "ownership": "<role or team that should own this>",
-                "impact": "<short description of expected impact>"
-                }},
-                {{
-                "recommendation": "<clear action statement>",
-                "ownership": "<role or team that should own this>",
-                "impact": "<short description of expected impact>"
-                }}
-            ],
-            "note": "<brief note on data limitations and need for ongoing monitoring>"
+            {{
+                "name": "<risk name>",
+                "description": "<1–2 sentences>"
             }}
+        ],
+        "opportunities": [
+            {{
+                "name": "<opportunity name>",
+                "description": "<1–2 sentences>"
+            }},
+            {{
+                "name": "<opportunity name>",
+                "description": "<1–2 sentences>"
+            }}
+        ]
+    }},
+    "actionable_recommendations": [
+        {{
+        "recommendation": "<action>",
+        "ownership": "<team>",
+        "impact": "<impact>"
+        }},
+        {{
+        "recommendation": "<action>",
+        "ownership": "<team>",
+        "impact": "<impact>"
+        }},
+        {{
+        "recommendation": "<action>",
+        "ownership": "<team>",
+        "impact": "<impact>"
         }}
-        }}
-
-        IMPORTANT:
-        - Use the positive/negative counts and average_confidence EXACTLY as given above
-        in the 'counts' and 'average_confidence' fields.
-        - Do NOT invent new numeric values. You may describe patterns in words, but
-        must not contradict the numbers given.
-        - Speak as a human consultant, not as an AI model.
-        - Output must be valid JSON and parseable.
-        """
+    ],
+    "note": "<brief limitations>"
+    }}
+}}
+}}
+    """
     return prompt.strip()
 
 
-def compute_global_stats(df, sub_agg, dim_agg) -> tuple[dict, list, list]:
-    """
-    Compute overall sentiment stats + top dimensions + top subthemes.
-
-    Returns:
-        global_stats, top_dimensions, top_subthemes
-    """
-    # --- Overall sentiment (from sub_agg) ---
+def compute_global_stats(df, sub_agg, dim_agg):
+    # Compute overall sentiment stats + top lists.
     total_mentions = 0
     total_pos = 0
     total_neg = 0
@@ -213,7 +178,6 @@ def compute_global_stats(df, sub_agg, dim_agg) -> tuple[dict, list, list]:
         total_pos += pos
         total_neg += neg
 
-        # weighted average: sum(avg_conf * mentions) / total_mentions
         avg_conf = data["avg_confidence"]
         weighted_conf_sum += avg_conf * mentions
 
@@ -229,7 +193,7 @@ def compute_global_stats(df, sub_agg, dim_agg) -> tuple[dict, list, list]:
         "average_confidence": avg_conf_global,
     }
 
-    # --- Top dimensions (by mentions from dim_agg) ---
+    # Top dimensions
     dim_items = []
     for dim, data in dim_agg.items():
         dim_items.append({
@@ -241,10 +205,9 @@ def compute_global_stats(df, sub_agg, dim_agg) -> tuple[dict, list, list]:
     dim_items.sort(key=lambda x: x["mentions"], reverse=True)
     top_dimensions = dim_items[:10]
 
-    # --- Top subthemes (by mentions from sub_agg) ---
+    # Top subthemes
     sub_items = []
     for sub, data in sub_agg.items():
-        # infer the most common parent dimension for context
         dims_counter = data["dimensions_counter"]
         if dims_counter:
             top_dim = max(dims_counter.items(), key=lambda x: x[1])[0]
@@ -267,21 +230,10 @@ def compute_dataset_metadata(df: pd.DataFrame,
                              global_stats: dict,
                              sub_agg: dict,
                              dim_agg: dict) -> dict:
-    """
-    Compute dataset-level metadata from raw df + aggregations.
+    # Compute dataset-level metadata.
 
-    Returns a dict like:
-    {
-      "time_coverage": {...},
-      "volume": {...},
-      "structure": {...},
-      "sources": {...}
-    }
-    """
-    # ---- Time coverage ----
-    # created_time 
-    created_series = pd.to_datetime(df["created_time"], errors="coerce")
-    created_series = created_series.dropna()
+    # Time coverage
+    created_series = pd.to_datetime(df["created_time"], errors="coerce").dropna()
     if len(created_series) > 0:
         start_ts = created_series.min()
         end_ts = created_series.max()
@@ -292,25 +244,14 @@ def compute_dataset_metadata(df: pd.DataFrame,
             "span_days": int(span_days),
         }
     else:
-        time_meta = {
-            "start": None,
-            "end": None,
-            "span_days": None,
-        }
+        time_meta = {"start": None, "end": None, "span_days": None}
 
-    # ---- Sources ----
+    # Sources
     source_series = df["source"].fillna("").astype(str).str.strip()
     non_empty = source_series[source_series != ""]
     total_unique_sources = non_empty.nunique()
     vc = non_empty.value_counts()
-    top_sources = [
-        {"source": src, "rows": int(cnt)}
-        for src, cnt in vc.head(10).items()
-    ]
-
-    # ---- Structure / volumes ----
-    num_subthemes = len(sub_agg)
-    num_dimensions = len(dim_agg)
+    top_sources = [{"source": src, "rows": int(cnt)} for src, cnt in vc.head(10).items()]
 
     metadata = {
         "time_coverage": time_meta,
@@ -321,8 +262,8 @@ def compute_dataset_metadata(df: pd.DataFrame,
             "average_confidence": global_stats["average_confidence"],
         },
         "structure": {
-            "num_subthemes": num_subthemes,
-            "num_dimensions": num_dimensions,
+            "num_subthemes": len(sub_agg),
+            "num_dimensions": len(dim_agg),
         },
         "sources": {
             "total_unique_sources": int(total_unique_sources),
@@ -342,7 +283,7 @@ def main():
     parser.add_argument(
         "--title",
         default="Corporate Culture — Overall Summary",
-        help="Report title to embed in JSON (default: 'Corporate Culture — Overall Summary')",
+        help="Report title to embed in JSON",
     )
     args = parser.parse_args()
 
@@ -356,27 +297,25 @@ def main():
 
     # 1. Load data
     df = load_df(csv_path)
-    print(f"[info] Loaded {len(df)} rows from {csv_path}")
+    print(f"[info] Loaded {len(df)} rows")
 
-    # 2. Aggregate by subtheme and dimension
+    # 2. Aggregate
     sub_agg = aggregate_by_subtheme(df)
-    print(f"[info] Subthemes with data: {len(sub_agg)}")
-
     dim_agg = aggregate_dimensions_from_sub_agg(sub_agg)
-    print(f"[info] Dimensions with data: {len(dim_agg)}")
 
-    # 3. Compute global stats and top lists
+    print(f"[info] Subthemes: {len(sub_agg)}  Dimensions: {len(dim_agg)}")
+
+    # 3. Compute stats
     global_stats, top_dimensions, top_subthemes = compute_global_stats(df, sub_agg, dim_agg)
 
-    print("[info] Global sentiment stats:",
-          f"pos={global_stats['sentiment_counts']['positive']}, ",
-          f"neg={global_stats['sentiment_counts']['negative']}, ",
+    print(f"[info] Sentiment pos={global_stats['sentiment_counts']['positive']}, "
+          f"neg={global_stats['sentiment_counts']['negative']}, "
           f"avg_conf={global_stats['average_confidence']:.3f}")
 
     # 4. Dataset metadata
     dataset_metadata = compute_dataset_metadata(df, global_stats, sub_agg, dim_agg)
 
-    # 5. Build prompt for LLM
+    # 5. Build prompt
     prompt = build_overall_prompt(
         report_title=args.title,
         global_stats=global_stats,
@@ -389,45 +328,44 @@ def main():
     try:
         json_obj = call_deepseek_json(client, args.model, prompt)
     except Exception as e:
-        print(f"[error] LLM failed to generate overall report: {e}")
+        print(f"[error] LLM failed: {e}")
         if is_quota_or_ratelimit_error(e):
-            print("[fatal] Suspected quota / rate limit issue. Please check your API usage.")
+            print("[fatal] quota/rate limit issue")
             return
 
-        # Fallback: minimal error JSON
+        # Minimal fallback
         json_obj = {
             "report_title": args.title,
             "section": {
                 "executive_briefing": {
-                    "title": "ERROR: LLM call failed.",
+                    "title": "ERROR: LLM failed",
                     "key_insights": [],
                     "sentiment_and_confidence": {
-                        "overall_sentiment": "negative"
-                        if global_stats["sentiment_counts"]["negative"]
-                        >= global_stats["sentiment_counts"]["positive"]
-                        else "positive",
-                        "summary": "ERROR: LLM call failed while generating the overall summary.",
+                        "overall_sentiment": (
+                            "negative"
+                            if global_stats["sentiment_counts"]["negative"]
+                            >= global_stats["sentiment_counts"]["positive"]
+                            else "positive"
+                        ),
+                        "summary": "LLM error during generation.",
                         "counts": global_stats["sentiment_counts"],
                         "average_confidence": global_stats["average_confidence"],
                     },
-                    "risks_and_opportunities": {
-                        "risks": [],
-                        "opportunities": [],
-                    },
+                    "risks_and_opportunities": {"risks": [], "opportunities": []},
                     "actionable_recommendations": [],
-                    "note": "Report generation failed due to LLM error.",
+                    "note": "Report generation failed.",
                 }
             }
         }
 
-    # 7. Inject dataset_metadata 
+    # 7. Inject dataset_metadata
     json_obj["dataset_metadata"] = dataset_metadata
 
     # 8. Write output JSON
     with out_path.open("w", encoding="utf-8") as f:
         json.dump(json_obj, f, ensure_ascii=False, indent=2)
 
-    print(f"[done] Wrote overall report JSON -> {out_path}")
+    print(f"[done] Wrote summary -> {out_path}")
 
 
 if __name__ == "__main__":
