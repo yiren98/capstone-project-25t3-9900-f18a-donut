@@ -96,10 +96,8 @@ CE_TEMPLATES = [
 ]
 
 def cr_pos_prob(cr, pairs):
-    """
-    Predict P(positive) for (subtheme, dimension-template) pairs.
-    Returns the probability of the positive class for each pair.
-    """
+    # Predict P(positive) for (subtheme, dimension-template) pairs.
+    # Returns the probability of the positive class for each pair.
     out = cr.predict(pairs, apply_softmax=True)  # [N, 2]
     if isinstance(out, torch.Tensor):
         out = out.detach().cpu().numpy()
@@ -126,11 +124,7 @@ MANUAL_FIX = {
 }
 
 def canonize_dim(x: str) -> str | None:
-    """
-    Map raw dimension token to one of DIM_KEYS.
-    - Applies manual shortcuts first (MANUAL_FIX).
-    - Then fuzzy match on normalized forms.
-    """
+    # Map raw dimension token to one of DIM_KEYS.
     n = _norm_token(x)
     if n in MANUAL_FIX: return MANUAL_FIX[n]
     if n in CANON_NORM: return CANON_NORM[n]
@@ -138,10 +132,8 @@ def canonize_dim(x: str) -> str | None:
     return CANON_NORM[cand[0]] if cand else None
 
 def split_dims_pipe(s: str):
-    """
-    Parse multi-label field separated by "|".
-    Apply canonicalization + dedup while preserving order.
-    """
+    # Parse multi-label field separated by "|".
+    # Apply canonicalization + dedup while preserving order.
     if s is None or str(s).strip()=="":
         return []
     parts = [p.strip() for p in str(s).split("|") if p.strip()]
@@ -179,10 +171,8 @@ def hard_negatives_for_text(text: str, gold_set: set, k_from_bi=HARD_K_FROM_BI, 
     return cands[:k_pick]
 
 def build_train_val_from_gold(gold_csv: Path):
-    """
-    Load GOLD_CSV, canonicalize labels, aggregate to unique (subtheme → set(dimensions)),
-    and split into train/val by subtheme to avoid leakage.
-    """
+    # Load GOLD_CSV, canonicalize labels, aggregate to unique (subtheme → set(dimensions)),
+    # and split into train/val by subtheme to avoid leakage.
     df = pd.read_csv(gold_csv)
     df.columns = [c.strip().lower() for c in df.columns]
 
@@ -214,13 +204,7 @@ def build_train_val_from_gold(gold_csv: Path):
     return df_train, df_val
 
 def build_ce_examples(df_part: pd.DataFrame):
-    """
-    Turn aggregated gold into CE InputExamples.
-    For each subtheme:
-      - positives: (subtheme, template(dim+desc)) for each gold dim (2 templates)
-      - easy negatives: random dims not in gold (1 template)
-      - hard negatives: bi-encoder near-misses not in gold (2 templates)
-    """
+    # Turn aggregated gold into CE InputExamples.
     exs = []
     all_dims = set(DIM_KEYS)
     for _, r in df_part.iterrows():
@@ -249,10 +233,8 @@ def build_ce_examples(df_part: pd.DataFrame):
 
 # ==================== Train CE ====================
 def train_cross_encoder(df_train: pd.DataFrame, df_val: pd.DataFrame):
-    """
-    Fine-tune CE on generated positives/negatives.
-    Saves to CE_FT_DIR and reloads to ensure a clean on-disk model.
-    """
+    # Fine-tune CE on generated positives/negatives.
+    # Saves to CE_FT_DIR and reloads to ensure a clean on-disk model.
     train_ex = build_ce_examples(df_train)
     print(f"[CE] train examples: {len(train_ex)}")
     val_ex = build_ce_examples(df_val) if len(df_val) > 0 else None
@@ -290,20 +272,12 @@ ALPHA          = 0.85
 MAX_DIM        = 3
 
 def dynamic_threshold(sims_row: np.ndarray) -> float:
-    """
-    Lower CE gate a bit if overall similarity is weak, keep stricter when strong.
-    """
+    # Lower CE gate a bit if overall similarity is weak, keep stricter when strong.
     mean_sim = float(np.mean(sims_row))
     return CR_ENT_TH_BASE - (ADAPT_DELTA if mean_sim < 0.45 else 0.0)
 
 def map_one_multi(text: str, cr: CrossEncoder):
-    """
-    Multi-label mapping for a single subtheme:
-      1) shortlist via bi-encoder similarity
-      2) score with CE across templates
-      3) keep candidates passing CE gate and similarity floor
-      4) return up to MAX_DIM by fused score
-    """
+    # Multi-label mapping for a single subtheme
     with torch.no_grad():
         x1 = encode1([text]).to(DEVICE)
         x2 = encode2([text]).to(DEVICE)
@@ -350,12 +324,7 @@ def map_one_multi(text: str, cr: CrossEncoder):
 
 # ==================== Multi-label Evaluation ====================
 def evaluate_multilabel(gold_sets, pred_sets):
-    """
-    Report:
-      - top1_accuracy: accuracy of the first label (sanity check)
-      - example-based precision/recall/F1 (averaged per example)
-      - micro/macro precision/recall/F1 across labels
-    """
+    # Report
     from sklearn.metrics import accuracy_score, precision_recall_fscore_support
     from sklearn.preprocessing import MultiLabelBinarizer
 
