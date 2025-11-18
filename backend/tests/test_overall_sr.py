@@ -1,17 +1,19 @@
-# tests/test_overall_sr.py
+# Tests for overall_sr functions and main()
+# Features:
+# - Test compute_global_stats and compute_dataset_metadata with small fake data
+# - Test overall_sr.main end-to-end with patched I/O and fake LLM calls
+# - Ensure JSON summary is created and has the expected structure
+#
+# Usage:
+#   pytest tests/test_overall_sr.py -q
 
 import json
 from pathlib import Path
-
 import pandas as pd
 import overall_sr
 
-
+# Basic check for compute_global_stats and compute_dataset_metadata
 def test_compute_global_stats_and_metadata():
-    """
-    Basic check for compute_global_stats and compute_dataset_metadata.
-    Uses a tiny fake aggregation.
-    """
     # Fake df with two rows
     df = pd.DataFrame(
         {
@@ -78,19 +80,8 @@ def test_compute_global_stats_and_metadata():
     assert meta["structure"]["num_dimensions"] == 2
 
 
+# End-to-end style test for overall_sr.main
 def test_overall_sr_main_creates_json(tmp_path, monkeypatch):
-    """
-    End-to-end style test for overall_sr.main.
-
-    We patch:
-      - load_df
-      - aggregate_by_subtheme
-      - aggregate_dimensions_from_sub_agg
-      - build_client
-      - call_deepseek_json
-
-    This avoids real CSV and real LLM.
-    """
     # ---- Prepare fake CSV path and output path ----
     csv_path = tmp_path / "comments.csv"
     csv_path.write_text("dummy,header\n1,2\n", encoding="utf-8")  # not really used
@@ -136,10 +127,11 @@ def test_overall_sr_main_creates_json(tmp_path, monkeypatch):
 
     # ---- Patch client + LLM call ----
     def fake_build_client():
-        return None  # client is not used by fake call
+        # Client is not used by fake_call_deepseek_json
+        return None
 
     def fake_call_deepseek_json(client, model, prompt):
-        # Return a minimal valid structure
+        # Return a minimal valid structure that matches the expected schema
         return {
             "report_title": "Test Report",
             "section": {

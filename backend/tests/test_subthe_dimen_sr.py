@@ -1,17 +1,20 @@
-# tests/test_subthe_dimen_sr.py
+# Tests for subthe_dimen_sr aggregation and main()
+# Features:
+# - Test aggregate_by_subtheme with a minimal single-row DataFrame
+# - Test aggregate_dimensions_from_sub_agg using a small fake subtheme aggregation
+# - Run subthe_dimen_sr.main end-to-end with fake LLM client and check JSON outputs
+#
+# Usage:
+#   pytest tests/test_subthe_dimen_sr.py -q
 
 import json
 from pathlib import Path
-
 import pandas as pd
 import subthe_dimen_sr
 
-
 def test_aggregate_by_subtheme_basic():
-    """
-    Check that aggregate_by_subtheme builds counts and examples correctly
-    for a minimal input with one subtheme and one dimension.
-    """
+    # Check that aggregate_by_subtheme builds counts and examples correctly
+    # for a minimal input with one subtheme and one dimension.
     df = pd.DataFrame(
         {
             "content": ["Some text about governance."],
@@ -40,6 +43,7 @@ def test_aggregate_by_subtheme_basic():
     assert item["avg_confidence"] == 0.9
     assert item["dimensions_counter"]["Accountability"] == 1
     assert len(item["examples"]) == 1
+
     ex = item["examples"][0]
     assert ex["sentiment"] == "positive"
     assert ex["dimension"] == "Accountability"
@@ -47,9 +51,7 @@ def test_aggregate_by_subtheme_basic():
 
 
 def test_aggregate_dimensions_from_sub_agg_basic():
-    """
-    Check that dimension aggregation is built from subtheme aggregation.
-    """
+    # Check that dimension aggregation is built correctly from subtheme aggregation.
     sub_agg = {
         "Corporate Governance & Oversight": {
             "total_mentions": 2,
@@ -93,15 +95,13 @@ def test_aggregate_dimensions_from_sub_agg_basic():
 
 
 def test_subthe_dimen_main_creates_files(tmp_path, monkeypatch):
-    """
-    End-to-end style test for subthe_dimen_sr.main.
+    # End-to-end style test for subthe_dimen_sr.main.
+    # It uses:
+    #   - a tiny comments.csv with one subtheme and one dimension
+    #   - real load_df / aggregation logic
+    #   - fake build_client
+    #   - fake call_deepseek_json (no real LLM call)
 
-    It uses:
-      - a tiny comments.csv with one subtheme and one dimension
-      - real load_df / aggregation
-      - fake build_client
-      - fake call_deepseek_json (no real LLM)
-    """
     # ---- Create minimal comments.csv ----
     csv_path = tmp_path / "comments.csv"
     df = pd.DataFrame(
@@ -169,12 +169,11 @@ def test_subthe_dimen_main_creates_files(tmp_path, monkeypatch):
     sub_files = list(sub_outdir.glob("subtheme_*.json"))
     assert len(sub_files) == 1
 
-    # Dimension JSON
     assert dim_outdir.exists()
     dim_files = list(dim_outdir.glob("dimension_*.json"))
     assert len(dim_files) == 1
 
-    # Check JSON is valid
+    # ---- Check JSON is valid ----
     sub_data = json.loads(sub_files[0].read_text(encoding="utf-8"))
     assert isinstance(sub_data, dict)
     dim_data = json.loads(dim_files[0].read_text(encoding="utf-8"))

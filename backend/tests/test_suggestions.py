@@ -1,14 +1,18 @@
-# tests/test_suggestions.py
+# Tests for suggestions.reporting_steps
+# Features:
+# - Call reporting_steps with a temporary root path
+# - Ensure it returns exactly two steps
+# - Check that commands call overall_sr.py and subthe_dimen_sr.py
+# - Verify that the commands include the provided root path
+#
+# Usage:
+#   pytest tests/test_suggestions.py -q
 
 from pathlib import Path
 from suggestions import reporting_steps
 
-
 def test_reporting_steps_basic(tmp_path):
-    """
-    Check that reporting_steps returns two steps
-    and both commands look correct.
-    """
+    # Call reporting_steps with a temporary root path
     steps = reporting_steps(tmp_path)
 
     # Should have exactly 2 steps
