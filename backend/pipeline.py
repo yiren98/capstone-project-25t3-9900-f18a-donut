@@ -1,30 +1,27 @@
-"""
-pipeline.py
-
-One-command runner for the backend NLP pipeline.
-
-Usage:
-    # Most common:
-    python pipeline.py ../data/raw/data.csv
-
-    # Run and also train the Cross-Encoder:
-    python pipeline.py ../data/raw/data.csv --train-ce
-
-    # Skip the neutral sentiment re-check step:
-    python pipeline.py ../data/raw/data.csv --skip-neutral
-
-Pipeline steps (mapped to your existing scripts):
-    1. data_process.py
-       → Generate comments.csv and subthemes.csv
-    2. sentiment_dbcheck.py  (optional)
-       → Re-check neutral subthemes and refine sentiment
-    3. train_cr_encoder.py   (optional)
-       → Train Cross-Encoder for subtheme→dimension mapping
-    4. subtheme_classify_cluster.py
-       → Predict dimension + cluster subthemes, output dimension_clusters.json
-    5. mapping_sub2dim.py
-       → Write representative subthemes and dimensions back into comments.csv
-"""
+# pipeline.py
+# One-command runner for the backend NLP pipeline.
+#
+# Usage:
+#   # Most common:
+#   #   python pipeline.py ../data/raw/data.csv
+#   #
+#   # Run and also train the Cross-Encoder:
+#   #   python pipeline.py ../data/raw/data.csv --train-ce
+#   #
+#   # Skip the neutral sentiment re-check step:
+#   #   python pipeline.py ../data/raw/data.csv --skip-neutral
+#   #
+#   # Pipeline steps (mapped to existing scripts):
+#   #   1) data_process.py
+#   #      -> Generate comments.csv and subthemes.csv
+#   #   2) sentiment_dbcheck.py  (optional)
+#   #      -> Re-check neutral subthemes and refine sentiment
+#   #   3) train_cr_encoder.py   (optional)
+#   #      -> Train Cross-Encoder for subtheme→dimension mapping
+#   #   4) subtheme_classify_cluster.py
+#   #      -> Predict dimensions + cluster subthemes, output dimension_clusters.json
+#   #   5) mapping_sub2dim.py
+#   #      -> Write representative subthemes and dimensions back into comments.csv
 
 from __future__ import annotations
 
@@ -35,10 +32,8 @@ from pathlib import Path
 
 
 def run_cmd(cmd, cwd: Path | None = None) -> None:
-    """
-    Helper: run a shell command and print its output.
-    If the command exits with a non-zero code, stop the whole pipeline.
-    """
+    # Helper to run a shell command and print its output.
+    # If the command exits with a non-zero code, the whole pipeline stops.
     printable = " ".join(str(c) for c in cmd)
     print(f"\n[CMD] {printable}")
     result = subprocess.run(
@@ -109,9 +104,7 @@ def main(argv: list[str] | None = None) -> None:
     print(f"DIM_CLUSTERS:   {dim_clusters_json}")
     print("------------------------------------------")
 
-    # ------------------------------------------------
     # Step 1. data_process.py
-    # ------------------------------------------------
     print("[1/5] Running data_process.py ...")
     run_cmd(
         [
@@ -127,9 +120,7 @@ def main(argv: list[str] | None = None) -> None:
     if not subthemes_csv.exists():
         raise SystemExit(f"[ERROR] subthemes.csv not found: {subthemes_csv}")
 
-    # ------------------------------------------------
     # Step 2. sentiment_dbcheck.py (optional)
-    # ------------------------------------------------
     if args.skip_neutral:
         print("[2/5] Skipping sentiment_dbcheck.py (per --skip-neutral).")
     else:
@@ -143,9 +134,7 @@ def main(argv: list[str] | None = None) -> None:
             cwd=backend_dir,
         )
 
-    # ------------------------------------------------
     # Step 3. train_cr_encoder.py (optional)
-    # ------------------------------------------------
     if args.train_ce:
         print("[3/5] Training Cross-Encoder ...")
         if not gold_csv.exists():
@@ -165,9 +154,7 @@ def main(argv: list[str] | None = None) -> None:
     else:
         print("[3/5] Skipping Cross-Encoder training.")
 
-    # ------------------------------------------------
     # Step 4. subtheme_classify_cluster.py
-    # ------------------------------------------------
     print("[4/5] Running subtheme_classify_cluster.py ...")
     run_cmd(
         [
@@ -184,9 +171,7 @@ def main(argv: list[str] | None = None) -> None:
             f"[ERROR] dimension_clusters.json not found: {dim_clusters_json}"
         )
 
-    # ------------------------------------------------
     # Step 5. mapping_sub2dim.py
-    # ------------------------------------------------
     print("[5/5] Running mapping_sub2dim.py ...")
     run_cmd(
         [
@@ -198,9 +183,8 @@ def main(argv: list[str] | None = None) -> None:
         cwd=backend_dir,
     )
 
-    print("\n[OK] Pipeline finished successfully.")
-    print(f"     Final comments file: {comments_csv}")
-    print("==========================================")
+    print("Pipeline finished successfully.")
+    print(f"Final comments file: {comments_csv}")
 
 
 if __name__ == "__main__":

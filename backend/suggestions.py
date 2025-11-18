@@ -1,155 +1,132 @@
-"""
-suggestions.py
-
-Describe the reporting pipeline for:
-
-1) overall_sr.py
-2) subthe_dimen_sr.py
-
-This file does NOT call any LLM.
-It only stores simple descriptions and example commands.
-"""
+# suggestions.py
+# One-command runner for the reporting pipeline.
+#
+# This script runs:
+#   1) overall_sr.py
+#      -> Generate overall_summary.json (overall culture report)
+#   2) subthe_dimen_sr.py
+#      -> Generate subtheme & dimension JSON summaries
+#
+# Usage:
+#   # Default project layout:
+#   #   python suggestions.py
+#   #
+#   # Use a custom project root:
+#   #   python suggestions.py --root ../..
+#   #
+#   # Change max examples per label for subthe_dimen_sr.py:
+#   #   python suggestions.py --max-examples 5
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+import argparse
+import subprocess
+import sys
 from pathlib import Path
-from typing import List
 
 
-@dataclass
-class Step:
-    """One pipeline step with a name, short text and example command."""
-    name: str
-    description: str
-    command: str
-
-
-# Project root. Change this if your layout is different.
-ROOT_DIR = Path(__file__).resolve().parents[1]
-
-
-def _default_paths(root: Path | None = None) -> dict:
-    """
-    Build common default paths used in the pipeline.
-
-    root/data/processed/comments.csv
-    root/data/processed/overall_summary.json
-    root/data/processed/subthemes_sr/
-    root/data/processed/dimensions_sr/
-    """
-    if root is None:
-        root = ROOT_DIR
-
-    root = Path(root)
-    return {
-        "comments_csv":     root / "data" / "processed" / "comments.csv",
-        "overall_json":     root / "data" / "processed" / "overall_summary.json",
-        "subthemes_outdir": root / "data" / "processed" / "subthemes_sr",
-        "dimensions_outdir": root / "data" / "processed" / "dimensions_sr",
-    }
-
-
-def reporting_steps(root: Path | str | None = None) -> List[Step]:
-    """
-    Return the two main reporting steps that use:
-
-    - overall_sr.py
-    - subthe_dimen_sr.py
-
-    Assumes comments.csv already exists and has:
-    [tag,text,author,score,comment_count,content,created_time,
-     dimensions,subthemes,subs_sentiment,confidence,subs_evidences,source]
-    """
-    paths = _default_paths(Path(root) if root is not None else None)
-    steps: List[Step] = []
-
-    # ---------------- Step 1: overall_sr.py ----------------
-    steps.append(
-        Step(
-            name="1. Overall culture summary (overall_sr.py)",
-            description=(
-                "Input: comments.csv.\n"
-                "Output: one JSON file with an overall culture report.\n"
-                "This step will:\n"
-                "- aggregate sentiment by subtheme and dimension\n"
-                "- count positive / negative mentions\n"
-                "- compute average confidence\n"
-                "- create dataset metadata (time, sources, counts)\n"
-                "- call DeepSeek to write one executive summary in JSON\n"
-                "- attach dataset_metadata into the final JSON\n\n"
-                "Main flags (see overall_sr.py):\n"
-                "- --csv   : input comments.csv\n"
-                "- --out   : output JSON path\n"
-                "- --model : LLM model name (default from DEFAULT_MODEL)\n"
-                "- --title : report_title in the JSON\n"
-            ),
-            command=(
-                "python overall_sr.py "
-                f"--csv {paths['comments_csv']} "
-                f"--out {paths['overall_json']}"
-            ),
+def run_cmd(cmd, cwd: Path | None = None) -> None:
+    # Helper to run a shell command and print its output.
+    # If the command exits with a non-zero code, the whole pipeline stops.
+    printable = " ".join(str(c) for c in cmd)
+    print(f"\n[CMD] {printable}")
+    result = subprocess.run(
+        cmd,
+        cwd=str(cwd) if cwd is not None else None,
+    )
+    if result.returncode != 0:
+        raise SystemExit(
+            f"[ERROR] Command failed with exit code {result.returncode}: {printable}"
         )
+
+
+def main(argv: list[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(
+        description="Run the reporting pipeline (overall_sr + subthe_dimen_sr).",
     )
 
-    # ---------------- Step 2: subthe_dimen_sr.py ----------------
-    steps.append(
-        Step(
-            name="2. Subtheme and dimension summaries (subthe_dimen_sr.py)",
-            description=(
-                "Input: comments.csv.\n"
-                "Output:\n"
-                "- one JSON per subtheme in <outdir>/subtheme_<slug>.json\n"
-                "- one JSON per dimension in <dim-outdir>/dimension_<slug>.json (optional)\n\n"
-                "The script will:\n"
-                "- group rows by subtheme (positive / negative only)\n"
-                "- build simple stats per subtheme\n"
-                "- reuse these stats to build stats per dimension\n"
-                "- choose up to N examples per label (controlled by --max-examples)\n"
-                "- call DeepSeek to write JSON summaries\n"
-                "- if the LLM fails (not quota), write an ERROR JSON instead\n\n"
-                "Key flags (see subthe_dimen_sr.py):\n"
-                "- --csv           : input comments.csv\n"
-                "- --outdir        : folder for subtheme JSON files\n"
-                "- --dim-outdir    : folder for dimension JSON files (optional)\n"
-                "- --model         : LLM model name (default deepseek/deepseek-chat-v3.1:free)\n"
-                "- --max-examples  : max examples per label (int, default 5)\n"
-                "- --limit-subthemes : only process first N subthemes (0 = all)\n"
-                "- --overwrite     : control overwrite behaviour:\n"
-                "    * default / 'none' : keep existing files, skip them\n"
-                "    * 'all'            : overwrite all existing files\n"
-                "    * 'A,B,C'          : only overwrite labels whose name contains A or B or C\n"
-            ),
-            command=(
-                "python subthe_dimen_sr.py "
-                f"--csv {paths['comments_csv']} "
-                f"--outdir {paths['subthemes_outdir']} "
-                f"--dim-outdir {paths['dimensions_outdir']} "
-                "--max-examples 10"
-            ),
-        )
+    # Optional: custom project root (defaults to backend/..)
+    parser.add_argument(
+        "--root",
+        help="Project root path (defaults to parent of this file).",
     )
 
-    return steps
+    # Optional: max examples per label for subthe_dimen_sr.py
+    parser.add_argument(
+        "--max-examples",
+        type=int,
+        default=10,
+        help="Max examples per label for subthe_dimen_sr.py.",
+    )
 
+    args = parser.parse_args(argv)
 
-def print_reporting_pipeline(root: Path | str | None = None) -> None:
-    """
-    Print the two reporting steps in a simple checklist format.
-    """
-    steps = reporting_steps(root)
-    for i, step in enumerate(steps, start=1):
-        print(f"{i}. {step.name}")
-        print("   " + "-" * max(4, len(step.name)))
-        for line in step.description.splitlines():
-            if line.strip():
-                print(f"   {line}")
-            else:
-                print()
-        print(f"   Command: {step.command}")
-        print()
+    # Basic paths (mirrors pipeline.py style)
+    backend_dir = Path(__file__).resolve().parent
+    root_dir = Path(args.root).resolve() if args.root else backend_dir.parent
+    data_dir = root_dir / "data"
+    processed_dir = data_dir / "processed"
+
+    processed_dir.mkdir(parents=True, exist_ok=True)
+
+    comments_csv = processed_dir / "comments.csv"
+    overall_json = processed_dir / "overall_summary.json"
+    subthemes_dir = processed_dir / "subthemes_sr"
+    dimensions_dir = processed_dir / "dimensions_sr"
+
+    print("========== Reporting Pipeline ==========")
+    print(f"ROOT_DIR:       {root_dir}")
+    print(f"BACKEND_DIR:    {backend_dir}")
+    print(f"COMMENTS_CSV:   {comments_csv}")
+    print(f"OVERALL_JSON:   {overall_json}")
+    print(f"SUBTHEMES_DIR:  {subthemes_dir}")
+    print(f"DIMENSIONS_DIR: {dimensions_dir}")
+    print("----------------------------------------")
+
+    # comments.csv must already exist (produced by pipeline.py / data_process.py)
+    if not comments_csv.exists():
+        raise SystemExit(f"[ERROR] comments.csv not found: {comments_csv}")
+
+    subthemes_dir.mkdir(parents=True, exist_ok=True)
+    dimensions_dir.mkdir(parents=True, exist_ok=True)
+
+    # Step 1. overall_sr.py
+    print("[1/2] Running overall_sr.py ...")
+    run_cmd(
+        [
+            sys.executable,
+            str(backend_dir / "overall_sr.py"),
+            "--csv",
+            str(comments_csv),
+            "--out",
+            str(overall_json),
+        ],
+        cwd=backend_dir,
+    )
+
+    # Step 2. subthe_dimen_sr.py
+    print("[2/2] Running subthe_dimen_sr.py ...")
+    run_cmd(
+        [
+            sys.executable,
+            str(backend_dir / "subthe_dimen_sr.py"),
+            "--csv",
+            str(comments_csv),
+            "--outdir",
+            str(subthemes_dir),
+            "--dim-outdir",
+            str(dimensions_dir),
+            "--max-examples",
+            str(args.max_examples),
+        ],
+        cwd=backend_dir,
+    )
+
+    print("Reporting pipeline finished successfully.")
+    print(f"Overall JSON: {overall_json}")
+    print(f"Subthemes JSON dir: {subthemes_dir}")
+    print(f"Dimensions JSON dir: {dimensions_dir}")
 
 
 if __name__ == "__main__":
-    # Example usage: python suggestions.py
-    print_reporting_pipeline()
+    main()
