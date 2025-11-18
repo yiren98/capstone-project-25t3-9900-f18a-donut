@@ -1,17 +1,37 @@
+const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com";
+
+// async function fetchJSON(url, options = {}) {
+//   const res = await fetch(url, { credentials: "include", ...options });
+//   if (!res.ok) {
+//     let msg = `${res.status} ${res.statusText}`;
+//     try {
+//       const data = await res.json();
+//       if (data && data.message) msg = data.message;
+//     } catch {
+//       /* noop: fall back to status text */
+//     }
+//     throw new Error(msg);
+//   }
+//   return res.json();
+// }
+
 async function fetchJSON(url, options = {}) {
-  const res = await fetch(url, { credentials: "include", ...options });
+  const fullUrl = url.startsWith("http") ? url : `${BASE}${url}`;
+
+  const res = await fetch(fullUrl, { credentials: "include", ...options });
+
   if (!res.ok) {
     let msg = `${res.status} ${res.statusText}`;
     try {
       const data = await res.json();
-      if (data && data.message) msg = data.message;
-    } catch {
-      /* noop: fall back to status text */
-    }
+      if (data?.message) msg = data.message;
+    } catch {}
     throw new Error(msg);
   }
+
   return res.json();
 }
+
 
 // Try to normalise various date formats into YYYY-MM-DD.
 // Falls back to original input if it cannot parse.
@@ -274,7 +294,8 @@ export async function getSubthemeCounts({ year, month, dimension }) {
 
 // ==== Culture Analysis (summary JSON endpoints) ====
 
-const BASE = "/api";
+// const BASE = "/api";
+// const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com/api";
 
 // Small helper for "simple GET + JSON" endpoints used by CA.
 const jget = async (url) => {
