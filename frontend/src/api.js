@@ -276,21 +276,16 @@ export async function getDimensionCounts({ year, month } = {}) {
   if (year) qs.set("year", year);
   if (month) qs.set("month", month);
 
-  const res = await fetch(`/api/dimension_counts?${qs.toString()}`);
-  if (!res.ok) throw new Error("dimension_counts failed");
-  return res.json(); // [{ name, count, color? }]
+  return fetchJSON(`/api/dimension_counts?${qs.toString()}`);
 }
 
-// Aggregated counts for each subtheme under a given dimension.
 export async function getSubthemeCounts({ year, month, dimension }) {
   const qs = new URLSearchParams();
   if (dimension) qs.set("dimension", dimension);
   if (year) qs.set("year", year);
   if (month) qs.set("month", month);
 
-  const res = await fetch(`/api/subtheme_counts?${qs.toString()}`);
-  if (!res.ok) throw new Error("subtheme_counts failed");
-  return res.json(); // [{ name, count, color? }]
+  return fetchJSON(`/api/subtheme_counts?${qs.toString()}`);
 }
 
 // ==== Culture Analysis (summary JSON endpoints) ====
