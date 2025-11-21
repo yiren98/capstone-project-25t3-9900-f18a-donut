@@ -93,7 +93,7 @@ export default function DimensionRadarLegend({
           style={{
             // In compact mode: wrap into multiple columns; otherwise simple 1-column list
             gridTemplateColumns: useCompact
-              ? "repeat(auto-fill, minmax(140px, 1fr))"
+              ? "repeat(auto-fill, minmax(115px, 1fr))"
               : "1fr",
           }}
         >

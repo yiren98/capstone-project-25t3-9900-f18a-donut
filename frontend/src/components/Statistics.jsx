@@ -22,7 +22,7 @@ const YEAR_MAX = 2025;
 
 export default function IncomeStatistics({
   className = "",
-  title = "Monthly Statistics",
+  title = "Sentiment Balance Index Statistics",
   year = "all",
   height = 260,
 }) {

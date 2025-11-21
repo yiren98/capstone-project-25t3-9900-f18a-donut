@@ -8,7 +8,7 @@ const YEAR_OPTS = Array.from(
 
 export default function CalendarPanel({
   className = "",
-  year = "all",
+  year = YEAR_MAX,
   selectedMonth = null,
   monthsWithData = [],
   onMonthSelect,

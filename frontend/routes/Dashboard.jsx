@@ -13,7 +13,7 @@ import { getSBI } from "../src/api";
 
 export default function Dashboard() {
   // Global time filter: "all" or a specific year
-  const [year, setYear] = useState("all");
+  const [year, setYear] = useState(2025);
   // Currently selected month (null = no month filter)
   const [month, setMonth] = useState(null);
   // Months that actually have data for the selected year
@@ -131,10 +131,10 @@ export default function Dashboard() {
         <div className="row-start-1 col-start-1 sm:col-start-2 flex items-center self-start">
           <div className="translate-y-[2px]">
             <h1 className="text-xl md:text-4xl font-semibold text-neutral-900">
-              Culture Insights Dashboard
+              AI Culture Intelligence Dashboard
             </h1>
             <p className="text-sm md:text-base text-neutral-500 hidden xl:block">
-              Here's an overview of Rio Tinto's corporate culture insights.
+              Here’s an AI-generated overview of Rio Tinto’s corporate culture insights.
             </p>
           </div>
         </div>

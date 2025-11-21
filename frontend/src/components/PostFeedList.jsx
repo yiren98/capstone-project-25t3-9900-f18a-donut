@@ -397,10 +397,14 @@ export default function PostFeedList({
         </div>
 
         {/* Custom vertical scrollbar overlay */}
-        {!loadingList && thumb.height > 0 && !isTouch && (
+        {!loadingList && thumb.height > 0 && (
           <div
             className="pointer-events-none absolute top-0 right-0 h-full transition-opacity duration-150"
-            style={{ width: SCROLL_WIDTH, opacity: hovering || scrolling ? 1 : 0 }}
+            style={{
+              width: SCROLL_WIDTH,
+              // On touch devices, keep the scrollbar always visible
+              opacity: isTouch ? 1 : (hovering || scrolling ? 1 : 0),
+            }}
           >
             <div
               className="absolute right-0 top-0 h-full rounded-full"
@@ -422,6 +426,7 @@ export default function PostFeedList({
             />
           </div>
         )}
+
 
         {/* Full-screen loading overlay for initial fetch / filter change */}
         {loadingList && (

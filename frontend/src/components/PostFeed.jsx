@@ -11,22 +11,26 @@ export default function PostFeed({
   subtheme = "",
   dimension = "",
 }) {
-  // 当前正在查看的帖子 key（tag 或 id）
+  // The key (tag or ID) of the currently viewed post
   const [activeKey, setActiveKey] = useState(null);
 
-  // 外层卡片翻转容器
+  // Reference to the outer flip-card container
   const flipRef = useRef(null);
 
+  // Trigger flip to show the detail view
   const openDetail = (key) => {
     if (!key) return;
     setActiveKey(key);
+
     if (flipRef.current) {
       flipRef.current.style.transform = "rotateY(180deg)";
     }
   };
 
+  // Return to the list view (flip back)
   const backToList = () => {
     setActiveKey(null);
+
     if (flipRef.current) {
       flipRef.current.style.transform = "rotateY(0deg)";
     }
@@ -39,7 +43,7 @@ export default function PostFeed({
         background: "#ede5d6ff",
         padding: "0.9rem 0.7rem 0.9rem",
         overflow: "hidden",
-        perspective: "1200px",
+        perspective: "1200px", // Enables 3D flipping effect
       }}
     >
       <div
@@ -47,7 +51,7 @@ export default function PostFeed({
         className="relative h-full w-full transition-transform duration-500"
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* 正面：列表视图 */}
+        {/* Front side: List view */}
         <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>
           <PostFeedList
             year={year}
@@ -60,7 +64,7 @@ export default function PostFeed({
           />
         </div>
 
-        {/* 反面：详情视图 */}
+        {/* Back side: Detail view */}
         <div
           className="absolute inset-0 overflow-hidden"
           style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}
