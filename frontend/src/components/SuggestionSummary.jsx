@@ -39,6 +39,7 @@ function normalizePayload(payload) {
     return { title: "", sections: [] };
   }
   const kind = detectKind(payload);
+
   // ---------- overall report ----------
   if (kind === "overall") {
     const sec = payload.section || {};
@@ -48,6 +49,7 @@ function normalizePayload(payload) {
       sec.executiveBriefing ||
       sec.overview ||
       {};
+
     return {
       title: payload.report_title || payload.title || "Insights",
       sections: [
@@ -61,6 +63,11 @@ function normalizePayload(payload) {
           ],
         },
         {
+          title: "Actionable Recommendations",
+          type: "actions",
+          content: eb.actionable_recommendations || eb.recommendations || [],
+        },
+        {
           title: "Risks & Opportunities",
           type: "riskopp",
           content: {
@@ -72,11 +79,6 @@ function normalizePayload(payload) {
               [],
           },
         },
-        {
-          title: "Actionable Recommendations",
-          type: "actions",
-          content: eb.actionable_recommendations || eb.recommendations || [],
-        },
       ],
     };
   }
@@ -87,6 +89,7 @@ function normalizePayload(payload) {
     const KP = payload.key_patterns || payload.keyPatterns || [];
     const RISKONLY = payload.risks_and_blindspots || payload.risks || [];
     const RECS = payload.recommendations || [];
+
     const sections = [
       {
         title: "Executive Briefing",
@@ -97,13 +100,7 @@ function normalizePayload(payload) {
         },
       },
     ];
-    if (Array.isArray(RISKONLY) && RISKONLY.length) {
-      sections.push({
-        title: "Risks & Blindspots",
-        type: "list",
-        content: RISKONLY,
-      });
-    }
+
     if (Array.isArray(RECS) && RECS.length) {
       sections.push({
         title: "Actionable Recommendations",
@@ -111,61 +108,77 @@ function normalizePayload(payload) {
         content: RECS,
       });
     }
+
+    if (Array.isArray(RISKONLY) && RISKONLY.length) {
+      sections.push({
+        title: "Risks & Blindspots",
+        type: "list",
+        content: RISKONLY,
+      });
+    }
+
     return {
       title: payload.dimension || payload.title || "Dimension",
       sections,
     };
   }
 
-  // ---------- subtheme-level insight ----------
-  if (kind === "subtheme") {
-    const OVER = payload.overview || payload.summary || "";
-    const KP = payload.key_patterns || payload.keyPatterns || [];
-    const CTX = payload.typical_contexts || [];
-    const RISKONLY = payload.risks_and_blindspots || payload.risks || [];
-    const RECS = payload.recommendations || [];
-    const sections = [
-      {
-        title: "Executive Briefing",
-        type: "overview",
-        content: {
-          overview: OVER,
-          key_patterns: Array.isArray(KP) ? KP : [],
-        },
+// ---------- subtheme-level insight ----------
+if (kind === "subtheme") {
+  const OVER = payload.overview || payload.summary || "";
+  const KP = payload.key_patterns || payload.keyPatterns || [];
+  const CTX = payload.typical_contexts || [];
+  const RISKONLY = payload.risks_and_blindspots || payload.risks || [];
+  const RECS = payload.recommendations || [];
+
+  const sections = [
+    {
+      title: "Executive Briefing",
+      type: "overview",
+      content: {
+        overview: OVER,
+        key_patterns: Array.isArray(KP) ? KP : [],
       },
-    ];
-    if (Array.isArray(CTX) && CTX.length) {
-      sections.push({
-        title: "Typical Contexts",
-        type: "list",
-        content: CTX,
-      });
-    }
-    if (Array.isArray(RISKONLY) && RISKONLY.length) {
-      sections.push({
-        title: "Risks & Blindspots",
-        type: "list",
-        content: RISKONLY,
-      });
-    }
-    if (Array.isArray(RECS) && RECS.length) {
-      sections.push({
-        title: "Actionable Recommendations",
-        type: "actions",
-        content: RECS,
-      });
-    }
-    return {
-      title: payload.subtheme || payload.title || "Subtheme",
-      sections,
-    };
+    },
+  ];
+
+  if (Array.isArray(CTX) && CTX.length) {
+    sections.push({
+      title: "Typical Contexts",
+      type: "list",
+      content: CTX,
+    });
   }
+
+  if (Array.isArray(RECS) && RECS.length) {
+    sections.push({
+      title: "Actionable Recommendations",
+      type: "actions",
+      content: RECS,
+    });
+  }
+
+  if (Array.isArray(RISKONLY) && RISKONLY.length) {
+    sections.push({
+      title: "Risks & Blindspots",
+      type: "list",
+      content: RISKONLY,
+    });
+  }
+
+  return {
+    title: payload.subtheme || payload.title || "Subtheme",
+    sections,
+  };
+}
+
 
   // ---------- fallback: try to show something sensible ----------
   const OVER = payload.overview || payload.summary || "";
   const KP = payload.key_patterns || payload.keyPatterns || [];
   const RECS = payload.recommendations || [];
   const sections = [];
+
   if (OVER || (Array.isArray(KP) && KP.length)) {
     sections.push({
       title: "Executive Briefing",
@@ -366,8 +379,10 @@ export default function SuggestionSummary({
   const [payload, setPayload] = useState(null);
   // Used to force small entry animations when the view context changes
   const [viewKey, setViewKey] = useState(0);
+
   // Derived "model" that the UI actually consumes
   const model = useMemo(() => normalizePayload(payload), [payload]);
+
   // Fetch the appropriate insight file whenever the selection changes
   useEffect(() => {
     let alive = true;
@@ -402,7 +417,9 @@ export default function SuggestionSummary({
       alive = false;
     };
   }, [dimension, subthemeFile]);
+
   const isOverall = !dimension && !subthemeFile;
+
   return (
     <div
       className={clsx(
@@ -438,6 +455,7 @@ export default function SuggestionSummary({
           .ys-fade, .ys-fade-item { animation: none !important; }
         }
       `}</style>
+
       {/* Title row */}
       <div className="flex items-center justify-between mb-1">
         <div className="min-w-0">
@@ -449,7 +467,7 @@ export default function SuggestionSummary({
           </h2>
         </div>
       </div>
-      {/* Small lead / description under the title */}
+
       <p
         key={`lead-${viewKey}`}
         className="text-neutral-600 text-sm mb-4 ys-fade"
@@ -460,7 +478,7 @@ export default function SuggestionSummary({
           ? "AI-generated insights for the selected subtheme, based on data from the past three years."
           : `AI-generated insights for “${dimension}”, based on the past three years of data.`}
       </p>
-      {/* Scrollable content area with soft fade-in */}
+
       <div
         key={`content-${viewKey}`}
         className="flex-1 pr-6 mr-[-24px] edge-scroll ys-fade"
