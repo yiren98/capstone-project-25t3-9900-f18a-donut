@@ -112,7 +112,7 @@ export default function DimensionFilterPanel({
         {/* Header row: title + back button when in subtheme view */}
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-base font-semibold">
-            Dimension and Subtheme Filter
+            Dimension and Subtheme Filter (2023-2025)
           </h2>
 
           {step === 1 && (
