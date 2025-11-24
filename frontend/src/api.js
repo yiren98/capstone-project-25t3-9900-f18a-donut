@@ -1,4 +1,27 @@
-const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com";
+// const BASE = "https://capstone-project-25t3-9900-f18a-donut.onrender.com";
+
+// async function fetchJSON(url, options = {}) {
+//   const fullUrl = url.startsWith("http") ? url : `${BASE}${url}`;
+
+//   const res = await fetch(fullUrl, { credentials: "include", ...options });
+
+//   if (!res.ok) {
+//     let msg = `${res.status} ${res.statusText}`;
+//     try {
+//       const data = await res.json();
+//       if (data?.message) msg = data.message;
+//     } catch {}
+//     throw new Error(msg);
+//   }
+
+//   return res.json();
+// }
+
+const isLocal = window.location.hostname === "localhost";
+
+const BASE = isLocal
+  ? "http://localhost:5000"
+  : "https://capstone-project-25t3-9900-f18a-donut.onrender.com";
 
 async function fetchJSON(url, options = {}) {
   const fullUrl = url.startsWith("http") ? url : `${BASE}${url}`;
